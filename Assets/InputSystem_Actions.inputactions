@@ -24,7 +24,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Mount/Dismount",
+                    "name": "Switch",
                     "type": "Button",
                     "id": "95516e3f-65a2-4de5-91cf-ffc04601062f",
                     "expectedControlType": "",
@@ -237,7 +237,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Mount/Dismount",
+                    "action": "Switch",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
