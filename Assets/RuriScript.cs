@@ -21,7 +21,7 @@ public class PlayerScript : MonoBehaviour
     public bool hasOtto = false; //this is a variable that stores if the player has otto or not
     //it's public because this is also checked when the game starts, so you can set it in the inspector
     
-    public float movementSpeed = 5f; //this is a variable that stores the movement speed of the player, this is the speed at which the player moves
+    public float movementSpeed = 2f; //this is a variable that stores the movement speed of the player, this is the speed at which the player moves
     
     public enum Direction { Up, Down, Left, Right }
     public static Direction CurrentDirection = Direction.Down;
