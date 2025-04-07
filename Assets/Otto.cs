@@ -9,11 +9,7 @@ public class Otto : MonoBehaviour
     {
         _spriteRenderer = this.GetComponent<SpriteRenderer>();
     }
-
-    void Start()
-    {
-        
-    }
+    
     private void changeSprite(String path)
     {
         _spriteRenderer.sprite = Resources.Load<Sprite>(path);
@@ -22,20 +18,6 @@ public class Otto : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        switch (PlayerScript.CurrentDirection)
-        {
-            case PlayerScript.Direction.Up:
-                changeSprite("Sprites/Otto/Otto Monkey Up");
-                break;
-            case PlayerScript.Direction.Down:
-                changeSprite("Sprites/Otto/Otto Monkey Down");
-                break;
-            case PlayerScript.Direction.Left:
-                changeSprite("Sprites/Otto/Otto Monkey Left");
-                break;
-            case PlayerScript.Direction.Right:
-                changeSprite("Sprites/Otto/Otto Monkey Right");
-                break;
-        }
+
     }
 }
