@@ -36,14 +36,18 @@ public class PlayerScript : MonoBehaviour
         }
 
     }
-
+//Hey CoPilot, how do I get "ottoSocket?" it's a gameObject that is a child of the player
+    //I want to set the position of otto to be the same as ottoSocket show me the code in the next comment below
+    //
     private void addOtto()
     {
-        _otto = Instantiate(ottoPrefab, _playerTransform); //creates a new game object
-        _otto.transform.localPosition = new Vector3(0, 0.43f, 0); //this is the position of the otto game object relative to the player
+        GameObject Socket = GameObject.Find("OttoSocket");
+        _otto = Instantiate(ottoPrefab, Socket.transform); //creates a new game object
+        
+        _otto.transform.localPosition = new Vector3(0, 0.17f, 0); //this is the position of the otto game object relative to the player
         _otto.transform.localRotation = Quaternion.identity; //Identity just means zero rotation essentially.
     }
-    private void removeOtto()
+    private void removeOtto()   
     {
         Destroy(_otto); //destroys the otto game object
         _otto = null; //sets the otto game object to null, basically like when we instantiated it
@@ -51,7 +55,7 @@ public class PlayerScript : MonoBehaviour
 
     private void changeSprite(String path)
     {
-        _spriteRenderer.sprite = Resources.Load<Sprite>(path);
+       
     }
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
