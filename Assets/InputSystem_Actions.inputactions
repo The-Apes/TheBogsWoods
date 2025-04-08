@@ -39,6 +39,15 @@
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "Run",
+                    "type": "Button",
+                    "id": "76e26fb8-43f8-4850-a68a-13032d92cf75",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
                     "initialStateCheck": false
                 }
             ],
@@ -233,10 +242,10 @@
                 {
                     "name": "",
                     "id": "c6e1dcbe-8220-4394-a5ca-6237731a687f",
-                    "path": "",
-                    "interactions": "",
+                    "path": "<Keyboard>/i",
+                    "interactions": "Press",
                     "processors": "",
-                    "groups": "",
+                    "groups": ";Keyboard&Mouse",
                     "action": "Switch",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -260,6 +269,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Interact",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "775c303e-0e56-4004-aefd-f5d91b39d853",
+                    "path": "<Keyboard>/l",
+                    "interactions": "Press(behavior=2)",
+                    "processors": "",
+                    "groups": ";Keyboard&Mouse",
+                    "action": "Run",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
