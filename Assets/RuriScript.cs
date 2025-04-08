@@ -11,22 +11,25 @@ public class PlayerScript : MonoBehaviour
     private Transform _playerTransform; //this is a variable that stores the transform of the player
     private SpriteRenderer _spriteRenderer; //this is a variable that stores the sprite renderer of the player, what you see on the screen
     private AudioSource _audioSource;
+    private CinemachineCamera _camera;
     
     [SerializeField] private GameObject ridingOttoPrefab; //this is a variable that stores the otto game object
     private GameObject _ridingOtto; //this is a variable that stores the otto game object, this is the one that will be used in the game
     [SerializeField] private GameObject ottoPrefab; //this is a variable that stores the otto game object
     private GameObject _otto; //this is a variable that stores the otto game object, this is the one that will be used in the game
     
-    private bool _running = false; //this is a variable that stores if the player is running or not
-    private bool controlling = true;
-    private bool ottoInRange = false; //this is a variable that stores if the player is in range of the otto
+    private bool _running; //this is a variable that stores if the player is running or not
+    private bool _controlling = true;
+    private bool _ottoInRange; //this is a variable that stores if the player is in range of the otto
     public bool hasOtto; //this is a variable that stores if the player has otto or not
     //it's public because this is also checked when the game starts, so you can set it in the inspector
     
     [SerializeField] private float walkSpeed = 1.5f; //this is a variable that stores the movement speed of the player, this is the speed at which the player moves
     [SerializeField] private float runSpeed = 3f; //this is a variable that stores the movement speed of the player, this is the speed at which the player moves
-
+    public Transform LookDir;
     private Vector2 _moveInput;
+    [SerializeField] private Collider2D hitBox;
+    [SerializeField] private Collider2D hurtBox;
     
     public enum Direction { Up, Down, Left, Right }
     public static Direction CurrentDirection = Direction.Down;
@@ -37,7 +40,9 @@ public class PlayerScript : MonoBehaviour
     {
         _playerTransform = this.transform;
         _spriteRenderer = this.GetComponent<SpriteRenderer>();
-        _spriteRenderer.sprite = _spriteRenderer.sprite;
+        _camera = FindFirstObjectByType<CinemachineCamera>();
+        hitBox.gameObject.SetActive(false);
+    
 
         //_audioSource = this.GetComponent<AudioSource>(); sounds maybe
         if (hasOtto)
@@ -66,7 +71,15 @@ public class PlayerScript : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-           ottoInRange = true;
+           _ottoInRange = true;
+        }
+
+        if (collision.IsTouching(hurtBox) && collision.gameObject.CompareTag("HitBox"))
+        {
+            print("Ow! I just took "+collision.gameObject.GetComponent<HitBox>().damage+" damage!");
+        }
+        if (collision.IsTouching(hitBox) && collision.gameObject.CompareTag("HurtBox")){
+            print("I just hit "+collision.gameObject.name+" for "+hitBox.GetComponent<HitBox>().damage+" damage!");
         }
     }
     
@@ -74,41 +87,56 @@ public class PlayerScript : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            ottoInRange = false;
+            _ottoInRange = false;
         }
     }
     
  private void OnAttack(InputAction.CallbackContext context)
  {
-     Debug.Log("Attack");
+     if (context.performed){
+         hitBox.gameObject.SetActive(true);
+         print("Attack");
+     }
+     
  } 
     private void FixedUpdate() 
     {
         //move the player
-        float speed = _running ? runSpeed : walkSpeed; //if the player is running, set the speed to runSpeed, else set it to walkSpeed
+        if (!_controlling) return; //if the player is not controlling the otto, return_
+        float speed = _running ? runSpeed : walkSpeed; //this is a ternary; if the player is running, set the speed to runSpeed, else set it to walkSpeed
         _playerTransform.position += new Vector3(_moveInput.x, _moveInput.y, 0) * (Time.deltaTime * speed);
-        //update the sprite
-        if (_moveInput.x == 0 && _moveInput.y == 0) return; //if the player is moving
-        if (Mathf.Abs(_moveInput.x) > Mathf.Abs(_moveInput.y)) //if the player is moving more in the x direction than the y direction
-        {
-            if (_moveInput.x > 0) //if the player is moving right
-            {
-                CurrentDirection = Direction.Right;
-            }
-            else
-            {
-                CurrentDirection = Direction.Left;
-            }
-        } else if(_moveInput.y > 0)
-        {
-            CurrentDirection = Direction.Up;
-        }
-        else
-        {
-            CurrentDirection = Direction.Down;
-        }
+        
+        
+       UpdateDirection();
+
+       switch (CurrentDirection)
+       {
+           case Direction.Up:
+               LookDir.rotation = Quaternion.Euler(0, 0, 180);
+               break;
+           case Direction.Down:
+               LookDir.rotation = Quaternion.Euler(0, 0, 0);
+               break;
+           case Direction.Left:
+               LookDir.rotation = Quaternion.Euler(0, 0, 270);
+               break;
+           case Direction.Right:
+               LookDir.rotation = Quaternion.Euler(0, 0, 90);
+               break;
+       }
     }
 
+    private void UpdateDirection()
+    {
+        if (_moveInput.x == 0 && _moveInput.y == 0) return; //if the player is moving (return makes the code stop executing, which will ignore the rest of the code below)
+        if (Mathf.Abs(_moveInput.x) > Mathf.Abs(_moveInput.y)) //if the player is moving more in the x direction than the y direction
+        {
+            CurrentDirection = _moveInput.x > 0 ? Direction.Right : Direction.Left; //another ternary, if the player is moving right
+        } else 
+        {
+            CurrentDirection = _moveInput.y > 0 ?  Direction.Up : Direction.Down; //if the player is moving up
+        } 
+    }
     public void MoveInput(InputAction.CallbackContext context) //Called by input system
     {
         _moveInput = context.ReadValue<Vector2>();
@@ -120,6 +148,7 @@ public class PlayerScript : MonoBehaviour
             
         }
     }
+    
     public void SwitchCharacter(InputAction.CallbackContext context)
     {
         if (!context.started) return;
@@ -128,22 +157,23 @@ public class PlayerScript : MonoBehaviour
             RemoveOtto();
             hasOtto = false;
             _otto = Instantiate(ottoPrefab, new Vector3(_playerTransform.position.x,_playerTransform.position.y+0.75f,_playerTransform.position.z), Quaternion.identity);
-            controlling = false;
+            _camera.Follow = _otto.transform;
+            _controlling = false;
             print("Otto Dismount");
-        } else if (ottoInRange && !hasOtto){
+        } else if (_ottoInRange){
             Destroy(_otto);
             hasOtto = true;
             AddOtto();
-            controlling = true;
+            _controlling = true;
+            _camera.Follow = _playerTransform;
             print("Otto Mount");
         }
-        else
-        {
-            print("otto not in range");
-        }
+   
     }
+    
+    
 
-    public void run(InputAction.CallbackContext context)
+    public void Run(InputAction.CallbackContext context)
     {
         if (context.started)
         {

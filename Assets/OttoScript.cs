@@ -13,8 +13,8 @@ public class OttoScript : MonoBehaviour
     
     //it's public because this is also checked when the game starts, so you can set it in the inspector
     private bool _running = false;
-    [FormerlySerializedAs("movementSpeed")] [SerializeField] private float walkSpeed = 4f; //this is a variable that stores the movement speed of the player, this is the speed at which the player moves
-    [FormerlySerializedAs("walkSpeed")] [SerializeField] private float runSpeed = 6f;
+    [SerializeField] private float walkSpeed = 4f; //this is a variable that stores the movement speed of the player, this is the speed at which the player moves
+    [SerializeField] private float runSpeed = 6f;
     private Vector2 _moveInput;
     
     //^^ an enum variable is a variable that can only have a set of predefined values, in this case it can only be: Up, Down, Left, Right
@@ -38,7 +38,7 @@ public class OttoScript : MonoBehaviour
  } 
     private void FixedUpdate() 
     {
-        //move the player7
+        //move the player
         float speed = _running ? runSpeed : walkSpeed;
         _playerTransform.position += new Vector3(_moveInput.x, _moveInput.y, 0) * (Time.deltaTime * speed);
         
@@ -49,8 +49,9 @@ public class OttoScript : MonoBehaviour
     public void MoveInput(InputAction.CallbackContext context) //Called by input system
     {
         _moveInput = context.ReadValue<Vector2>();
+        print(_moveInput);
     }
-    private void Run(InputAction.CallbackContext context){
+    public void Run(InputAction.CallbackContext context){
         if (context.performed)
         {
             _running = true;

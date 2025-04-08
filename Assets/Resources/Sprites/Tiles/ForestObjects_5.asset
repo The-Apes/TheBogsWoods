@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 13312, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: Mzati Grass Tiles Expansion_9
+  m_Name: ForestObjects_5
   m_EditorClassIdentifier: 
-  m_Sprite: {fileID: 1694171347, guid: 101eedb09aa90cf44ba444b11b3f6fa4, type: 3}
+  m_Sprite: {fileID: 636525392554532926, guid: 8046f23133cdf134db9ed2af1e551feb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Transform:
     e00: 1
