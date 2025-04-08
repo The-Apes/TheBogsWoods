@@ -128,17 +128,14 @@ public class PlayerScript : MonoBehaviour
             _otto = Instantiate(ottoPrefab, new Vector3(_playerTransform.position.x,_playerTransform.position.y+0.75f,_playerTransform.position.z), Quaternion.identity);
             controlling = false;
             print("Otto Dismount");
-        } else if (ottoInRange && !hasOtto){
+        } else if (ottoInRange){
             Destroy(_otto);
             hasOtto = true;
             AddOtto();
             controlling = true;
             print("Otto Mount");
         }
-        else
-        {
-            print("otto not in range");
-        }
+   
     }
 
     public void run(InputAction.CallbackContext context)

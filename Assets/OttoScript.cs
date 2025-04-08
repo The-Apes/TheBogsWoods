@@ -38,7 +38,7 @@ public class OttoScript : MonoBehaviour
  } 
     private void FixedUpdate() 
     {
-        //move the player7
+        //move the player
         float speed = _running ? runSpeed : walkSpeed;
         _playerTransform.position += new Vector3(_moveInput.x, _moveInput.y, 0) * (Time.deltaTime * speed);
         
@@ -50,7 +50,7 @@ public class OttoScript : MonoBehaviour
     {
         _moveInput = context.ReadValue<Vector2>();
     }
-    private void Run(InputAction.CallbackContext context){
+    public void Run(InputAction.CallbackContext context){
         if (context.performed)
         {
             _running = true;

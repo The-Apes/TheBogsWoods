@@ -201,7 +201,7 @@ MonoBehaviour:
       - m_Target: {fileID: 7660397478462730456}
         m_TargetAssemblyTypeName: OttoScript, Assembly-CSharp
         m_MethodName: Attack
-        m_Mode: 1
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -261,7 +261,19 @@ MonoBehaviour:
     m_ActionId: 9caa3d8a-6b2f-4e8e-8bad-6ede561bd9be
     m_ActionName: UI/TrackedDeviceOrientation
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 238577474628295289}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 76e26fb8-43f8-4850-a68a-13032d92cf75
     m_ActionName: 'Player/Run[/Keyboard/l]'
   m_NeverAutoSwitchControlSchemes: 0
@@ -281,4 +293,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c571ef327cde4e47a06402d0026f299, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 1.5
+  walkSpeed: 1.5
+  runSpeed: 6
