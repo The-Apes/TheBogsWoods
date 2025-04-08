@@ -116,7 +116,9 @@ public class PlayerScript : MonoBehaviour
     public void Attack(InputAction.CallbackContext context) //Called by input system
     {
         if (context.started)
-            Debug.Log("Attack");
+        {
+            
+        }
     }
     public void SwitchCharacter(InputAction.CallbackContext context)
     {
