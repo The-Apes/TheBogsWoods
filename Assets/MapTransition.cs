@@ -20,7 +20,7 @@ public class MapTransition : MonoBehaviour
   if (collision.gameObject.CompareTag("Player"))
   {
    UpdatePlayerPosition(collision.gameObject); 
-   _confiner.BoundingShape2D = mapBoundry;
+   _confiner.BoundingShape2D = mapBoundry; 
   }
  } private void UpdatePlayerPosition(GameObject player){
   Vector3 newPos = player.transform.position; 
