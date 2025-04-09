@@ -47,6 +47,7 @@ public class PlayerScript : MonoBehaviour
         _spriteRenderer = this.GetComponent<SpriteRenderer>();
         _camera = FindFirstObjectByType<CinemachineCamera>();
         hitBox.gameObject.SetActive(false);
+        _playerInput = this.GetComponent<PlayerInput>();
     
 
         //_audioSource = this.GetComponent<AudioSource>(); sounds maybe
@@ -156,14 +157,12 @@ public class PlayerScript : MonoBehaviour
     }
     public void Attack(InputAction.CallbackContext context) //Called by input system
     {
-        if (context.started)
-        {
-            if (_isAttacking) return;
-            StartCoroutine(PerformAttack());
-            // hitBox.gameObject.SetActive(true);
-            // _isAttacking = true;
-            // print("Attack");
-        }
+        if (!context.started) return;
+        if (_isAttacking) return;
+        StartCoroutine(PerformAttack());
+        // hitBox.gameObject.SetActive(true);
+        // _isAttacking = true;
+        // print("Attack");
     }
     
     public void SwitchCharacter(InputAction.CallbackContext context)
@@ -174,7 +173,7 @@ public class PlayerScript : MonoBehaviour
             RemoveOtto();
             hasOtto = false;
             _otto = Instantiate(ottoPrefab, new Vector3(_playerTransform.position.x,_playerTransform.position.y+0.75f,_playerTransform.position.z), Quaternion.identity);
-            _otto.GetComponent<PlayerInput>().SwitchCurrentControlScheme(_playerInput.currentControlScheme, _playerInput.devices.ToArray());
+           // _otto.GetComponent<PlayerInput>().SwitchCurrentControlScheme(_playerInput.currentControlScheme, _playerInput.devices.ToArray());
             _camera.Follow = _otto.transform;
             _controlling = false;
             print("Otto Dismount");

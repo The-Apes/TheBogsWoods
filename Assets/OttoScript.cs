@@ -25,6 +25,7 @@ public class OttoScript : MonoBehaviour
         _playerTransform = this.transform;
         _spriteRenderer = this.GetComponent<SpriteRenderer>();
         _spriteRenderer.sprite = _spriteRenderer.sprite;
+        
         //_audioSource = this.GetComponent<AudioSource>(); sounds maybe
        
 

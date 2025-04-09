@@ -5091,8 +5091,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64528faaaa3197b4bac2ef1d21e20cf3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 0
-  damage: 0
+  maxHealth: 3
 --- !u!212 &1827600056
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6057,7 +6056,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2040055458}
   - component: {fileID: 2040055460}
-  - component: {fileID: 2040055459}
+  - component: {fileID: 2040055461}
   m_Layer: 0
   m_Name: GameObject (1)
   m_TagString: HurtBox
@@ -6080,19 +6079,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1827600057}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2040055459
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2040055457}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 59a305447d1be634a8d7de668a6164e0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damage: 5
 --- !u!61 &2040055460
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6139,6 +6125,19 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &2040055461
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2040055457}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dca1c729f1ee6b64da8951ce99284ac8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  owner: {fileID: 1827600054}
 --- !u!213 &2125716172
 Sprite:
   m_ObjectHideFlags: 0
