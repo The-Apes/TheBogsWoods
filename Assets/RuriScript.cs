@@ -1,3 +1,4 @@
+using System.Collections;
 using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -11,6 +12,7 @@ public class PlayerScript : MonoBehaviour
     private Transform _playerTransform; //this is a variable that stores the transform of the player
     private SpriteRenderer _spriteRenderer; //this is a variable that stores the sprite renderer of the player, what you see on the screen
     private AudioSource _audioSource;
+    private PlayerInput _playerInput;
     private CinemachineCamera _camera;
     
     [SerializeField] private GameObject ridingOttoPrefab; //this is a variable that stores the otto game object
@@ -22,11 +24,14 @@ public class PlayerScript : MonoBehaviour
     private bool _controlling = true;
     private bool _ottoInRange; //this is a variable that stores if the player is in range of the otto
     public bool hasOtto; //this is a variable that stores if the player has otto or not
-    //it's public because this is also checked when the game starts, so you can set it in the inspector
+
+    private bool _isAttacking;
+    private float _attackTimer;
+    private float _attackDuration = 0.3f;
     
     [SerializeField] private float walkSpeed = 1.5f; //this is a variable that stores the movement speed of the player, this is the speed at which the player moves
     [SerializeField] private float runSpeed = 3f; //this is a variable that stores the movement speed of the player, this is the speed at which the player moves
-    public Transform LookDir;
+    [SerializeField] Transform _lookDir;
     private Vector2 _moveInput;
     [SerializeField] private Collider2D hitBox;
     [SerializeField] private Collider2D hurtBox;
@@ -91,41 +96,49 @@ public class PlayerScript : MonoBehaviour
         }
     }
     
- private void OnAttack(InputAction.CallbackContext context)
- {
-     if (context.performed){
-         hitBox.gameObject.SetActive(true);
-         print("Attack");
-     }
-     
- } 
     private void FixedUpdate() 
     {
-        //move the player
+        
         if (!_controlling) return; //if the player is not controlling the otto, return_
+       // UpdateAttackTimer();
+       
+       //move the player
         float speed = _running ? runSpeed : walkSpeed; //this is a ternary; if the player is running, set the speed to runSpeed, else set it to walkSpeed
         _playerTransform.position += new Vector3(_moveInput.x, _moveInput.y, 0) * (Time.deltaTime * speed);
-        
         
        UpdateDirection();
 
        switch (CurrentDirection)
        {
            case Direction.Up:
-               LookDir.rotation = Quaternion.Euler(0, 0, 180);
+               _lookDir.rotation = Quaternion.Euler(0, 0, 180);
                break;
            case Direction.Down:
-               LookDir.rotation = Quaternion.Euler(0, 0, 0);
+               _lookDir.rotation = Quaternion.Euler(0, 0, 0);
                break;
            case Direction.Left:
-               LookDir.rotation = Quaternion.Euler(0, 0, 270);
+               _lookDir.rotation = Quaternion.Euler(0, 0, 270);
                break;
            case Direction.Right:
-               LookDir.rotation = Quaternion.Euler(0, 0, 90);
+               _lookDir.rotation = Quaternion.Euler(0, 0, 90);
                break;
        }
+       
     }
-
+    private void UpdateAttackTimer()
+    {
+        if (_isAttacking)
+        {
+            _attackTimer += Time.deltaTime;
+            if (_attackTimer >= _attackDuration)
+            {
+                hitBox.gameObject.SetActive(false);
+                _isAttacking = false;
+                _attackTimer = 0f;
+                print("Attack Ended");
+            }
+        }
+    }
     private void UpdateDirection()
     {
         if (_moveInput.x == 0 && _moveInput.y == 0) return; //if the player is moving (return makes the code stop executing, which will ignore the rest of the code below)
@@ -145,7 +158,11 @@ public class PlayerScript : MonoBehaviour
     {
         if (context.started)
         {
-            
+            if (_isAttacking) return;
+            StartCoroutine(PerformAttack());
+            // hitBox.gameObject.SetActive(true);
+            // _isAttacking = true;
+            // print("Attack");
         }
     }
     
@@ -157,6 +174,7 @@ public class PlayerScript : MonoBehaviour
             RemoveOtto();
             hasOtto = false;
             _otto = Instantiate(ottoPrefab, new Vector3(_playerTransform.position.x,_playerTransform.position.y+0.75f,_playerTransform.position.z), Quaternion.identity);
+            _otto.GetComponent<PlayerInput>().SwitchCurrentControlScheme(_playerInput.currentControlScheme, _playerInput.devices.ToArray());
             _camera.Follow = _otto.transform;
             _controlling = false;
             print("Otto Dismount");
@@ -170,7 +188,19 @@ public class PlayerScript : MonoBehaviour
         }
    
     }
-    
+    private IEnumerator PerformAttack()
+    {
+        
+        hitBox.gameObject.SetActive(true);
+        _isAttacking = true;
+        print("Attack");
+
+        yield return new WaitForSeconds(_attackDuration);
+
+        hitBox.gameObject.SetActive(false);
+        _isAttacking = false;
+        print("Attack Ended");
+    }
     
 
     public void Run(InputAction.CallbackContext context)
