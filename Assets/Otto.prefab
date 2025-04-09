@@ -276,6 +276,10 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 76e26fb8-43f8-4850-a68a-13032d92cf75
     m_ActionName: 'Player/Run[/Keyboard/l]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 335cdcb2-f328-4cdb-9e10-bbc42f809b54
+    m_ActionName: 'Player/Shoot[/Keyboard/k]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -294,4 +298,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   walkSpeed: 1.5
-  runSpeed: 6
+  runSpeed: 4.5

@@ -49,7 +49,7 @@ public class OttoScript : MonoBehaviour
     public void MoveInput(InputAction.CallbackContext context) //Called by input system
     {
         _moveInput = context.ReadValue<Vector2>();
-        print(_moveInput);
+        //print(_moveInput);
     }
     public void Run(InputAction.CallbackContext context){
         if (context.performed)
