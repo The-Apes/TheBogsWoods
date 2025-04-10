@@ -86,7 +86,6 @@ public class RuriMovement : MonoBehaviour
     
     private void FixedUpdate() 
     {
-        
         if (!controlling) return; //if the player is not controlling the otto, return_
        // UpdateAttackTimer();
        
