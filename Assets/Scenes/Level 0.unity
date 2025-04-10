@@ -5176,7 +5176,6 @@ GameObject:
   - component: {fileID: 1830279524}
   - component: {fileID: 1830279523}
   - component: {fileID: 1830279522}
-  - component: {fileID: 1830279526}
   - component: {fileID: 1830279527}
   m_Layer: 0
   m_Name: MainCamera
@@ -5303,18 +5302,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1830279526
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1830279521}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 84541a16a8325464fb7978847c0b5376, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1830279527
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6389,14 +6376,6 @@ PrefabInstance:
       propertyPath: otto
       value: 
       objectReference: {fileID: 866079974977546125, guid: fbaec7c2d240c2e4ca25151d5195a896, type: 3}
-    - target: {fileID: 7292209988197213473, guid: 9abeb51c76090e243abe42863fe44864, type: 3}
-      propertyPath: hasOtto
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7292209988197213473, guid: 9abeb51c76090e243abe42863fe44864, type: 3}
-      propertyPath: ottoPrefab
-      value: 
-      objectReference: {fileID: 238577474628295289, guid: 803174830349f864e9adaf5746488655, type: 3}
     - target: {fileID: 7292209988197213473, guid: 9abeb51c76090e243abe42863fe44864, type: 3}
       propertyPath: movementSpeed
       value: 1.5
