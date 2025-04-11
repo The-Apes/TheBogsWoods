@@ -6,6 +6,7 @@ using UnityEngine.Serialization;
 
 public class RuriMovement : MonoBehaviour
 {
+    private RuriAttack _ruriAttack;
     // hey bro's, anything in double slashes are comments, they are not read by the computer, they are just for you to read
     // so you can understand me code good sirs, I need to practice coding for others to understand.
     
@@ -39,11 +40,11 @@ public class RuriMovement : MonoBehaviour
     
     private void Awake()
     {
-        _playerTransform = this.transform;
+        _playerTransform = transform;
         _camera = FindFirstObjectByType<CinemachineCamera>();
         
-        _playerInput = this.GetComponent<PlayerInput>();
-    
+        _playerInput = GetComponent<PlayerInput>();
+        _ruriAttack = GetComponent<RuriAttack>();
 
         //_audioSource = this.GetComponent<AudioSource>(); sounds maybe
         if (hasOtto)
@@ -57,8 +58,7 @@ public class RuriMovement : MonoBehaviour
     {
         GameObject socket = GameObject.Find("OttoSocket");
         _ridingOtto = Instantiate(ridingOttoPrefab, socket.transform); //creates a new game object
-        
-        _ridingOtto.transform.localPosition = new Vector3(0, 0.17f, 0); //this is the position of the otto game object relative to the player
+        _ridingOtto.transform.localPosition = new Vector3(0, -0.56f, 0); //this is the position of the otto game object relative to the player
         _ridingOtto.transform.localRotation = Quaternion.identity; //Identity just means zero rotation essentially.
     }
     private void RemoveOtto()   
@@ -96,6 +96,7 @@ public class RuriMovement : MonoBehaviour
         
        UpdateDirection();
 
+       if (_ruriAttack.isAttacking) return;
        lookDir.rotation = _currentDirection switch
        {
            Direction.Up => Quaternion.Euler(0, 0, 180),
