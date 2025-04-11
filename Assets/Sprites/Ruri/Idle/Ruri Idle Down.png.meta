@@ -133,6 +133,19 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -144,8 +157,8 @@ TextureImporter:
         y: 32
         width: 32
         height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.125}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -166,8 +179,8 @@ TextureImporter:
         y: 32
         width: 32
         height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.125}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -188,8 +201,8 @@ TextureImporter:
         y: 32
         width: 32
         height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.125}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -203,67 +216,67 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ruri Idle Down_Hair_0
+      name: Ruri Idle Down_3
       rect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 32
         height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.125}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 367bcf57d23140f30800000000000000
-      internalID: 4540775410270254947
+      spriteID: 7bb325beaf8e11240b1118ed519d40a3
+      internalID: -1841597828
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ruri Idle Down_Hair_1
+      name: Ruri Idle Down_4
       rect:
         serializedVersion: 2
         x: 32
         y: 0
         width: 32
         height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.125}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: cdd4903e9fe426b60800000000000000
-      internalID: 7737833944938794460
+      spriteID: 704a23c791452aa46bd68157f43d58cb
+      internalID: 718593331
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ruri Idle Down_Hair_2
+      name: Ruri Idle Down_5
       rect:
         serializedVersion: 2
         x: 64
         y: 0
         width: 32
         height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.125}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 3f6e4f27cc8767280800000000000000
-      internalID: -9045909982029748493
+      spriteID: 331ca49449ebc7c4098504d076bf4058
+      internalID: 495267756
       vertices: []
       indices: 
       edges: []
@@ -285,9 +298,9 @@ TextureImporter:
       Ruri Idle Down_0: -2670710721467154587
       Ruri Idle Down_1: -6669080620571888741
       Ruri Idle Down_2: 2477464064541942175
-      Ruri Idle Down_Hair_0: 4540775410270254947
-      Ruri Idle Down_Hair_1: 7737833944938794460
-      Ruri Idle Down_Hair_2: -9045909982029748493
+      Ruri Idle Down_3: -1841597828
+      Ruri Idle Down_4: 718593331
+      Ruri Idle Down_5: 495267756
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
