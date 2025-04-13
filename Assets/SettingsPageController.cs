@@ -3,6 +3,10 @@ using UnityEngine.SceneManagement;
 
 public class SettingsPageController : MonoBehaviour
 {
+      public void OnMainMenuClick()
+      {
+         SceneManager.LoadScene("StartMenu");
+      }
    public void onExitGameClick()
    {
       #if UNITY_EDITOR
