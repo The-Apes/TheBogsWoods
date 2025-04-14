@@ -21,6 +21,8 @@ public class MapTransition : MonoBehaviour
   {
    UpdatePlayerPosition(collision.gameObject); 
    _confiner.BoundingShape2D = mapBoundry; 
+   
+   MapController_Dynamic.instance?.UpdateCurrentArea(mapBoundry.name);
   }
  } private void UpdatePlayerPosition(GameObject player){
   Vector3 newPos = player.transform.position; 
