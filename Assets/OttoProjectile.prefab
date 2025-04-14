@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5005030294081343730}
   - component: {fileID: 3857930730697773273}
   - component: {fileID: 8681536300686426804}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: HitBox
   m_TagString: HitBox
   m_Icon: {fileID: 0}
@@ -63,7 +63,7 @@ CircleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 1504400576612579742}
   - component: {fileID: 5225089075677451965}
   - component: {fileID: 7393710542772802639}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: OttoProjectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -159,9 +159,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: -1094269445
+  m_SortingLayer: 1
+  m_SortingOrder: 5
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

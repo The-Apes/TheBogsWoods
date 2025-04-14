@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 4027614522962628678}
   - component: {fileID: 2266560061116943896}
   - component: {fileID: 1279262603447677561}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Ruri
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -407,7 +407,7 @@ GameObject:
   - component: {fileID: 2479164774486361036}
   - component: {fileID: 7159413276279401504}
   - component: {fileID: 8499670732346854692}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Melee HitBox
   m_TagString: HitBox
   m_Icon: {fileID: 0}
@@ -553,7 +553,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5508549938362418821}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: LookDir
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -586,7 +586,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1647950706330085430}
   - component: {fileID: 4552869886228913879}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: OttoZone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -653,7 +653,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1136379763545914887}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: OttoSocket
   m_TagString: Untagged
   m_Icon: {fileID: 4162164826716764455, guid: 0000000000000000d000000000000000, type: 0}
@@ -685,7 +685,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6993260370380506260}
   - component: {fileID: 5682352918532443422}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Hair
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -773,7 +773,7 @@ GameObject:
   - component: {fileID: 5577433653699089573}
   - component: {fileID: 363661087967841831}
   - component: {fileID: 5827361527348619437}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: HurtBox
   m_TagString: HurtBox
   m_Icon: {fileID: 0}
@@ -844,4 +844,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dca1c729f1ee6b64da8951ce99284ac8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  owner: {fileID: 238577474628295289}

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6571658475367587252}
   - component: {fileID: 1616411885844057759}
   - component: {fileID: 3022148249765834982}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: RidingOtto
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -115,8 +115,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 6038686529093374273, guid: 19f2121dff952cc43835ca06afa8a85a, type: 3}
   shootPoint: {fileID: 2186282995024233589}
-  enemyLayer:
+  targetLayer:
     serializedVersion: 2
     m_Bits: 64
   capsuleSize: {x: 7, y: 7}
-  capsuleDirection: 0
+  shootCooldown: 0.5

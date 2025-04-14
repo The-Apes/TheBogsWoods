@@ -2,7 +2,6 @@ using System;
 using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.Serialization;
 
 
 public class RuriMovement : MonoBehaviour
@@ -30,7 +29,7 @@ public class RuriMovement : MonoBehaviour
     
     [SerializeField] private float walkSpeed = 1.5f; //this is a variable that stores the movement speed of the player, this is the speed at which the player moves
     [SerializeField] private float runSpeed = 3f; //this is a variable that stores the movement speed of the player, this is the speed at which the player moves
-    [SerializeField] private Transform lookDir;
+    public Transform lookDir; //this is a variable that stores the transform of the player, this is the one that will be used to rotate the player
     private Vector2 _moveInput;
     [SerializeField] private Collider2D hurtBox;
 

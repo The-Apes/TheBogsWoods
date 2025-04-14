@@ -21,7 +21,7 @@ public class Enemy : MonoBehaviour
         // Check if the player reference is valid
         if (player == null)
         {
-            rb.velocity = Vector2.zero; // Stop moving if the player is null
+            rb.linearVelocity = Vector2.zero; // Stop moving if the player is null
             return;
         }
 
@@ -32,11 +32,11 @@ public class Enemy : MonoBehaviour
         if (distanceToPlayer <= detectionRange)
         {
             Vector2 direction = (player.position - transform.position).normalized; // Direction towards the player
-            rb.velocity = direction * chaseSpeed; // Move the enemy towards the player
+            rb.linearVelocity = direction * chaseSpeed; // Move the enemy towards the player
         }
         else
         {
-            rb.velocity = Vector2.zero; // Stop moving if the player is out of range
+            rb.linearVelocity = Vector2.zero; // Stop moving if the player is out of range
         }
     }
 

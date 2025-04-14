@@ -1,15 +1,16 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.Serialization;
 
 public class RuriAttack : MonoBehaviour
 {
     public bool isAttacking;
     private float _attackTimer;
+    // ReSharper disable once FieldCanBeMadeReadOnly.Local
     private float _attackDuration = 0.3f;
     private RuriMovement _ruriMovement;
     [SerializeField] private Collider2D hitBox;
+    private OttoShoot _ottoShoot;
 
     private void Awake()
     {
@@ -39,14 +40,19 @@ public class RuriAttack : MonoBehaviour
     }
     public void Shoot(InputAction.CallbackContext context)
     {
-        if (!context.started) return;
-        if (!_ruriMovement.hasOtto) return;
-        
-        // Implement shooting logic here
-        Debug.Log("Shoot");
-        _ruriMovement.RidingOtto.GetComponent<OttoShoot>().Shoot();
+        if (!context.started)
+        {
+            if (!_ruriMovement.hasOtto) return;
+            _ruriMovement.RidingOtto.GetComponent<OttoShoot>().ShootInput = true;
+        }
+
+        if (context.canceled)
+        {
+            if (!_ruriMovement.hasOtto) return;
+            _ruriMovement.RidingOtto.GetComponent<OttoShoot>().ShootInput = false;
+        }
     }
-    
+
    
     /*private void UpdateAttackTimer()
     {

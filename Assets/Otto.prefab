@@ -14,7 +14,8 @@ GameObject:
   - component: {fileID: 2441188607223872193}
   - component: {fileID: 7660397478462730456}
   - component: {fileID: 7759670503711082617}
-  m_Layer: 0
+  - component: {fileID: 1395755567710004075}
+  m_Layer: 7
   m_Name: Otto
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -33,7 +34,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 8038094493987990762}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &4027614522962628678
@@ -240,7 +242,19 @@ MonoBehaviour:
     m_ActionId: 76e26fb8-43f8-4850-a68a-13032d92cf75
     m_ActionName: 'Player/Run[/Keyboard/l]'
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7660397478462730456}
+        m_TargetAssemblyTypeName: OttoScript, Assembly-CSharp
+        m_MethodName: Attack
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 335cdcb2-f328-4cdb-9e10-bbc42f809b54
     m_ActionName: 'Player/Shoot[/Keyboard/k]'
   m_NeverAutoSwitchControlSchemes: 0
@@ -262,6 +276,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   walkSpeed: 1.5
   runSpeed: 4.5
+  lookDir: {fileID: 8038094493987990762}
 --- !u!61 &7759670503711082617
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -308,3 +323,54 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.44, y: 0.12520078}
   m_EdgeRadius: 0
+--- !u!114 &1395755567710004075
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 238577474628295289}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f82ebc4a9ae2744bbf67285a41c40e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectilePrefab: {fileID: 6038686529093374273, guid: 19f2121dff952cc43835ca06afa8a85a, type: 3}
+  shootPoint: {fileID: 8294062259057164265}
+  targetLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  capsuleSize: {x: 7, y: 7}
+  projectileSpeed: 5
+  shootCooldown: 1
+--- !u!1 &4183687797070718427
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8038094493987990762}
+  m_Layer: 7
+  m_Name: LookDir
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8038094493987990762
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4183687797070718427}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8294062259057164265}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
