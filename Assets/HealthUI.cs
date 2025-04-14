@@ -7,11 +7,17 @@ public class HealthUI : MonoBehaviour
     public Image heartPrefab; // Prefab for the heart icon
     public Sprite fullHeartSprite; // Sprite for a full heart
     public Sprite emptyHeartSprite; // Sprite for an empty heart
-    
+
     private List<Image> hearts = new List<Image>(); // List to hold the heart icons
-    
+
     public void SetMaxHearts(int maxHearts)
     {
+        if (heartPrefab == null || fullHeartSprite == null || emptyHeartSprite == null)
+        {
+            Debug.LogError("HealthUI: Missing references to heartPrefab or sprites.");
+            return;
+        }
+
         // Clear existing hearts
         foreach (Image heart in hearts)
         {

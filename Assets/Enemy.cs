@@ -5,10 +5,9 @@ public class Enemy : MonoBehaviour
     public Transform player; // Reference to the player's transform
     public float chaseSpeed = 2f; // Speed at which the enemy chases the player
     public float detectionRange = 5f; // Range within which the enemy detects the player
+    public int damage = 1; // Damage dealt to the player on collision
 
     private Rigidbody2D rb;
-
-    public int damage = 1;
 
     // Start is called before the first frame update
     void Start()
@@ -19,6 +18,13 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // Check if the player reference is valid
+        if (player == null)
+        {
+            rb.velocity = Vector2.zero; // Stop moving if the player is null
+            return;
+        }
+
         // Calculate the distance to the player
         float distanceToPlayer = Vector2.Distance(transform.position, player.position);
 
@@ -33,5 +39,11 @@ public class Enemy : MonoBehaviour
             rb.velocity = Vector2.zero; // Stop moving if the player is out of range
         }
     }
-    
+
+    private void OnDrawGizmosSelected()
+    {
+        // Draw the detection range in the editor for visualization
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, detectionRange);
+    }
 }
