@@ -883,7 +883,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 3
-  currentHealth: 3
+  currentHealth: 0
   healthUI: {fileID: 742202697}
 --- !u!1 &468423745
 GameObject:
