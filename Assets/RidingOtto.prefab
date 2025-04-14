@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2186282995024233589}
   - component: {fileID: 6571658475367587252}
   - component: {fileID: 1616411885844057759}
+  - component: {fileID: 3022148249765834982}
   m_Layer: 0
   m_Name: RidingOtto
   m_TagString: Untagged
@@ -100,3 +101,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a236f7d2dfa4a2348b4f6e704024dd2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &3022148249765834982
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 866079974977546125}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f82ebc4a9ae2744bbf67285a41c40e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectilePrefab: {fileID: 6038686529093374273, guid: 19f2121dff952cc43835ca06afa8a85a, type: 3}
+  shootPoint: {fileID: 2186282995024233589}
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  capsuleSize: {x: 7, y: 7}
+  capsuleDirection: 0

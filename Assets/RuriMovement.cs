@@ -1,3 +1,4 @@
+using System;
 using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -15,8 +16,8 @@ public class RuriMovement : MonoBehaviour
     private PlayerInput _playerInput;
     private CinemachineCamera _camera;
     
-    [SerializeField] private GameObject ridingOttoPrefab; //this is a variable that stores the otto game object
-    private GameObject _ridingOtto; //this is a variable that stores the otto game object, this is the one that will be used in the game
+    [SerializeField] public GameObject ridingOttoPrefab; //this is a variable that stores the otto game object
+    [NonSerialized] public GameObject RidingOtto; //this is a variable that stores the otto game object, this is the one that will be used in the game
     [SerializeField] private GameObject ottoPrefab; //this is a variable that stores the otto game object
     private GameObject _otto; //this is a variable that stores the otto game object, this is the one that will be used in the game
     
@@ -57,14 +58,14 @@ public class RuriMovement : MonoBehaviour
     private void AddOtto()
     {
         GameObject socket = GameObject.Find("OttoSocket");
-        _ridingOtto = Instantiate(ridingOttoPrefab, socket.transform); //creates a new game object
-        _ridingOtto.transform.localPosition = new Vector3(0, -0.56f, 0); //this is the position of the otto game object relative to the player
-        _ridingOtto.transform.localRotation = Quaternion.identity; //Identity just means zero rotation essentially.
+        RidingOtto = Instantiate(ridingOttoPrefab, socket.transform); //creates a new game object
+        RidingOtto.transform.localPosition = new Vector3(0, -0.56f, 0); //this is the position of the otto game object relative to the player
+        RidingOtto.transform.localRotation = Quaternion.identity; //Identity just means zero rotation essentially.
     }
     private void RemoveOtto()   
     {
-        Destroy(_ridingOtto); //destroys the otto game object
-        _ridingOtto = null; //sets the otto game object to null, basically like when we instantiated it
+        Destroy(RidingOtto); //destroys the otto game object
+        RidingOtto = null; //sets the otto game object to null, basically like when we instantiated it
     }
     
     

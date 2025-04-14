@@ -9,7 +9,10 @@ public class HurtBox : MonoBehaviour
     {
         if (!other.CompareTag("HitBox")) return;    //if the object that entered the trigger is not a HitBox, return
         HitBox hitBox = other.GetComponent<HitBox>();    //Otherwise, get the HitBox component
-        if(owner == null) return;   //if my owner is null, return (I have no one to deal damage to)
+        if(owner == null) return; //if my owner is null, return (I have no one to deal damage to)
+        print(owner);
+        print(hitBox.owner);
+        if(owner == hitBox.owner) return; //if my owner is the same as the hitBox owner, return (Otherwise I hit myself)
         IDamageable damage = owner.GetComponent<IDamageable>();    //get the IDamageable component from my owner
         if (damage == null) return;     //if my owner does not have an IDamageable component, return
         damage.ReceiveDamage(hitBox.damage, other.gameObject); //deal damage to my owner

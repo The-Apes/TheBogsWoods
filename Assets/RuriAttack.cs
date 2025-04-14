@@ -8,19 +8,21 @@ public class RuriAttack : MonoBehaviour
     public bool isAttacking;
     private float _attackTimer;
     private float _attackDuration = 0.3f;
+    private RuriMovement _ruriMovement;
     [SerializeField] private Collider2D hitBox;
 
     private void Awake()
     {
         if (hitBox == null) { Debug.LogWarning("HitBox isn't Defined, check the serialized field"); return; }
         hitBox.gameObject.SetActive(false);
+        _ruriMovement = GetComponent<RuriMovement>();
     }
 
     public void Attack(InputAction.CallbackContext context) //Called by input system
     {
         if (!context.started) return;
         if (isAttacking) return;
-        if (!GetComponent<RuriMovement>().controlling) return;
+        if (!_ruriMovement.controlling) return;
         
         StartCoroutine(PerformAttack());
     }
@@ -35,6 +37,16 @@ public class RuriAttack : MonoBehaviour
         hitBox.gameObject.SetActive(false);
         isAttacking = false;
     }
+    public void Shoot(InputAction.CallbackContext context)
+    {
+        if (!context.started) return;
+        if (!_ruriMovement.hasOtto) return;
+        
+        // Implement shooting logic here
+        Debug.Log("Shoot");
+        _ruriMovement.RidingOtto.GetComponent<OttoShoot>().Shoot();
+    }
+    
    
     /*private void UpdateAttackTimer()
     {
