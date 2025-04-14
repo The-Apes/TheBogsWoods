@@ -96,7 +96,7 @@ GameObject:
   - component: {fileID: 5225089075677451965}
   - component: {fileID: 7393710542772802639}
   m_Layer: 7
-  m_Name: OttoProjectile
+  m_Name: Projectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

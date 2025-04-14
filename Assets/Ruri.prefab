@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 2441188607223872193}
   - component: {fileID: 7292209988197213473}
   - component: {fileID: 801263606039877597}
-  - component: {fileID: 8995426491408810653}
   - component: {fileID: 3423405047107559016}
   - component: {fileID: 4027614522962628678}
   - component: {fileID: 2266560061116943896}
@@ -232,19 +231,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isAttacking: 0
   hitBox: {fileID: 2479164774486361036}
---- !u!114 &8995426491408810653
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 238577474628295289}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64528faaaa3197b4bac2ef1d21e20cf3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 5
 --- !u!95 &3423405047107559016
 Animator:
   serializedVersion: 7

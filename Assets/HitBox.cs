@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class HitBox : MonoBehaviour
 {
-    public float damage;
+    public int damage;
     public GameObject owner; // The object that owns this hit box
     private int _layer;
     private string _tag;
