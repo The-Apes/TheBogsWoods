@@ -1,11 +1,12 @@
+using System;
 using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.Serialization;
 
 
 public class RuriMovement : MonoBehaviour
 {
+    private RuriAttack _ruriAttack;
     // hey bro's, anything in double slashes are comments, they are not read by the computer, they are just for you to read
     // so you can understand me code good sirs, I need to practice coding for others to understand.
     
@@ -14,8 +15,8 @@ public class RuriMovement : MonoBehaviour
     private PlayerInput _playerInput;
     private CinemachineCamera _camera;
     
-    [SerializeField] private GameObject ridingOttoPrefab; //this is a variable that stores the otto game object
-    private GameObject _ridingOtto; //this is a variable that stores the otto game object, this is the one that will be used in the game
+    [SerializeField] public GameObject ridingOttoPrefab; //this is a variable that stores the otto game object
+    [NonSerialized] public GameObject RidingOtto; //this is a variable that stores the otto game object, this is the one that will be used in the game
     [SerializeField] private GameObject ottoPrefab; //this is a variable that stores the otto game object
     private GameObject _otto; //this is a variable that stores the otto game object, this is the one that will be used in the game
     
@@ -28,7 +29,7 @@ public class RuriMovement : MonoBehaviour
     
     [SerializeField] private float walkSpeed = 1.5f; //this is a variable that stores the movement speed of the player, this is the speed at which the player moves
     [SerializeField] private float runSpeed = 3f; //this is a variable that stores the movement speed of the player, this is the speed at which the player moves
-    [SerializeField] private Transform lookDir;
+    public Transform lookDir; //this is a variable that stores the transform of the player, this is the one that will be used to rotate the player
     private Vector2 _moveInput;
     [SerializeField] private Collider2D hurtBox;
 
@@ -39,11 +40,11 @@ public class RuriMovement : MonoBehaviour
     
     private void Awake()
     {
-        _playerTransform = this.transform;
+        _playerTransform = transform;
         _camera = FindFirstObjectByType<CinemachineCamera>();
         
-        _playerInput = this.GetComponent<PlayerInput>();
-    
+        _playerInput = GetComponent<PlayerInput>();
+        _ruriAttack = GetComponent<RuriAttack>();
 
         //_audioSource = this.GetComponent<AudioSource>(); sounds maybe
         if (hasOtto)
@@ -56,15 +57,14 @@ public class RuriMovement : MonoBehaviour
     private void AddOtto()
     {
         GameObject socket = GameObject.Find("OttoSocket");
-        _ridingOtto = Instantiate(ridingOttoPrefab, socket.transform); //creates a new game object
-        
-        _ridingOtto.transform.localPosition = new Vector3(0, 0.17f, 0); //this is the position of the otto game object relative to the player
-        _ridingOtto.transform.localRotation = Quaternion.identity; //Identity just means zero rotation essentially.
+        RidingOtto = Instantiate(ridingOttoPrefab, socket.transform); //creates a new game object
+        RidingOtto.transform.localPosition = new Vector3(0, -0.56f, 0); //this is the position of the otto game object relative to the player
+        RidingOtto.transform.localRotation = Quaternion.identity; //Identity just means zero rotation essentially.
     }
     private void RemoveOtto()   
     {
-        Destroy(_ridingOtto); //destroys the otto game object
-        _ridingOtto = null; //sets the otto game object to null, basically like when we instantiated it
+        Destroy(RidingOtto); //destroys the otto game object
+        RidingOtto = null; //sets the otto game object to null, basically like when we instantiated it
     }
     
     
@@ -95,6 +95,7 @@ public class RuriMovement : MonoBehaviour
         
        UpdateDirection();
 
+       if (_ruriAttack.isAttacking) return;
        lookDir.rotation = _currentDirection switch
        {
            Direction.Up => Quaternion.Euler(0, 0, 180),

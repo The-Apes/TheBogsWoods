@@ -12,12 +12,11 @@ GameObject:
   - component: {fileID: 2441188607223872193}
   - component: {fileID: 7292209988197213473}
   - component: {fileID: 801263606039877597}
-  - component: {fileID: 8995426491408810653}
   - component: {fileID: 3423405047107559016}
   - component: {fileID: 4027614522962628678}
-  - component: {fileID: 2758676391024741216}
   - component: {fileID: 2266560061116943896}
-  m_Layer: 0
+  - component: {fileID: 1279262603447677561}
+  m_Layer: 7
   m_Name: Ruri
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -178,7 +177,19 @@ MonoBehaviour:
     m_ActionId: 76e26fb8-43f8-4850-a68a-13032d92cf75
     m_ActionName: 'Player/Run[/Keyboard/l]'
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 801263606039877597}
+        m_TargetAssemblyTypeName: RuriAttack, Assembly-CSharp
+        m_MethodName: Shoot
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 335cdcb2-f328-4cdb-9e10-bbc42f809b54
     m_ActionName: 'Player/Shoot[/Keyboard/k]'
   m_NeverAutoSwitchControlSchemes: 0
@@ -200,6 +211,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ridingOttoPrefab: {fileID: 866079974977546125, guid: fbaec7c2d240c2e4ca25151d5195a896, type: 3}
   ottoPrefab: {fileID: 238577474628295289, guid: 803174830349f864e9adaf5746488655, type: 3}
+  controlling: 1
   hasOtto: 1
   walkSpeed: 1.5
   runSpeed: 3.5
@@ -217,20 +229,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c6d48f1e95b72e49bb7ad6efb0863ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isAttacking: 0
   hitBox: {fileID: 2479164774486361036}
---- !u!114 &8995426491408810653
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 238577474628295289}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64528faaaa3197b4bac2ef1d21e20cf3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 5
 --- !u!95 &3423405047107559016
 Animator:
   serializedVersion: 7
@@ -294,7 +294,7 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 1320038585
+  m_SortingLayerID: -1094269445
   m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: -2670710721467154587, guid: 12f2c7db2b19b29458d18051d928e921, type: 3}
@@ -307,9 +307,36 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
---- !u!70 &2758676391024741216
-CapsuleCollider2D:
+  m_SpriteSortPoint: 1
+--- !u!50 &2266560061116943896
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 238577474628295289}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
+--- !u!61 &1279262603447677561
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -342,36 +369,18 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 0.6875, y: 0.75}
-  m_Direction: 0
---- !u!50 &2266560061116943896
-Rigidbody2D:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 238577474628295289}
-  m_BodyType: 1
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDamping: 0
-  m_AngularDamping: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Offset: {x: 0, y: 0.032}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.125}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 0.6875, y: 0.75}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 0.25, y: 0.094}
+  m_EdgeRadius: 0
 --- !u!1 &1653731892496004782
 GameObject:
   m_ObjectHideFlags: 0
@@ -384,7 +393,7 @@ GameObject:
   - component: {fileID: 2479164774486361036}
   - component: {fileID: 7159413276279401504}
   - component: {fileID: 8499670732346854692}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Melee HitBox
   m_TagString: HitBox
   m_Icon: {fileID: 0}
@@ -494,7 +503,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1320038585
-  m_SortingLayer: 1
+  m_SortingLayer: -3
   m_SortingOrder: 10
   m_Sprite: {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 0.3137255}
@@ -520,6 +529,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+  owner: {fileID: 0}
 --- !u!1 &1736256709442736224
 GameObject:
   m_ObjectHideFlags: 0
@@ -529,7 +539,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5508549938362418821}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: LookDir
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -545,7 +555,7 @@ Transform:
   m_GameObject: {fileID: 1736256709442736224}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.28, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -562,7 +572,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1647950706330085430}
   - component: {fileID: 4552869886228913879}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: OttoZone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -578,7 +588,7 @@ Transform:
   m_GameObject: {fileID: 2025860745103690652}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.27, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -619,7 +629,7 @@ CircleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Radius: 1
+  m_Radius: 0.6
 --- !u!1 &2688442666638755585
 GameObject:
   m_ObjectHideFlags: 0
@@ -629,7 +639,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1136379763545914887}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: OttoSocket
   m_TagString: Untagged
   m_Icon: {fileID: 4162164826716764455, guid: 0000000000000000d000000000000000, type: 0}
@@ -645,7 +655,7 @@ Transform:
   m_GameObject: {fileID: 2688442666638755585}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.1861, z: 0}
+  m_LocalPosition: {x: 0, y: 0.56, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -661,7 +671,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6993260370380506260}
   - component: {fileID: 5682352918532443422}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Hair
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -724,10 +734,10 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 1320038585
+  m_SortingLayerID: -1094269445
   m_SortingLayer: 1
-  m_SortingOrder: 2
-  m_Sprite: {fileID: 4540775410270254947, guid: 12f2c7db2b19b29458d18051d928e921, type: 3}
+  m_SortingOrder: 0
+  m_Sprite: {fileID: -1841597828, guid: 12f2c7db2b19b29458d18051d928e921, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -737,7 +747,7 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
+  m_SpriteSortPoint: 1
 --- !u!1 &6219433776501840933
 GameObject:
   m_ObjectHideFlags: 0
@@ -749,7 +759,7 @@ GameObject:
   - component: {fileID: 5577433653699089573}
   - component: {fileID: 363661087967841831}
   - component: {fileID: 5827361527348619437}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: HurtBox
   m_TagString: HurtBox
   m_Icon: {fileID: 0}
@@ -765,7 +775,7 @@ Transform:
   m_GameObject: {fileID: 6219433776501840933}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.36, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -820,4 +830,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dca1c729f1ee6b64da8951ce99284ac8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  owner: {fileID: 238577474628295289}

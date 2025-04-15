@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using UnityEngine;
 
-public class PlayerHealth : MonoBehaviour
+public class PlayerHealth : MonoBehaviour, IDamageable
 {
     public int maxHealth = 3; // Maximum health of the player
     public int currentHealth; // Current health of the player
@@ -26,14 +26,14 @@ public class PlayerHealth : MonoBehaviour
         healthUI.UpdateHearts(currentHealth);
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        Enemy enemy = collision.GetComponent<Enemy>();
-        if (enemy)
-        {
-            TakeDamage(enemy.damage);
-        }
-    }
+    // private void OnTriggerEnter2D(Collider2D collision)
+    // {
+    //     Enemy enemy = collision.GetComponent<Enemy>();
+    //     if (enemy)
+    //     {
+    //         TakeDamage(enemy.damage);
+    //     }
+    // }
 
     void ResetHealth()
     {
@@ -42,9 +42,8 @@ public class PlayerHealth : MonoBehaviour
         healthUI.UpdateHearts(currentHealth); // Update the hearts to reflect the reset health
     }
 
-    private void TakeDamage(int damage)
-    {
-        currentHealth -= damage;
+    public void ReceiveDamage(int damageTaken, GameObject source){
+        currentHealth -= damageTaken;
         healthUI.UpdateHearts(currentHealth); // Update the hearts to reflect the new health
 
         // Flash Red

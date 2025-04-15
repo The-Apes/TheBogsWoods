@@ -10,7 +10,7 @@ public class Health : MonoBehaviour, IDamageable
          _health = maxHealth;
     }
 
-   public void ReceiveDamage(float damageTaken, GameObject source){
+   public void ReceiveDamage(int damageTaken, GameObject source){
         _health -= damageTaken; //subtract the damage taken from the health
         if (_health <= 0) //if the health is less than or equal to 0
         {
