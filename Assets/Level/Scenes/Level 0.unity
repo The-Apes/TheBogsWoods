@@ -2044,7 +2044,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8cc45ec8fceb84340a44682513fed264, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemPrefab: {fileID: 0}
+  itemPrefab: {fileID: 5949949516469137522, guid: 002c212d457ad7b4fa3458b53285e6ee, type: 3}
   openedSprite: {fileID: 1144026751516375678, guid: bf3db59d702973c4ba1d2ef63c0f9501, type: 3}
 --- !u!61 &831090534
 BoxCollider2D:

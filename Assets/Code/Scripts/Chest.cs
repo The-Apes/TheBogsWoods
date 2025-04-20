@@ -6,18 +6,17 @@ public class Chest : MonoBehaviour, IInteractable
     public string ChestID { get; private set; }
     public GameObject itemPrefab; // The item that will be spawned when the chest is opened
     public Sprite openedSprite; // The sprite to use when the chest is opened
-    
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+
     void Start()
     {
         ChestID ??= GlobalHelper.GenerateUniqueID(gameObject);
     }
-    
+
     public bool CanInteract()
     {
         return !IsOpened;
     }
-    
+
     public void Interact()
     {
         if (!CanInteract()) return;
@@ -28,10 +27,15 @@ public class Chest : MonoBehaviour, IInteractable
     {
         SetOpened(true);
 
-        //DropItem
+        // Drop the item
         if (itemPrefab)
         {
-            GameObject droppedItem = Instantiate(itemPrefab, transform.position + Vector3.down, Quaternion.identity);
+            GameObject item = Instantiate(itemPrefab, transform.position + Vector3.down, Quaternion.identity);
+            Rigidbody2D rb = item.GetComponent<Rigidbody2D>();
+            if (rb != null)
+            {
+                rb.AddForce(new Vector2(Random.Range(-1f, 1f), 2f), ForceMode2D.Impulse); // Apply bounce force
+            }
         }
     }
 
