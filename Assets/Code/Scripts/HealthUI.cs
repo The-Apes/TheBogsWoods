@@ -42,7 +42,7 @@ public class HealthUI : MonoBehaviour
             if (i < currentHealth)
             {
                 hearts[i].sprite = fullHeartSprite; // Set to full heart
-                hearts[i].color = Color.red; // Set color to red
+                hearts[i].color = Color.white; // Set color to red
             }
             else
             {
