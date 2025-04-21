@@ -8,6 +8,15 @@ public class PlayerItemCollector : MonoBehaviour
     {
         if (collision.CompareTag("Item"))
         {
+            // Call the Pickup method of the item
+            Item item = collision.GetComponent<Item>();
+            if (item != null)
+            {
+                item.Pickup();
+            }
+        }
+        else if (collision.CompareTag("HealthItem"))
+        {
             Item item = collision.GetComponent<Item>();
             if (item != null)
             {
