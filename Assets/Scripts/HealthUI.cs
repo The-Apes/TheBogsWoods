@@ -30,6 +30,7 @@ public class HealthUI : MonoBehaviour
         {
             Image newHeart = Instantiate(heartPrefab, transform);
             newHeart.sprite = fullHeartSprite;
+            newHeart.SetNativeSize();
             newHeart.color = Color.red;
             hearts.Add(newHeart);
         }
@@ -42,7 +43,7 @@ public class HealthUI : MonoBehaviour
             if (i < currentHealth)
             {
                 hearts[i].sprite = fullHeartSprite; // Set to full heart
-                hearts[i].color = Color.red; // Set color to red
+                hearts[i].color = Color.white; // Set color to red
             }
             else
             {
