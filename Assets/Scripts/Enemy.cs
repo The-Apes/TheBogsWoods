@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour
@@ -7,13 +6,13 @@ public class Enemy : MonoBehaviour
     public float detectionRange = 5f; // Range within which the enemy detects the player
     private GameObject _chaseTarget;
 
-    private Rigidbody2D rb;
+    private Rigidbody2D _rb;
     [SerializeField] private Collider2D detectionZone;
 
     // Start is called before the first frame update
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
+        _rb = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
@@ -33,9 +32,8 @@ public class Enemy : MonoBehaviour
         if (_chaseTarget)
         {
             Vector2 direction = (_chaseTarget.transform.position - transform.position).normalized; // Direction towards the player
-            rb.linearVelocity = direction.normalized * chaseSpeed; // Move the enemy towards the player
+            _rb.linearVelocity = direction.normalized * chaseSpeed; // Move the enemy towards the player
         }
-        print(_chaseTarget);
         //else
         //{
         //    rb.linearVelocity = Vector2.zero; // Stop moving if the player is out of range
@@ -68,7 +66,7 @@ public class Enemy : MonoBehaviour
             if(other.gameObject == _chaseTarget) //if the object that exited my sphere is my target
             {
                 _chaseTarget = null; //make my target null
-                rb.linearVelocity = Vector2.zero;
+                _rb.linearVelocity = Vector2.zero;
             }
         }
     }

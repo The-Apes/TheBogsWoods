@@ -47,7 +47,7 @@ public class PlayerHealth : MonoBehaviour, IDamageable
         healthUI.UpdateHearts(currentHealth); // Update the hearts to reflect the new health
 
         // Flash Red
-        StartCoroutine(FlashRed());
+       // StartCoroutine(FlashRed());
 
         if (currentHealth <= 0)
         {
