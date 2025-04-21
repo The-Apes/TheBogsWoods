@@ -15,16 +15,16 @@ public class PlayerItemCollector : MonoBehaviour
                 item.Pickup();
             }
         }
-        else if (collision.CompareTag("HealthItem"))
-        {
-            Item item = collision.GetComponent<Item>();
-            if (item != null)
-            {
-                // Heal the player and destroy the item
-                HealPlayer(item.value);
-                Destroy(collision.gameObject);
-            }
-        }
+        // else if (collision.CompareTag("HealthItem"))
+        // {
+        //     Item item = collision.GetComponent<Item>();
+        //     if (item != null)
+        //     {
+        //         // Heal the player and destroy the item
+        //         HealPlayer(item.value);
+        //         Destroy(collision.gameObject);
+        //     }
+        // }
     }
 
     private void HealPlayer(int healAmount)
