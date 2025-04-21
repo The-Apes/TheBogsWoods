@@ -17,11 +17,12 @@ public class PlayerHealth : MonoBehaviour, IDamageable
 
     public static event Action OnPlayerDied;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+   
+
+    private void Awake()
     {
         GameController.OnReset += ResetHealth; // Subscribe to the reset event
-        
+        healthUI = FindFirstObjectByType<HealthUI>(); // Find the HealthUI in the scene
         currentHealth = maxHealth;
         _invincibilityTimer = invincibilityDuration;
         
@@ -29,6 +30,7 @@ public class PlayerHealth : MonoBehaviour, IDamageable
         healthUI.SetMaxHearts(maxHealth);
         healthUI.UpdateHearts(currentHealth);
     }
+
     private void Update()
     {
         if (_invincible)
