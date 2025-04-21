@@ -1,11 +1,16 @@
 using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class PlayerHealth : MonoBehaviour, IDamageable
 {
     public int maxHealth = 3; // Maximum health of the player
     public int currentHealth; // Current health of the player
+    
+    [SerializeField]private float invincibilityDuration = 1f; // Duration of invincibility after taking damage
+    private float _invincibilityTimer; // Timer for invincibility
+    private bool _invincible;
 
     public HealthUI healthUI; // Reference to the HealthUI script
 
@@ -16,24 +21,29 @@ public class PlayerHealth : MonoBehaviour, IDamageable
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        currentHealth = maxHealth;
-
         spriteRenderer = GetComponent<SpriteRenderer>();
         GameController.OnReset += ResetHealth; // Subscribe to the reset event
-
+        
+        currentHealth = maxHealth;
+        _invincibilityTimer = invincibilityDuration;
+        
         // Initialize the health UI
         healthUI.SetMaxHearts(maxHealth);
         healthUI.UpdateHearts(currentHealth);
     }
-
-    // private void OnTriggerEnter2D(Collider2D collision)
-    // {
-    //     Enemy enemy = collision.GetComponent<Enemy>();
-    //     if (enemy)
-    //     {
-    //         TakeDamage(enemy.damage);
-    //     }
-    // }
+    private void Update()
+    {
+        if (_invincible)
+        {
+            _invincibilityTimer -= Time.deltaTime;
+            if (_invincibilityTimer <= 0)
+            {
+                _invincible = false;
+                _invincibilityTimer = invincibilityDuration; // Reset the timer
+            }
+        }
+    }
+        
 
     void ResetHealth()
     {
@@ -43,24 +53,16 @@ public class PlayerHealth : MonoBehaviour, IDamageable
     }
 
     public void ReceiveDamage(int damageTaken, GameObject source){
+        if (_invincible) return; // If the player is invisible, ignore damage
         currentHealth -= damageTaken;
+        GetComponent<DamageFlash>().CallDamageFlash();
         healthUI.UpdateHearts(currentHealth); // Update the hearts to reflect the new health
-
-        // Flash Red
-       // StartCoroutine(FlashRed());
-
+        _invincible = true;
         if (currentHealth <= 0)
         {
             // Player dead! -- call game over, animation, etc.
             OnPlayerDied?.Invoke();
         }
-    }
-
-    private IEnumerator FlashRed()
-    {
-        spriteRenderer.color = Color.red; // Change color to red
-        yield return new WaitForSeconds(0.2f);
-        spriteRenderer.color = Color.white; // Change color back to white
     }
 
     private void OnDestroy()
