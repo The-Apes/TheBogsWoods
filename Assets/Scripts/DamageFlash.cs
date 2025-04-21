@@ -33,6 +33,7 @@ public class DamageFlash : MonoBehaviour
   public void CallDamageFlash()
   {
     _damageFlashCoroutine = StartCoroutine(DamageFlasher());
+    
   }
 
   private IEnumerator DamageFlasher()

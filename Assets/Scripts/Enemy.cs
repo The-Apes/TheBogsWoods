@@ -8,6 +8,8 @@ public class Enemy : MonoBehaviour
 
     private Rigidbody2D _rb;
     [SerializeField] private Collider2D detectionZone;
+    
+
 
     // Start is called before the first frame update
     void Start()
@@ -18,35 +20,13 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // Check if the player reference is valid
-       // if (player == null)
-       // {
-        //    rb.linearVelocity = Vector2.zero; // Stop moving if the player is null
-        //    return;
-      //  }
-
-        // Calculate the distance to the player
-       // float distanceToPlayer = Vector2.Distance(transform.position, player.position);
-
-        // If the player is within detection range, chase the player
         if (_chaseTarget)
         {
             Vector2 direction = (_chaseTarget.transform.position - transform.position).normalized; // Direction towards the player
             _rb.linearVelocity = direction.normalized * chaseSpeed; // Move the enemy towards the player
         }
-        //else
-        //{
-        //    rb.linearVelocity = Vector2.zero; // Stop moving if the player is out of range
-        //}
     }
-
-    // private void OnDrawGizmosSelected()
-    // {
-    //     // Draw the detection range in the editor for visualization
-    //     Gizmos.color = Color.red;
-    //     Gizmos.DrawWireSphere(transform.position, detectionRange);
-    // }
-    // No need because we have an actual Circle 2D collision to see the range
+    
     private void OnTriggerEnter2D(Collider2D other) //when entering 2D sphere
     {
         if (detectionZone.IsTouching(other)){

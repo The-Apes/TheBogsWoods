@@ -414,6 +414,8 @@ MonoBehaviour:
   currentHealth: 0
   invincibilityDuration: 1
   healthUI: {fileID: 0}
+  hurtSound: {fileID: 8300000, guid: 773a856e2b1308245989b19d7d99e6e5, type: 3}
+  deathSound: {fileID: 8300000, guid: 927770d6919099841bc32902490eadab, type: 3}
 --- !u!1 &1653731892496004782
 GameObject:
   m_ObjectHideFlags: 0
