@@ -13,15 +13,13 @@ public class PlayerHealth : MonoBehaviour, IDamageable
     private bool _invincible;
 
     public HealthUI healthUI; // Reference to the HealthUI script
-
-    private SpriteRenderer spriteRenderer;
+    
 
     public static event Action OnPlayerDied;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        spriteRenderer = GetComponent<SpriteRenderer>();
         GameController.OnReset += ResetHealth; // Subscribe to the reset event
         
         currentHealth = maxHealth;
@@ -56,6 +54,7 @@ public class PlayerHealth : MonoBehaviour, IDamageable
         if (_invincible) return; // If the player is invisible, ignore damage
         currentHealth -= damageTaken;
         GetComponent<DamageFlash>().CallDamageFlash();
+        
         healthUI.UpdateHearts(currentHealth); // Update the hearts to reflect the new health
         _invincible = true;
         if (currentHealth <= 0)
