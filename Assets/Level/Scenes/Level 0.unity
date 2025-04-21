@@ -2048,7 +2048,7 @@ GameObject:
   m_Component:
   - component: {fileID: 790340276}
   m_Layer: 0
-  m_Name: '-----'
+  m_Name: -----
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6222,7 +6222,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1368485514}
   m_Layer: 0
-  m_Name: '-----'
+  m_Name: -----
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -20023,6 +20023,7 @@ GameObject:
   - component: {fileID: 1827600057}
   - component: {fileID: 1827600056}
   - component: {fileID: 1827600055}
+  - component: {fileID: 1827600058}
   m_Layer: 6
   m_Name: Damaging Cube
   m_TagString: Enemy
@@ -20043,8 +20044,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 3
-  hurtSound: {fileID: 0}
-  deathSound: {fileID: 0}
+  hurtSound: {fileID: 8300000, guid: 773a856e2b1308245989b19d7d99e6e5, type: 3}
+  deathSound: {fileID: 8300000, guid: 927770d6919099841bc32902490eadab, type: 3}
 --- !u!212 &1827600056
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -20068,7 +20069,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: 442237e4e0999b3428f867ce77050074, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -20117,6 +20118,20 @@ Transform:
   - {fileID: 2040055458}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1827600058
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1827600054}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d35248763e19fd4ab8a0a66ffeac743, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flashColor: {r: 1, g: 1, b: 1, a: 1}
+  flashTime: 0.2
 --- !u!1 &1830279521
 GameObject:
   m_ObjectHideFlags: 0
@@ -20225,7 +20240,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 2.8125
+  orthographic size: 2.5
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -20583,7 +20598,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1992981019}
   m_Layer: 0
-  m_Name: '-----'
+  m_Name: -----
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
