@@ -21058,6 +21058,22 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 6831444570015503084, guid: 9abeb51c76090e243abe42863fe44864, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6831444570015503084, guid: 9abeb51c76090e243abe42863fe44864, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6831444570015503084, guid: 9abeb51c76090e243abe42863fe44864, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6831444570015503084, guid: 9abeb51c76090e243abe42863fe44864, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8294062259057164265, guid: 9abeb51c76090e243abe42863fe44864, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
