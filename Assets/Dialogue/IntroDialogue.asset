@@ -15,8 +15,8 @@ MonoBehaviour:
   dialogue:
     dialogueLines:
     - character:
-        characterName: Letsatsi (Monkey)
-        characterSprite: {fileID: 7813686684871218479, guid: 075c20dc0289802498b389b12909ef96, type: 3}
-        color: {r: 0.4716981, g: 0.22725041, b: 0.028924897, a: 1}
-      line: Hmmm... I should pay Mzati back, or I'll face dire consequences
+        characterName: Ruri
+        characterSprite: {fileID: 3159093899981062546, guid: 2c5481612dbe21348b3079d3c85e96ca, type: 3}
+        color: {r: 0.46274513, g: 0.25490198, b: 0.5411765, a: 1}
+      line: I gotta go after Otto!
       right: 0
