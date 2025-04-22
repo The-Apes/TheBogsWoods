@@ -23379,7 +23379,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7292209988197213473, guid: 9abeb51c76090e243abe42863fe44864, type: 3}
       propertyPath: hasWeapon
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8294062259057164265, guid: 9abeb51c76090e243abe42863fe44864, type: 3}
       propertyPath: m_LocalPosition.x
@@ -23745,11 +23745,29 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   noWeaponDialogue:
-    dilaogueName: 
-    dialogueLines: []
+    dilaogueName: No Weapon
+    dialogueLines:
+    - character:
+        characterName: Ruri
+        characterSprite: {fileID: 3159093899981062546, guid: 2c5481612dbe21348b3079d3c85e96ca, type: 3}
+        color: {r: 0.46274513, g: 0.25882354, b: 0.5411765, a: 1}
+      line: Hmm... I can't pass through this bramble
+      right: 0
+    - character:
+        characterName: Ruri
+        characterSprite: {fileID: 3159093899981062546, guid: 2c5481612dbe21348b3079d3c85e96ca, type: 3}
+        color: {r: 0.46274513, g: 0.25882354, b: 0.5411765, a: 1}
+      line: Maybe If I had something to break it with, I can pass through
+      right: 0
   weaponDialogue:
-    dilaogueName: 
-    dialogueLines: []
+    dilaogueName: Has Weapon
+    dialogueLines:
+    - character:
+        characterName: Ruri
+        characterSprite: {fileID: 3159093899981062546, guid: 2c5481612dbe21348b3079d3c85e96ca, type: 3}
+        color: {r: 0.46274513, g: 0.25882354, b: 0.5411765, a: 1}
+      line: I could destroy that Bramble with this stick.
+      right: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
