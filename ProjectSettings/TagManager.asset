@@ -8,6 +8,7 @@ TagManager:
   - HitBox
   - HurtBox
   - MapBounds
+  - Item
   layers:
   - Default
   - TransparentFX
@@ -62,6 +63,9 @@ TagManager:
     locked: 0
   - name: Decor
     uniqueID: 3698549123
+    locked: 0
+  - name: UI
+    uniqueID: 2724058279
     locked: 0
   m_RenderingLayers:
   - Default

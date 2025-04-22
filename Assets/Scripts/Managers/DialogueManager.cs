@@ -9,13 +9,17 @@ using UnityEngine.UI;
 //reference https://www.youtube.com/watch?v=DOP_G5bsySA
 public class DialogueManager : MonoBehaviour
 {
-    public static DialogueManager Instance;
+    public static DialogueManager instance;
     
-    public Image characterIcon;
+    
     public TextMeshProUGUI characterName;
     public TextMeshProUGUI dialogueArea;
-
-    private Queue<DialogueLine> lines;
+    public Image characterIcon;
+    public Image header;
+    public Image background;
+    public RectTransform iconTransform;
+    
+    private Queue<DialogueLine> _lines;
     
     public bool isDialogueActive = false;
     public float typingSpeed = 0.2f;
@@ -23,24 +27,23 @@ public class DialogueManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
     }
 
     private void Awake()
     {
-        if (Instance == null)
-            Instance = this;
-        lines = new Queue<DialogueLine>();
+        if (instance == null)
+            instance = this;
+        _lines = new Queue<DialogueLine>();
     }
 
     public void StartDialogue(Dialogue dialogue)
   {
   isDialogueActive = true;
   animator.Play("ShowDialogue");
-  lines.Clear();
+  _lines.Clear();
   foreach (DialogueLine dialogueLine in dialogue.dialogueLines)
   {
-      lines.Enqueue(dialogueLine);
+      _lines.Enqueue(dialogueLine);
   }
 
   DisplayNextDialogueLine();
@@ -57,14 +60,40 @@ public class DialogueManager : MonoBehaviour
 
   public void DisplayNextDialogueLine()
   {
-      if (lines.Count == 0)
+      if (_lines.Count == 0)
       {
           EndDialogue();
           return;
       }
-        DialogueLine currentLine = lines.Dequeue();
-        characterIcon.sprite = currentLine.character.characterSprite;
+        DialogueLine currentLine = _lines.Dequeue();
+        
         characterName.text = currentLine.character.characterName;
+        header.color = currentLine.character.color;
+        
+        Color newColor = currentLine.character.color * 0.25f; // Darken the color
+        newColor.a = currentLine.character.color.a; // Preserve the original alpha
+        background.color = newColor; // Assign the new color
+        
+        if (currentLine.character.characterSprite == null)
+        {
+            characterIcon.gameObject.SetActive(false);
+        }
+        else
+        {
+            characterIcon.gameObject.SetActive(true);
+            characterIcon.sprite = currentLine.character.characterSprite;
+        }
+
+        if (currentLine.right)
+        {
+            iconTransform.anchorMax = new Vector2(1,1);
+            iconTransform.anchorMin = new Vector2(1,1);
+            iconTransform.pivot = new Vector2(1,0);
+        }else{
+            iconTransform.anchorMax = new Vector2(0,1);
+            iconTransform.anchorMin = new Vector2(0,1);
+            iconTransform.pivot = new Vector2(0,0);
+        }
         StopAllCoroutines();
         StartCoroutine(TypeSentence(currentLine));
   }

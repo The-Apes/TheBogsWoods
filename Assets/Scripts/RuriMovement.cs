@@ -2,10 +2,12 @@ using System;
 using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Serialization;
 
 
 public class RuriMovement : MonoBehaviour
 {
+    public static RuriMovement instance;
     private RuriAttack _ruriAttack;
     // hey bro's, anything in double slashes are comments, they are not read by the computer, they are just for you to read
     // so you can understand me code good sirs, I need to practice coding for others to understand.
@@ -23,7 +25,10 @@ public class RuriMovement : MonoBehaviour
     private bool _running; //this is a variable that stores if the player is running or not
     public bool controlling = true;
     private bool _ottoInRange; //this is a variable that stores if the player is in range of the otto
-    public bool hasOtto; //this is a variable that stores if the player has otto or not
+    public bool ottoMounted; //this is a variable that stores if the player has otto or not
+
+    public bool hasWeapon = true;
+    public bool hasOtto = true;
 
     
     
@@ -40,13 +45,14 @@ public class RuriMovement : MonoBehaviour
     
     private void Awake()
     {
+        if (instance == null)
+            instance = this;
         _playerTransform = transform;
         _camera = FindFirstObjectByType<CinemachineCamera>();
         
         _playerInput = GetComponent<PlayerInput>();
         _ruriAttack = GetComponent<RuriAttack>();
 
-        //_audioSource = this.GetComponent<AudioSource>(); sounds maybe
         if (hasOtto)
         {
          AddOtto();
@@ -126,17 +132,17 @@ public class RuriMovement : MonoBehaviour
     public void SwitchCharacter(InputAction.CallbackContext context)
     {
         if (!context.started) return;
-        if (hasOtto)
+        if (ottoMounted)
         {
             RemoveOtto();
-            hasOtto = false;
+            ottoMounted = false;
             _otto = Instantiate(ottoPrefab, new Vector3(_playerTransform.position.x,_playerTransform.position.y+0.75f,_playerTransform.position.z), Quaternion.identity);
            // _otto.GetComponent<PlayerInput>().SwitchCurrentControlScheme(_playerInput.currentControlScheme, _playerInput.devices.ToArray());
             _camera.Follow = _otto.transform;
             controlling = false;
         } else if (_ottoInRange){
             Destroy(_otto);
-            hasOtto = true;
+            ottoMounted = true;
             AddOtto();
             controlling = true;
             _camera.Follow = _playerTransform;

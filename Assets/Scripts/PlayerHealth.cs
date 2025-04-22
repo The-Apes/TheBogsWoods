@@ -60,14 +60,14 @@ public class PlayerHealth : MonoBehaviour, IDamageable
         _invincible = true;
         if (currentHealth <= 0)
         {
-            AudioManager.Instance.PlaySound(deathSound); // Play the hurt sound
+            AudioManager.instance.PlaySound(deathSound); // Play the hurt sound
             // Player dead! -- call game over, animation, etc.
             OnPlayerDied?.Invoke();
         }
         else
         {
             GameManager.Instance.HitStop(0.1f);
-            AudioManager.Instance.PlaySound(hurtSound); // Play the hurt sound
+            AudioManager.instance.PlaySound(hurtSound); // Play the hurt sound
         }
     }
 

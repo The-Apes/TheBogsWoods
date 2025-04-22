@@ -20,12 +20,12 @@ public class Health : MonoBehaviour, IDamageable
         GameManager.Instance.HitStop(0.1f);
         if (_health <= 0) //if the health is less than or equal to 0
         {
-            AudioManager.Instance.PlaySound(deathSound);
+            AudioManager.instance.PlaySound(deathSound);
             Destroy(gameObject); //destroy this entity
         }
         else
         {
-            AudioManager.Instance.PlaySound(hurtSound);
+            AudioManager.instance.PlaySound(hurtSound);
         }
     }
 
