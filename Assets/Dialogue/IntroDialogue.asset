@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: IntroDialogue
   m_EditorClassIdentifier: 
   dialogue:
+    dilaogueName: LevelStartDialogue
     dialogueLines:
     - character:
         characterName: Ruri
