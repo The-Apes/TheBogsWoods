@@ -24,6 +24,8 @@ public class DialogueManager : MonoBehaviour
     public bool isDialogueActive = false;
     public float typingSpeed = 0.2f;
     public Animator animator;
+    
+    private Dialogue currentDialogue;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -41,6 +43,7 @@ public class DialogueManager : MonoBehaviour
   isDialogueActive = true;
   animator.Play("ShowDialogue");
   _lines.Clear();
+  currentDialogue = dialogue;
   foreach (DialogueLine dialogueLine in dialogue.dialogueLines)
   {
       _lines.Enqueue(dialogueLine);
@@ -114,5 +117,6 @@ public class DialogueManager : MonoBehaviour
         isDialogueActive = false;
         animator.Play("HideDialogue");
         RuriMovement.instance.controlling = true;
+        GameEvents.DialogueEnded(currentDialogue.dilaogueName);
     }
 }

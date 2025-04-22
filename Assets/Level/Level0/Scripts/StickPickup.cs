@@ -3,12 +3,7 @@ using UnityEngine;
 
 public class StickPickup : MonoBehaviour
 {
-   [SerializeField] private GameObject attackControlsPrompt;
-
-   private void Start()
-   {
-      attackControlsPrompt.SetActive(false);
-   }
+   [SerializeField] private AttackTutorialPrompt attackControlsPrompt;
 
    //public GameObject eligiblePlayer;
    private void OnTriggerEnter2D(Collider2D collision)
@@ -19,7 +14,7 @@ public class StickPickup : MonoBehaviour
          if (ruri)
          {
             ruri.hasWeapon = true;
-            attackControlsPrompt.SetActive(true);
+            attackControlsPrompt.ShowPrompt();
             Destroy(gameObject);
          }
       }  
