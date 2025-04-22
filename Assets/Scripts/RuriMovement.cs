@@ -49,7 +49,6 @@ public class RuriMovement : MonoBehaviour
             instance = this;
         _playerTransform = transform;
         _camera = FindFirstObjectByType<CinemachineCamera>();
-        
         _playerInput = GetComponent<PlayerInput>();
         _ruriAttack = GetComponent<RuriAttack>();
 

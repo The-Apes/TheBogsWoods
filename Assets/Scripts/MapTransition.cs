@@ -9,6 +9,9 @@ public class MapTransition : MonoBehaviour
  [SerializeField] Collider2D mapBoundry;
  CinemachineConfiner2D _confiner;
  [SerializeField] float addetiveOffset = 2f;
+ 
+ [Header("Sounds")]
+ [SerializeField] AudioClip mapChangeSound;
 
  private void Awake()
  {

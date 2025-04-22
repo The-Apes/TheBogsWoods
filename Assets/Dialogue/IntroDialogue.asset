@@ -15,14 +15,8 @@ MonoBehaviour:
   dialogue:
     dialogueLines:
     - character:
-        characterName: Mzati
-        characterSprite: {fileID: -5177388603050735206, guid: 71ebafeef3c03457483266a33ab2b270, type: 3}
-        color: {r: 1, g: 0, b: 0, a: 1}
-      line: I AM THE GOAT
-      right: 1
-    - character:
-        characterName: Mzati
-        characterSprite: {fileID: 8455717364283905841, guid: 74a03f80c6118614a939961871112769, type: 3}
-        color: {r: 1, g: 0, b: 0, a: 1}
-      line: AAAAAAAAAAAAAAAAAAAAAAAAAAA
+        characterName: Letsatsi (Monkey)
+        characterSprite: {fileID: 7813686684871218479, guid: 075c20dc0289802498b389b12909ef96, type: 3}
+        color: {r: 0.4716981, g: 0.22725041, b: 0.028924897, a: 1}
+      line: Hmmm... I should pay Mzati back, or I'll face dire consequences
       right: 0

@@ -22,6 +22,7 @@ public class RuriAttack : MonoBehaviour
     public void Attack(InputAction.CallbackContext context) //Called by input system
     {
         if (!context.started) return;
+        if(!_ruriMovement.hasWeapon) return;
         if (isAttacking) return;
         if (!_ruriMovement.controlling) return;
         

@@ -215,6 +215,8 @@ MonoBehaviour:
   ridingOttoPrefab: {fileID: 866079974977546125, guid: fbaec7c2d240c2e4ca25151d5195a896, type: 3}
   ottoPrefab: {fileID: 238577474628295289, guid: 803174830349f864e9adaf5746488655, type: 3}
   controlling: 1
+  ottoMounted: 1
+  hasWeapon: 1
   hasOtto: 1
   walkSpeed: 1.5
   runSpeed: 3.5
@@ -336,7 +338,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!61 &1279262603447677561
 BoxCollider2D:
