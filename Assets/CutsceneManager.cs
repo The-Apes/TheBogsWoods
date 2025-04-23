@@ -23,6 +23,10 @@ public class CutsceneManager : MonoBehaviour
         if (director == null) director = GetComponent<PlayableDirector>();
         director.Play(cutscene);
     }
+    public void PlayCutscene(PlayableAsset cutscene, GameObject camera)
+    {
+        PlayCutscene(cutscene);
+    }
 
     public static void CutsceneStopped(PlayableDirector director)
     {
