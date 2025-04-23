@@ -1,11 +1,12 @@
 using System;
 using UnityEngine;
 using UnityEngine.Playables;
+using UnityEngine.Serialization;
 
 public class CutsceneManager : MonoBehaviour
 {
     public static CutsceneManager Instance;
-    private PlayableDirector _director;
+    public PlayableDirector director;
     
     public static Action<string> CutsceneFinished;
 
@@ -13,15 +14,20 @@ public class CutsceneManager : MonoBehaviour
     {
         if (Instance == null) Instance = this;
         else Destroy(gameObject);
-        _director = GetComponent<PlayableDirector>();
+        director = GetComponent<PlayableDirector>();
+        director.stopped += CutsceneStopped;
+
     }
     public void PlayCutscene(PlayableAsset cutscene)
     {
-        if (_director == null) _director = GetComponent<PlayableDirector>();
-        _director.Play(cutscene);
+        if (director == null) director = GetComponent<PlayableDirector>();
+        director.Play(cutscene);
     }
-    _director
-    public static void CutsceneFinished(string CustceneName) => CutsceneFinished?.Invoke(AreaName);
+
+    public static void CutsceneStopped(PlayableDirector director)
+    {
+        print(director.playableAsset.name);
+    }
 
     
 }
