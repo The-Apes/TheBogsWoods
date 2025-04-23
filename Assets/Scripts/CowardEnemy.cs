@@ -1,15 +1,23 @@
 using UnityEngine;
+using UnityEngine.Serialization;
 
-public class CowardEnemy : MonoBehaviour
+public class CowardEnemy : MonoBehaviour, IDamageable
 {
     public float chaseSpeed = 2f; // Speed at which the enemy chases the player
     public float detectionRange = 5f; // Range within which the enemy detects the player
     private GameObject _chaseTarget;
+    private GameObject _runTarget;
 
     private Rigidbody2D _rb;
     [SerializeField] private Collider2D detectionZone;
     
-
+    [SerializeField] private float maxHealth;
+    public float health;
+    private bool _run;
+    
+    [Header("Sounds")]
+    [SerializeField] private AudioClip hurtSound;
+    [SerializeField] private AudioClip deathSound;
 
     // Start is called before the first frame update
     void Start()
@@ -20,10 +28,19 @@ public class CowardEnemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (_chaseTarget)
+        if (!_run){
+            if (_chaseTarget)
+            {
+                Vector2 direction = (_chaseTarget.transform.position - transform.position).normalized; // Direction towards the player
+                _rb.linearVelocity = direction.normalized * chaseSpeed; // Move the enemy towards the player
+            }
+        }
+        else
         {
-            Vector2 direction = (_chaseTarget.transform.position - transform.position).normalized; // Direction towards the player
-            _rb.linearVelocity = direction.normalized * chaseSpeed; // Move the enemy towards the player
+            //move in the opposite direcion of the player
+            if (!_runTarget) return;
+            Vector2 direction = (transform.position - _runTarget.transform.position).normalized; // Direction towards the player
+            _rb.linearVelocity = direction.normalized * (chaseSpeed * 1.5f);
         }
     }
     
@@ -48,6 +65,36 @@ public class CowardEnemy : MonoBehaviour
                 _chaseTarget = null; //make my target null
                 _rb.linearVelocity = Vector2.zero;
             }
+        }
+    }
+    private void Awake()
+    {
+        health = maxHealth;
+    }
+
+    public void ReceiveDamage(int damageTaken, GameObject source){
+        health -= damageTaken; //subtract the damage taken from the health
+        GetComponent<DamageFlash>().CallDamageFlash();
+        GameManager.Instance.HitStop(0.1f);
+        if (health <= 0) //if the health is less than or equal to 0
+        {
+            AudioManager.instance.PlaySound(deathSound);
+            if (RuriMovement.instance.gameObject)
+            {
+                _runTarget = RuriMovement.instance.controlling ? RuriMovement.instance.gameObject : RuriMovement.instance.otto;
+            };
+            _run = true;
+
+            Collider2D[] colliders = GetComponents<Collider2D>();
+            foreach (Collider2D collider in colliders)
+            {
+                collider.enabled = false; //disable all colliders
+            }
+
+        }
+        else
+        {
+            AudioManager.instance.PlaySound(hurtSound);
         }
     }
 }
