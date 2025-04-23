@@ -16,14 +16,45 @@ MonoBehaviour:
     dilaogueName: LevelStartDialogue
     dialogueLines:
     - character:
-        characterName: Ruri
-        characterSprite: {fileID: 3159093899981062546, guid: 2c5481612dbe21348b3079d3c85e96ca, type: 3}
-        color: {r: 0.46274513, g: 0.25490198, b: 0.5411765, a: 1}
-      line: I gotta go after Otto!
+        characterName: The Devs
+        characterSprite: {fileID: 0}
+        color: {r: 0.5566038, g: 0.5566038, b: 0.5566038, a: 1}
+      line: Hello markers :)
+      right: 0
+    - character:
+        characterName: The Devs
+        characterSprite: {fileID: 0}
+        color: {r: 0.5566038, g: 0.5566038, b: 0.5566038, a: 1}
+      line: You've reached the end of the narrative portion of our game.
+      right: 0
+    - character:
+        characterName: The Devs
+        characterSprite: {fileID: 0}
+        color: {r: 0.5566038, g: 0.5566038, b: 0.5566038, a: 1}
+      line: We don't have time to fully block out the WHOLE level...
+      right: 0
+    - character:
+        characterName: The Devs
+        characterSprite: {fileID: 0}
+        color: {r: 0.5566038, g: 0.5566038, b: 0.5566038, a: 1}
+      line: including it's cutscenes, dialogue and narrative explanations for things
+      right: 0
+    - character:
+        characterName: The Devs
+        characterSprite: {fileID: 0}
+        color: {r: 0.5566038, g: 0.5566038, b: 0.5566038, a: 1}
+      line: So from this point onward.
+      right: 0
+    - character:
+        characterName: The Devs
+        characterSprite: {fileID: 0}
+        color: {r: 0.5566038, g: 0.5566038, b: 0.5566038, a: 1}
+      line: you are entering a sort of (guided) sandbox mode, where we showcase our
+        features
       right: 0
     - character:
         characterName: Ruri
         characterSprite: {fileID: 3159093899981062546, guid: 2c5481612dbe21348b3079d3c85e96ca, type: 3}
-        color: {r: 0.46274513, g: 0.25490198, b: 0.5411765, a: 1}
-      line: Let me give his hat back to him
+        color: {r: 0.46274513, g: 0.25882354, b: 0.5411765, a: 1}
+      line: And Also I can break the 4th wall now! >:)
       right: 0
