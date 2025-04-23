@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerHealth : MonoBehaviour, IDamageable
 {
@@ -63,6 +64,9 @@ public class PlayerHealth : MonoBehaviour, IDamageable
             AudioManager.instance.PlaySound(deathSound); // Play the hurt sound
             // Player dead! -- call game over, animation, etc.
             OnPlayerDied?.Invoke();
+            //set time scale to normal
+            Time.timeScale = 1f;
+            SceneManager.LoadScene("Connection");
         }
         else
         {
