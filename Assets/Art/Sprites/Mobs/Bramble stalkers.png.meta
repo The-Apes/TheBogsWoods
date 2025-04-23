@@ -1,22 +1,16 @@
 fileFormatVersion: 2
-guid: 3af0bd085dc33d44ea991a21ef8d9356
+guid: 6d6984d6f68758e418e016fea5ba059f
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 5122380235639472051
-    second: Bobo and his sons-Recovered-Recovered_0
+      213: -5741184880344933576
+    second: Bramble stalkers_0
   - first:
-      213: -1343618108631752662
-    second: Bobo and his sons-Recovered-Recovered_1
+      213: 4969414324313535061
+    second: Bramble stalkers_1
   - first:
-      213: 8091511692120222235
-    second: Bobo and his sons-Recovered-Recovered_2
-  - first:
-      213: 8289311108232172531
-    second: Bobo and his sons-Recovered-Recovered_3
-  - first:
-      213: 9096766136492994170
-    second: Bobo and his sons-Recovered-Recovered_4
+      213: -6398289987842984892
+    second: Bramble stalkers_2
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -125,101 +119,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Bobo and his sons-Recovered-Recovered_0
-      rect:
-        serializedVersion: 2
-        x: 6
-        y: 101
-        width: 17
-        height: 23
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 3bfb5cd4fa9561740800000000000000
-      internalID: 5122380235639472051
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Bobo and his sons-Recovered-Recovered_1
-      rect:
-        serializedVersion: 2
-        x: 37
-        y: 102
-        width: 19
-        height: 23
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: a20e831f2728a5de0800000000000000
-      internalID: -1343618108631752662
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Bobo and his sons-Recovered-Recovered_2
-      rect:
-        serializedVersion: 2
-        x: 2
-        y: 63
-        width: 23
-        height: 35
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: b1aeeb86303da4070800000000000000
-      internalID: 8091511692120222235
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Bobo and his sons-Recovered-Recovered_3
-      rect:
-        serializedVersion: 2
-        x: 37
-        y: 67
-        width: 23
-        height: 27
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 3f3d0e6c88c890370800000000000000
-      internalID: 8289311108232172531
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Bobo and his sons-Recovered-Recovered_4
+      name: Bramble stalkers_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 2
-        width: 128
-        height: 63
+        y: 32
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -228,8 +134,52 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a7ea77aba943e3e70800000000000000
-      internalID: 9096766136492994170
+      spriteID: 83b5239f4c63350b0800000000000000
+      internalID: -5741184880344933576
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bramble stalkers_1
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5523276bff7e6f440800000000000000
+      internalID: 4969414324313535061
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bramble stalkers_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4443ea8d725b437a0800000000000000
+      internalID: -6398289987842984892
       vertices: []
       indices: 
       edges: []
@@ -238,7 +188,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 82bf9aa9e179f864a80efd41128a3593
     internalID: 0
     vertices: []
     indices: 
@@ -248,11 +198,9 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Bobo and his sons-Recovered-Recovered_0: 5122380235639472051
-      Bobo and his sons-Recovered-Recovered_1: -1343618108631752662
-      Bobo and his sons-Recovered-Recovered_2: 8091511692120222235
-      Bobo and his sons-Recovered-Recovered_3: 8289311108232172531
-      Bobo and his sons-Recovered-Recovered_4: 9096766136492994170
+      Bramble stalkers_0: -5741184880344933576
+      Bramble stalkers_1: 4969414324313535061
+      Bramble stalkers_2: -6398289987842984892
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

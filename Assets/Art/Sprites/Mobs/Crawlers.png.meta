@@ -125,10 +125,10 @@ TextureImporter:
       name: Crawlers_0
       rect:
         serializedVersion: 2
-        x: 2
-        y: 36
-        width: 28
-        height: 19
+        x: 0
+        y: 32
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -147,10 +147,10 @@ TextureImporter:
       name: Crawlers_1
       rect:
         serializedVersion: 2
-        x: 35
-        y: 40
-        width: 27
-        height: 19
+        x: 32
+        y: 32
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -169,10 +169,10 @@ TextureImporter:
       name: Crawlers_2
       rect:
         serializedVersion: 2
-        x: 2
-        y: 2
-        width: 25
-        height: 27
+        x: 0
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -191,10 +191,10 @@ TextureImporter:
       name: Crawlers_3
       rect:
         serializedVersion: 2
-        x: 31
-        y: 1
-        width: 33
-        height: 27
+        x: 32
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -213,7 +213,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: fe553d7ec004efb44a22719e51849c8f
     internalID: 0
     vertices: []
     indices: 
