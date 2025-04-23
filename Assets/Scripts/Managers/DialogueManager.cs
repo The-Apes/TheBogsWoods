@@ -9,8 +9,7 @@ using UnityEngine.UI;
 //reference https://www.youtube.com/watch?v=DOP_G5bsySA
 public class DialogueManager : MonoBehaviour
 {
-    public static DialogueManager instance;
-    
+    public static DialogueManager Instance;
     
     public TextMeshProUGUI characterName;
     public TextMeshProUGUI dialogueArea;
@@ -29,17 +28,19 @@ public class DialogueManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+         
     }
 
     private void Awake()
     {
-        if (instance == null)
-            instance = this;
+        if (Instance == null)
+            Instance = this;
         _lines = new Queue<DialogueLine>();
     }
 
     public void StartDialogue(Dialogue dialogue)
   {
+      print("DIALOGE HAS STARTED");
   isDialogueActive = true;
   animator.Play("ShowDialogue");
   _lines.Clear();

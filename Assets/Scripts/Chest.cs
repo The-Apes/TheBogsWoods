@@ -44,7 +44,7 @@ public class Chest : MonoBehaviour, IInteractable
         if (IsOpened = opened)
         {
             GetComponent<SpriteRenderer>().sprite = openedSprite;
-            DialogueManager.instance.StartDialogue(openChest.dialogue);
+            DialogueManager.Instance.StartDialogue(openChest.dialogue);
         }
     }
 }

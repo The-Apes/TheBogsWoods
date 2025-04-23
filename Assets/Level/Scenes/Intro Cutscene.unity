@@ -914,7 +914,7 @@ GameObject:
   - component: {fileID: 1977042285}
   - component: {fileID: 1977042284}
   m_Layer: 0
-  m_Name: EvenManger
+  m_Name: EventManger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

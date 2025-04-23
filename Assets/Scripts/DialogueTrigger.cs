@@ -30,7 +30,7 @@ public class DialogueTrigger : ScriptableObject
    public Dialogue dialogue;
    public void TriggerDialogue()
    {
-       DialogueManager.instance.StartDialogue(dialogue);
+       DialogueManager.Instance.StartDialogue(dialogue);
    }
 
 }

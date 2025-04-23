@@ -6,7 +6,7 @@ public class LevelZeroSceneManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        DialogueManager.instance.StartDialogue(startingDialogue.dialogue);
+        DialogueManager.Instance.StartDialogue(startingDialogue.dialogue);
     }
 
  

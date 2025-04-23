@@ -8,7 +8,7 @@ public class OneTimeDialogueTrigger : MonoBehaviour
    {
       if (other.gameObject.CompareTag("Player"))
       {
-         DialogueManager.instance.StartDialogue(dialogue);
+         DialogueManager.Instance.StartDialogue(dialogue);
          Destroy(gameObject);
       }
    }
