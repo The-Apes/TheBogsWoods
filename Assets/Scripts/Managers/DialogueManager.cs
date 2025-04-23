@@ -48,8 +48,7 @@ public class DialogueManager : MonoBehaviour
   {
       _lines.Enqueue(dialogueLine);
   }
-
- // RuriMovement.instance.controlling = false;
+  if (RuriMovement.instance != null) RuriMovement.instance.controlling = false;
   
   DisplayNextDialogueLine();
   }
