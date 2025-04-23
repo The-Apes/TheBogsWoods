@@ -6,7 +6,7 @@ public class Chest : MonoBehaviour, IInteractable
     public string ChestID { get; private set; }
     public GameObject itemPrefab; // The item that will be spawned when the chest is opened
     public Sprite openedSprite; // The sprite to use when the chest is opened
-
+    public DialogueTrigger openChest;
     void Start()
     {
         ChestID ??= GlobalHelper.GenerateUniqueID(gameObject);
@@ -44,6 +44,7 @@ public class Chest : MonoBehaviour, IInteractable
         if (IsOpened = opened)
         {
             GetComponent<SpriteRenderer>().sprite = openedSprite;
+            DialogueManager.instance.StartDialogue(openChest.dialogue);
         }
     }
 }
