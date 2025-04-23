@@ -76,6 +76,7 @@ public class CowardEnemy : MonoBehaviour, IDamageable
         health -= damageTaken; //subtract the damage taken from the health
         GetComponent<DamageFlash>().CallDamageFlash();
         GameManager.Instance.HitStop(0.1f);
+        ApplyKnockback(source.transform.position, 20f);
         if (health <= 0) //if the health is less than or equal to 0
         {
             AudioManager.instance.PlaySound(deathSound);
@@ -97,4 +98,10 @@ public class CowardEnemy : MonoBehaviour, IDamageable
             AudioManager.instance.PlaySound(hurtSound);
         }
     }
+    private void ApplyKnockback(Vector2 sourcePosition, float knockbackForce)
+    {
+        Vector2 knockbackDirection = (transform.position - (Vector3)sourcePosition).normalized;
+        _rb.AddForce(knockbackDirection * knockbackForce, ForceMode2D.Impulse);
+    }
+
 }

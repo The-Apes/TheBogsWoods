@@ -11,10 +11,7 @@ public class HitBox : MonoBehaviour
     
     private void Awake()
     {
-        if (owner == null) //if the owner is not set, set it to the objects that owns this script
-        {
-            owner = transform.root.gameObject;
-        }
+        owner = RuriMovement.instance.gameObject;
         _layer = gameObject.layer; //get the layer of this object, layers are stored in a bitmask, so it's weird...
     }
 

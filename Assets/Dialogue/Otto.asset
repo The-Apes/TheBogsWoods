@@ -37,7 +37,7 @@ MonoBehaviour:
         characterName: Ruri
         characterSprite: {fileID: 3159093899981062546, guid: 2c5481612dbe21348b3079d3c85e96ca, type: 3}
         color: {r: 0.7222223, g: 0, b: 1, a: 1}
-      line: With otto, you can shoot with left click
+      line: With otto, you can shoot with Right Click
       right: 0
     - character:
         characterName: Ruri

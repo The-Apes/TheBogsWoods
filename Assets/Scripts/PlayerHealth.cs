@@ -15,6 +15,7 @@ public class PlayerHealth : MonoBehaviour, IDamageable
     [Header("Sounds")]
     [SerializeField] private AudioClip hurtSound;
     [SerializeField] private AudioClip deathSound;
+    private Rigidbody2D _rb;
 
     public static event Action OnPlayerDied;
 
@@ -30,6 +31,8 @@ public class PlayerHealth : MonoBehaviour, IDamageable
         // Initialize the health UI
         healthUI.SetMaxHearts(maxHealth);
         healthUI.UpdateHearts(currentHealth);
+        _rb = GetComponent<Rigidbody2D>();
+        
     }
 
     private void Update()
@@ -67,9 +70,16 @@ public class PlayerHealth : MonoBehaviour, IDamageable
         }
         else
         {
+            ApplyKnockback(source.transform.position,10f);
             GameManager.Instance.HitStop(0.1f);
             AudioManager.instance.PlaySound(hurtSound); // Play the hurt sound
         }
+    }
+
+    private void ApplyKnockback(Vector2 sourcePosition, float knockbackForce)
+    {
+        Vector2 knockbackDirection = (transform.position - (Vector3)sourcePosition).normalized;
+        _rb.AddForce(knockbackDirection * knockbackForce, ForceMode2D.Impulse);
     }
 
     private void OnDestroy()

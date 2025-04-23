@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 1279262603447677561}
   - component: {fileID: 1035093846423283616}
   - component: {fileID: 3851886552107231536}
+  - component: {fileID: 3928796958079581933}
   m_Layer: 7
   m_Name: Ruri
   m_TagString: Player
@@ -120,7 +121,19 @@ MonoBehaviour:
     m_ActionId: 95516e3f-65a2-4de5-91cf-ffc04601062f
     m_ActionName: Player/Switch
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6559439983350196887}
+        m_TargetAssemblyTypeName: InteractionDetector, Assembly-CSharp
+        m_MethodName: OnInteract
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 9c551d44-e185-4779-8c4f-06c1be069ba4
     m_ActionName: 'Player/Interact[/Keyboard/e]'
   - m_PersistentCalls:
@@ -195,6 +208,10 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 335cdcb2-f328-4cdb-9e10-bbc42f809b54
     m_ActionName: 'Player/Shoot[/Keyboard/k]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: e4b65032-4198-4e03-af6d-db8174e5414c
+    m_ActionName: 'UI/Select[/Keyboard/space,/Keyboard/enter]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -214,10 +231,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ridingOttoPrefab: {fileID: 866079974977546125, guid: fbaec7c2d240c2e4ca25151d5195a896, type: 3}
   ottoPrefab: {fileID: 238577474628295289, guid: 803174830349f864e9adaf5746488655, type: 3}
+  otto: {fileID: 0}
   controlling: 1
   ottoMounted: 1
   hasWeapon: 1
-  hasOtto: 1
+  hasOtto: 0
   walkSpeed: 1.5
   runSpeed: 3.5
   lookDir: {fileID: 5508549938362418821}
@@ -326,7 +344,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDamping: 0
+  m_LinearDamping: 10
   m_AngularDamping: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
@@ -418,6 +436,19 @@ MonoBehaviour:
   healthUI: {fileID: 0}
   hurtSound: {fileID: 8300000, guid: 773a856e2b1308245989b19d7d99e6e5, type: 3}
   deathSound: {fileID: 8300000, guid: 927770d6919099841bc32902490eadab, type: 3}
+--- !u!114 &3928796958079581933
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 238577474628295289}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a83284fa7b862df458b9e28ce16443d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerHealth: 3
 --- !u!1 &1653731892496004782
 GameObject:
   m_ObjectHideFlags: 0
@@ -486,7 +517,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: 0.22546431}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -496,7 +527,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1, y: 1.4509289}
   m_EdgeRadius: 0
 --- !u!114 &8499670732346854692
 MonoBehaviour:
@@ -511,7 +542,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
-  owner: {fileID: 0}
+  owner: {fileID: 238577474628295289}
   continuousDamage: 0
 --- !u!1 &1736256709442736224
 GameObject:
@@ -673,7 +704,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.354, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 3621001707841758355}
   m_Father: {fileID: 8294062259057164265}
