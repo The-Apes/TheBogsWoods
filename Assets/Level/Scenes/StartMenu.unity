@@ -176,10 +176,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: LOAD
+  m_text: Skip Intro
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 4b65deeaef5135b4f9e3cf1ab415dcfc, type: 2}
-  m_sharedMaterial: {fileID: 4779226686124579836, guid: 4b65deeaef5135b4f9e3cf1ab415dcfc, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: b7652800a9d4f6f4ea1dc904973500cd, type: 2}
+  m_sharedMaterial: {fileID: 62635026379037659, guid: b7652800a9d4f6f4ea1dc904973500cd, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -203,15 +203,15 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 40
-  m_fontSizeBase: 40
+  m_fontSize: 25
+  m_fontSizeBase: 20
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 1
   m_HorizontalAlignment: 2
-  m_VerticalAlignment: 256
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -447,8 +447,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: EXIT
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 4b65deeaef5135b4f9e3cf1ab415dcfc, type: 2}
-  m_sharedMaterial: {fileID: 4779226686124579836, guid: 4b65deeaef5135b4f9e3cf1ab415dcfc, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: b7652800a9d4f6f4ea1dc904973500cd, type: 2}
+  m_sharedMaterial: {fileID: 62635026379037659, guid: b7652800a9d4f6f4ea1dc904973500cd, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -480,7 +480,7 @@ MonoBehaviour:
   m_fontSizeMax: 72
   m_fontStyle: 1
   m_HorizontalAlignment: 2
-  m_VerticalAlignment: 256
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -609,7 +609,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2114833274}
         m_TargetAssemblyTypeName: StartMenuController, Assembly-CSharp
-        m_MethodName: OnStartClick
+        m_MethodName: onStartClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -718,8 +718,8 @@ MonoBehaviour:
 
 '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 4b65deeaef5135b4f9e3cf1ab415dcfc, type: 2}
-  m_sharedMaterial: {fileID: 4779226686124579836, guid: 4b65deeaef5135b4f9e3cf1ab415dcfc, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: b7652800a9d4f6f4ea1dc904973500cd, type: 2}
+  m_sharedMaterial: {fileID: 62635026379037659, guid: b7652800a9d4f6f4ea1dc904973500cd, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -751,7 +751,7 @@ MonoBehaviour:
   m_fontSizeMax: 72
   m_fontStyle: 1
   m_HorizontalAlignment: 2
-  m_VerticalAlignment: 256
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -827,10 +827,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 2114833273}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 130, y: 127}
-  m_SizeDelta: {x: 2000, y: 50}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: -50}
+  m_SizeDelta: {x: 0, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1487674216
 MonoBehaviour:
@@ -854,8 +854,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: THE BOG'S WOODS
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 4b65deeaef5135b4f9e3cf1ab415dcfc, type: 2}
-  m_sharedMaterial: {fileID: 4779226686124579836, guid: 4b65deeaef5135b4f9e3cf1ab415dcfc, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: b7652800a9d4f6f4ea1dc904973500cd, type: 2}
+  m_sharedMaterial: {fileID: 62635026379037659, guid: b7652800a9d4f6f4ea1dc904973500cd, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -879,10 +879,10 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 55
-  m_fontSizeBase: 55
+  m_fontSize: 41.65
+  m_fontSizeBase: 20
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 1
@@ -917,7 +917,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 551.91174, y: 0, z: 810.0308, w: 0.000030517578}
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -943,6 +943,7 @@ GameObject:
   - component: {fileID: 1661722748}
   - component: {fileID: 1661722747}
   - component: {fileID: 1661722750}
+  - component: {fileID: 1661722751}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1068,6 +1069,30 @@ MonoBehaviour:
     m_MipBias: 0
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
+--- !u!114 &1661722751
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1661722746}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c88f5cead0c0b2a4eb05b5900433f8d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ComponentVersion: 1
+  m_AssetsPPU: 32
+  m_RefResolutionX: 640
+  m_RefResolutionY: 360
+  m_CropFrame: 0
+  m_GridSnapping: 0
+  m_FilterMode: 0
+  m_UpscaleRT: 0
+  m_PixelSnapping: 0
+  m_CropFrameX: 0
+  m_CropFrameY: 0
+  m_StretchFill: 0
 --- !u!1 &1979334139
 GameObject:
   m_ObjectHideFlags: 0
@@ -1150,7 +1175,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1979334142}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2114833274}
+        m_TargetAssemblyTypeName: StartMenuController, Assembly-CSharp
+        m_MethodName: OnSkipClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1979334142
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1318,7 +1355,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_UiScaleMode: 1
-  m_ReferencePixelsPerUnit: 100
+  m_ReferencePixelsPerUnit: 32
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 640, y: 360}
   m_ScreenMatchMode: 0
@@ -1337,15 +1374,15 @@ Canvas:
   m_GameObject: {fileID: 2114833269}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
-  m_Camera: {fileID: 0}
-  m_PlaneDistance: 100
-  m_PixelPerfect: 0
+  m_RenderMode: 1
+  m_Camera: {fileID: 1661722748}
+  m_PlaneDistance: 32
+  m_PixelPerfect: 1
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_VertexColorAlwaysGammaSpace: 0
+  m_VertexColorAlwaysGammaSpace: 1
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0

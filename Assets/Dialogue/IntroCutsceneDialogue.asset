@@ -1,0 +1,112 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eab4870aa414b1e44abde0fb324c404d, type: 3}
+  m_Name: IntroCutsceneDialogue
+  m_EditorClassIdentifier: 
+  dialogue:
+    dilaogueName: 
+    dialogueLines:
+    - character:
+        characterName: 
+        characterSprite: {fileID: 0}
+        color: {r: 0, g: 0, b: 0, a: 0}
+      line: "Once upon a time, a sister and brother, Ruri and Otto, played in their
+        backyard.\r"
+      right: 0
+    - character:
+        characterName: 
+        characterSprite: {fileID: 0}
+        color: {r: 0, g: 0, b: 0, a: 0}
+      line: "Until Otto\u2019s ball bounced into the forest, swallowed by the trees.\r"
+      right: 0
+    - character:
+        characterName: 
+        characterSprite: {fileID: 0}
+        color: {r: 0, g: 0, b: 0, a: 0}
+      line: 'They searched the woods high and low, but the ball was nowhere to be
+        found.
+
+'
+      right: 0
+    - character:
+        characterName: 
+        characterSprite: {fileID: 0}
+        color: {r: 0, g: 0, b: 0, a: 0}
+      line: 'Instead, they stumbled upon a shrine, cracked, overgrown, forgotten.
+
+        
+
+'
+      right: 0
+    - character:
+        characterName: 
+        characterSprite: {fileID: 0}
+        color: {r: 0, g: 0, b: 0, a: 0}
+      line: 'Otto stepped forward and toyed with it, laughing at its silence.
+
+'
+      right: 0
+    - character:
+        characterName: 
+        characterSprite: {fileID: 0}
+        color: {r: 0, g: 0, b: 0, a: 0}
+      line: 'But the shrine stirred. '
+      right: 0
+    - character:
+        characterName: 
+        characterSprite: {fileID: 0}
+        color: {r: 0, g: 0, b: 0, a: 0}
+      line: "From its heart, a giant silhouette emerged\u2014tall, still, and watching.\r\n"
+      right: 0
+    - character:
+        characterName: 
+        characterSprite: {fileID: 0}
+        color: {r: 0, g: 0, b: 0, a: 0}
+      line: 'The air shifted. The trees warped. The world folded in on itself.
+
+        
+
+'
+      right: 0
+    - character:
+        characterName: 
+        characterSprite: {fileID: 0}
+        color: {r: 0, g: 0, b: 0, a: 0}
+      line: 'In a blink, they were somewhere else, a forest bathed in twilight.
+
+'
+      right: 0
+    - character:
+        characterName: 
+        characterSprite: {fileID: 0}
+        color: {r: 0, g: 0, b: 0, a: 0}
+      line: "Ruri lay in the grass, stunned.\r\r\n"
+      right: 0
+    - character:
+        characterName: 
+        characterSprite: {fileID: 0}
+        color: {r: 0, g: 0, b: 0, a: 0}
+      line: "Otto yelled at the figure, throwing a tantrum.\r\r\r\n"
+      right: 0
+    - character:
+        characterName: 
+        characterSprite: {fileID: 0}
+        color: {r: 0, g: 0, b: 0, a: 0}
+      line: "The figure raised its hand. A curse passed through the air like wind.
+        \r\r\r\n"
+      right: 0
+    - character:
+        characterName: 
+        characterSprite: {fileID: 0}
+        color: {r: 0, g: 0, b: 0, a: 0}
+      line: "Otto was no longer human. He had become a monkey. \r\r\r\n"
+      right: 0

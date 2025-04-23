@@ -48,8 +48,7 @@ public class DialogueManager : MonoBehaviour
   {
       _lines.Enqueue(dialogueLine);
   }
-
-  RuriMovement.instance.controlling = false;
+  if (RuriMovement.instance != null) RuriMovement.instance.controlling = false;
   
   DisplayNextDialogueLine();
   }
@@ -116,7 +115,7 @@ public class DialogueManager : MonoBehaviour
     {
         isDialogueActive = false;
         animator.Play("HideDialogue");
-        RuriMovement.instance.controlling = true;
+        if( RuriMovement.instance != null)RuriMovement.instance.controlling = true;
         GameEvents.DialogueEnded(currentDialogue.dilaogueName);
     }
 }

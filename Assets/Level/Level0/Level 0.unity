@@ -23345,6 +23345,18 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4027614522962628678, guid: 9abeb51c76090e243abe42863fe44864, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4027614522962628678, guid: 9abeb51c76090e243abe42863fe44864, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4027614522962628678, guid: 9abeb51c76090e243abe42863fe44864, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5068283824092492784, guid: 9abeb51c76090e243abe42863fe44864, type: 3}
       propertyPath: healthUI
       value: 
@@ -23375,7 +23387,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7292209988197213473, guid: 9abeb51c76090e243abe42863fe44864, type: 3}
       propertyPath: hasOtto
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7292209988197213473, guid: 9abeb51c76090e243abe42863fe44864, type: 3}
       propertyPath: hasWeapon
@@ -23570,10 +23582,6 @@ PrefabInstance:
     - target: {fileID: 207457151365408036, guid: 1059682e4a218f24fbde6f295f65d930, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7211085846442236496, guid: 1059682e4a218f24fbde6f295f65d930, type: 3}
-      propertyPath: typingSpeed
-      value: 0.025
       objectReference: {fileID: 0}
     - target: {fileID: 8978968360374067285, guid: 1059682e4a218f24fbde6f295f65d930, type: 3}
       propertyPath: m_Name
