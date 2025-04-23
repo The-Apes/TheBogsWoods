@@ -113,14 +113,27 @@ public class RuriMovement : MonoBehaviour
 
     private void UpdateDirection()
     {
-        if (_moveInput.x == 0 && _moveInput.y == 0) return; //if the player is moving (return makes the code stop executing, which will ignore the rest of the code below)
-        if (Mathf.Abs(_moveInput.x) > Mathf.Abs(_moveInput.y)) //if the player is moving more in the x direction than the y direction
+        Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        Vector3 direction = mouseWorldPos - _playerTransform.position;
+        direction.z = 0; // Keep it 2D
+
+        // Cardinal direction logic
+        if (Mathf.Abs(direction.x) > Mathf.Abs(direction.y))
         {
-            _currentDirection = _moveInput.x > 0 ? Direction.Right : Direction.Left; //another ternary, if the player is moving right
-        } else 
+            _currentDirection = direction.x > 0 ? Direction.Right : Direction.Left;
+        }
+        else
         {
-            _currentDirection = _moveInput.y > 0 ?  Direction.Up : Direction.Down; //if the player is moving up
-        } 
+            _currentDirection = direction.y > 0 ? Direction.Up : Direction.Down;
+        }
+        // if (_moveInput.x == 0 && _moveInput.y == 0) return; //if the player is moving (return makes the code stop executing, which will ignore the rest of the code below)
+        // if (Mathf.Abs(_moveInput.x) > Mathf.Abs(_moveInput.y)) //if the player is moving more in the x direction than the y direction
+        // {
+        //     _currentDirection = _moveInput.x > 0 ? Direction.Right : Direction.Left; //another ternary, if the player is moving right
+        // } else 
+        // {
+        //     _currentDirection = _moveInput.y > 0 ?  Direction.Up : Direction.Down; //if the player is moving up
+        // } 
     }
 
     #region InputAction

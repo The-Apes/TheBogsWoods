@@ -41,7 +41,7 @@ public class Enemy : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (!detectionZone.IsTouching(other)) {
+        if (!detectionZone.IsTouching(other) ) {
             if (other.isTrigger) return; //if the object that entered my sphere is a trigger, return
             if(other.gameObject == _chaseTarget) //if the object that exited my sphere is my target
             {
