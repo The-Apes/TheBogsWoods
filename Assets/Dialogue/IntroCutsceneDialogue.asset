@@ -19,8 +19,94 @@ MonoBehaviour:
         characterName: 
         characterSprite: {fileID: 0}
         color: {r: 0, g: 0, b: 0, a: 0}
-      line: 'Long before time had a name, the First Spinjitzu Master created Ninjago
-        using four elemental weapons. But when he passed, a dark presence sought
-        out to collect them all: Lord Garmadon. So I, Sensei Wu, his brother, sought
-        out to find four ninja to collect them first. '
+      line: "Once upon a time, a sister and brother, Ruri and Otto, played in their
+        backyard.\r"
+      right: 0
+    - character:
+        characterName: 
+        characterSprite: {fileID: 0}
+        color: {r: 0, g: 0, b: 0, a: 0}
+      line: "Until Otto\u2019s ball bounced into the forest, swallowed by the trees.\r"
+      right: 0
+    - character:
+        characterName: 
+        characterSprite: {fileID: 0}
+        color: {r: 0, g: 0, b: 0, a: 0}
+      line: 'They searched the woods high and low, but the ball was nowhere to be
+        found.
+
+'
+      right: 0
+    - character:
+        characterName: 
+        characterSprite: {fileID: 0}
+        color: {r: 0, g: 0, b: 0, a: 0}
+      line: 'Instead, they stumbled upon a shrine, cracked, overgrown, forgotten.
+
+        
+
+'
+      right: 0
+    - character:
+        characterName: 
+        characterSprite: {fileID: 0}
+        color: {r: 0, g: 0, b: 0, a: 0}
+      line: 'Otto stepped forward and toyed with it, laughing at its silence.
+
+'
+      right: 0
+    - character:
+        characterName: 
+        characterSprite: {fileID: 0}
+        color: {r: 0, g: 0, b: 0, a: 0}
+      line: 'But the shrine stirred. '
+      right: 0
+    - character:
+        characterName: 
+        characterSprite: {fileID: 0}
+        color: {r: 0, g: 0, b: 0, a: 0}
+      line: "From its heart, a giant silhouette emerged\u2014tall, still, and watching.\r\n"
+      right: 0
+    - character:
+        characterName: 
+        characterSprite: {fileID: 0}
+        color: {r: 0, g: 0, b: 0, a: 0}
+      line: 'The air shifted. The trees warped. The world folded in on itself.
+
+        
+
+'
+      right: 0
+    - character:
+        characterName: 
+        characterSprite: {fileID: 0}
+        color: {r: 0, g: 0, b: 0, a: 0}
+      line: 'In a blink, they were somewhere else, a forest bathed in twilight.
+
+'
+      right: 0
+    - character:
+        characterName: 
+        characterSprite: {fileID: 0}
+        color: {r: 0, g: 0, b: 0, a: 0}
+      line: "Ruri lay in the grass, stunned.\r\r\n"
+      right: 0
+    - character:
+        characterName: 
+        characterSprite: {fileID: 0}
+        color: {r: 0, g: 0, b: 0, a: 0}
+      line: "Otto yelled at the figure, throwing a tantrum.\r\r\r\n"
+      right: 0
+    - character:
+        characterName: 
+        characterSprite: {fileID: 0}
+        color: {r: 0, g: 0, b: 0, a: 0}
+      line: "The figure raised its hand. A curse passed through the air like wind.
+        \r\r\r\n"
+      right: 0
+    - character:
+        characterName: 
+        characterSprite: {fileID: 0}
+        color: {r: 0, g: 0, b: 0, a: 0}
+      line: "Otto was no longer human. He had become a monkey. \r\r\r\n"
       right: 0

@@ -115,7 +115,7 @@ public class DialogueManager : MonoBehaviour
     {
         isDialogueActive = false;
         animator.Play("HideDialogue");
-        RuriMovement.instance.controlling = true;
+        if( RuriMovement.instance != null)RuriMovement.instance.controlling = true;
         GameEvents.DialogueEnded(currentDialogue.dilaogueName);
     }
 }
