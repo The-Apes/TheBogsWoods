@@ -1274,7 +1274,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.25, y: 0.13}
+  m_Size: {x: 0.78125, y: 0.40625}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -2011,17 +2011,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4455555971875981361, guid: 2874e0152a441f4469d43553ecaf6684, type: 3}
   m_PrefabInstance: {fileID: 1846853514}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &467314617 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6559439983350196887, guid: 9abeb51c76090e243abe42863fe44864, type: 3}
-  m_PrefabInstance: {fileID: 657545721352187546}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0146c1a58e556bd4fbaecfed50aa55e8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &468423745
 GameObject:
   m_ObjectHideFlags: 0
@@ -2695,7 +2684,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.53125, y: 0.5}
+  m_Size: {x: 1.375, y: 0.5}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -4592,7 +4581,7 @@ BoxCollider2D:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 1, y: 1}
-    newSize: {x: 0.65625, y: 0.65625}
+    newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -4675,7 +4664,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.65625, y: 0.65625}
+  m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -4712,8 +4701,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 1
-  hurtSound: {fileID: 8300000, guid: 773a856e2b1308245989b19d7d99e6e5, type: 3}
-  deathSound: {fileID: 8300000, guid: 927770d6919099841bc32902490eadab, type: 3}
+  hurtSound: {fileID: 0}
+  deathSound: {fileID: 0}
 --- !u!114 &961733990
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8108,7 +8097,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   owner: {fileID: 0}
-  continuousDamage: 1
+  continuousDamage: 0
 --- !u!61 &1316629730
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -20687,7 +20676,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.53125, y: 0.5}
+  m_Size: {x: 0.34375, y: 0.609375}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -23569,7 +23558,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1998373849
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23759,7 +23748,7 @@ PlayableDirector:
   m_Enabled: 1
   serializedVersion: 3
   m_PlayableAsset: {fileID: 11400000, guid: d0632000cc02f8b49b98867f59fbbbc8, type: 2}
-  m_InitialState: 0
+  m_InitialState: 1
   m_WrapMode: 2
   m_DirectorUpdateMode: 1
   m_InitialTime: 0
@@ -24171,7 +24160,7 @@ PrefabInstance:
     - target: {fileID: 2441188607223872193, guid: 9abeb51c76090e243abe42863fe44864, type: 3}
       propertyPath: m_ActionEvents.Array.data[3].m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 467314617}
+      objectReference: {fileID: 0}
     - target: {fileID: 2441188607223872193, guid: 9abeb51c76090e243abe42863fe44864, type: 3}
       propertyPath: m_ActionEvents.Array.data[3].m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
