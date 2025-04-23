@@ -131,6 +131,7 @@ public class RuriMovement : MonoBehaviour
     public void SwitchCharacter(InputAction.CallbackContext context)
     {
         if (!context.started) return;
+        if (!hasOtto) return;
         if (ottoMounted)
         {
             RemoveOtto();
