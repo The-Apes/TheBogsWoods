@@ -13,6 +13,7 @@ public class CutsceneTrigger : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             CutsceneManager.Instance.PlayCutscene(cutscene,camera);
+            Destroy(gameObject);
         }
     }
 }

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+public class CowardEnemy : MonoBehaviour
 {
     public float chaseSpeed = 2f; // Speed at which the enemy chases the player
     public float detectionRange = 5f; // Range within which the enemy detects the player

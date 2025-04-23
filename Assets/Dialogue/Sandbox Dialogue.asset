@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eab4870aa414b1e44abde0fb324c404d, type: 3}
+  m_Name: Sandbox Dialogue
+  m_EditorClassIdentifier: 
+  dialogue:
+    dilaogueName: LevelStartDialogue
+    dialogueLines:
+    - character:
+        characterName: Ruri
+        characterSprite: {fileID: 3159093899981062546, guid: 2c5481612dbe21348b3079d3c85e96ca, type: 3}
+        color: {r: 0.46274513, g: 0.25490198, b: 0.5411765, a: 1}
+      line: I gotta go after Otto!
+      right: 0
+    - character:
+        characterName: Ruri
+        characterSprite: {fileID: 3159093899981062546, guid: 2c5481612dbe21348b3079d3c85e96ca, type: 3}
+        color: {r: 0.46274513, g: 0.25490198, b: 0.5411765, a: 1}
+      line: Let me give his hat back to him
+      right: 0

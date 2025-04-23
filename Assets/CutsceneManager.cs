@@ -31,11 +31,17 @@ public class CutsceneManager : MonoBehaviour
         customCamera = camera;
         normalCamera.SetActive(false);
         customCamera.SetActive(true);
+        if(RuriMovement.instance != null) RuriMovement.instance.controlling = false;
     }
 
-    public static void CutsceneStopped(PlayableDirector director)
+    private  void CutsceneStopped(PlayableDirector director)
     {
-        print(director.playableAsset.name);
+        if (!normalCamera.activeSelf){
+            normalCamera.SetActive(true);
+            customCamera.SetActive(false);
+            if(RuriMovement.instance != null) RuriMovement.instance.controlling = true;
+
+        }
     }
 
     
