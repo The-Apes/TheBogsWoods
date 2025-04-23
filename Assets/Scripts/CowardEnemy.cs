@@ -38,6 +38,7 @@ public class CowardEnemy : MonoBehaviour, IDamageable
         else
         {
             //move in the opposite direcion of the player
+            if (!_runTarget) return;
             Vector2 direction = (transform.position - _runTarget.transform.position).normalized; // Direction towards the player
             _rb.linearVelocity = direction.normalized * (chaseSpeed * 1.5f);
         }
@@ -78,7 +79,10 @@ public class CowardEnemy : MonoBehaviour, IDamageable
         if (health <= 0) //if the health is less than or equal to 0
         {
             AudioManager.instance.PlaySound(deathSound);
-            _runTarget = _chaseTarget;
+            if (RuriMovement.instance.gameObject)
+            {
+                _runTarget = RuriMovement.instance.controlling ? RuriMovement.instance.gameObject : RuriMovement.instance.otto;
+            };
             _run = true;
 
             Collider2D[] colliders = GetComponents<Collider2D>();

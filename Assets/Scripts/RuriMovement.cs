@@ -20,7 +20,7 @@ public class RuriMovement : MonoBehaviour
     [SerializeField] public GameObject ridingOttoPrefab; //this is a variable that stores the otto game object
     [NonSerialized] public GameObject RidingOtto; //this is a variable that stores the otto game object, this is the one that will be used in the game
     [SerializeField] private GameObject ottoPrefab; //this is a variable that stores the otto game object
-    private GameObject _otto; //this is a variable that stores the otto game object, this is the one that will be used in the game
+    public GameObject otto; //this is a variable that stores the otto game object, this is the one that will be used in the game
     
     private bool _running; //this is a variable that stores if the player is running or not
     public bool controlling = true;
@@ -136,12 +136,12 @@ public class RuriMovement : MonoBehaviour
         {
             RemoveOtto();
             ottoMounted = false;
-            _otto = Instantiate(ottoPrefab, new Vector3(_playerTransform.position.x,_playerTransform.position.y+0.75f,_playerTransform.position.z), Quaternion.identity);
+            otto = Instantiate(ottoPrefab, new Vector3(_playerTransform.position.x,_playerTransform.position.y+0.75f,_playerTransform.position.z), Quaternion.identity);
            // _otto.GetComponent<PlayerInput>().SwitchCurrentControlScheme(_playerInput.currentControlScheme, _playerInput.devices.ToArray());
-            _camera.Follow = _otto.transform;
+            _camera.Follow = otto.transform;
             controlling = false;
         } else if (_ottoInRange){
-            Destroy(_otto);
+            Destroy(otto);
             ottoMounted = true;
             AddOtto();
             controlling = true;
