@@ -7,6 +7,8 @@ public class CutsceneManager : MonoBehaviour
 {
     public static CutsceneManager Instance;
     public PlayableDirector director;
+    public GameObject normalCamera;
+    public GameObject customCamera;
     
     public static Action<string> CutsceneFinished;
 
@@ -26,6 +28,9 @@ public class CutsceneManager : MonoBehaviour
     public void PlayCutscene(PlayableAsset cutscene, GameObject camera)
     {
         PlayCutscene(cutscene);
+        customCamera = camera;
+        normalCamera.SetActive(false);
+        customCamera.SetActive(true);
     }
 
     public static void CutsceneStopped(PlayableDirector director)
