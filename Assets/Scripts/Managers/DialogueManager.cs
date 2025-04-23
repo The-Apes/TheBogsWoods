@@ -49,7 +49,7 @@ public class DialogueManager : MonoBehaviour
       _lines.Enqueue(dialogueLine);
   }
 
-  RuriMovement.instance.controlling = false;
+ // RuriMovement.instance.controlling = false;
   
   DisplayNextDialogueLine();
   }

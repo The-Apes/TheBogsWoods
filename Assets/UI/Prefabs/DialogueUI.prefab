@@ -581,7 +581,7 @@ MonoBehaviour:
   background: {fileID: 8694241343635112217}
   iconTransform: {fileID: 8700023746020763942}
   isDialogueActive: 0
-  typingSpeed: 0.1
+  typingSpeed: 0.025
   animator: {fileID: 3793254786804814888}
 --- !u!114 &3110691875750253490
 MonoBehaviour:
