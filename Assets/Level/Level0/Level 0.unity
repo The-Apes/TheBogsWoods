@@ -23387,7 +23387,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7292209988197213473, guid: 9abeb51c76090e243abe42863fe44864, type: 3}
       propertyPath: hasOtto
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7292209988197213473, guid: 9abeb51c76090e243abe42863fe44864, type: 3}
       propertyPath: hasWeapon
