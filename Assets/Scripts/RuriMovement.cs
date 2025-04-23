@@ -59,7 +59,7 @@ public class RuriMovement : MonoBehaviour
 
     }
 
-    private void AddOtto()
+    public void AddOtto()
     {
         GameObject socket = GameObject.Find("OttoSocket");
         RidingOtto = Instantiate(ridingOttoPrefab, socket.transform); //creates a new game object
@@ -131,6 +131,7 @@ public class RuriMovement : MonoBehaviour
     public void SwitchCharacter(InputAction.CallbackContext context)
     {
         if (!context.started) return;
+        if (!hasOtto) return;
         if (ottoMounted)
         {
             RemoveOtto();

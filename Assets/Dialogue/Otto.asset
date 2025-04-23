@@ -1,0 +1,66 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eab4870aa414b1e44abde0fb324c404d, type: 3}
+  m_Name: Otto
+  m_EditorClassIdentifier: 
+  dialogue:
+    dilaogueName: Otto
+    dialogueLines:
+    - character:
+        characterName: Ruri
+        characterSprite: {fileID: 3159093899981062546, guid: 2c5481612dbe21348b3079d3c85e96ca, type: 3}
+        color: {r: 0.7222223, g: 0, b: 1, a: 1}
+      line: This is my brother Otto
+      right: 0
+    - character:
+        characterName: Otto
+        characterSprite: {fileID: 7263577685428583143, guid: aecda17af2d41704abedf97660b6b80f, type: 3}
+        color: {r: 0.4156863, g: 0.74509805, b: 0.18823531, a: 1}
+      line: WAAZZZZAAAAAAAAAAAAAAAAAA
+      right: 0
+    - character:
+        characterName: Ruri
+        characterSprite: {fileID: 3159093899981062546, guid: 2c5481612dbe21348b3079d3c85e96ca, type: 3}
+        color: {r: 0.7222223, g: 0, b: 1, a: 1}
+      line: in the game, he rides on my head
+      right: 0
+    - character:
+        characterName: Ruri
+        characterSprite: {fileID: 3159093899981062546, guid: 2c5481612dbe21348b3079d3c85e96ca, type: 3}
+        color: {r: 0.7222223, g: 0, b: 1, a: 1}
+      line: With otto, you can shoot with left click
+      right: 0
+    - character:
+        characterName: Ruri
+        characterSprite: {fileID: 3159093899981062546, guid: 2c5481612dbe21348b3079d3c85e96ca, type: 3}
+        color: {r: 0.7222223, g: 0, b: 1, a: 1}
+      line: and you can also dismount, with Q and play as Otto
+      right: 0
+    - character:
+        characterName: Ruri
+        characterSprite: {fileID: 3159093899981062546, guid: 2c5481612dbe21348b3079d3c85e96ca, type: 3}
+        color: {r: 0.7222223, g: 0, b: 1, a: 1}
+      line: As for game Dynamic, I am stronger than otto, so Otto serves as a support
+        character
+      right: 0
+    - character:
+        characterName: Otto
+        characterSprite: {fileID: 7263577685428583143, guid: aecda17af2d41704abedf97660b6b80f, type: 3}
+        color: {r: 0.4156863, g: 0.74509805, b: 0.18823531, a: 1}
+      line: Nah Fam
+      right: 0
+    - character:
+        characterName: Ruri
+        characterSprite: {fileID: 3159093899981062546, guid: 2c5481612dbe21348b3079d3c85e96ca, type: 3}
+        color: {r: 0.7222223, g: 0, b: 1, a: 1}
+      line: Otto will use his agility and Nimbles to solve Puzzles I can't
+      right: 0

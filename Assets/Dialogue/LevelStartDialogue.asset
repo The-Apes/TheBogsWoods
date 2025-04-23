@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: eab4870aa414b1e44abde0fb324c404d, type: 3}
-  m_Name: IntroDialogue
+  m_Name: LevelStartDialogue
   m_EditorClassIdentifier: 
   dialogue:
     dilaogueName: LevelStartDialogue
@@ -20,4 +20,10 @@ MonoBehaviour:
         characterSprite: {fileID: 3159093899981062546, guid: 2c5481612dbe21348b3079d3c85e96ca, type: 3}
         color: {r: 0.46274513, g: 0.25490198, b: 0.5411765, a: 1}
       line: I gotta go after Otto!
+      right: 0
+    - character:
+        characterName: Ruri
+        characterSprite: {fileID: 3159093899981062546, guid: 2c5481612dbe21348b3079d3c85e96ca, type: 3}
+        color: {r: 0.46274513, g: 0.25490198, b: 0.5411765, a: 1}
+      line: Let me give his hat back to him
       right: 0
