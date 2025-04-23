@@ -3189,6 +3189,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemPrefab: {fileID: 5949949516469137522, guid: 002c212d457ad7b4fa3458b53285e6ee, type: 3}
   openedSprite: {fileID: 1144026751516375678, guid: bf3db59d702973c4ba1d2ef63c0f9501, type: 3}
+  openChest: {fileID: 11400000, guid: b81fd3f64eda9934caa954d8c43d6c46, type: 2}
 --- !u!61 &831090534
 BoxCollider2D:
   m_ObjectHideFlags: 0
