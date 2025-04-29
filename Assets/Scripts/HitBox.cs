@@ -11,7 +11,7 @@ public class HitBox : MonoBehaviour
     
     private void Awake()
     {
-        owner = RuriMovement.instance.gameObject;
+        owner = gameObject; // Set the owner to this object
         _layer = gameObject.layer; //get the layer of this object, layers are stored in a bitmask, so it's weird...
     }
 
