@@ -15,7 +15,7 @@ public class IntroCutsceneLevelManager : MonoBehaviour
         Debug.Log("IntroCutsceneLevelManager");
         DialogueManager.Instance.StartDialogue(introCutsceneDialogue.dialogue);
         Debug.Log("Tried to start the scene");
-        AudioManager.instance.PlaySound(music);
+        AudioManager.instance.PlayMusic(music);
     }
 
     private void OnDialogueEnd(string dialogue)

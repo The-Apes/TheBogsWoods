@@ -469,7 +469,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   introCutsceneDialogue: {fileID: 11400000, guid: c5d7e984c1425e843aa23619be5de98c, type: 2}
-  music: {fileID: 8300000, guid: 43a7c822f58b6d142bbe4f26de4b8e47, type: 3}
+  music: {fileID: 8300000, guid: b000d5e4ed05b0e4ebdab2b06597337c, type: 3}
 --- !u!4 &743791759
 Transform:
   m_ObjectHideFlags: 0
