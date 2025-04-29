@@ -40,7 +40,6 @@ public class DialogueManager : MonoBehaviour
 
     public void StartDialogue(Dialogue dialogue)
   {
-      print("DIALOGE HAS STARTED");
   isDialogueActive = true;
   animator.Play("ShowDialogue");
   _lines.Clear();

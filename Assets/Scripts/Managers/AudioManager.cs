@@ -1,20 +1,30 @@
 
 using UnityEngine;
 
-public class AudioManager : MonoBehaviour
+namespace Managers
 {
-
-    public static AudioManager instance;
-    private AudioSource _audioSource;
-    private void Awake()
+    public class AudioManager : MonoBehaviour
     {
-        instance = this;
-        _audioSource = GetComponent<AudioSource>();
-    }
+        public static AudioManager instance;
+        private AudioSource _audioSource;
+        private void Awake()
+        {
+            if (instance == null)
+            {
+                instance = this;
+                DontDestroyOnLoad(gameObject);
+            }
+            else
+            {
+                Destroy(gameObject);
+            }
+            _audioSource = GetComponent<AudioSource>();
+        }
 
-    public void PlaySound(AudioClip clip)
-    {
-        _audioSource.clip = clip;
-        _audioSource.Play();
+        public void PlaySound(AudioClip clip)
+        {
+            _audioSource.clip = clip;
+            _audioSource.Play();
+        }
     }
 }
