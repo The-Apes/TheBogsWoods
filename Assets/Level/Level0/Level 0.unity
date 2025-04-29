@@ -1709,7 +1709,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cutscene: {fileID: 11400000, guid: d0632000cc02f8b49b98867f59fbbbc8, type: 2}
-  camera: {fileID: 1998373848}
+  cutsceneCamera: {fileID: 1998373848}
 --- !u!61 &342534754
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3246,6 +3246,7 @@ Transform:
   - {fileID: 1547879535}
   - {fileID: 340989424}
   - {fileID: 1475607760}
+  - {fileID: 1380541048}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &604053524
@@ -10091,12 +10092,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1380541046}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 1.2423847, y: 3.2638862, z: -0.0055750785}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 575124982}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1380541049
 MonoBehaviour:
@@ -27117,7 +27118,7 @@ Transform:
   m_GameObject: {fileID: 1830279521}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalPosition: {x: 0.04773903, y: 0.16733527, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -29315,7 +29316,6 @@ SceneRoots:
   - {fileID: 961733987}
   - {fileID: 2136047612314102375}
   - {fileID: 914163475}
-  - {fileID: 1380541048}
   - {fileID: 481923080}
   - {fileID: 306067606}
   - {fileID: 1998373852}
