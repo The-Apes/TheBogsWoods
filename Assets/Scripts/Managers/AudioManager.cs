@@ -33,9 +33,11 @@ namespace Managers
         }
         public void PlaySound(AudioClip soundClip, float pitch)
         {
-            _sfxSource.pitch = pitch;
-            _sfxSource.PlayOneShot(soundClip);
-            _sfxSource.pitch = 1f; // Reset pitch to default for the other clip
+            AudioSource tempSource = gameObject.AddComponent<AudioSource>();
+            tempSource.clip = soundClip;
+            tempSource.pitch = pitch;
+            tempSource.Play();
+            Destroy(tempSource, soundClip.length / pitch); // pitch affects duration
         }
         public void PlayMusic(AudioClip musicClip)
         {

@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Managers;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -22,6 +23,7 @@ public class DialogueManager : MonoBehaviour
     
     public bool isDialogueActive = false;
     public float typingSpeed = 0.2f;
+    public AudioClip typeSound;
     public Animator animator;
     
     private Dialogue currentDialogue;
@@ -34,8 +36,16 @@ public class DialogueManager : MonoBehaviour
     private void Awake()
     {
         if (Instance == null)
+        {
             Instance = this;
-        _lines = new Queue<DialogueLine>();
+            DontDestroyOnLoad(gameObject);
+            _lines = new Queue<DialogueLine>();
+        } else
+        {
+            Destroy(gameObject); 
+        }
+            
+        
     }
 
     public void StartDialogue(Dialogue dialogue)
@@ -107,6 +117,8 @@ public class DialogueManager : MonoBehaviour
         foreach (char letter in currentLine.line.ToCharArray())
         {
             dialogueArea.text += letter;
+            float randomValue = UnityEngine.Random.Range(0.5f, 1.5f);
+            AudioManager.instance.PlaySound(typeSound, randomValue);
             yield return new WaitForSeconds(typingSpeed);
         }
     }
