@@ -8,6 +8,8 @@ public class DialogueCharacter
     public string characterName; // Name of the character
     public Sprite characterSprite; // Sprite representing the character
     public Color color = Color.white;
+    public float pitch = 1f; // Pitch of the character's voice
+    public AudioClip voice; // Audio Blip for the character's voice
 }
 [System.Serializable]
 public class DialogueLine
@@ -16,6 +18,7 @@ public class DialogueLine
     [TextArea(3, 10)]
     public string line; // The actual dialogue line
     public bool right = false; // Whether to align the text to the right
+    public AudioClip soundEffect; // Sound to play when the line is spoken
 }   
 
 [System.Serializable]
