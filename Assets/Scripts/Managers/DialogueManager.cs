@@ -20,8 +20,10 @@ public class DialogueManager : MonoBehaviour
     public RectTransform iconTransform;
     
     private Queue<DialogueLine> _lines;
+    private DialogueLine _currentLine;
     
     public bool isDialogueActive = false;
+    private bool _isTyping;
     public float typingSpeed = 0.2f;
     public AudioClip typeSound;
     public Animator animator;
@@ -79,37 +81,49 @@ public class DialogueManager : MonoBehaviour
           EndDialogue();
           return;
       }
-        DialogueLine currentLine = _lines.Dequeue();
+      
+      if (!_isTyping)
+      {
+          _currentLine = _lines.Dequeue();
         
-        characterName.text = currentLine.character.characterName;
-        header.color = currentLine.character.color;
+          characterName.text = _currentLine.character.characterName;
+          header.color = _currentLine.character.color;
         
-        Color newColor = currentLine.character.color * 0.25f; // Darken the color
-        newColor.a = currentLine.character.color.a; // Preserve the original alpha
-        background.color = newColor; // Assign the new color
+          Color newColor = _currentLine.character.color * 0.25f; // Darken the color
+          newColor.a = _currentLine.character.color.a; // Preserve the original alpha
+          background.color = newColor; // Assign the new color
         
-        if (currentLine.character.characterSprite == null)
-        {
-            characterIcon.gameObject.SetActive(false);
-        }
-        else
-        {
-            characterIcon.gameObject.SetActive(true);
-            characterIcon.sprite = currentLine.character.characterSprite;
-        }
+          if (_currentLine.character.characterSprite == null)
+          {
+              characterIcon.gameObject.SetActive(false);
+          }
+          else
+          {
+              characterIcon.gameObject.SetActive(true);
+              characterIcon.sprite = _currentLine.character.characterSprite;
+          }
 
-        if (currentLine.right)
-        {
-            iconTransform.anchorMax = new Vector2(1,1);
-            iconTransform.anchorMin = new Vector2(1,1);
-            iconTransform.pivot = new Vector2(1,0);
-        }else{
-            iconTransform.anchorMax = new Vector2(0,1);
-            iconTransform.anchorMin = new Vector2(0,1);
-            iconTransform.pivot = new Vector2(0,0);
-        }
-        StopAllCoroutines();
-        StartCoroutine(TypeSentence(currentLine));
+          if (_currentLine.right)
+          {
+              iconTransform.anchorMax = new Vector2(1,1);
+              iconTransform.anchorMin = new Vector2(1,1);
+              iconTransform.pivot = new Vector2(1,0);
+          }else{
+              iconTransform.anchorMax = new Vector2(0,1);
+              iconTransform.anchorMin = new Vector2(0,1);
+              iconTransform.pivot = new Vector2(0,0);
+          }
+          StopAllCoroutines();
+          _isTyping = true;
+          StartCoroutine(TypeSentence(_currentLine));
+      }
+      else
+      {
+          StopAllCoroutines();
+          dialogueArea.text = _currentLine.line;
+          _isTyping = false;
+      }
+        
   }
     private IEnumerator TypeSentence(DialogueLine currentLine)
     {
@@ -121,6 +135,7 @@ public class DialogueManager : MonoBehaviour
             AudioManager.instance.PlaySound(typeSound, randomValue);
             yield return new WaitForSeconds(typingSpeed);
         }
+        _isTyping = false;
     }
 
     void EndDialogue()
