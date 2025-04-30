@@ -3,8 +3,8 @@ using UnityEngine.Playables;
 
 public class LevelZeroSceneManager : MonoBehaviour
 {
-    public DialogueTrigger startingDialogue;
-    public DialogueTrigger encounterDialogue;
+    public DialogueAsset startingDialogue;
+    public DialogueAsset encounterDialogue;
     public PlayableAsset startingCutscene;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()

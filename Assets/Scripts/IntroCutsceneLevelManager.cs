@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class IntroCutsceneLevelManager : MonoBehaviour
 {
-    public DialogueTrigger introCutsceneDialogue;
+    public DialogueAsset introCutsceneDialogue;
     public AudioClip music;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created

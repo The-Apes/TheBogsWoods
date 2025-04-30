@@ -8,7 +8,7 @@ public class PoorMonkey : MonoBehaviour
     public GameObject healthBar;
     private CowardEnemy _cowardEnemy;
     private bool doOnce = false;
-    public DialogueTrigger dialogue; // The dialogue to be triggered
+    public DialogueAsset dialogue; // The dialogue to be triggered
     
     private void Start()
     {

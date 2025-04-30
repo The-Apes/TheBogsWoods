@@ -25,7 +25,7 @@ public class Dialogue
     public List<DialogueLine> dialogueLines = new List<DialogueLine>();
 }
 [CreateAssetMenu(fileName = "NewDialogue", menuName = "Dialogue")]
-public class DialogueTrigger : ScriptableObject
+public class DialogueAsset : ScriptableObject
 {
    public Dialogue dialogue;
    public void TriggerDialogue()
