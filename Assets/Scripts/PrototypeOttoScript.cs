@@ -1,4 +1,5 @@
 using System;
+using Managers;
 using UnityEngine;
 
 public class PrototypeOttoScript : MonoBehaviour
@@ -8,7 +9,7 @@ public class PrototypeOttoScript : MonoBehaviour
         GameEvents.OnDialogueEnd += OnDialogueComplete;
     }
 
-    public DialogueTrigger dialogue; // The dialogue to be triggered
+    public DialogueAsset dialogue; // The dialogue to be triggered
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))

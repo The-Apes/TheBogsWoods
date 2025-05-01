@@ -1,3 +1,4 @@
+using Managers;
 using UnityEngine;
 
 public class Chest : MonoBehaviour, IInteractable
@@ -6,7 +7,7 @@ public class Chest : MonoBehaviour, IInteractable
     public string ChestID { get; private set; }
     public GameObject itemPrefab; // The item that will be spawned when the chest is opened
     public Sprite openedSprite; // The sprite to use when the chest is opened
-    public DialogueTrigger openChest;
+    public DialogueAsset openChest;
     void Start()
     {
         ChestID ??= GlobalHelper.GenerateUniqueID(gameObject);

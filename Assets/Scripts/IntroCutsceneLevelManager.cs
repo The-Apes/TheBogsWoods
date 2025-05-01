@@ -1,10 +1,11 @@
+using Managers;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.SceneManagement;
 
 public class IntroCutsceneLevelManager : MonoBehaviour
 {
-    public DialogueTrigger introCutsceneDialogue;
+    public DialogueAsset introCutsceneDialogue;
     public AudioClip music;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -14,7 +15,7 @@ public class IntroCutsceneLevelManager : MonoBehaviour
         Debug.Log("IntroCutsceneLevelManager");
         DialogueManager.Instance.StartDialogue(introCutsceneDialogue.dialogue);
         Debug.Log("Tried to start the scene");
-        AudioManager.instance.PlaySound(music);
+        AudioManager.instance.PlayMusic(music);
     }
 
     private void OnDialogueEnd(string dialogue)
