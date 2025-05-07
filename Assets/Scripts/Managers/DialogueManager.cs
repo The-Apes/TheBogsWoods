@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 //reference https://www.youtube.com/watch?v=DOP_G5bsySA
@@ -10,7 +11,7 @@ namespace Managers
 {
     public class DialogueManager : MonoBehaviour
     {
-        public static DialogueManager Instance;
+        public static DialogueManager instance;
     
         public TextMeshProUGUI characterName;
         public TextMeshProUGUI dialogueArea;
@@ -25,28 +26,26 @@ namespace Managers
         public bool isDialogueActive = false;
         private bool _isTyping;
         public float typingSpeed = 0.2f;
-        public AudioClip typeSound;
+        
+        [FormerlySerializedAs("typeSound")] [SerializeField] private AudioClip defaultTypeSound;
+        private AudioClip _typeSound;
+        private float _typePitch = 1f;
         public Animator animator;
     
         private Dialogue currentDialogue;
-        // Start is called once before the first execution of Update after the MonoBehaviour is created
-        void Start()
-        {
-         
-        }
 
         private void Awake()
         {
-            if (Instance == null)
+            if (instance == null)
             {
-                Instance = this;
+                instance = this;
                 DontDestroyOnLoad(gameObject);
                 _lines = new Queue<DialogueLine>();
             } else
             {
                 Destroy(gameObject); 
             }
-            
+            _typeSound = defaultTypeSound;
         
         }
 
@@ -74,7 +73,7 @@ namespace Managers
             }
         }
 
-        public void DisplayNextDialogueLine()
+        private void DisplayNextDialogueLine()
         {
             if (_lines.Count == 0)
             {
@@ -82,18 +81,20 @@ namespace Managers
                 return;
             }
       
-            if (!_isTyping)
+            // if not currently typing
+            if (!_isTyping) 
             {
                 _currentLine = _lines.Dequeue();
         
+                //colors
                 characterName.text = _currentLine.character.characterName;
                 header.color = _currentLine.character.color;
-        
                 Color newColor = _currentLine.character.color * 0.25f; // Darken the color
                 newColor.a = _currentLine.character.color.a; // Preserve the original alpha
-                background.color = newColor; // Assign the new color
+                background.color = newColor; 
         
-                if (_currentLine.character.characterSprite == null)
+                //sprite
+                if (!_currentLine.character.characterSprite)
                 {
                     characterIcon.gameObject.SetActive(false);
                 }
@@ -103,6 +104,7 @@ namespace Managers
                     characterIcon.sprite = _currentLine.character.characterSprite;
                 }
 
+                //alignment
                 if (_currentLine.right)
                 {
                     iconTransform.anchorMax = new Vector2(1,1);
@@ -113,11 +115,15 @@ namespace Managers
                     iconTransform.anchorMin = new Vector2(0,1);
                     iconTransform.pivot = new Vector2(0,0);
                 }
+                //voice and pitch
+                _typeSound = _currentLine.character.voice ? _currentLine.character.voice : defaultTypeSound;
+                _typePitch = _currentLine.character.pitch;
+                
                 StopAllCoroutines();
                 _isTyping = true;
                 StartCoroutine(TypeSentence(_currentLine));
             }
-            else
+            else //skip typing
             {
                 StopAllCoroutines();
                 dialogueArea.text = _currentLine.line;
@@ -131,8 +137,7 @@ namespace Managers
             foreach (char letter in currentLine.line.ToCharArray())
             {
                 dialogueArea.text += letter;
-                float randomValue = UnityEngine.Random.Range(0.5f, 1.5f);
-                AudioManager.instance.PlaySound(typeSound, randomValue);
+                AudioManager.instance.PlaySound(defaultTypeSound, _typePitch);
                 yield return new WaitForSeconds(typingSpeed);
             }
             _isTyping = false;
