@@ -1,42 +1,46 @@
+using Managers;
 using TMPro;
 using UnityEngine;
 
-public class AttackTutorialPrompt : MonoBehaviour
+namespace Levels.Level0
 {
-    private SpriteRenderer[] spriteRenderer;
-    private TextMeshPro[] textMesh;
-    private void Start()
+    public class AttackTutorialPrompt : MonoBehaviour
     {
-        GameEvents.onAreaChange += OnAreaChange;
+        private SpriteRenderer[] spriteRenderer;
+        private TextMeshPro[] textMesh;
+        private void Start()
+        {
+            GameEvents.onAreaChange += OnAreaChange;
         
-        spriteRenderer = GetComponentsInChildren<SpriteRenderer>();
-        textMesh = GetComponentsInChildren<TextMeshPro>();
-        foreach (SpriteRenderer sprite in spriteRenderer){
-            sprite.enabled = false;
-        }
-        foreach (TextMeshPro text in textMesh)
-        {
-            text.enabled = false;
-        }
+            spriteRenderer = GetComponentsInChildren<SpriteRenderer>();
+            textMesh = GetComponentsInChildren<TextMeshPro>();
+            foreach (SpriteRenderer sprite in spriteRenderer){
+                sprite.enabled = false;
+            }
+            foreach (TextMeshPro text in textMesh)
+            {
+                text.enabled = false;
+            }
         
-    }
-    private void OnAreaChange(string areaName)
-    {
-        if (textMesh[0].enabled) Destroy(gameObject);
-    }
-    public void ShowPrompt()
-    {
-        foreach (SpriteRenderer sprite in spriteRenderer)
-        {
-            sprite.enabled = true;
         }
-        foreach (TextMeshPro text in textMesh)
+        private void OnAreaChange(string areaName)
         {
-            text.enabled = true;
+            if (textMesh[0].enabled) Destroy(gameObject);
         }
-    }
-    private void OnDisable()
-    {
-        GameEvents.onAreaChange -= OnAreaChange;
+        public void ShowPrompt()
+        {
+            foreach (SpriteRenderer sprite in spriteRenderer)
+            {
+                sprite.enabled = true;
+            }
+            foreach (TextMeshPro text in textMesh)
+            {
+                text.enabled = true;
+            }
+        }
+        private void OnDisable()
+        {
+            GameEvents.onAreaChange -= OnAreaChange;
+        }
     }
 }

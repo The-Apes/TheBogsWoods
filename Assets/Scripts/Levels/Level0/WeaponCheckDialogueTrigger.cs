@@ -1,7 +1,7 @@
 using Managers;
 using UnityEngine;
 
-namespace Level.Level0.Scripts
+namespace Levels.Level0
 {
    public class WeaponCheckDialogueTrigger : MonoBehaviour
    {

@@ -1,19 +1,22 @@
 using UnityEngine;
 
-public class StickPickup : MonoBehaviour
+namespace Levels.Level0
 {
-   [SerializeField] private AttackTutorialPrompt attackControlsPrompt;
-
-   //public GameObject eligiblePlayer;
-   private void OnTriggerEnter2D(Collider2D collision)
+   public class StickPickup : MonoBehaviour
    {
-      if (!collision.CompareTag("Player")) return;
+      [SerializeField] private AttackTutorialPrompt attackControlsPrompt;
+
+      //public GameObject eligiblePlayer;
+      private void OnTriggerEnter2D(Collider2D collision)
+      {
+         if (!collision.CompareTag("Player")) return;
       
-      RuriMovement ruri = collision.GetComponent<RuriMovement>();
+         RuriMovement ruri = collision.GetComponent<RuriMovement>();
       
-      if (!ruri) return;
-      ruri.hasWeapon = true;
-      attackControlsPrompt.ShowPrompt();
-      Destroy(gameObject);
+         if (!ruri) return;
+         ruri.hasWeapon = true;
+         attackControlsPrompt.ShowPrompt();
+         Destroy(gameObject);
+      }
    }
 }

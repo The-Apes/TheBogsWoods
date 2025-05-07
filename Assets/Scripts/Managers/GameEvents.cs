@@ -1,12 +1,15 @@
 using System;
 using UnityEngine;
 
-public class GameEvents : MonoBehaviour
+namespace Managers
 {
-    public static Action<string> onAreaChange;
-    public static Action<string> onDialogueEnd;
+    public class GameEvents : MonoBehaviour
+    {
+        public static Action<string> onAreaChange;
+        public static Action<string> onDialogueEnd;
 
-    public static void AreaChanged(string areaName) => onAreaChange?.Invoke(areaName);
-    public static void DialogueEnded(string dialogueName) => onDialogueEnd?.Invoke(dialogueName);
+        public static void AreaChanged(string areaName) => onAreaChange?.Invoke(areaName);
+        public static void DialogueEnded(string dialogueName) => onDialogueEnd?.Invoke(dialogueName);
     
+    }
 }
