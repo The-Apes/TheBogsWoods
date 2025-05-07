@@ -26309,7 +26309,7 @@ Transform:
   m_GameObject: {fileID: 1830279521}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.04773903, y: 0.16733527, z: -10}
+  m_LocalPosition: {x: 0, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -28470,14 +28470,20 @@ MonoBehaviour:
         characterName: Ruri
         characterSprite: {fileID: 3159093899981062546, guid: 2c5481612dbe21348b3079d3c85e96ca, type: 3}
         color: {r: 0.46274513, g: 0.25882354, b: 0.5411765, a: 1}
+        pitch: 1
+        voice: {fileID: 0}
       line: Hmm... I can't pass through this bramble
       right: 0
+      soundEffect: {fileID: 0}
     - character:
         characterName: Ruri
         characterSprite: {fileID: 3159093899981062546, guid: 2c5481612dbe21348b3079d3c85e96ca, type: 3}
         color: {r: 0.46274513, g: 0.25882354, b: 0.5411765, a: 1}
+        pitch: 1
+        voice: {fileID: 0}
       line: Maybe If I had something to break it with, I can pass through
       right: 0
+      soundEffect: {fileID: 0}
   weaponDialogue:
     dilaogueName: Has Weapon
     dialogueLines:
@@ -28485,8 +28491,11 @@ MonoBehaviour:
         characterName: Ruri
         characterSprite: {fileID: 3159093899981062546, guid: 2c5481612dbe21348b3079d3c85e96ca, type: 3}
         color: {r: 0.46274513, g: 0.25882354, b: 0.5411765, a: 1}
+        pitch: 1
+        voice: {fileID: 0}
       line: I could destroy that Bramble with this stick.
       right: 0
+      soundEffect: {fileID: 0}
 --- !u!1001 &7179325088006306293
 PrefabInstance:
   m_ObjectHideFlags: 0
