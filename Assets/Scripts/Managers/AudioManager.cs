@@ -69,9 +69,8 @@ namespace Managers
 
         private IEnumerator FadeInCoroutine(AudioClip newTrack, float duration)
         {
-            _musicSource.clip = newTrack;
+            PlayMusic(newTrack);
             _musicSource.volume = 0f;
-            _musicSource.Play();
 
             float timer = 0f;
             while (timer < duration)

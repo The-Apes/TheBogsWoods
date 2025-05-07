@@ -39,8 +39,6 @@ public class OttoScript : MonoBehaviour
             Direction.Right => Quaternion.Euler(0, 0, 90),
             _ => lookDir.rotation
         };
-        //update the sprite
-      
     }
     
     private void UpdateDirection()
