@@ -7,24 +7,24 @@ public class LevelZeroSceneManager : MonoBehaviour
     public DialogueAsset startingDialogue;
     public DialogueAsset encounterDialogue;
     public PlayableAsset startingCutscene;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    
     void Start()
     {
         RuriMovement.instance.controlling = false;
-        CutsceneManager.Instance.director.stopped += OnCutsceneStopped;
-        CutsceneManager.Instance.PlayCutscene(startingCutscene);
+        CutsceneManager.instance.director.stopped += OnCutsceneStopped;
+        CutsceneManager.instance.PlayCutscene(startingCutscene);
     }
 
     private void OnCutsceneStopped(PlayableDirector director)
     {
-        if(director.playableAsset.name == "OttoRun")
+        switch (director.playableAsset.name)
         {
-            DialogueManager.Instance.StartDialogue(startingDialogue.dialogue);
-        }
-
-        if (director.playableAsset.name == "Monkey Encounter")
-        {
-            DialogueManager.Instance.StartDialogue(encounterDialogue.dialogue);
+            case "OttoRun":
+                DialogueManager.instance.StartDialogue(startingDialogue.dialogue);
+                break;
+            case "Monkey Encounter":
+                DialogueManager.instance.StartDialogue(encounterDialogue.dialogue);
+                break;
         }
     }
  

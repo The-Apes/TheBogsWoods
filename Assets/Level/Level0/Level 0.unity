@@ -215,7 +215,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 184923360}
           m_TargetAssemblyTypeName: TabController, Assembly-CSharp
-          m_MethodName: AvtivateTab
+          m_MethodName: ActivateTab
           m_Mode: 3
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -519,7 +519,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1524049446}
         m_TargetAssemblyTypeName: GameController, Assembly-CSharp
-        m_MethodName: onRetryClick
+        m_MethodName: OnRetryClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2477,7 +2477,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 184923360}
           m_TargetAssemblyTypeName: TabController, Assembly-CSharp
-          m_MethodName: AvtivateTab
+          m_MethodName: ActivateTab
           m_Mode: 3
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -2583,7 +2583,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 184923360}
           m_TargetAssemblyTypeName: TabController, Assembly-CSharp
-          m_MethodName: AvtivateTab
+          m_MethodName: ActivateTab
           m_Mode: 3
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -3698,7 +3698,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1891241168}
         m_TargetAssemblyTypeName: SettingsPageController, Assembly-CSharp
-        m_MethodName: onExitGameClick
+        m_MethodName: OnExitGameClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -23456,7 +23456,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 184923360}
           m_TargetAssemblyTypeName: TabController, Assembly-CSharp
-          m_MethodName: AvtivateTab
+          m_MethodName: ActivateTab
           m_Mode: 3
           m_Arguments:
             m_ObjectArgument: {fileID: 0}

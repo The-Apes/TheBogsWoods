@@ -23,7 +23,7 @@ namespace Managers
             }
             else
             {
-                Destroy(gameObject); // REMOVE YOURSELF!!
+                Destroy(gameObject);
             }
         }
 
@@ -57,9 +57,6 @@ namespace Managers
             _musicSource.UnPause();
         }
         
-        
-        //funky stuff
-        //All my homies hate Coroutines!!!11!!!1
         public void FadeInMusic(AudioClip newTrack, float duration = 1f)
         {
             StartCoroutine(FadeInCoroutine(newTrack, duration));

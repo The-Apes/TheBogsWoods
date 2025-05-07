@@ -1,4 +1,3 @@
-using System;
 using TMPro;
 using UnityEngine;
 
@@ -9,8 +8,8 @@ public class MovementTutorialPrompt : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        GameEvents.OnDialogueEnd += OnDialogueEnd;
-        GameEvents.OnAreaChange += OnAreaChange;
+        GameEvents.onDialogueEnd += OnDialogueEnd;
+        GameEvents.onAreaChange += OnAreaChange;
         
         spriteRenderer = GetComponentsInChildren<SpriteRenderer>();
         textMesh = GetComponentsInChildren<TextMeshPro>();
@@ -43,7 +42,7 @@ public class MovementTutorialPrompt : MonoBehaviour
 
     private void OnDisable()
     {
-        GameEvents.OnDialogueEnd -= OnDialogueEnd;
-        GameEvents.OnAreaChange -= OnAreaChange;
+        GameEvents.onDialogueEnd -= OnDialogueEnd;
+        GameEvents.onAreaChange -= OnAreaChange;
     }
 }

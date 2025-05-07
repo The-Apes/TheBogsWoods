@@ -12,25 +12,21 @@ public class SkitterBug : MonoBehaviour
     private bool _isSlowingDown = false;
     private float _avoidTimer = 0f;
 
-    void Start()
+    private void Start()
     {
         _rb = GetComponent<Rigidbody2D>();
     }
 
-    void Update()
+    private void Update()
     {
-        if (_isAvoiding)
-        {
-            _avoidTimer += Time.deltaTime;
+        if (!_isAvoiding) return;
+        _avoidTimer += Time.deltaTime;
 
-            // Slow down after the specified duration
-            if (_avoidTimer >= slowDownDuration)
-            {
-                _isAvoiding = false;
-                _isSlowingDown = true;
-                _rb.linearVelocity = Vector2.zero; // Stop movement before slowing down
-            }
-        }
+        // Slow down after the specified duration
+        if (!(_avoidTimer >= slowDownDuration)) return;
+        _isAvoiding = false;
+        _isSlowingDown = true;
+        _rb.linearVelocity = Vector2.zero; // Stop movement before slowing down
     }
 
     private void FixedUpdate()
@@ -44,13 +40,11 @@ public class SkitterBug : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("HitBox") && !_isSlowingDown)
-        {
-            Vector2 avoidDirection = (transform.position - other.transform.position).normalized;
-            _rb.linearVelocity = avoidDirection * moveSpeed;
-            _isAvoiding = true;
-            _avoidTimer = 0f; // Reset the timer
-        }
+        if (!other.CompareTag("HitBox") || _isSlowingDown) return;
+        Vector2 avoidDirection = (transform.position - other.transform.position).normalized;
+        _rb.linearVelocity = avoidDirection * moveSpeed;
+        _isAvoiding = true;
+        _avoidTimer = 0f; 
     }
 
     private void OnTriggerExit2D(Collider2D other)

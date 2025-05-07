@@ -3,11 +3,10 @@ using UnityEngine.InputSystem;
 
 public class InteractionDetector : MonoBehaviour
 {
-    private IInteractable interactableInRange = null; //Closest interactable object in range
+    private IInteractable interactableInRange; //Closest interactable object in range
     public GameObject interactionIcon; //Icon to show when an interactable object is in range
     
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    private void Start()
     {
         interactionIcon.SetActive(false);
     }
@@ -15,31 +14,25 @@ public class InteractionDetector : MonoBehaviour
     public void OnInteract(InputAction.CallbackContext context)
     {
         print("Interact pressed");
-        if (context.performed)
+        if (!context.performed) return;
+        interactableInRange?.Interact();
+        if (interactableInRange != null && !interactableInRange.CanInteract())
         {
-            interactableInRange?.Interact();
-            if (interactableInRange != null && !interactableInRange.CanInteract())
-            {
-                interactionIcon.SetActive(false);
-            }
+            interactionIcon.SetActive(false);
         }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.TryGetComponent(out IInteractable interactable) && interactable.CanInteract())
-        {
-            interactableInRange = interactable;
-            interactionIcon.SetActive(true);
-        }
+        if (!collision.TryGetComponent(out IInteractable interactable) || !interactable.CanInteract()) return;
+        interactableInRange = interactable;
+        interactionIcon.SetActive(true);
     }
     
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.TryGetComponent(out IInteractable interactable) && interactable == interactableInRange)
-        {
-            interactableInRange = null;
-            interactionIcon.SetActive(false);
-        }
+        if (!collision.TryGetComponent(out IInteractable interactable) || interactable != interactableInRange) return;
+        interactableInRange = null;
+        interactionIcon.SetActive(false);
     }
 }

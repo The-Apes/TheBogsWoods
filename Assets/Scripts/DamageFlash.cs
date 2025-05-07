@@ -1,6 +1,4 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 // Reference: Create A DAMAGE FLASH Effect for Sprites | Unity Tutorial
@@ -13,6 +11,7 @@ public class DamageFlash : MonoBehaviour
   private SpriteRenderer[] _spriteRenderers;
   private Material[] _materials;
   
+  // ReSharper disable once NotAccessedField.Local
   private Coroutine _damageFlashCoroutine;
 
   private void Awake()
@@ -41,7 +40,6 @@ public class DamageFlash : MonoBehaviour
     //set color
     SetFlashColor();
     //lerp flash
-    float currentFlashAmount = 0f;
     float elapsedTime = 0f;
     while (elapsedTime < flashTime)
     {
@@ -49,7 +47,7 @@ public class DamageFlash : MonoBehaviour
       elapsedTime += Time.deltaTime;
       
       //lerp flash time
-      currentFlashAmount = Mathf.Lerp(1f,0f,(elapsedTime / flashTime));
+      float currentFlashAmount = Mathf.Lerp(1f,0f,(elapsedTime / flashTime));
       SetFlashAmount(currentFlashAmount);
 
       yield return null;
@@ -58,18 +56,20 @@ public class DamageFlash : MonoBehaviour
 
   private void SetFlashColor()
   {
-    for (int i = 0; i < _materials.Length; i++)
+    foreach (var mat in _materials)
     {
-      _materials[i].SetColor("_FlashColor", flashColor);
+      // ReSharper disable once Unity.PreferAddressByIdToGraphicsParams
+      mat.SetColor("_FlashColor", flashColor);
     }
   }
 
   private void SetFlashAmount(float amount)
   {
     //set the flash amount
-    for (int i = 0; i < _materials.Length; i++)
+    foreach (var mat in _materials)
     {
-      _materials[i].SetFloat("_FlashAmount", amount);
+      // ReSharper disable once Unity.PreferAddressByIdToGraphicsParams
+      mat.SetFloat("_FlashAmount", amount);
     }
   }
 }

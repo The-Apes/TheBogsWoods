@@ -4,14 +4,14 @@ using UnityEngine;
 //Possibly the most complicated code here
 public class OttoShoot : MonoBehaviour
 {
-    [SerializeField] private GameObject projectilePrefab; //this is a variable that stores the projectile prefab
-    [SerializeField] private Transform shootPoint; //this is a variable that stores the shoot point of the player
-    [SerializeField] private LayerMask targetLayer; //this is a variable that stores the enemy layer
-    [SerializeField] private Vector2 capsuleSize = new Vector2(5f, 2f); //this is a variable that stores the size of the capsule
+    [SerializeField] private GameObject projectilePrefab; 
+    [SerializeField] private Transform shootPoint; //where the projectile is spawned from
+    [SerializeField] private LayerMask targetLayer; 
+    [SerializeField] private Vector2 capsuleSize = new Vector2(5f, 2f); 
     [SerializeField] private float projectileSpeed = 5f;
     
-    public float shootCooldown = 1f; // Cooldown time in 
-    private float _shootTimer; // Timer to track cooldown
+    public float shootCooldown = 1f; 
+    private float _shootTimer; 
     [NonSerialized] public bool ShootInput;
     private bool _canShoot = true;
     
@@ -27,7 +27,6 @@ public class OttoShoot : MonoBehaviour
     private void Awake()
     {
         if (GameObject.Find("OttoSocket")){
-         //shootPoint = GameObject.Find("OttoSocket").transform;
         }
     }
 
@@ -41,22 +40,18 @@ public class OttoShoot : MonoBehaviour
         foreach (Collider2D enemyCollider in enemyColliders)
         {
             float distance = Vector2.Distance(shootPoint.position, enemyCollider.transform.position);
-            if (distance < nearestDistance)
-            {
-                nearestDistance = distance;
-                _nearestEnemy = enemyCollider.gameObject;
-            }
+            if (!(distance < nearestDistance)) continue;
+            nearestDistance = distance;
+            _nearestEnemy = enemyCollider.gameObject;
         }
     }
     private void UpdateShootTimer()
     {
         if (_canShoot) {_shootTimer= shootCooldown; return;}
         _shootTimer -= Time.deltaTime;
-        if (_shootTimer <= 0)
-        {
-            _canShoot = true;
-            _shootTimer = shootCooldown; // Reset the timer
-        }
+        if (!(_shootTimer <= 0)) return;
+        _canShoot = true;
+        _shootTimer = shootCooldown; // Reset the timer
     }
 
     // ReSharper disable Unity.PerformanceAnalysis
@@ -68,34 +63,30 @@ public class OttoShoot : MonoBehaviour
         }
     }
 
-    private void Shoot(){
+    private void Shoot()
+    {
         if (_nearestEnemy != null) {
            Vector2 direction = (_nearestEnemy.transform.position - shootPoint.position).normalized;
           GameObject projectile = Instantiate(projectilePrefab, shootPoint.position, Quaternion.identity);
-         projectile.GetComponent<Rigidbody2D>().linearVelocity = direction.normalized * projectileSpeed; // Set the projectile's velocity
-         _canShoot = false; // Set the cooldown
+          
+          // Set the projectile's velocity
+         projectile.GetComponent<Rigidbody2D>().linearVelocity = direction.normalized * projectileSpeed; 
+         
         }
         else
         {
-            Transform lookDir;
-            if (transform.root.gameObject.name == "Ruri")
-            {
-                lookDir = transform.root.GetComponent<RuriMovement>().lookDir;
-                print("smart man");
-            }
-            else
-            {
-                lookDir = transform.root.GetComponent<OttoScript>().lookDir;
-            }
-            
+            Transform lookDir = transform.root.gameObject.name == "Ruri" ? 
+                transform.root.GetComponent<RuriMovement>().lookDir : transform.root.GetComponent<OttoScript>().lookDir;
+
             //Credits to CoPilot, no way I was doing this on my own.
             float angleInRadians = (lookDir.eulerAngles.z - 90f) * Mathf.Deg2Rad;
             Vector2 direction = new Vector2(Mathf.Cos(angleInRadians), Mathf.Sin(angleInRadians));
-            
             GameObject projectile = Instantiate(projectilePrefab, shootPoint.position, Quaternion.identity);
-            projectile.GetComponent<Rigidbody2D>().linearVelocity = direction.normalized * projectileSpeed; // Set the projectile's velocity
-            _canShoot = false; // Set the cooldown
-            //ruriMovement.lookDir;
+            
+            // Set the projectile's velocity
+            projectile.GetComponent<Rigidbody2D>().linearVelocity = direction.normalized * projectileSpeed; 
         }
+
+        _canShoot = false; 
     }
 }

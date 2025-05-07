@@ -1,4 +1,3 @@
-using System;
 using TMPro;
 using UnityEngine;
 
@@ -8,7 +7,7 @@ public class AttackTutorialPrompt : MonoBehaviour
     private TextMeshPro[] textMesh;
     private void Start()
     {
-        GameEvents.OnAreaChange += OnAreaChange;
+        GameEvents.onAreaChange += OnAreaChange;
         
         spriteRenderer = GetComponentsInChildren<SpriteRenderer>();
         textMesh = GetComponentsInChildren<TextMeshPro>();
@@ -38,6 +37,6 @@ public class AttackTutorialPrompt : MonoBehaviour
     }
     private void OnDisable()
     {
-        GameEvents.OnAreaChange -= OnAreaChange;
+        GameEvents.onAreaChange -= OnAreaChange;
     }
 }

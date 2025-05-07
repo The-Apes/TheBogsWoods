@@ -3,8 +3,8 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour, IDamageable
 {
-    public float chaseSpeed = 2f; // Speed at which the enemy chases the player
-    public float detectionRange = 5f; // Range within which the enemy detects the player
+    public float chaseSpeed = 2f; 
+    public float detectionRange = 5f; 
     private GameObject _chaseTarget;
 
     private Rigidbody2D _rb;
@@ -17,44 +17,38 @@ public class Enemy : MonoBehaviour, IDamageable
     [SerializeField] private AudioClip hurtSound;
     [SerializeField] private AudioClip deathSound;
 
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         _rb = GetComponent<Rigidbody2D>();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        if (_chaseTarget)
-        {
-            Vector2 direction = (_chaseTarget.transform.position - transform.position).normalized; // Direction towards the player
-            transform.position += new Vector3(direction.x, direction.y, 0) * (Time.deltaTime * chaseSpeed); // Move the enemy towards the player
-        }
+        if (!_chaseTarget) return;
+        Vector2 direction = (_chaseTarget.transform.position - transform.position).normalized; // Direction towards the player
+        transform.position += new Vector3(direction.x, direction.y, 0) * (Time.deltaTime * chaseSpeed); // Move the enemy towards the player
     }
     
     private void OnTriggerEnter2D(Collider2D other) //when entering 2D sphere
     {
-        if (detectionZone.IsTouching(other)){
-            if (other.isTrigger) return; //if the object that entered my sphere is a trigger, return
-            if (other.gameObject.layer != LayerMask.NameToLayer("Player")) return; //if whatever entered my sphere is a part of the player layer mask
-            if (other.gameObject.name == "Ruri" || other.gameObject.name.Contains("Otto"))
-            {
-                _chaseTarget = other.gameObject; //make the object that entered my sphere. my target
-            }
+        if (!detectionZone.IsTouching(other)) return;
+        if (other.isTrigger) return; //if the object that entered my sphere is a trigger, return
+        
+        //if whatever entered my sphere is a part of the player layer mask
+        if (other.gameObject.layer != LayerMask.NameToLayer("Player")) return; 
+        if (other.gameObject.name == "Ruri" || other.gameObject.name.Contains("Otto"))
+        {
+            _chaseTarget = other.gameObject; 
         }
     }
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (!detectionZone.IsTouching(other) ) {
-            if (other.isTrigger) return; //if the object that entered my sphere is a trigger, return
-            if(other.gameObject == _chaseTarget) //if the object that exited my sphere is my target
-            {
-                _chaseTarget = null; //make my target null
-                _rb.linearVelocity = Vector2.zero;
-            }
-        }
+        if (detectionZone.IsTouching(other)) return;
+        if (other.isTrigger) return; 
+        if (other.gameObject != _chaseTarget) return; 
+        _chaseTarget = null; 
+        _rb.linearVelocity = Vector2.zero;
     }
     private void Awake()
     {
@@ -62,13 +56,13 @@ public class Enemy : MonoBehaviour, IDamageable
     }
 
     public void ReceiveDamage(int damageTaken, GameObject source){
-        _health -= damageTaken; //subtract the damage taken from the health
+        _health -= damageTaken; 
         GetComponent<DamageFlash>().CallDamageFlash();
-        GameManager.Instance.HitStop(0.1f);
-        if (_health <= 0) //if the health is less than or equal to 0
+        GameManager.instance.HitStop(0.1f);
+        if (_health <= 0) 
         {
             AudioManager.instance.PlaySound(deathSound);
-            Destroy(gameObject); //destroy this entity
+            Destroy(gameObject); 
         }
         else
         {

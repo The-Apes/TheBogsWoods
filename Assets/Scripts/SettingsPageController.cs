@@ -7,7 +7,7 @@ public class SettingsPageController : MonoBehaviour
       {
          SceneManager.LoadScene("StartMenu");
       }
-   public void onExitGameClick()
+   public void OnExitGameClick()
    {
       #if UNITY_EDITOR
       UnityEditor.EditorApplication.isPlaying = false;

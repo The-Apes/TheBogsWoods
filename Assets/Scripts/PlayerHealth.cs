@@ -1,18 +1,18 @@
 using System;
 using Managers;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class PlayerHealth : MonoBehaviour, IDamageable
 {
-    public int maxHealth = 3; // Maximum health of the player
-    public int currentHealth; // Current health of the player
+    public int maxHealth = 3; 
+    public int currentHealth; 
     
-    [SerializeField]private float invincibilityDuration = 1f; // Duration of invincibility after taking damage
-    private float _invincibilityTimer; // Timer for invincibility
+    [SerializeField]private float invincibilityDuration = 1f; 
+    private float _invincibilityTimer; 
     private bool _invincible;
 
-    public HealthUI healthUI; // Reference to the HealthUI script
+    public HealthUI healthUI; 
+    
     [Header("Sounds")]
     [SerializeField] private AudioClip hurtSound;
     [SerializeField] private AudioClip deathSound;
@@ -25,7 +25,7 @@ public class PlayerHealth : MonoBehaviour, IDamageable
     private void Awake()
     {
         GameController.OnReset += ResetHealth; // Subscribe to the reset event
-        healthUI = FindFirstObjectByType<HealthUI>(); // Find the HealthUI in the scene
+        healthUI = FindFirstObjectByType<HealthUI>(); 
         currentHealth = maxHealth;
         _invincibilityTimer = invincibilityDuration;
         
@@ -38,19 +38,18 @@ public class PlayerHealth : MonoBehaviour, IDamageable
 
     private void Update()
     {
-        if (_invincible)
+        if (!_invincible) return;
+        
+        _invincibilityTimer -= Time.deltaTime;
+        if (_invincibilityTimer <= 0)
         {
-            _invincibilityTimer -= Time.deltaTime;
-            if (_invincibilityTimer <= 0)
-            {
-                _invincible = false;
-                _invincibilityTimer = invincibilityDuration; // Reset the timer
-            }
+            _invincible = false;
+            _invincibilityTimer = invincibilityDuration; // Reset the timer
         }
     }
-        
 
-    void ResetHealth()
+
+    private void ResetHealth()
     {
         currentHealth = maxHealth;
         healthUI.SetMaxHearts(maxHealth); // Reset the hearts in the UI
@@ -58,22 +57,21 @@ public class PlayerHealth : MonoBehaviour, IDamageable
     }
 
     public void ReceiveDamage(int damageTaken, GameObject source){
-        if (_invincible) return; // If the player is invisible, ignore damage
+        if (_invincible) return; 
         currentHealth -= damageTaken;
         GetComponent<DamageFlash>().CallDamageFlash();
         healthUI.UpdateHearts(currentHealth); // Update the hearts to reflect the new health
         _invincible = true;
         if (currentHealth <= 0)
         {
-            AudioManager.instance.PlaySound(deathSound); // Play the hurt sound
-            // Player dead! -- call game over, animation, etc.
+            AudioManager.instance.PlaySound(deathSound);
             OnPlayerDied?.Invoke();
         }
         else
         {
             ApplyKnockback(source.transform.position,10f);
-            GameManager.Instance.HitStop(0.1f);
-            AudioManager.instance.PlaySound(hurtSound); // Play the hurt sound
+            GameManager.instance.HitStop(0.1f);
+            AudioManager.instance.PlaySound(hurtSound);
         }
     }
 

@@ -3,10 +3,10 @@ using UnityEngine;
 
 public class GameEvents : MonoBehaviour
 {
-    public static Action<string> OnAreaChange;
-    public static Action<string> OnDialogueEnd;
+    public static Action<string> onAreaChange;
+    public static Action<string> onDialogueEnd;
 
-    public static void AreaChanged(string AreaName) => OnAreaChange?.Invoke(AreaName);
-    public static void DialogueEnded(string dialogueName) => OnDialogueEnd?.Invoke(dialogueName);
+    public static void AreaChanged(string areaName) => onAreaChange?.Invoke(areaName);
+    public static void DialogueEnded(string dialogueName) => onDialogueEnd?.Invoke(dialogueName);
     
 }

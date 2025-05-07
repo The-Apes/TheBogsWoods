@@ -6,11 +6,11 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     
-    public static GameManager Instance;
+    public static GameManager instance;
    
     private void Awake()
     {
-        Instance = this;
+        instance = this;
     }
 
     public void HitStop(float duration)
@@ -18,7 +18,7 @@ public class GameManager : MonoBehaviour
         StartCoroutine(HitStopRoutine(duration));
     }
 
-     private IEnumerator  HitStopRoutine(float duration) {
+     private static IEnumerator  HitStopRoutine(float duration) {
         Time.timeScale = 0f;
         yield return new WaitForSecondsRealtime(duration);
         Time.timeScale = 1f;

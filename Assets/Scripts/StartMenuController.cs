@@ -3,7 +3,7 @@ using UnityEngine.SceneManagement;
 
 public class StartMenuController : MonoBehaviour
 {
-  public void onStartClick()
+  public void OnStartClick()
   {
     SceneManager.LoadScene("Intro Cutscene");
   }

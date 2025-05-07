@@ -10,7 +10,7 @@ namespace Managers
 {
     public class DialogueManager : MonoBehaviour
     {
-        public static DialogueManager Instance;
+        public static DialogueManager instance;
     
         public TextMeshProUGUI characterName;
         public TextMeshProUGUI dialogueArea;
@@ -22,24 +22,19 @@ namespace Managers
         private Queue<DialogueLine> _lines;
         private DialogueLine _currentLine;
     
-        public bool isDialogueActive = false;
+        public bool isDialogueActive;
         private bool _isTyping;
         public float typingSpeed = 0.2f;
         public AudioClip typeSound;
         public Animator animator;
     
         private Dialogue currentDialogue;
-        // Start is called once before the first execution of Update after the MonoBehaviour is created
-        void Start()
-        {
-         
-        }
 
         private void Awake()
         {
-            if (Instance == null)
+            if (instance == null)
             {
-                Instance = this;
+                instance = this;
                 DontDestroyOnLoad(gameObject);
                 _lines = new Queue<DialogueLine>();
             } else
@@ -74,7 +69,7 @@ namespace Managers
             }
         }
 
-        public void DisplayNextDialogueLine()
+        private void DisplayNextDialogueLine()
         {
             if (_lines.Count == 0)
             {
@@ -143,7 +138,7 @@ namespace Managers
             isDialogueActive = false;
             animator.Play("HideDialogue");
             if( RuriMovement.instance != null)RuriMovement.instance.controlling = true;
-            GameEvents.DialogueEnded(currentDialogue.dilaogueName);
+            GameEvents.DialogueEnded(currentDialogue.dialogueName);
         }
     }
 }

@@ -4,11 +4,11 @@ using UnityEngine.UI;
 
 public class HealthUI : MonoBehaviour
 {
-    public Image heartPrefab; // Prefab for the heart icon
-    public Sprite fullHeartSprite; // Sprite for a full heart
-    public Sprite emptyHeartSprite; // Sprite for an empty heart
+    public Image heartPrefab; 
+    public Sprite fullHeartSprite; 
+    public Sprite emptyHeartSprite; 
 
-    private List<Image> hearts = new List<Image>(); // List to hold the heart icons
+    private readonly List<Image> hearts = new List<Image>(); // List to hold the heart icons
 
     public void SetMaxHearts(int maxHearts)
     {

@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 public class StickPickup : MonoBehaviour
@@ -8,15 +7,13 @@ public class StickPickup : MonoBehaviour
    //public GameObject eligiblePlayer;
    private void OnTriggerEnter2D(Collider2D collision)
    {
-      if (collision.CompareTag("Player"))
-      {
-         RuriMovement ruri = collision.GetComponent<RuriMovement>();
-         if (ruri)
-         {
-            ruri.hasWeapon = true;
-            attackControlsPrompt.ShowPrompt();
-            Destroy(gameObject);
-         }
-      }  
+      if (!collision.CompareTag("Player")) return;
+      
+      RuriMovement ruri = collision.GetComponent<RuriMovement>();
+      
+      if (!ruri) return;
+      ruri.hasWeapon = true;
+      attackControlsPrompt.ShowPrompt();
+      Destroy(gameObject);
    }
 }

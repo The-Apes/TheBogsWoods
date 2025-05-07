@@ -1,6 +1,5 @@
 using Managers;
 using UnityEngine;
-using UnityEngine.Rendering;
 using UnityEngine.SceneManagement;
 
 public class IntroCutsceneLevelManager : MonoBehaviour
@@ -8,12 +7,11 @@ public class IntroCutsceneLevelManager : MonoBehaviour
     public DialogueAsset introCutsceneDialogue;
     public AudioClip music;
     
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    private void Start()
     {
-        GameEvents.OnDialogueEnd += OnDialogueEnd; // Subscribe to the dialogue end event
+        GameEvents.onDialogueEnd += OnDialogueEnd; // Subscribe to the dialogue end event
         Debug.Log("IntroCutsceneLevelManager");
-        DialogueManager.Instance.StartDialogue(introCutsceneDialogue.dialogue);
+        DialogueManager.instance.StartDialogue(introCutsceneDialogue.dialogue);
         Debug.Log("Tried to start the scene");
         AudioManager.instance.PlayMusic(music);
     }
@@ -24,11 +22,11 @@ public class IntroCutsceneLevelManager : MonoBehaviour
     }
     private void OnDestroy()
     {
-        GameEvents.OnDialogueEnd -= OnDialogueEnd; // Unsubscribe from the dialogue end event
+        GameEvents.onDialogueEnd -= OnDialogueEnd; // Unsubscribe from the dialogue end event
     }
 
     private void OnDisable()
     {
-        GameEvents.OnDialogueEnd -= OnDialogueEnd; // Unsubscribe from the dialogue end event
+        GameEvents.onDialogueEnd -= OnDialogueEnd; // Unsubscribe from the dialogue end event
     }
 }

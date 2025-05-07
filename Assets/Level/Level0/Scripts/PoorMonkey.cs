@@ -13,16 +13,16 @@ public class PoorMonkey : MonoBehaviour
     
     private void Start()
     {
-        GameEvents.OnDialogueEnd += OnDialogueComplete;
+        GameEvents.onDialogueEnd += OnDialogueComplete;
         _cowardEnemy = GetComponent<CowardEnemy>();
     }
     private void OnCutsceneStopped(PlayableDirector director)
     {
         
     }
-    private void OnDialogueComplete(string dialogue)
+    private void OnDialogueComplete(string instigatingDialogue)
     {
-        if (dialogue == "Encounter")
+        if (instigatingDialogue == "Encounter")
         {
             healthBar.SetActive(true);
         }
@@ -35,7 +35,7 @@ public class PoorMonkey : MonoBehaviour
             doOnce = true;
             healthBar.SetActive(false);
             // ReSharper disable once Unity.PerformanceCriticalCodeInvocation
-            DialogueManager.Instance.StartDialogue(dialogue.dialogue);
+            DialogueManager.instance.StartDialogue(dialogue.dialogue);
         }
     }
     
