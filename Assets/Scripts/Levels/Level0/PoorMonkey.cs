@@ -30,13 +30,11 @@ namespace Levels.Level0
 
         private void Update()
         {
-            if (_cowardEnemy.health <= 0 && !doOnce)
-            {
-                doOnce = true;
-                healthBar.SetActive(false);
-                // ReSharper disable once Unity.PerformanceCriticalCodeInvocation
-                DialogueManager.instance.StartDialogue(dialogue.dialogue);
-            }
+            if (!(_cowardEnemy.health <= 0) || doOnce) return;
+            doOnce = true;
+            healthBar.SetActive(false);
+            // ReSharper disable once Unity.PerformanceCriticalCodeInvocation
+            DialogueManager.instance.StartDialogue(dialogue.dialogue);
         }
     
     }
