@@ -25,6 +25,7 @@ namespace Managers
     
         public bool isDialogueActive;
         private bool _isTyping;
+        private bool _pause;
         public float typingSpeed = 0.2f;
         
         [FormerlySerializedAs("typeSound")] [SerializeField] private AudioClip defaultTypeSound;
@@ -147,10 +148,26 @@ namespace Managers
             
             dialogueArea.text = "";
             Coroutine talkSoundCoroutine = StartCoroutine(PlayTalkSound());
+            int letterCount = 0;
+            int maxLetters = currentLine.line.Trim().ToCharArray().Length;
             foreach (char letter in currentLine.line.ToCharArray())
             {
+                _pause = false;
                 dialogueArea.text += letter;
-                yield return new WaitForSeconds(typingSpeed);
+                float additionalPause = 0f;
+                if ((letterCount+1) != maxLetters){ 
+                    additionalPause = letter switch
+                    {
+                        ',' => 0.25f,
+                        '.' => 0.5f,
+                        _ => 0f
+                    };
+                }
+                
+
+                if (additionalPause > 0f) _pause = true;
+                letterCount++;
+                yield return new WaitForSeconds(typingSpeed+additionalPause);
             }
             if (talkSoundCoroutine != null)
             {
@@ -163,7 +180,10 @@ namespace Managers
         {
             while (true)
             {
-                AudioManager.instance.PlaySFX(_typeSound, _typeVolume, _typePitch);
+                if (!_pause)
+                {
+                    AudioManager.instance.PlaySFX(_typeSound, _typeVolume, _typePitch);
+                }
                 yield return new WaitForSeconds(_currentLine.character.frequency);
             }
         }

@@ -13,100 +13,176 @@ MonoBehaviour:
   m_Name: IntroCutsceneDialogue
   m_EditorClassIdentifier: 
   dialogue:
-    dilaogueName: 
+    dialogueName: 
     dialogueLines:
     - character:
         characterName: 
         characterSprite: {fileID: 0}
         color: {r: 0, g: 0, b: 0, a: 0}
-      line: "Once upon a time, a sister and brother, Ruri and Otto, played in their
+        blipSound: []
+        frequency: 0.15
+        volume: 0.75
+        pitch: 0.25
+      line: "Once upon a time. a sister and brother, Ruri and Otto, played in their
         backyard.\r"
       right: 0
+      soundEffect: {fileID: 0}
     - character:
         characterName: 
         characterSprite: {fileID: 0}
         color: {r: 0, g: 0, b: 0, a: 0}
+        blipSound: []
+        frequency: 0.15
+        volume: 0.75
+        pitch: 0.25
       line: "Until Otto\u2019s ball bounced into the forest, swallowed by the trees.\r"
       right: 0
+      soundEffect: {fileID: 0}
     - character:
         characterName: 
         characterSprite: {fileID: 0}
         color: {r: 0, g: 0, b: 0, a: 0}
+        blipSound: []
+        frequency: 0.15
+        volume: 0.75
+        pitch: 0.25
       line: 'They searched the woods high and low, but the ball was nowhere to be
         found.
 
 '
       right: 0
+      soundEffect: {fileID: 0}
     - character:
         characterName: 
         characterSprite: {fileID: 0}
         color: {r: 0, g: 0, b: 0, a: 0}
+        blipSound: []
+        frequency: 0.15
+        volume: 0.75
+        pitch: 0.25
       line: 'Instead, they stumbled upon a shrine, cracked, overgrown, forgotten.
 
-        
+
 
 '
       right: 0
+      soundEffect: {fileID: 0}
     - character:
         characterName: 
         characterSprite: {fileID: 0}
         color: {r: 0, g: 0, b: 0, a: 0}
+        blipSound: []
+        frequency: 0.15
+        volume: 0.75
+        pitch: 0.25
       line: 'Otto stepped forward and toyed with it, laughing at its silence.
 
 '
       right: 0
+      soundEffect: {fileID: 0}
     - character:
         characterName: 
         characterSprite: {fileID: 0}
         color: {r: 0, g: 0, b: 0, a: 0}
+        blipSound: []
+        frequency: 0.15
+        volume: 0.75
+        pitch: 0.25
       line: 'But the shrine stirred. '
       right: 0
+      soundEffect: {fileID: 0}
     - character:
         characterName: 
         characterSprite: {fileID: 0}
         color: {r: 0, g: 0, b: 0, a: 0}
+        blipSound: []
+        frequency: 0.15
+        volume: 0.75
+        pitch: 0.25
       line: "From its heart, a giant silhouette emerged\u2014tall, still, and watching.\r\n"
       right: 0
+      soundEffect: {fileID: 0}
     - character:
         characterName: 
         characterSprite: {fileID: 0}
         color: {r: 0, g: 0, b: 0, a: 0}
+        blipSound: []
+        frequency: 0.15
+        volume: 0.75
+        pitch: 0.25
       line: 'The air shifted. The trees warped. The world folded in on itself.
 
-        
+
 
 '
       right: 0
+      soundEffect: {fileID: 0}
     - character:
         characterName: 
         characterSprite: {fileID: 0}
         color: {r: 0, g: 0, b: 0, a: 0}
+        blipSound: []
+        frequency: 0.15
+        volume: 0.75
+        pitch: 0.25
       line: 'In a blink, they were somewhere else, a forest bathed in twilight.
 
 '
       right: 0
+      soundEffect: {fileID: 0}
     - character:
         characterName: 
         characterSprite: {fileID: 0}
         color: {r: 0, g: 0, b: 0, a: 0}
+        blipSound: []
+        frequency: 0.15
+        volume: 0.75
+        pitch: 0.25
       line: "Ruri lay in the grass, stunned.\r\r\n"
       right: 0
+      soundEffect: {fileID: 0}
     - character:
         characterName: 
         characterSprite: {fileID: 0}
         color: {r: 0, g: 0, b: 0, a: 0}
+        blipSound: []
+        frequency: 0.15
+        volume: 0.75
+        pitch: 0.25
       line: "Otto yelled at the figure, throwing a tantrum.\r\r\r\n"
       right: 0
+      soundEffect: {fileID: 0}
     - character:
         characterName: 
         characterSprite: {fileID: 0}
         color: {r: 0, g: 0, b: 0, a: 0}
+        blipSound: []
+        frequency: 0.15
+        volume: 0.75
+        pitch: 0.25
       line: "The figure raised its hand. A curse passed through the air like wind.
         \r\r\r\n"
       right: 0
+      soundEffect: {fileID: 0}
     - character:
         characterName: 
         characterSprite: {fileID: 0}
         color: {r: 0, g: 0, b: 0, a: 0}
-      line: "Otto was no longer human. He had become a monkey. \r\r\r\n"
+        blipSound: []
+        frequency: 0.15
+        volume: 0.75
+        pitch: 0.25
+      line: Otto was no longer human.
       right: 0
+      soundEffect: {fileID: 0}
+    - character:
+        characterName: 
+        characterSprite: {fileID: 0}
+        color: {r: 0, g: 0, b: 0, a: 0}
+        blipSound: []
+        frequency: 0.15
+        volume: 0.75
+        pitch: 0.25
+      line: "Otto had become... a monkey. \r\r\r\n"
+      right: 0
+      soundEffect: {fileID: 0}
