@@ -2,30 +2,31 @@ using System;
 using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.Serialization;
 
 
 public class RuriMovement : MonoBehaviour
 {
     public static RuriMovement instance;
-    private RuriAttack _ruriAttack;
-    // hey bro's, anything in double slashes are comments, they are not read by the computer, they are just for you to read
-    // so you can understand me code good sirs, I need to practice coding for others to understand.
     
-    private Transform _playerTransform; //this is a variable that stores the transform of the player
+    private RuriAttack _ruriAttack;
+ 
+    [NonSerialized] public GameObject Otto; 
+    [NonSerialized] public GameObject RidingOtto; 
+
+    
+    private Transform _playerTransform; 
     private AudioSource _audioSource;
-    private PlayerInput _playerInput;
     private CinemachineCamera _camera;
     
-    [SerializeField] public GameObject ridingOttoPrefab; //this is a variable that stores the otto game object
-    [NonSerialized] public GameObject RidingOtto; //this is a variable that stores the otto game object, this is the one that will be used in the game
-    [SerializeField] private GameObject ottoPrefab; //this is a variable that stores the otto game object
-    public GameObject otto; //this is a variable that stores the otto game object, this is the one that will be used in the game
+    [SerializeField] private GameObject ridingOttoPrefab;
+    [SerializeField] private GameObject ottoPrefab; 
     
-    private bool _running; //this is a variable that stores if the player is running or not
+    
+    private bool _running; 
     public bool controlling = true;
-    private bool _ottoInRange; //this is a variable that stores if the player is in range of the otto
-    public bool ottoMounted; //this is a variable that stores if the player has otto or not
+    private bool _ottoInRange; 
+    
+    public bool ottoMounted; 
 
     public bool hasWeapon = true;
     public bool hasOtto = true;
@@ -49,7 +50,6 @@ public class RuriMovement : MonoBehaviour
             instance = this;
         _playerTransform = transform;
         _camera = FindFirstObjectByType<CinemachineCamera>();
-        _playerInput = GetComponent<PlayerInput>();
         _ruriAttack = GetComponent<RuriAttack>();
 
         if (hasOtto)
@@ -113,9 +113,9 @@ public class RuriMovement : MonoBehaviour
 
     private void UpdateDirection()
     {
-        Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition); // to do make camera manager class
         Vector3 direction = mouseWorldPos - _playerTransform.position;
-        direction.z = 0; // Keep it 2D
+        direction.z = 0;
 
         // Cardinal direction logic
         if (Mathf.Abs(direction.x) > Mathf.Abs(direction.y))
@@ -126,14 +126,6 @@ public class RuriMovement : MonoBehaviour
         {
             _currentDirection = direction.y > 0 ? Direction.Up : Direction.Down;
         }
-        // if (_moveInput.x == 0 && _moveInput.y == 0) return; //if the player is moving (return makes the code stop executing, which will ignore the rest of the code below)
-        // if (Mathf.Abs(_moveInput.x) > Mathf.Abs(_moveInput.y)) //if the player is moving more in the x direction than the y direction
-        // {
-        //     _currentDirection = _moveInput.x > 0 ? Direction.Right : Direction.Left; //another ternary, if the player is moving right
-        // } else 
-        // {
-        //     _currentDirection = _moveInput.y > 0 ?  Direction.Up : Direction.Down; //if the player is moving up
-        // } 
     }
 
     #region InputAction
@@ -149,12 +141,11 @@ public class RuriMovement : MonoBehaviour
         {
             RemoveOtto();
             ottoMounted = false;
-            otto = Instantiate(ottoPrefab, new Vector3(_playerTransform.position.x,_playerTransform.position.y+0.75f,_playerTransform.position.z), Quaternion.identity);
-           // _otto.GetComponent<PlayerInput>().SwitchCurrentControlScheme(_playerInput.currentControlScheme, _playerInput.devices.ToArray());
-            _camera.Follow = otto.transform;
+            Otto = Instantiate(ottoPrefab, new Vector3(_playerTransform.position.x,_playerTransform.position.y+0.75f,_playerTransform.position.z), Quaternion.identity);
+            _camera.Follow = Otto.transform;
             controlling = false;
         } else if (_ottoInRange){
-            Destroy(otto);
+            Destroy(Otto);
             ottoMounted = true;
             AddOtto();
             controlling = true;

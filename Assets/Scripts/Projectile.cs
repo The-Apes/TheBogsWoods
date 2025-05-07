@@ -2,13 +2,14 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-   [SerializeField] private float lifetime = 2f; // Lifetime of the projectile in seconds
+   [SerializeField] private float lifetime = 2f; 
    
    private void OnTriggerEnter2D(Collider2D other)
    {
       if (other.isTrigger) return;
       // ReSharper disable once Unity.UnknownLayer
-      if (other.gameObject.layer == LayerMask.NameToLayer("Enemy") || other.gameObject.layer == LayerMask.NameToLayer("Player")) return;
+      if (other.gameObject.layer == 
+          LayerMask.NameToLayer("Enemy") || other.gameObject.layer == LayerMask.NameToLayer("Player")) return;
       Destroy(gameObject);
    }
    

@@ -6,27 +6,29 @@ using UnityEngine.SceneManagement;
 public class GameController : MonoBehaviour
 {
     public GameObject gameOverScreen; // Reference to the Game Over screen UI
-    public TMP_Text YouAreDeadText; // Reference to the "You Are Dead" text UI
+    public TMP_Text youAreDeadText; // Reference to the "You Are Dead" text UI
 
     public static event Action OnReset; // Event to notify when the game is reset
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    private void Start()
     {
         PlayerHealth.OnPlayerDied += GameOverScreen;
         if (gameOverScreen != null)
         {
-            gameOverScreen.SetActive(false); // Hide the Game Over screen at the start
+            gameOverScreen.SetActive(false);
         }
     }
 
-    void OnDestroy()
+    private void OnDestroy()
     {
-        // Unsubscribe from the event to avoid accessing destroyed objects
         PlayerHealth.OnPlayerDied -= GameOverScreen;
     }
 
-    void GameOverScreen()
+    /// <summary>
+    /// Displays the game over screen, stops time, and shows the "You are dead!" message.
+    /// </summary>
+    private void GameOverScreen()
     {
         Time.timeScale = 0;
         if (gameOverScreen != null)
@@ -34,13 +36,19 @@ public class GameController : MonoBehaviour
             gameOverScreen.SetActive(true);
         }
 
-        if (YouAreDeadText != null)
+        if (youAreDeadText != null)
         {
-            YouAreDeadText.text = "You are dead!";
+            youAreDeadText.text = "You are dead!";
         }
     }
-
-    public void ResetGame()
+   public void OnRetryClick()
+    {
+        ResetGame();
+        // Reload the current scene
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        OnReset?.Invoke();
+    }
+    private void ResetGame()
     {
         Time.timeScale = 1; // Resume the game time
         if (gameOverScreen != null)
@@ -49,12 +57,6 @@ public class GameController : MonoBehaviour
         }
     }
 
-    public void onRetryClick()
-    {
-        ResetGame();
-        // Reload the current scene
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        OnReset.Invoke();
-    }
+ 
 }
 

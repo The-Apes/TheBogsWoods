@@ -1,31 +1,33 @@
-using Managers;
 using UnityEngine;
 using UnityEngine.Playables;
 
-public class LevelZeroSceneManager : MonoBehaviour
+namespace Managers
 {
-    public DialogueAsset startingDialogue;
-    public DialogueAsset encounterDialogue;
-    public PlayableAsset startingCutscene;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public class LevelZeroSceneManager : MonoBehaviour
     {
-        RuriMovement.instance.controlling = false;
-        CutsceneManager.Instance.director.stopped += OnCutsceneStopped;
-        CutsceneManager.Instance.PlayCutscene(startingCutscene);
-    }
-
-    private void OnCutsceneStopped(PlayableDirector director)
-    {
-        if(director.playableAsset.name == "OttoRun")
+        public DialogueAsset startingDialogue;
+        public DialogueAsset encounterDialogue;
+        public PlayableAsset startingCutscene;
+    
+        void Start()
         {
-            DialogueManager.Instance.StartDialogue(startingDialogue.dialogue);
+            RuriMovement.instance.controlling = false;
+            CutsceneManager.instance.director.stopped += OnCutsceneStopped;
+            CutsceneManager.instance.PlayCutscene(startingCutscene);
         }
 
-        if (director.playableAsset.name == "Monkey Encounter")
+        private void OnCutsceneStopped(PlayableDirector director)
         {
-            DialogueManager.Instance.StartDialogue(encounterDialogue.dialogue);
+            switch (director.playableAsset.name)
+            {
+                case "OttoRun":
+                    DialogueManager.instance.StartDialogue(startingDialogue.dialogue);
+                    break;
+                case "Monkey Encounter":
+                    DialogueManager.instance.StartDialogue(encounterDialogue.dialogue);
+                    break;
+            }
         }
-    }
  
+    }
 }

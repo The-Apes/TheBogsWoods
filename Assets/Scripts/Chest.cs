@@ -3,19 +3,20 @@ using UnityEngine;
 
 public class Chest : MonoBehaviour, IInteractable
 {
-    public bool IsOpened { get; private set; }
-    public string ChestID { get; private set; }
+    private bool _isOpened;
+    private string _chestID;
     public GameObject itemPrefab; // The item that will be spawned when the chest is opened
     public Sprite openedSprite; // The sprite to use when the chest is opened
     public DialogueAsset openChest;
-    void Start()
+
+    private void Start()
     {
-        ChestID ??= GlobalHelper.GenerateUniqueID(gameObject);
+        _chestID ??= GlobalHelper.GenerateUniqueID(gameObject);
     }
 
     public bool CanInteract()
     {
-        return !IsOpened;
+        return !_isOpened;
     }
 
     public void Interact()
@@ -29,23 +30,19 @@ public class Chest : MonoBehaviour, IInteractable
         SetOpened(true);
 
         // Drop the item
-        if (itemPrefab)
+        if (!itemPrefab) return;
+        GameObject item = Instantiate(itemPrefab, transform.position + Vector3.down, Quaternion.identity);
+        Rigidbody2D rb = item.GetComponent<Rigidbody2D>();
+        if (rb != null)
         {
-            GameObject item = Instantiate(itemPrefab, transform.position + Vector3.down, Quaternion.identity);
-            Rigidbody2D rb = item.GetComponent<Rigidbody2D>();
-            if (rb != null)
-            {
-                rb.AddForce(new Vector2(Random.Range(-1f, 1f), 2f), ForceMode2D.Impulse); // Apply bounce force
-            }
+            rb.AddForce(new Vector2(Random.Range(-1f, 1f), 2f), ForceMode2D.Impulse); // Apply bounce force
         }
     }
 
-    public void SetOpened(bool opened)
+    private void SetOpened(bool opened)
     {
-        if (IsOpened = opened)
-        {
-            GetComponent<SpriteRenderer>().sprite = openedSprite;
-            DialogueManager.Instance.StartDialogue(openChest.dialogue);
-        }
+        if (_isOpened != opened) return;
+        GetComponent<SpriteRenderer>().sprite = openedSprite;
+        DialogueManager.instance.StartDialogue(openChest.dialogue);
     }
 }

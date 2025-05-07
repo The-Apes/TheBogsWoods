@@ -1,32 +1,33 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
-public class MapController_Dynamic : MonoBehaviour
+public class MapControllerDynamic : MonoBehaviour
 {
    [Header("UI References")]
    public RectTransform mapParent;
    public GameObject areaPrefab;
    public RectTransform playerIcon;
 
-   [Header("Coulours")] public Color defultColor = Color.gray; //Area on our map that we are not in
+   [Header("Colours")] public Color defaultColor = Color.gray; //Area on our map that we are not in
    public Color currentAreaColor = Color.green; //Area on our map that we are in
    
    [Header("Map Settings")]
    public GameObject mapBounds; //Parent of area colliders
-   public PolygonCollider2D[] initialAreas; //Inital starting areas
+   public PolygonCollider2D[] initialAreas; //Initial starting areas
    public float mapScale = 10f; //Adjust map size on UI
    
    private PolygonCollider2D[] mapAreas; //Children of MapBounds
-   private Dictionary<string, RectTransform> uiAreas = new Dictionary<string, RectTransform>(); //Map each PolygonCollider2D to corrisponding recTransform
+   private Dictionary<string, RectTransform> uiAreas = new Dictionary<string, RectTransform>(); //Map each PolygonCollider2D to corresponding recTransform
 
-   public static MapController_Dynamic instance { get; set; }
+   public static MapControllerDynamic Instance { get; set; }
    
    private void Awake()
    {
-      if (instance == null)
+      if (Instance == null)
       {
-         instance = this;
+         Instance = this;
       }
       else
       {
@@ -36,25 +37,22 @@ public class MapController_Dynamic : MonoBehaviour
       mapAreas = mapBounds.GetComponentsInChildren<PolygonCollider2D>();
    }
    
-   //GenerateMap
+
    public void GenerateMap(PolygonCollider2D newCurrentArea = null)
    {
-      if (initialAreas != null)
+      if (initialAreas == null) return;
+      PolygonCollider2D currentArea = newCurrentArea != null ? newCurrentArea :initialAreas[0];
+
+      ClearMap();
+
+      foreach (PolygonCollider2D area in mapAreas)
       {
-         PolygonCollider2D currentArea = newCurrentArea != null ? newCurrentArea :initialAreas[0];
-
-         ClearMap();
-
-         foreach (PolygonCollider2D area in mapAreas)
-         {
-            CreateAreaUI(area, area == currentArea);
-         }
-      
-         MovePlayerIcon(currentArea.name);
+         CreateAreaUI(area, area == currentArea);
       }
+      
+      MovePlayerIcon(currentArea.name);
    }
    
-   //ClearMap
    private void ClearMap()
    {
       foreach(Transform child in mapParent)
@@ -78,7 +76,7 @@ public class MapController_Dynamic : MonoBehaviour
       rectTransform.anchoredPosition = bounds.center * mapScale;
       
       //Set colour based on if current area or not
-      areaImage.GetComponent<Image>().color = isCurrent ? currentAreaColor : defultColor;
+      areaImage.GetComponent<Image>().color = isCurrent ? currentAreaColor : defaultColor;
       
       //Add to dictionary
       uiAreas[area.name] = rectTransform;
@@ -91,7 +89,7 @@ public class MapController_Dynamic : MonoBehaviour
       //Update Colour
       foreach(KeyValuePair<string, RectTransform> area in uiAreas)
       {
-         area.Value.GetComponent<Image>().color = area.Key == newCurrentArea ? currentAreaColor : defultColor;
+         area.Value.GetComponent<Image>().color = area.Key == newCurrentArea ? currentAreaColor : defaultColor;
       }
       
       //Move player icon

@@ -6,33 +6,21 @@ public class PlayerItemCollector : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Item"))
+        if (!collision.CompareTag("Item")) return;
+        
+        // Call the Pickup method of the item
+        Item item = collision.GetComponent<Item>();
+        if (item != null)
         {
-            // Call the Pickup method of the item
-            Item item = collision.GetComponent<Item>();
-            if (item != null)
-            {
-                item.Pickup();
-            }
+            item.Pickup();
         }
-        // else if (collision.CompareTag("HealthItem"))
-        // {
-        //     Item item = collision.GetComponent<Item>();
-        //     if (item != null)
-        //     {
-        //         // Heal the player and destroy the item
-        //         HealPlayer(item.value);
-        //         Destroy(collision.gameObject);
-        //     }
-        // }
     }
 
     private void HealPlayer(int healAmount)
     {
-        if (playerHealth < 100) // Only heal if health is not full
-        {
-            playerHealth = Mathf.Min(playerHealth + healAmount, 100);
-            Debug.Log("Health restored! Current health: " + playerHealth);
-        }
+        if (playerHealth >= 100) return; // Only heal if health is not full
+        
+        playerHealth = Mathf.Min(playerHealth + healAmount, 100);
+        Debug.Log("Health restored! Current health: " + playerHealth);
     }
 }

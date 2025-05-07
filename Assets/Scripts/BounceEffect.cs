@@ -4,10 +4,9 @@ using UnityEngine;
 
 public class BounceEffect : MonoBehaviour
 {
-    public float bounceHeight = 0.3f; // Height of the bounce
-    public float bounceDuration = 0.4f; // Duration of the bounce
-    public int bounceCount = 2; // Number of bounces
-
+    public float bounceHeight = 0.3f; 
+    public float bounceDuration = 0.4f; 
+    public int bounceCount = 2; 
     public void StartBounce()
     {
         StartCoroutine(BounceHandler());
@@ -25,7 +24,7 @@ public class BounceEffect : MonoBehaviour
             localHeight *= 0.5f; // Reduce height for each bounce
             localDuration *= 0.8f;
         }
-        transform.position = startPosition; // Reset positionransform.position = startPosition; // Reset position
+        transform.position = startPosition; 
     }
 
     private IEnumerator Bounce( Vector3 start, float height, float duration)

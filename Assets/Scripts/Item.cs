@@ -1,10 +1,9 @@
 using UnityEngine;
-using UnityEngine.UI;
 
 public class Item : MonoBehaviour
 {
-    public int ID;     // Unique identifier for the item
-    public string Name; // Name of the item
+    public int ID;     
+    public string Name; 
     public int value;  // Healing amount or other effect value
 
     public virtual void Pickup()

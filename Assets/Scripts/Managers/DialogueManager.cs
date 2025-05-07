@@ -23,7 +23,7 @@ namespace Managers
         private Queue<DialogueLine> _lines;
         private DialogueLine _currentLine;
     
-        public bool isDialogueActive = false;
+        public bool isDialogueActive;
         private bool _isTyping;
         public float typingSpeed = 0.2f;
         
@@ -148,7 +148,7 @@ namespace Managers
             isDialogueActive = false;
             animator.Play("HideDialogue");
             if( RuriMovement.instance != null)RuriMovement.instance.controlling = true;
-            GameEvents.DialogueEnded(currentDialogue.dilaogueName);
+            GameEvents.DialogueEnded(currentDialogue.dialogueName);
         }
     }
 }

@@ -7,7 +7,7 @@ public class RuriAttack : MonoBehaviour
     public bool isAttacking;
     private float _attackTimer;
     // ReSharper disable once FieldCanBeMadeReadOnly.Local
-    private float _attackDuration = 0.3f;
+    private const float AttackDuration = 0.3f;
     private RuriMovement _ruriMovement;
     [SerializeField] private Collider2D hitBox;
     private OttoShoot _ottoShoot;
@@ -34,7 +34,7 @@ public class RuriAttack : MonoBehaviour
         hitBox.gameObject.SetActive(true);
         isAttacking = true;
 
-        yield return new WaitForSeconds(_attackDuration);
+        yield return new WaitForSeconds(AttackDuration);
 
         hitBox.gameObject.SetActive(false);
         isAttacking = false;
@@ -53,21 +53,5 @@ public class RuriAttack : MonoBehaviour
             _ruriMovement.RidingOtto.GetComponent<OttoShoot>().ShootInput = false;
         }
     }
-
-   
-    /*private void UpdateAttackTimer()
-    {
-        if (_isAttacking)
-        {
-            _attackTimer += Time.deltaTime;
-            if (_attackTimer >= _attackDuration)
-            {
-                hitBox.gameObject.SetActive(false);
-                _isAttacking = false;
-                _attackTimer = 0f;
-                print("Attack Ended");
-            }
-        }
-    }*/
 
 }
