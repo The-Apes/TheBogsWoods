@@ -13,17 +13,28 @@ MonoBehaviour:
   m_Name: LevelStartDialogue
   m_EditorClassIdentifier: 
   dialogue:
-    dilaogueName: LevelStartDialogue
+    dialogueName: 
     dialogueLines:
     - character:
         characterName: Ruri
         characterSprite: {fileID: 3159093899981062546, guid: 2c5481612dbe21348b3079d3c85e96ca, type: 3}
         color: {r: 0.46274513, g: 0.25490198, b: 0.5411765, a: 1}
+        blipSound:
+        - {fileID: 8300000, guid: e160fa1f49b34a04caa78cdac97b43e1, type: 3}
+        frequency: 0.1
+        volume: 1
+        pitch: 1.1
       line: I gotta go after Otto!
       right: 0
+      soundEffect: {fileID: 0}
     - character:
         characterName: Ruri
         characterSprite: {fileID: 3159093899981062546, guid: 2c5481612dbe21348b3079d3c85e96ca, type: 3}
         color: {r: 0.46274513, g: 0.25490198, b: 0.5411765, a: 1}
+        blipSound: []
+        frequency: 0.15
+        volume: 0.5
+        pitch: 1
       line: Let me give his hat back to him
       right: 0
+      soundEffect: {fileID: 0}

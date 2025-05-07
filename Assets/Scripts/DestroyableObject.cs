@@ -10,18 +10,19 @@ public class DestroyableObject : MonoBehaviour
   [Header("sounds")]
   [SerializeField] private AudioClip hitSound;
   [SerializeField] private AudioClip destroySound;
+  
   private void OnTriggerEnter2D(Collider2D other)
   {
    if (!other.GetComponent<HitBox>()) return;
    health--;
    if (health <= 0)
    {
-    AudioManager.instance.PlaySound(destroySound);
+    AudioManager.instance.PlaySFXAt(destroySound, transform);
     Destroy(gameObject);
    }
    else
    {
-    AudioManager.instance.PlaySound(hitSound);
+    AudioManager.instance.PlaySFXAt(hitSound, transform);
    }
   }
  }

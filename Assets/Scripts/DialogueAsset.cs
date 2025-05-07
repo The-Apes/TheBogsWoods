@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using Managers;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 //reference https://www.youtube.com/watch?v=DOP_G5bsySA
 
@@ -10,8 +11,12 @@ public class DialogueCharacter
     public string characterName; 
     public Sprite characterSprite; // Sprite representing the character
     public Color color = Color.white;
+    [Header("Voice")]
+    public AudioClip[] blipSound;
+    public float frequency = 0.15f;
+    public float volume = 0.5f;
     public float pitch = 1f; 
-    public AudioClip voice; // Audio Blip for the character's voice
+     // Audio Blip for the character's voice
 }
 [System.Serializable]
 public class DialogueLine

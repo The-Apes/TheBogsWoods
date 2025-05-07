@@ -719,6 +719,7 @@ MonoBehaviour:
   iconTransform: {fileID: 8700023746020763942}
   isDialogueActive: 0
   typingSpeed: 0.025
+  defaultTypeSound: {fileID: 8300000, guid: e160fa1f49b34a04caa78cdac97b43e1, type: 3}
   animator: {fileID: 3793254786804814888}
 --- !u!114 &3110691875750253490
 MonoBehaviour:

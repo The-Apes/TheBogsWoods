@@ -19,6 +19,7 @@ GameObject:
   - component: {fileID: 1035093846423283616}
   - component: {fileID: 3851886552107231536}
   - component: {fileID: 3928796958079581933}
+  - component: {fileID: 3013807659131338322}
   m_Layer: 7
   m_Name: Ruri
   m_TagString: Player
@@ -231,7 +232,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ridingOttoPrefab: {fileID: 866079974977546125, guid: fbaec7c2d240c2e4ca25151d5195a896, type: 3}
   ottoPrefab: {fileID: 238577474628295289, guid: 803174830349f864e9adaf5746488655, type: 3}
-  otto: {fileID: 0}
   controlling: 1
   ottoMounted: 1
   hasWeapon: 1
@@ -449,6 +449,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerHealth: 3
+--- !u!81 &3013807659131338322
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 238577474628295289}
+  m_Enabled: 1
 --- !u!1 &1653731892496004782
 GameObject:
   m_ObjectHideFlags: 0

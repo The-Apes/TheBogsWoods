@@ -1223,12 +1223,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 219256519}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 575124982}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &219256521
 MonoBehaviour:
@@ -1646,7 +1646,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 575124982}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &340989425
 MonoBehaviour:
@@ -2998,7 +2998,7 @@ GameObject:
   m_Component:
   - component: {fileID: 575124982}
   m_Layer: 0
-  m_Name: Managers and Systems
+  m_Name: -MANAGERS-
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3016,14 +3016,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 696077207}
-  - {fileID: 1350024495}
-  - {fileID: 1524049445}
-  - {fileID: 219256520}
-  - {fileID: 340989424}
-  - {fileID: 1475607760}
-  - {fileID: 1380541048}
+  m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &604053524
@@ -3169,10 +3162,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bramble
       objectReference: {fileID: 0}
-    - target: {fileID: 7314241867540577007, guid: f63cfa1e64cd99748ba9eff1f032d967, type: 3}
-      propertyPath: destroySound
-      value: 
-      objectReference: {fileID: 8300000, guid: 99a57817652d64b47bbed3589b930ede, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3611,7 +3600,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 575124982}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &700347847
 GameObject:
@@ -5427,6 +5416,7 @@ GameObject:
   - component: {fileID: 961733991}
   - component: {fileID: 961733993}
   - component: {fileID: 961733994}
+  - component: {fileID: 961733995}
   m_Layer: 6
   m_Name: Enemy
   m_TagString: Untagged
@@ -5649,6 +5639,103 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthBar: {fileID: 673928407}
   dialogue: {fileID: 11400000, guid: 64a908afdfc09ef469969937fb3a53a1, type: 2}
+--- !u!82 &961733995
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 961733982}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &999651479
 GameObject:
   m_ObjectHideFlags: 0
@@ -9425,7 +9512,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 575124982}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1368485513
 GameObject:
@@ -9652,7 +9739,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 575124982}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1380541049
 MonoBehaviour:
@@ -22820,12 +22907,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1475607759}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 575124982}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1475607761
 MonoBehaviour:
@@ -22882,7 +22969,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 575124982}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1524049446
 MonoBehaviour:
@@ -22897,7 +22984,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameOverScreen: {fileID: 422428945}
-  YouAreDeadText: {fileID: 2021877036}
+  youAreDeadText: {fileID: 0}
 --- !u!1 &1544115410
 GameObject:
   m_ObjectHideFlags: 0
@@ -26186,7 +26273,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1830279525}
   - component: {fileID: 1830279524}
-  - component: {fileID: 1830279523}
   - component: {fileID: 1830279522}
   - component: {fileID: 1830279527}
   - component: {fileID: 1830279528}
@@ -26241,14 +26327,6 @@ MonoBehaviour:
     m_MipBias: 0
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
---- !u!81 &1830279523
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1830279521}
-  m_Enabled: 1
 --- !u!20 &1830279524
 Camera:
   m_ObjectHideFlags: 0
@@ -27297,7 +27375,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1998373852}
   - component: {fileID: 1998373851}
-  - component: {fileID: 1998373850}
   - component: {fileID: 1998373849}
   - component: {fileID: 1998373853}
   - component: {fileID: 1998373854}
@@ -27354,14 +27431,6 @@ MonoBehaviour:
     m_MipBias: 0
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
---- !u!81 &1998373850
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1998373848}
-  m_Enabled: 1
 --- !u!20 &1998373851
 Camera:
   m_ObjectHideFlags: 0
@@ -28424,10 +28493,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bramble
       objectReference: {fileID: 0}
-    - target: {fileID: 7314241867540577007, guid: f63cfa1e64cd99748ba9eff1f032d967, type: 3}
-      propertyPath: destroySound
-      value: 
-      objectReference: {fileID: 8300000, guid: 99a57817652d64b47bbed3589b930ede, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -28464,14 +28529,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   noWeaponDialogue:
-    dilaogueName: No Weapon
+    dialogueName: 
     dialogueLines:
     - character:
         characterName: Ruri
         characterSprite: {fileID: 3159093899981062546, guid: 2c5481612dbe21348b3079d3c85e96ca, type: 3}
         color: {r: 0.46274513, g: 0.25882354, b: 0.5411765, a: 1}
+        blipSound: []
+        frequency: 0.15
+        volume: 0.5
         pitch: 1
-        voice: {fileID: 0}
       line: Hmm... I can't pass through this bramble
       right: 0
       soundEffect: {fileID: 0}
@@ -28479,20 +28546,24 @@ MonoBehaviour:
         characterName: Ruri
         characterSprite: {fileID: 3159093899981062546, guid: 2c5481612dbe21348b3079d3c85e96ca, type: 3}
         color: {r: 0.46274513, g: 0.25882354, b: 0.5411765, a: 1}
+        blipSound: []
+        frequency: 0.15
+        volume: 0.5
         pitch: 1
-        voice: {fileID: 0}
       line: Maybe If I had something to break it with, I can pass through
       right: 0
       soundEffect: {fileID: 0}
   weaponDialogue:
-    dilaogueName: Has Weapon
+    dialogueName: 
     dialogueLines:
     - character:
         characterName: Ruri
         characterSprite: {fileID: 3159093899981062546, guid: 2c5481612dbe21348b3079d3c85e96ca, type: 3}
         color: {r: 0.46274513, g: 0.25882354, b: 0.5411765, a: 1}
+        blipSound: []
+        frequency: 0.15
+        volume: 0.5
         pitch: 1
-        voice: {fileID: 0}
       line: I could destroy that Bramble with this stick.
       right: 0
       soundEffect: {fileID: 0}
@@ -28561,8 +28632,15 @@ PrefabInstance:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
-  - {fileID: 354406105379482074}
   - {fileID: 575124982}
+  - {fileID: 354406105379482074}
+  - {fileID: 696077207}
+  - {fileID: 1350024495}
+  - {fileID: 1524049445}
+  - {fileID: 219256520}
+  - {fileID: 340989424}
+  - {fileID: 1475607760}
+  - {fileID: 1380541048}
   - {fileID: 1368485514}
   - {fileID: 1812646712}
   - {fileID: 1830279525}

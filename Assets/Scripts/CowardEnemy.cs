@@ -75,7 +75,7 @@ public class CowardEnemy : MonoBehaviour, IDamageable
         ApplyKnockback(source.transform.position, 20f);
         if (health <= 0) //if the health is less than or equal to 0
         {
-            AudioManager.instance.PlaySound(deathSound);
+            AudioManager.instance.PlaySFXAt(deathSound, transform);
             if (RuriMovement.instance.gameObject)
             {
                 _runTarget = RuriMovement.instance.controlling ? RuriMovement.instance.gameObject : RuriMovement.instance.Otto;
@@ -91,7 +91,7 @@ public class CowardEnemy : MonoBehaviour, IDamageable
         }
         else
         {
-            AudioManager.instance.PlaySound(hurtSound);
+            AudioManager.instance.PlaySFXAt(hurtSound, transform);
         }
     }
     private void ApplyKnockback(Vector2 sourcePosition, float knockbackForce)

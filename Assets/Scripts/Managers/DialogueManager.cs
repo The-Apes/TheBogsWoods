@@ -30,6 +30,7 @@ namespace Managers
         [FormerlySerializedAs("typeSound")] [SerializeField] private AudioClip defaultTypeSound;
         private AudioClip _typeSound;
         private float _typePitch = 1f;
+        private float _typeVolume = 1f;
         public Animator animator;
     
         private Dialogue currentDialogue;
@@ -48,7 +49,9 @@ namespace Managers
             _typeSound = defaultTypeSound;
         
         }
+        
 
+     
         public void StartDialogue(Dialogue dialogue)
         {
             isDialogueActive = true;
@@ -116,8 +119,16 @@ namespace Managers
                     iconTransform.pivot = new Vector2(0,0);
                 }
                 //voice and pitch
-                _typeSound = _currentLine.character.voice ? _currentLine.character.voice : defaultTypeSound;
+                if (_currentLine.character.blipSound != null)
+                {
+                    _typeSound = _currentLine.character.blipSound.Length > 0
+                        ? _currentLine.character.blipSound[Random.Range(0, _currentLine.character.blipSound.Length)]
+                        : defaultTypeSound;  
+                }
+                
+                
                 _typePitch = _currentLine.character.pitch;
+                _typeVolume = _currentLine.character.volume;
                 
                 StopAllCoroutines();
                 _isTyping = true;
@@ -133,21 +144,35 @@ namespace Managers
         }
         private IEnumerator TypeSentence(DialogueLine currentLine)
         {
+            
             dialogueArea.text = "";
+            Coroutine talkSoundCoroutine = StartCoroutine(PlayTalkSound());
             foreach (char letter in currentLine.line.ToCharArray())
             {
                 dialogueArea.text += letter;
-                AudioManager.instance.PlaySound(defaultTypeSound, _typePitch);
                 yield return new WaitForSeconds(typingSpeed);
+            }
+            if (talkSoundCoroutine != null)
+            {
+                StopCoroutine(talkSoundCoroutine);
+                talkSoundCoroutine = null;
             }
             _isTyping = false;
         }
-
+        private IEnumerator PlayTalkSound()
+        {
+            while (true)
+            {
+                AudioManager.instance.PlaySFX(_typeSound, _typeVolume, _typePitch);
+                yield return new WaitForSeconds(_currentLine.character.frequency);
+            }
+        }
+        
         void EndDialogue()
         {
             isDialogueActive = false;
             animator.Play("HideDialogue");
-            if( RuriMovement.instance != null)RuriMovement.instance.controlling = true;
+            if(RuriMovement.instance)RuriMovement.instance.controlling = true;
             GameEvents.DialogueEnded(currentDialogue.dialogueName);
         }
     }

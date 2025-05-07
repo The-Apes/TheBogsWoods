@@ -227,5 +227,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 1
-  HitSound: {fileID: 0}
-  destroySound: {fileID: 0}
+  hitSound: {fileID: 0}
+  destroySound: {fileID: 8300000, guid: 99a57817652d64b47bbed3589b930ede, type: 3}
