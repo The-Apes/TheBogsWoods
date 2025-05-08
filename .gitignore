@@ -70,3 +70,17 @@ crashlytics-build.properties
 # Temporary auto-generated Android Assets
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
+
+# Ignore .NET build folders
+**/obj/
+**/bin/
+**/.vs/
+**/*.user
+**/*.suo
+*.db
+*.db-journal
+
+# Ignore non-Unity artifacts
+*.csproj
+*.sln
+*.userprefs
