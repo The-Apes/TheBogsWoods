@@ -50,8 +50,6 @@ namespace Managers
             _typeSound = defaultTypeSound;
         
         }
-        
-
      
         public void StartDialogue(Dialogue dialogue)
         {
@@ -89,23 +87,32 @@ namespace Managers
             if (!_isTyping) 
             {
                 _currentLine = _lines.Dequeue();
-        
-                //colors
-                characterName.text = _currentLine.character.characterName;
-                header.color = _currentLine.character.color;
-                Color newColor = _currentLine.character.color * 0.25f; // Darken the color
-                newColor.a = _currentLine.character.color.a; // Preserve the original alpha
+
+                //Set Dialogue colors
+                
+                //if the character has an Overridden color, use it
+                characterName.text = _currentLine.characterOverride.characterName.Equals("")
+                    ? _currentLine.character.characterName
+                    : _currentLine.characterOverride.characterName;
+                
+                header.color = _currentLine.characterOverride.color.a == 0f
+                    ? _currentLine.character.color
+                    : _currentLine.characterOverride.color;
+                
+                Color newColor = header.color * 0.25f; // Darken the color
+                newColor.a = header.color.a; // Preserve the original alpha
                 background.color = newColor; 
         
-                //sprite
-                if (!_currentLine.character.characterSprite)
+                //set sprites
+                if (!_currentLine.character.characterSprite && !_currentLine.characterOverride.characterSprite)
                 {
                     characterIcon.gameObject.SetActive(false);
                 }
                 else
                 {
                     characterIcon.gameObject.SetActive(true);
-                    characterIcon.sprite = _currentLine.character.characterSprite;
+                    
+                    characterIcon.sprite = _currentLine.characterOverride.characterSprite ? _currentLine.characterOverride.characterSprite : _currentLine.character.characterSprite;
                 }
 
                 //alignment
