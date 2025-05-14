@@ -9,13 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: f1d682284edb0d64f8d03d0961b115a2, type: 3}
   m_Name: Ruri
   m_EditorClassIdentifier: Assembly-CSharp::DialogueCharacter
   characterName: Ruri
-  characterSprite: {fileID: 3159093899981062546, guid: 2c5481612dbe21348b3079d3c85e96ca, type: 3}
-  color: {r: 0.454902, g: 0.25490198, b: 0.5058824, a: 1}
+  characterSprite: {fileID: 612236427699847645, guid: 353393c61a5e05f41a3388bc34b3e6fa, type: 3}
+  color: {r: 0.46274513, g: 0.25882354, b: 0.5411765, a: 1}
   blipSound: []
-  frequency: 0.15
+  frequency: 0.1
   volume: 0.75
   pitch: 1.1

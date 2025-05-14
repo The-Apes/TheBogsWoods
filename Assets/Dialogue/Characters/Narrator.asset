@@ -18,4 +18,4 @@ MonoBehaviour:
   blipSound: []
   frequency: 0.15
   volume: 0.75
-  pitch: 0.5
+  pitch: 0.25

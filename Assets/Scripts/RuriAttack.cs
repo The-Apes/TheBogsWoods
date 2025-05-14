@@ -11,12 +11,14 @@ public class RuriAttack : MonoBehaviour
     private RuriMovement _ruriMovement;
     [SerializeField] private Collider2D hitBox;
     private OttoShoot _ottoShoot;
+    private Animator _animator;
 
     private void Awake()
     {
         if (hitBox == null) { Debug.LogWarning("HitBox isn't Defined, check the serialized field"); return; }
         hitBox.gameObject.SetActive(false);
         _ruriMovement = GetComponent<RuriMovement>();
+        _animator = GetComponent<Animator>();
     }
 
     public void Attack(InputAction.CallbackContext context) //Called by input system
@@ -26,7 +28,9 @@ public class RuriAttack : MonoBehaviour
         if (isAttacking) return;
         if (!_ruriMovement.controlling) return;
         
-        StartCoroutine(PerformAttack());
+        _animator.SetTrigger("Attack");
+        //_ruriMovement.isAttacking = true
+        
     }
     private IEnumerator PerformAttack()
     {
