@@ -32,11 +32,12 @@ namespace Managers
         private float _typeVolume = 1f;
         public Animator animator;
     
-        private Dialogue currentDialogue;
+        private Dialogue _currentDialogue;
 
         private void Awake()
         {
             _typeSound = defaultTypeSound;
+            _lines = new Queue<DialogueLine>();
         }
      
         public void StartDialogue(Dialogue dialogue)
@@ -44,7 +45,7 @@ namespace Managers
             isDialogueActive = true;
             animator.Play("ShowDialogue");
             _lines.Clear();
-            currentDialogue = dialogue;
+            _currentDialogue = dialogue;
             foreach (DialogueLine dialogueLine in dialogue.dialogueLines)
             {
                 _lines.Enqueue(dialogueLine);
@@ -189,7 +190,7 @@ namespace Managers
             isDialogueActive = false;
             animator.Play("HideDialogue");
             if(RuriMovement.instance)RuriMovement.instance.controlling = true;
-            GameEvents.DialogueEnded(currentDialogue.dialogueName);
+            GameEvents.DialogueEnded(_currentDialogue.dialogueName);
         }
     }
 }

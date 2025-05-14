@@ -18,6 +18,7 @@ public class IntroCutsceneLevelManager : MonoBehaviour
 
     private void OnDialogueEnd(string dialogue)
     {
+        AudioManager.instance.StopMusic();
         SceneManager.LoadScene("Level 0");
     }
     private void OnDestroy()

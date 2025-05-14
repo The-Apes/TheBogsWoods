@@ -1,6 +1,7 @@
 
 using UnityEngine;
 using UnityEngine.Serialization;
+using UnityEngine.UI;
 
 //reference https://www.youtube.com/watch?v=DOP_G5bsySA
 namespace Managers
@@ -8,7 +9,10 @@ namespace Managers
     public class DialogueManager : MonoBehaviour
     {
         public static DialogueManager instance;
+        
         public GameObject dialogueUI;
+        public GameObject canvas;
+        
         private DialogueSystem _dialogueSystem; 
         
         private DialogueLine _currentLine;
@@ -39,15 +43,12 @@ namespace Managers
         {
             if (_dialogueSystem) return;
             _dialogueSystem = FindFirstObjectByType<DialogueSystem>();
-            if (!_dialogueSystem)
+            if (_dialogueSystem) return;
+            if (!FindFirstObjectByType<Canvas>())
             {
-                if (!FindFirstObjectByType<Canvas>())
-                {
-                    new GameObject("Canvas").AddComponent<Canvas>();
-                }
-                    
-                _dialogueSystem = Instantiate(dialogueUI, FindFirstObjectByType<Canvas>().transform).GetComponent<DialogueSystem>();
+                Instantiate(canvas);
             }
+            _dialogueSystem = Instantiate(dialogueUI, FindFirstObjectByType<Canvas>().transform).GetComponent<DialogueSystem>();
         }
         
     }

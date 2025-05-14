@@ -790,8 +790,8 @@ MonoBehaviour:
     m_ActionName: UI/TrackedDeviceOrientation
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: DialogueManager, Assembly-CSharp
+      - m_Target: {fileID: 8171679158079076490}
+        m_TargetAssemblyTypeName: Managers.DialogueSystem, Assembly-CSharp
         m_MethodName: NextLineInput
         m_Mode: 0
         m_Arguments:
@@ -828,6 +828,6 @@ MonoBehaviour:
   background: {fileID: 8694241343635112217}
   iconTransform: {fileID: 8700023746020763942}
   isDialogueActive: 0
-  typingSpeed: 0.2
+  typingSpeed: 0.05
   defaultTypeSound: {fileID: 8300000, guid: e160fa1f49b34a04caa78cdac97b43e1, type: 3}
   animator: {fileID: 3793254786804814888}
