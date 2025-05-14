@@ -28121,7 +28121,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7292209988197213473, guid: 9abeb51c76090e243abe42863fe44864, type: 3}
       propertyPath: hasWeapon
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8294062259057164265, guid: 9abeb51c76090e243abe42863fe44864, type: 3}
       propertyPath: m_LocalPosition.x
@@ -28531,39 +28531,42 @@ MonoBehaviour:
   noWeaponDialogue:
     dialogueName: 
     dialogueLines:
-    - character:
-        characterName: Ruri
-        characterSprite: {fileID: 3159093899981062546, guid: 2c5481612dbe21348b3079d3c85e96ca, type: 3}
-        color: {r: 0.46274513, g: 0.25882354, b: 0.5411765, a: 1}
+    - character: {fileID: 0}
+      characterOverride:
+        characterName: 
+        characterSprite: {fileID: 0}
+        color: {r: 0, g: 0, b: 0, a: 0}
         blipSound: []
-        frequency: 0.15
-        volume: 0.5
-        pitch: 1
+        frequency: 0
+        volume: 0
+        pitch: 0
       line: Hmm... I can't pass through this bramble
       right: 0
       soundEffect: {fileID: 0}
-    - character:
-        characterName: Ruri
-        characterSprite: {fileID: 3159093899981062546, guid: 2c5481612dbe21348b3079d3c85e96ca, type: 3}
-        color: {r: 0.46274513, g: 0.25882354, b: 0.5411765, a: 1}
+    - character: {fileID: 0}
+      characterOverride:
+        characterName: 
+        characterSprite: {fileID: 0}
+        color: {r: 0, g: 0, b: 0, a: 0}
         blipSound: []
-        frequency: 0.15
-        volume: 0.5
-        pitch: 1
+        frequency: 0
+        volume: 0
+        pitch: 0
       line: Maybe If I had something to break it with, I can pass through
       right: 0
       soundEffect: {fileID: 0}
   weaponDialogue:
     dialogueName: 
     dialogueLines:
-    - character:
-        characterName: Ruri
-        characterSprite: {fileID: 3159093899981062546, guid: 2c5481612dbe21348b3079d3c85e96ca, type: 3}
-        color: {r: 0.46274513, g: 0.25882354, b: 0.5411765, a: 1}
+    - character: {fileID: 0}
+      characterOverride:
+        characterName: 
+        characterSprite: {fileID: 0}
+        color: {r: 0, g: 0, b: 0, a: 0}
         blipSound: []
-        frequency: 0.15
-        volume: 0.5
-        pitch: 1
+        frequency: 0
+        volume: 0
+        pitch: 0
       line: I could destroy that Bramble with this stick.
       right: 0
       soundEffect: {fileID: 0}
