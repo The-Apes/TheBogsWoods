@@ -165,8 +165,9 @@ namespace Managers
                 if ((letterCount+1) != maxLetters){ 
                     additionalPause = letter switch
                     {
-                        ',' => 0.25f,
-                        '.' => 0.5f,
+                        '—' => 0.15f,
+                        ',' => 0.20f,
+                        '.' => 0.4f,
                         _ => 0f
                     };
                 }
