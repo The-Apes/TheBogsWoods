@@ -106,6 +106,7 @@ public class RuriMovement : MonoBehaviour
        UpdateAttackDirection();
        
        _animator.SetInteger("Direction", (int)_movingDirectin);
+       _animator.SetInteger("AttackDirection", (int)_attackDirection);
 
        if (_ruriAttack.isAttacking) return;
        lookDir.rotation = _attackDirection switch
@@ -146,7 +147,7 @@ public class RuriMovement : MonoBehaviour
         {
             _attackDirection = mouseDirection.y > 0 ? Direction.Up : Direction.Down;
         }
-        //print("Aiming: "+ _attackDirection);
+        print("Aiming: "+ _attackDirection);
         
     }
 
