@@ -1,19 +1,34 @@
 fileFormatVersion: 2
-guid: 597fa97b4d7c1f44f9ed6b3a991dadc2
+guid: e338617238b3d64449afa151d0a239a7
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8384584493506918158
-    second: Ruri Idle Left_0
+      213: -5006284394998782416
+    second: Ruri Head Down_0
   - first:
-      213: -3995205453342092893
-    second: Ruri Idle Left_1
+      213: 679463975343788465
+    second: Ruri Head Down_1
   - first:
-      213: 304571686966920218
-    second: Ruri Idle Left_2
+      213: -2366761415521852400
+    second: Ruri Head Down_2
   - first:
-      213: -4925428879917157789
-    second: Ruri Idle Left_3
+      213: -2272500706818276656
+    second: Ruri Head Down_3
+  - first:
+      213: 7019785099356138142
+    second: Ruri Head Down_4
+  - first:
+      213: -7151768415920967804
+    second: Ruri Head Down_5
+  - first:
+      213: 7804969075789918749
+    second: Ruri Head Down_6
+  - first:
+      213: 7811673721545974756
+    second: Ruri Head Down_7
+  - first:
+      213: 8772313638990706431
+    second: Ruri Head Down_8
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -122,7 +137,139 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Ruri Idle Left_0
+      name: Ruri Head Down_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 64
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.34375}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 036248ffdda168ab0800000000000000
+      internalID: -5006284394998782416
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ruri Head Down_1
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 64
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.34375}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1b19a08b2e0fd6900800000000000000
+      internalID: 679463975343788465
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ruri Head Down_2
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 64
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.34375}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 01428bf3803972fd0800000000000000
+      internalID: -2366761415521852400
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ruri Head Down_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 32
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.34375}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0d2c54ab5a47670e0800000000000000
+      internalID: -2272500706818276656
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ruri Head Down_4
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 32
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.34375}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e9ae3befa594b6160800000000000000
+      internalID: 7019785099356138142
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ruri Head Down_5
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 32
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.34375}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 48f2c257480dfbc90800000000000000
+      internalID: -7151768415920967804
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ruri Head Down_6
       rect:
         serializedVersion: 2
         x: 0
@@ -130,21 +277,21 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 9
-      pivot: {x: 0.5, y: 0.125}
+      pivot: {x: 0.5, y: 0.34375}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 2f8854b93d8f3ab80800000000000000
-      internalID: -8384584493506918158
+      spriteID: d12fd5d9502d05c60800000000000000
+      internalID: 7804969075789918749
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ruri Idle Left_1
+      name: Ruri Head Down_7
       rect:
         serializedVersion: 2
         x: 32
@@ -152,21 +299,21 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 9
-      pivot: {x: 0.5, y: 0.125}
+      pivot: {x: 0.5, y: 0.34375}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 3a157d4cecd2e88c0800000000000000
-      internalID: -3995205453342092893
+      spriteID: 4e3600a9cd3a86c60800000000000000
+      internalID: 7811673721545974756
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ruri Idle Left_2
+      name: Ruri Head Down_8
       rect:
         serializedVersion: 2
         x: 64
@@ -174,37 +321,15 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 9
-      pivot: {x: 0.5, y: 0.125}
+      pivot: {x: 0.5, y: 0.34375}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a140e4ae55e0a3400800000000000000
-      internalID: 304571686966920218
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Ruri Idle Left_3
-      rect:
-        serializedVersion: 2
-        x: 96
-        y: 0
-        width: 32
-        height: 32
-      alignment: 9
-      pivot: {x: 0.5, y: 0.125}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 362761e978c55abb0800000000000000
-      internalID: -4925428879917157789
+      spriteID: ff6fa56e6c48db970800000000000000
+      internalID: 8772313638990706431
       vertices: []
       indices: 
       edges: []
@@ -213,7 +338,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 30b530ba645c8434ea6139e4e356f2ba
+    spriteID: c3780597784caed40807b4173cd78c7e
     internalID: 0
     vertices: []
     indices: 
@@ -223,10 +348,15 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Ruri Idle Left_0: -8384584493506918158
-      Ruri Idle Left_1: -3995205453342092893
-      Ruri Idle Left_2: 304571686966920218
-      Ruri Idle Left_3: -4925428879917157789
+      Ruri Head Down_0: -5006284394998782416
+      Ruri Head Down_1: 679463975343788465
+      Ruri Head Down_2: -2366761415521852400
+      Ruri Head Down_3: -2272500706818276656
+      Ruri Head Down_4: 7019785099356138142
+      Ruri Head Down_5: -7151768415920967804
+      Ruri Head Down_6: 7804969075789918749
+      Ruri Head Down_7: 7811673721545974756
+      Ruri Head Down_8: 8772313638990706431
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

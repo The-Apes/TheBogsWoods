@@ -1,10 +1,22 @@
 fileFormatVersion: 2
-guid: 09bcfbd0d34eba1479e666d29b223311
+guid: 49f85ba787047c34cb87db4b1fcf18b9
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7100244178143700350
-    second: Ruri Perspective4_0
+      213: 7359337812175686496
+    second: Ruri Hairbuns_0
+  - first:
+      213: 3069630964747470758
+    second: Ruri Hairbuns_1
+  - first:
+      213: 3745797917494776454
+    second: Ruri Hairbuns_2
+  - first:
+      213: 2131363176717896077
+    second: Ruri Hairbuns_3
+  - first:
+      213: 6549577880829941615
+    second: Ruri Hairbuns_4
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -72,7 +84,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 32
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -109,40 +121,115 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: iOS
-    maxTextureSize: 32
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 0
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Ruri Perspective4_0
+      name: Ruri Hairbuns_0
       rect:
         serializedVersion: 2
-        x: 8
-        y: 3
-        width: 15
-        height: 24
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 0
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.40625}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 28a9537e98dd67d90800000000000000
-      internalID: -7100244178143700350
+      spriteID: 06b05dcafbe912660800000000000000
+      internalID: 7359337812175686496
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ruri Hairbuns_1
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.40625}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6a7005d4915899a20800000000000000
+      internalID: 3069630964747470758
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ruri Hairbuns_2
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.40625}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6829ca02c5fbbf330800000000000000
+      internalID: 3745797917494776454
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ruri Hairbuns_3
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.40625}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d894e9b448f149d10800000000000000
+      internalID: 2131363176717896077
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ruri Hairbuns_4
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.40625}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f67df97a166c4ea50800000000000000
+      internalID: 6549577880829941615
       vertices: []
       indices: 
       edges: []
@@ -151,7 +238,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 761a9e1a0d17fc74583454aebd009978
     internalID: 0
     vertices: []
     indices: 
@@ -161,7 +248,11 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Ruri Perspective4_0: -7100244178143700350
+      Ruri Hairbuns_0: 7359337812175686496
+      Ruri Hairbuns_1: 3069630964747470758
+      Ruri Hairbuns_2: 3745797917494776454
+      Ruri Hairbuns_3: 2131363176717896077
+      Ruri Hairbuns_4: 6549577880829941615
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.Playables;
 
@@ -15,6 +16,7 @@ namespace Managers
             CutsceneManager.instance.director.stopped += OnCutsceneStopped;
             CutsceneManager.instance.PlayCutscene(startingCutscene);
         }
+        
 
         private void OnCutsceneStopped(PlayableDirector director)
         {
@@ -28,6 +30,7 @@ namespace Managers
                     break;
             }
         }
+        
  
     }
 }

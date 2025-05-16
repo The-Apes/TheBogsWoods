@@ -43,7 +43,7 @@ public class RuriMovement : MonoBehaviour
 
     private enum Direction { Up, Right, Down, Left }
     private static Direction _attackDirection = Direction.Down;
-    private static Direction _movingDirectin = Direction.Down;
+    private static Direction _movingDirection = Direction.Down;
     //^^ an enum variable is a variable that can only have a set of predefined values, in this case it can only be: Up, Down, Left, Right
     
     
@@ -105,17 +105,33 @@ public class RuriMovement : MonoBehaviour
        UpdateDirection();
        UpdateAttackDirection();
        
-       _animator.SetInteger("Direction", (int)_movingDirectin);
+       _animator.SetInteger("Direction", (int)_movingDirection);
+       //sss
 
        if (_ruriAttack.isAttacking) return;
-       lookDir.rotation = _attackDirection switch
+       switch (_attackDirection)
        {
-           Direction.Up => Quaternion.Euler(0, 0, 180), 
-           Direction.Down => Quaternion.Euler(0, 0, 0),
-           Direction.Left => Quaternion.Euler(0, 0, 270),
-           Direction.Right => Quaternion.Euler(0, 0, 90),
-           _ => lookDir.rotation
-       };
+           case Direction.Up:
+               lookDir.rotation = Quaternion.Euler(0, 0, 180);
+               _animator.SetFloat("AimX", 0f);
+               _animator.SetFloat("AimY", 1f);
+               break;
+           case Direction.Down:
+               lookDir.rotation = Quaternion.Euler(0, 0, 0);
+               _animator.SetFloat("AimX", 0f);
+               _animator.SetFloat("AimY", -1f);
+               break;
+           case Direction.Left:
+               lookDir.rotation = Quaternion.Euler(0, 0, 270);
+               _animator.SetFloat("AimX", -1f);
+               _animator.SetFloat("AimY", 0f);
+               break;
+           case Direction.Right:
+               lookDir.rotation = Quaternion.Euler(0, 0, 90);
+               _animator.SetFloat("AimX", 1f);
+               _animator.SetFloat("AimY", 0f);
+               break;
+       }
     }
 
     private void UpdateDirection()
@@ -123,13 +139,33 @@ public class RuriMovement : MonoBehaviour
         if(_moveInput.Equals(Vector2.zero)) return;
         if (Mathf.Abs(_moveInput.x) > Mathf.Abs(_moveInput.y))
         {
-            _movingDirectin = _moveInput.x > 0 ? Direction.Right : Direction.Left;
+            _movingDirection = _moveInput.x > 0 ? Direction.Right : Direction.Left;
         }
         else
         {
-            _movingDirectin = _moveInput.y > 0 ? Direction.Up : Direction.Down;
+            _movingDirection = _moveInput.y > 0 ? Direction.Up : Direction.Down;
         }
-        print("Facing:" + _movingDirectin);
+        
+        switch (_movingDirection)
+        {
+            case Direction.Up:
+                _animator.SetFloat("BodyX", 0f);
+                _animator.SetFloat("BodyY", 1f);
+                break;
+            case Direction.Down:
+                _animator.SetFloat("BodyX", 0f);
+                _animator.SetFloat("BodyY", -1f);
+                break;
+            case Direction.Left:
+                _animator.SetFloat("BodyX", -1f);
+                _animator.SetFloat("BodyY", 0f);
+                break;
+            case Direction.Right:
+                _animator.SetFloat("BodyX", 1f);
+                _animator.SetFloat("BodyY", 0f);
+                break;
+        }
+        //print("Facing:" + _movingDirection);
     }
     private void UpdateAttackDirection()
     {
@@ -146,7 +182,7 @@ public class RuriMovement : MonoBehaviour
         {
             _attackDirection = mouseDirection.y > 0 ? Direction.Up : Direction.Down;
         }
-        //print("Aiming: "+ _attackDirection);
+        print("Aiming: "+ _attackDirection);
         
     }
 

@@ -1,10 +1,16 @@
 fileFormatVersion: 2
-guid: 2ae3e2b90b2141847b5ac2fae3a3e89a
+guid: 66f27c1bd4f1c2a4989df9ebc01631be
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4688833080498193593
-    second: Ruri Perspective3_0
+      213: 2949476524924192366
+    second: Ruri Idle Up_0
+  - first:
+      213: 2178645903781618429
+    second: Ruri Idle Up_1
+  - first:
+      213: -3402818039598998394
+    second: Ruri Idle Up_2
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -72,7 +78,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 32
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -109,40 +115,71 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: iOS
-    maxTextureSize: 32
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 0
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Ruri Perspective3_0
+      name: Ruri Idle Up_0
       rect:
         serializedVersion: 2
-        x: 5
-        y: 3
-        width: 22
-        height: 24
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 0
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.125}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 74bfdc1e72bedeeb0800000000000000
-      internalID: -4688833080498193593
+      spriteID: e66c57db545aee820800000000000000
+      internalID: 2949476524924192366
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ruri Idle Up_1
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.125}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: df2634218ea1c3e10800000000000000
+      internalID: 2178645903781618429
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ruri Idle Up_2
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.125}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 68c196a9503c6c0d0800000000000000
+      internalID: -3402818039598998394
       vertices: []
       indices: 
       edges: []
@@ -151,7 +188,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: ef32431ffcce4944cbb2fdc8bb13c3e5
     internalID: 0
     vertices: []
     indices: 
@@ -161,7 +198,9 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Ruri Perspective3_0: -4688833080498193593
+      Ruri Idle Up_0: 2949476524924192366
+      Ruri Idle Up_1: 2178645903781618429
+      Ruri Idle Up_2: -3402818039598998394
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

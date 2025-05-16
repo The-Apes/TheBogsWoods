@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 2b4c93840cbee314690e9ea3464c495d
+guid: 5763ac88d7a1c6c4a8a5e0b37c94d487
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4791577199753714904
-    second: Ruri Perspective2_0
+      213: -2034224966057665323
+    second: Ruri Star_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,11 +46,11 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
-  alignment: 0
-  spritePivot: {x: 0.5, y: 0.5}
+  alignment: 9
+  spritePivot: {x: 0.33333334, y: 0.33333334}
   spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
@@ -72,7 +72,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 32
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -109,40 +109,27 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: iOS
-    maxTextureSize: 32
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 0
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Ruri Perspective2_0
+      name: Ruri Star_0
       rect:
         serializedVersion: 2
-        x: 9
-        y: 3
-        width: 15
-        height: 24
+        x: 0
+        y: 0
+        width: 3
+        height: 3
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 823a1d67ce5e08db0800000000000000
-      internalID: -4791577199753714904
+      spriteID: 5dcd6e0db2bf4c3e0800000000000000
+      internalID: -2034224966057665323
       vertices: []
       indices: 
       edges: []
@@ -151,8 +138,8 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
-    internalID: 0
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 1537655665
     vertices: []
     indices: 
     edges: []
@@ -161,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Ruri Perspective2_0: -4791577199753714904
+      Ruri Star_0: -2034224966057665323
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

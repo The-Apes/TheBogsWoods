@@ -1,34 +1,16 @@
 fileFormatVersion: 2
-guid: 12f2c7db2b19b29458d18051d928e921
+guid: c036b9e9a58fb4f469626018cf6b31d9
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2670710721467154587
-    second: Ruri Idle Down_0
+      213: 2012129374365100369
+    second: Ruri Idle Down 1_0
   - first:
-      213: -6669080620571888741
-    second: Ruri Idle Down_1
+      213: 1158652624322696349
+    second: Ruri Idle Down 1_1
   - first:
-      213: 2477464064541942175
-    second: Ruri Idle Down_2
-  - first:
-      213: 4540775410270254947
-    second: Ruri Idle Down_3
-  - first:
-      213: 7737833944938794460
-    second: Ruri Idle Down_4
-  - first:
-      213: -9045909982029748493
-    second: Ruri Idle Down_5
-  - first:
-      213: -2859902232488741630
-    second: Ruri Idle Down_6
-  - first:
-      213: -1509264512295963202
-    second: Ruri Idle Down_7
-  - first:
-      213: -647246201813944439
-    second: Ruri Idle Down_8
+      213: -2233244382801359018
+    second: Ruri Idle Down 1_2
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -133,90 +115,11 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: iOS
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 0
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Ruri Idle Down_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 32
-        width: 32
-        height: 32
-      alignment: 9
-      pivot: {x: 0.5, y: 0.125}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 56f7f15bfbabfead0800000000000000
-      internalID: -2670710721467154587
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Ruri Idle Down_1
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 32
-        width: 32
-        height: 32
-      alignment: 9
-      pivot: {x: 0.5, y: 0.125}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: b93fe58828aa273a0800000000000000
-      internalID: -6669080620571888741
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Ruri Idle Down_2
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 32
-        width: 32
-        height: 32
-      alignment: 9
-      pivot: {x: 0.5, y: 0.125}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: f9161d6c078b16220800000000000000
-      internalID: 2477464064541942175
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Ruri Idle Down_3
+      name: Ruri Idle Down 1_0
       rect:
         serializedVersion: 2
         x: 0
@@ -229,16 +132,16 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 7bb325beaf8e11240b1118ed519d40a3
-      internalID: -1841597828
+      spriteID: 159292951058ceb10800000000000000
+      internalID: 2012129374365100369
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ruri Idle Down_4
+      name: Ruri Idle Down 1_1
       rect:
         serializedVersion: 2
         x: 32
@@ -251,16 +154,16 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 704a23c791452aa46bd68157f43d58cb
-      internalID: 718593331
+      spriteID: d9414da4c6c541010800000000000000
+      internalID: 1158652624322696349
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ruri Idle Down_5
+      name: Ruri Idle Down 1_2
       rect:
         serializedVersion: 2
         x: 64
@@ -273,10 +176,10 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 331ca49449ebc7c4098504d076bf4058
-      internalID: 495267756
+      spriteID: 65f0d7ae01ce101e0800000000000000
+      internalID: -2233244382801359018
       vertices: []
       indices: 
       edges: []
@@ -285,7 +188,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 197cc0f0886345346ad4559fd30dc158
+    spriteID: 3794729dcbf3eca40a9d4a9cef2d4dfd
     internalID: 0
     vertices: []
     indices: 
@@ -295,12 +198,9 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Ruri Idle Down_0: -2670710721467154587
-      Ruri Idle Down_1: -6669080620571888741
-      Ruri Idle Down_2: 2477464064541942175
-      Ruri Idle Down_3: -1841597828
-      Ruri Idle Down_4: 718593331
-      Ruri Idle Down_5: 495267756
+      Ruri Idle Down 1_0: 2012129374365100369
+      Ruri Idle Down 1_1: 1158652624322696349
+      Ruri Idle Down 1_2: -2233244382801359018
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
