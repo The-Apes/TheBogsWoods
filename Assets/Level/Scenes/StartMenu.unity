@@ -879,6 +879,7 @@ GameObject:
   - component: {fileID: 1518752322}
   - component: {fileID: 1518752324}
   - component: {fileID: 1518752323}
+  - component: {fileID: 1518752325}
   m_Layer: 5
   m_Name: StartMenu_Background
   m_TagString: Untagged
@@ -903,7 +904,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 640, y: 480}
+  m_SizeDelta: {x: 736, y: 552}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1518752323
 MonoBehaviour:
@@ -943,6 +944,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1518752321}
   m_CullTransparentMesh: 1
+--- !u!114 &1518752325
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1518752321}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5898af046547ea4da542466863d1a26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveModifier: 22
 --- !u!1 &1584346830
 GameObject:
   m_ObjectHideFlags: 0

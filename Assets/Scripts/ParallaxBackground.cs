@@ -2,21 +2,21 @@ using UnityEngine;
 
 public class ParallaxBackground : MonoBehaviour
 {
-    public float offsetMultiplier = 1f;
-    public float smoothTime = .3f;
-
-    private Vector2 startPosition;
-    private Vector3 Velocity;
+    Vector2 StartPos;
+    [SerializeField] int moveModifier;
 
     private void Start()
     {
-        startPosition = transform.position;
+        StartPos = transform.position;
     }
 
     private void Update()
     {
-        Vector2 offset = Camera.main.ScreenToViewportPoint(Input.mousePosition);
-        transform.position = Vector3.SmoothDamp(transform.position, startPosition + (offset * offsetMultiplier), ref Velocity, smoothTime);
-    }
+        Vector2 pz = Camera.main.ScreenToViewportPoint(Input.mousePosition);
 
+        float posX = Mathf.Lerp(transform.position.x, StartPos.x + (pz.x * moveModifier), 2f * Time.deltaTime);
+        float posY = Mathf.Lerp(transform.position.y, StartPos.y + (pz.y * moveModifier), 2f * Time.deltaTime);
+
+        transform.position = new Vector3(posX, posY, 0);
+    }
 }
