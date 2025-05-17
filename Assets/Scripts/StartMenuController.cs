@@ -47,13 +47,13 @@ public class StartMenuController : MonoBehaviour
 
     public void ResetToDefaults()
     {
-        // Set sliders to default value (0 dB)
+        // Set sliders to default value
         if (musicSlider != null)
             musicSlider.value = DefaultVolume;
         if (sfxSlider != null)
             sfxSlider.value = DefaultVolume;
 
-        // Set AudioMixer values to default (0 dB)
+        // Set AudioMixer values to default
         audioMixer.SetFloat("MusicVolume", DefaultVolume);
         audioMixer.SetFloat("SFXVolume", DefaultVolume);
 
@@ -63,10 +63,12 @@ public class StartMenuController : MonoBehaviour
 
     public void OnStartClick()
     {
+        MusicManager.Instance.StopMusic(); // Stop StartMenu music before loading new scene
         SceneManager.LoadScene("Intro Cutscene");
     }
     public void OnSkipClick()
     {
+        MusicManager.Instance.StopMusic(); // Stop StartMenu music before loading new scene
         SceneManager.LoadScene("Level 0");
     }
 

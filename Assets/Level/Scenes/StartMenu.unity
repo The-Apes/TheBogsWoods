@@ -458,6 +458,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 117376230735958690, guid: d41a2fce5a0cb3c4c8c24af94433e467, type: 3}
+      propertyPath: tracks.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 117376230735958690, guid: d41a2fce5a0cb3c4c8c24af94433e467, type: 3}
+      propertyPath: tracks.Array.data[0].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: a8ff96ddd940a784589d153a02b5e91b, type: 3}
+    - target: {fileID: 117376230735958690, guid: d41a2fce5a0cb3c4c8c24af94433e467, type: 3}
+      propertyPath: tracks.Array.data[0].trackName
+      value: StartMenu
+      objectReference: {fileID: 0}
+    - target: {fileID: 117376230735958690, guid: d41a2fce5a0cb3c4c8c24af94433e467, type: 3}
+      propertyPath: tracks.Array.data[2].trackName
+      value: Game
+      objectReference: {fileID: 0}
     - target: {fileID: 1976830911434179247, guid: d41a2fce5a0cb3c4c8c24af94433e467, type: 3}
       propertyPath: OutputAudioMixerGroup
       value: 
@@ -510,11 +526,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8891915547364219775, guid: d41a2fce5a0cb3c4c8c24af94433e467, type: 3}
+      propertyPath: musicLibrary
+      value: 
+      objectReference: {fileID: 328602456}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d41a2fce5a0cb3c4c8c24af94433e467, type: 3}
+--- !u!114 &328602456 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 117376230735958690, guid: d41a2fce5a0cb3c4c8c24af94433e467, type: 3}
+  m_PrefabInstance: {fileID: 328602455}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28e7e63aff9f21d46a61bfee57093018, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &332972924
 GameObject:
   m_ObjectHideFlags: 0
