@@ -1,6 +1,6 @@
 using System.Collections;
 using UnityEngine;
- 
+ // Watched Game Dev Library and Brackeys on Youtube
 public class MusicManager : MonoBehaviour
 {
     public static MusicManager Instance;

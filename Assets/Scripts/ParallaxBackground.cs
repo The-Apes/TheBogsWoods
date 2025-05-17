@@ -1,5 +1,7 @@
 using UnityEngine;
-
+//Watched a bunch of videos and Youtube channels on how to make a parallax background in Unity:
+//Author: Game Code Library
+//Availability: https://youtu.be/AoRBZh6HvIk?si=7Z_0nBZOtvlJhfPm
 public class ParallaxBackground : MonoBehaviour
 {
     Vector2 StartPos;
