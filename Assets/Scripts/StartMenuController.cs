@@ -9,6 +9,9 @@ public class StartMenuController : MonoBehaviour
     public Slider musicSlider;
     public Slider sfxSlider;
 
+    private const float DefaultVolume = 0f;    // 0 dB (max volume)
+    private const float MinVolume = -80f;      // -80 dB (min volume)
+
     private void Start()
     {
         LoadVolume();
@@ -40,6 +43,22 @@ public class StartMenuController : MonoBehaviour
             musicSlider.value = PlayerPrefs.GetFloat("MusicVolume");
         if (sfxSlider != null && PlayerPrefs.HasKey("SFXVolume"))
             sfxSlider.value = PlayerPrefs.GetFloat("SFXVolume");
+    }
+
+    public void ResetToDefaults()
+    {
+        // Set sliders to default value (0 dB)
+        if (musicSlider != null)
+            musicSlider.value = DefaultVolume;
+        if (sfxSlider != null)
+            sfxSlider.value = DefaultVolume;
+
+        // Set AudioMixer values to default (0 dB)
+        audioMixer.SetFloat("MusicVolume", DefaultVolume);
+        audioMixer.SetFloat("SFXVolume", DefaultVolume);
+
+        // Save defaults
+        SaveVolume();
     }
 
     public void OnStartClick()
