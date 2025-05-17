@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 17de04f6a2c412b40a59c45883f705ea
+guid: 6e39f3186d0e3e4409f24290ca37dcb8
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3881377150901575018
-    second: StartMenu_BG_0
+      213: 7259544327312823662
+    second: Main Menu 50%_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -75,7 +75,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: StartMenu_BG_0
+      name: Main Menu 50%_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 640
-        height: 480
+        width: 320
+        height: 240
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 692a131bb04922ac0800000000000000
-      internalID: -3881377150901575018
+      spriteID: e65deac5a151fb460800000000000000
+      internalID: 7259544327312823662
       vertices: []
       indices: 
       edges: []
@@ -147,8 +147,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      StartMenu_BG_0: -3881377150901575018
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
