@@ -308,6 +308,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2fab31722c52da40b545d2fd3361541, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sfxPrefab: {fileID: 3336263009603403780, guid: 4ae17c79f7f9f8742b5dc350623c78fe, type: 3}
 --- !u!114 &6904896217782453799
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -322,13 +323,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   soundEffects:
   - groupID: Hover
-    clips: []
+    clips:
+    - {fileID: 8300000, guid: 8ea88ed4bd5a0224499dcd11b53981a5, type: 3}
+    - {fileID: 8300000, guid: 5650bad746b85384ba070ea0b6c9e8fe, type: 3}
   - groupID: Click
-    clips: []
+    clips:
+    - {fileID: 8300000, guid: cc2caebca739a4f48bfd4cf3bad65387, type: 3}
+    - {fileID: 8300000, guid: 10528676d40022244b0a38fcbf3b36c0, type: 3}
   - groupID: SliderClick
-    clips: []
+    clips:
+    - {fileID: 8300000, guid: bd4542d31835ee74aa60fa62a52f5d74, type: 3}
+    - {fileID: 8300000, guid: 6bdc1ff54ce788d4cab9e39a171108c5, type: 3}
   - groupID: SliderRelease
-    clips: []
+    clips:
+    - {fileID: 8300000, guid: 30114d1a0dbd0344d8401fcfaf6e629f, type: 3}
+    - {fileID: 8300000, guid: a1e09044c2a31ca43a6ff50039a9833b, type: 3}
 --- !u!114 &7073042937692622959
 MonoBehaviour:
   m_ObjectHideFlags: 0
