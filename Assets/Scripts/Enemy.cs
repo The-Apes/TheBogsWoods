@@ -61,13 +61,13 @@ public class Enemy : MonoBehaviour, IDamageable
         GameManager.instance.HitStop(0.1f);
         if (_health <= 0) 
         {
-            AudioManager.instance.PlaySound(deathSound);
+            AudioManager.instance.PlaySFXAt(deathSound, transform);
             Destroy(gameObject); 
         }
         else
         {
             ApplyKnockback(source.transform.position, 25f);
-            AudioManager.instance.PlaySound(hurtSound);
+            AudioManager.instance.PlaySFXAt(hurtSound, transform);
         }
     }
     private void ApplyKnockback(Vector2 sourcePosition, float knockbackForce)

@@ -1,7 +1,5 @@
 using UnityEngine;
 
-//Wtf is this?
-//- Mzati
 public static class GlobalHelper
 {
     public static string GenerateUniqueID(GameObject obj)

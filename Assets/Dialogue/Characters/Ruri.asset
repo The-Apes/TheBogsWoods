@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1d682284edb0d64f8d03d0961b115a2, type: 3}
+  m_Name: Ruri
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueCharacter
+  characterName: Ruri
+  characterSprite: {fileID: 612236427699847645, guid: 353393c61a5e05f41a3388bc34b3e6fa, type: 3}
+  color: {r: 0.46274513, g: 0.25882354, b: 0.5411765, a: 1}
+  blipSound: []
+  frequency: 0.1
+  volume: 0.75
+  pitch: 1.1

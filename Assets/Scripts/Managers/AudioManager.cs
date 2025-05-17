@@ -10,6 +10,7 @@ namespace Managers
         private AudioSource _sfxSource;
         private AudioSource _musicSource;
         
+        [SerializeField] private AudioSource sfxPrefab;
         private void Awake()
         {
             if (instance == null)
@@ -26,19 +27,43 @@ namespace Managers
                 Destroy(gameObject);
             }
         }
-
-        public void PlaySound(AudioClip soundClip)
+        
+        public void PlaySFX(AudioClip clip, float volume = 1f, float pitch = 1f)
         {
-            _sfxSource.PlayOneShot(soundClip);
+            AudioSource audioSource = Instantiate(sfxPrefab);
+            
+            audioSource.clip = clip;
+            audioSource.volume = volume;
+            audioSource.pitch = pitch;
+            audioSource.Play();
+            audioSource.spatialBlend = 0;
+            
+            Destroy(audioSource.gameObject, audioSource.clip.length);
         }
-        public void PlaySound(AudioClip soundClip, float pitch)
+       
+        public void PlaySFXAt(AudioClip clip, Transform spawnTransform, float spatialBlend = 0.7f, float volume = 1f, float pitch = 1f)
         {
-            AudioSource tempSource = gameObject.AddComponent<AudioSource>();
-            tempSource.clip = soundClip;
-            tempSource.pitch = pitch;
-            tempSource.Play();
-            Destroy(tempSource, soundClip.length / pitch); // pitch affects duration
+            AudioSource audioSource = Instantiate(sfxPrefab, spawnTransform.position, Quaternion.identity);
+            
+            audioSource.clip = clip;
+            audioSource.volume = volume;
+            audioSource.pitch = pitch;
+            audioSource.spatialBlend = spatialBlend;
+            audioSource.Play();
+            
+            Destroy(audioSource.gameObject, audioSource.clip.length);
         }
+        public void PlayRandomSFXAt(AudioClip[] clip, Transform spawnTransform, float volume)
+        {
+            AudioSource audioSource = Instantiate(sfxPrefab, spawnTransform.position, Quaternion.identity);
+            
+            audioSource.clip = clip[Random.Range(0, clip.Length)];
+            audioSource.volume = volume;
+            audioSource.Play();
+            
+            Destroy(audioSource.gameObject, audioSource.clip.length);
+        }
+        
         public void PlayMusic(AudioClip musicClip)
         {
                 _musicSource.clip = musicClip;

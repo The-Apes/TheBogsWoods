@@ -13,17 +13,29 @@ MonoBehaviour:
   m_Name: Regret
   m_EditorClassIdentifier: 
   dialogue:
-    dilaogueName: 
+    dialogueName: 
     dialogueLines:
-    - character:
-        characterName: Ruri
-        characterSprite: {fileID: 3159093899981062546, guid: 2c5481612dbe21348b3079d3c85e96ca, type: 3}
-        color: {r: 0.46274513, g: 0.25882354, b: 0.5411765, a: 1}
+    - character: {fileID: 11400000, guid: 573fe0f85d0b27743ba2ea2de6e05f37, type: 2}
+      characterOverride:
+        characterName: 
+        characterSprite: {fileID: 0}
+        color: {r: 0, g: 0, b: 0, a: 0}
+        blipSound: []
+        frequency: 0
+        volume: 0
+        pitch: 0
       line: ....
       right: 0
-    - character:
-        characterName: Ruri
-        characterSprite: {fileID: 3159093899981062546, guid: 2c5481612dbe21348b3079d3c85e96ca, type: 3}
-        color: {r: 0.46274513, g: 0.25882354, b: 0.5411765, a: 1}
+      soundEffect: {fileID: 0}
+    - character: {fileID: 11400000, guid: 573fe0f85d0b27743ba2ea2de6e05f37, type: 2}
+      characterOverride:
+        characterName: 
+        characterSprite: {fileID: 0}
+        color: {r: 0, g: 0, b: 0, a: 0}
+        blipSound: []
+        frequency: 0
+        volume: 0
+        pitch: 0
       line: Definetly not Otto.
       right: 0
+      soundEffect: {fileID: 0}

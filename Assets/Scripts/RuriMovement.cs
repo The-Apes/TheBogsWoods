@@ -2,6 +2,7 @@ using System;
 using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 
 public class RuriMovement : MonoBehaviour
@@ -9,6 +10,7 @@ public class RuriMovement : MonoBehaviour
     public static RuriMovement instance;
     
     private RuriAttack _ruriAttack;
+    private Animator _animator;
  
     [NonSerialized] public GameObject Otto; 
     [NonSerialized] public GameObject RidingOtto; 
@@ -39,8 +41,9 @@ public class RuriMovement : MonoBehaviour
     private Vector2 _moveInput;
     [SerializeField] private Collider2D hurtBox;
 
-    private enum Direction { Up, Down, Left, Right }
-    private static Direction _currentDirection = Direction.Down;
+    private enum Direction { Up, Right, Down, Left }
+    private static Direction _attackDirection = Direction.Down;
+    private static Direction _movingDirection = Direction.Down;
     //^^ an enum variable is a variable that can only have a set of predefined values, in this case it can only be: Up, Down, Left, Right
     
     
@@ -51,6 +54,7 @@ public class RuriMovement : MonoBehaviour
         _playerTransform = transform;
         _camera = FindFirstObjectByType<CinemachineCamera>();
         _ruriAttack = GetComponent<RuriAttack>();
+        _animator = GetComponent<Animator>();
 
         if (hasOtto)
         {
@@ -91,41 +95,95 @@ public class RuriMovement : MonoBehaviour
     
     private void FixedUpdate() 
     {
-        if (!controlling) return; //if the player is not controlling the otto, return_
-       // UpdateAttackTimer();
+        if (!controlling) return; //if the player is not controlling ruri, return_
        
        //move the player
         float speed = _running ? runSpeed : walkSpeed; //this is a ternary; if the player is running, set the speed to runSpeed, else set it to walkSpeed
         _playerTransform.position += new Vector3(_moveInput.x, _moveInput.y, 0) * (Time.deltaTime * speed);
         
+       
        UpdateDirection();
+       UpdateAttackDirection();
+       
+       _animator.SetInteger("Direction", (int)_movingDirection);
+       //sss
 
        if (_ruriAttack.isAttacking) return;
-       lookDir.rotation = _currentDirection switch
+       switch (_attackDirection)
        {
-           Direction.Up => Quaternion.Euler(0, 0, 180),
-           Direction.Down => Quaternion.Euler(0, 0, 0),
-           Direction.Left => Quaternion.Euler(0, 0, 270),
-           Direction.Right => Quaternion.Euler(0, 0, 90),
-           _ => lookDir.rotation
-       };
+           case Direction.Up:
+               lookDir.rotation = Quaternion.Euler(0, 0, 180);
+               _animator.SetFloat("AimX", 0f);
+               _animator.SetFloat("AimY", 1f);
+               break;
+           case Direction.Down:
+               lookDir.rotation = Quaternion.Euler(0, 0, 0);
+               _animator.SetFloat("AimX", 0f);
+               _animator.SetFloat("AimY", -1f);
+               break;
+           case Direction.Left:
+               lookDir.rotation = Quaternion.Euler(0, 0, 270);
+               _animator.SetFloat("AimX", -1f);
+               _animator.SetFloat("AimY", 0f);
+               break;
+           case Direction.Right:
+               lookDir.rotation = Quaternion.Euler(0, 0, 90);
+               _animator.SetFloat("AimX", 1f);
+               _animator.SetFloat("AimY", 0f);
+               break;
+       }
     }
 
     private void UpdateDirection()
     {
-        Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition); // to do make camera manager class
-        Vector3 direction = mouseWorldPos - _playerTransform.position;
-        direction.z = 0;
-
-        // Cardinal direction logic
-        if (Mathf.Abs(direction.x) > Mathf.Abs(direction.y))
+        if(_moveInput.Equals(Vector2.zero)) return;
+        if (Mathf.Abs(_moveInput.x) > Mathf.Abs(_moveInput.y))
         {
-            _currentDirection = direction.x > 0 ? Direction.Right : Direction.Left;
+            _movingDirection = _moveInput.x > 0 ? Direction.Right : Direction.Left;
         }
         else
         {
-            _currentDirection = direction.y > 0 ? Direction.Up : Direction.Down;
+            _movingDirection = _moveInput.y > 0 ? Direction.Up : Direction.Down;
         }
+        
+        switch (_movingDirection)
+        {
+            case Direction.Up:
+                _animator.SetFloat("BodyX", 0f);
+                _animator.SetFloat("BodyY", 1f);
+                break;
+            case Direction.Down:
+                _animator.SetFloat("BodyX", 0f);
+                _animator.SetFloat("BodyY", -1f);
+                break;
+            case Direction.Left:
+                _animator.SetFloat("BodyX", -1f);
+                _animator.SetFloat("BodyY", 0f);
+                break;
+            case Direction.Right:
+                _animator.SetFloat("BodyX", 1f);
+                _animator.SetFloat("BodyY", 0f);
+                break;
+        }
+        //print("Facing:" + _movingDirection);
+    }
+    private void UpdateAttackDirection()
+    {
+        Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition); // to do make camera manager class
+        Vector3 mouseDirection = mouseWorldPos - _playerTransform.position;
+        mouseDirection.z = 0;
+
+        // Cardinal direction logic
+        if (Mathf.Abs(mouseDirection.x) > Mathf.Abs(mouseDirection.y))
+        {
+            _attackDirection = mouseDirection.x > 0 ? Direction.Right : Direction.Left;
+        }
+        else
+        {
+            _attackDirection = mouseDirection.y > 0 ? Direction.Up : Direction.Down;
+        }
+        print("Aiming: "+ _attackDirection);
+        
     }
 
     #region InputAction

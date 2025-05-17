@@ -26,7 +26,7 @@ public class MapTransition : MonoBehaviour
   _confiner.BoundingShape2D = mapBoundary; 
    
   MapControllerDynamic.Instance?.UpdateCurrentArea(mapBoundary.name);
-  AudioManager.instance.PlaySound(mapChangeSound);
+  AudioManager.instance.PlaySFXAt(mapChangeSound, transform);
   GameEvents.AreaChanged(gameObject.name);
  } 
  
