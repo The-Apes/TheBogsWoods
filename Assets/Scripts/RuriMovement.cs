@@ -23,6 +23,7 @@ public class RuriMovement : MonoBehaviour
     
     [SerializeField] private GameObject ridingOttoPrefab;
     [SerializeField] private GameObject ottoPrefab; 
+    [SerializeField] private GameObject fairy;
     
     
     private bool _running; 
@@ -33,6 +34,7 @@ public class RuriMovement : MonoBehaviour
 
     public bool hasWeapon = true;
     public bool hasOtto = true;
+    public bool hasFairy = false;
 
     
     
@@ -61,6 +63,14 @@ public class RuriMovement : MonoBehaviour
         {
          AddOtto();
         }
+
+        fairy.GetComponent<SpriteRenderer>().enabled = hasFairy;
+        
+        //makes here start the game facing down
+        _animator.SetFloat("AimX", 0f);
+        _animator.SetFloat("AimY", -1f);
+        _animator.SetFloat("BodyX", 0f);
+        _animator.SetFloat("BodyY", -1f);
 
     }
 

@@ -232,10 +232,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ridingOttoPrefab: {fileID: 866079974977546125, guid: fbaec7c2d240c2e4ca25151d5195a896, type: 3}
   ottoPrefab: {fileID: 238577474628295289, guid: 803174830349f864e9adaf5746488655, type: 3}
+  fairy: {fileID: 7048515991732375359}
   controlling: 1
   ottoMounted: 1
   hasWeapon: 1
   hasOtto: 0
+  hasFairy: 0
   walkSpeed: 1.5
   runSpeed: 3.5
   lookDir: {fileID: 5508549938362418821}
@@ -474,7 +476,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &978726139354800829
 Transform:
   m_ObjectHideFlags: 0
@@ -1129,7 +1131,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1094269445
   m_SortingLayer: 1
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: 7359337812175686496, guid: 49f85ba787047c34cb87db4b1fcf18b9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1481,7 +1483,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1094269445
   m_SortingLayer: 1
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: 7359337812175686496, guid: 49f85ba787047c34cb87db4b1fcf18b9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 1
