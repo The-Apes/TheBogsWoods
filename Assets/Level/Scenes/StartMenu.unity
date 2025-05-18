@@ -639,7 +639,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5898af046547ea4da542466863d1a26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveModifier: 1
+  moveModifier: 0.5
 --- !u!114 &306854454
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1513,7 +1513,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5898af046547ea4da542466863d1a26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveModifier: 0.5
+  moveModifier: 0.1
 --- !u!114 &717396423
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2307,7 +2307,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5898af046547ea4da542466863d1a26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveModifier: 1
+  moveModifier: 0.5
 --- !u!114 &1392314006
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2777,7 +2777,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5898af046547ea4da542466863d1a26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveModifier: 2
+  moveModifier: 1
 --- !u!1 &1566633626
 GameObject:
   m_ObjectHideFlags: 0
@@ -7946,7 +7946,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 9.03125
+  orthographic size: 8.4375
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -8095,7 +8095,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5898af046547ea4da542466863d1a26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveModifier: 2
+  moveModifier: 1
 --- !u!114 &1698577797
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8402,7 +8402,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5898af046547ea4da542466863d1a26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveModifier: 0.5
+  moveModifier: 0.1
 --- !u!114 &1813664290
 MonoBehaviour:
   m_ObjectHideFlags: 0
