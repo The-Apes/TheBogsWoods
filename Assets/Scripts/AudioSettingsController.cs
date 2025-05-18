@@ -1,9 +1,8 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.Audio;
 using UnityEngine.UI;
 
-public class StartMenuController : MonoBehaviour
+public class AudioSettingsController : MonoBehaviour
 {
     public AudioMixer audioMixer;
     public Slider musicSlider;
@@ -15,7 +14,6 @@ public class StartMenuController : MonoBehaviour
     private void Start()
     {
         LoadVolume();
-        MusicManager.Instance.PlayMusic("StartMenu");
     }
 
     public void UpdateMusicVolume(float volume)
@@ -81,25 +79,5 @@ public class StartMenuController : MonoBehaviour
         audioMixer.SetFloat("SFXVolume", DefaultVolume);
 
         SaveVolume();
-    }
-
-    public void OnStartClick()
-    {
-        MusicManager.Instance.StopMusic();
-        SceneManager.LoadScene("Intro Cutscene");
-    }
-
-    public void OnSkipClick()
-    {
-        MusicManager.Instance.StopMusic();
-        SceneManager.LoadScene("Level 0");
-    }
-
-    public void OnExitClick()
-    {
-#if UNITY_EDITOR
-        UnityEditor.EditorApplication.isPlaying = false;
-#endif
-        Application.Quit();
     }
 }
