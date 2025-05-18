@@ -688,7 +688,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 117376230735958690, guid: d41a2fce5a0cb3c4c8c24af94433e467, type: 3}
       propertyPath: tracks.Array.size
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 117376230735958690, guid: d41a2fce5a0cb3c4c8c24af94433e467, type: 3}
       propertyPath: tracks.Array.data[0].clip
@@ -697,6 +697,10 @@ PrefabInstance:
     - target: {fileID: 117376230735958690, guid: d41a2fce5a0cb3c4c8c24af94433e467, type: 3}
       propertyPath: tracks.Array.data[0].trackName
       value: StartMenu
+      objectReference: {fileID: 0}
+    - target: {fileID: 117376230735958690, guid: d41a2fce5a0cb3c4c8c24af94433e467, type: 3}
+      propertyPath: tracks.Array.data[1].trackName
+      value: Game
       objectReference: {fileID: 0}
     - target: {fileID: 117376230735958690, guid: d41a2fce5a0cb3c4c8c24af94433e467, type: 3}
       propertyPath: tracks.Array.data[2].trackName
