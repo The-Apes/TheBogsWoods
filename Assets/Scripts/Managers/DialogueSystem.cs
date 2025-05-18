@@ -32,6 +32,7 @@ namespace Managers
         private AudioClip _typeSound;
         private float _typePitch = 1f;
         private float _typeVolume = 1f;
+        private float _typeFrequency = 0.15f;
         public Animator animator;
     
         private Dialogue _currentDialogue;
@@ -44,7 +45,16 @@ namespace Managers
             _lines = new Queue<DialogueLine>();
         }
      
+        public void StartDialogue(DialogueAsset dialogueAsset)
+        {
+            SetupDialogue(dialogueAsset.dialogue, dialogueAsset.name);
+        }
         public void StartDialogue(Dialogue dialogue)
+        {
+            SetupDialogue(dialogue);
+        }
+
+        private void SetupDialogue(Dialogue dialogue, string dialogueName = "unnamed Dialogue")
         {
             isDialogueActive = true;
             animator.Play("ShowDialogue");
@@ -56,6 +66,7 @@ namespace Managers
             }
             if (RuriMovement.instance) RuriMovement.instance.controlling = false;
   
+            Debug.Log($"Starting Dialogue '{dialogueName}'");
             DisplayNextDialogueLine();
         }
 
@@ -82,32 +93,69 @@ namespace Managers
                 _currentLine = _lines.Dequeue();
 
                 //Set Dialogue colors
-                
-                //if the character has an Overridden color, use it
-                characterName.text = _currentLine.characterOverride.characterName.Equals("")
-                    ? _currentLine.character.characterName
-                    : _currentLine.characterOverride.characterName;
-                
-                header.color = _currentLine.characterOverride.color.a == 0f
-                    ? _currentLine.character.color
-                    : _currentLine.characterOverride.color;
-                
-                Color newColor = header.color * 0.25f; // Darken the color
-                newColor.a = header.color.a; // Preserve the original alpha
-                background.color = newColor; 
-        
-                //set sprites
-                if (!_currentLine.character.characterSprite && !_currentLine.characterOverride.characterSprite)
+                if (_currentLine.character)
                 {
-                    characterIcon.gameObject.SetActive(false);
-                }
-                else
-                {
-                    characterIcon.gameObject.SetActive(true);
+                    //if the character has an Overridden color, use it
+                    characterName.text = _currentLine.characterOverride.characterName.Equals("")
+                        ? _currentLine.character.characterName
+                        : _currentLine.characterOverride.characterName;
+
+                    header.color = _currentLine.characterOverride.color.a == 0f
+                        ? _currentLine.character.color
+                        : _currentLine.characterOverride.color;
+
+                    Color newColor = header.color * 0.25f; // Darken the color
+                    newColor.a = header.color.a; // Preserve the original alpha
+                    background.color = newColor;
+
+                    //set sprites
+                    if (!_currentLine.character.characterSprite && !_currentLine.characterOverride.characterSprite)
+                    {
+                        characterIcon.gameObject.SetActive(false);
+                    }
+                    else
+                    {
+                        characterIcon.gameObject.SetActive(true);
+
+                        characterIcon.sprite = _currentLine.characterOverride.characterSprite
+                            ? _currentLine.characterOverride.characterSprite
+                            : _currentLine.character.characterSprite;
+                    }
+
+                    //voice and pitch
+                    if (_currentLine.character.blipSound != null)
+                    {
+                        _typeSound = _currentLine.character.blipSound.Length > 0
+                            ? _currentLine.character.blipSound[Random.Range(0, _currentLine.character.blipSound.Length)]
+                            : defaultTypeSound;
+                    }
                     
-                    characterIcon.sprite = _currentLine.characterOverride.characterSprite ? _currentLine.characterOverride.characterSprite : _currentLine.character.characterSprite;
+                    _typePitch = !_currentLine.characterOverride.pitch.Equals(0)
+                        ? _currentLine.characterOverride.pitch
+                        : _currentLine.character.pitch;
+                    
+                    _typeVolume = !_currentLine.characterOverride.volume.Equals(0)
+                        ? _currentLine.characterOverride.volume
+                        : _currentLine.character.volume;
+                    
+                    _typeFrequency = !_currentLine.characterOverride.frequency.Equals(0)
+                        ? _currentLine.characterOverride.frequency
+                        : _currentLine.character.frequency;
                 }
 
+
+                if (_currentLine.soundEffect)
+                {
+                    AudioManager.instance.PlaySFX(_currentLine.soundEffect);
+
+                }
+
+
+                if (!_currentLine.customEvent.Equals(""))
+                {
+                    onDialogueNextLine?.Invoke(_currentLine.customEvent);   
+                }
+                
                 //alignment
                 if (_currentLine.right)
                 {
@@ -119,23 +167,6 @@ namespace Managers
                     iconTransform.anchorMin = new Vector2(0,1);
                     iconTransform.pivot = new Vector2(0,0);
                 }
-                //voice and pitch
-                if (_currentLine.character.blipSound != null)
-                {
-                    _typeSound = _currentLine.character.blipSound.Length > 0
-                        ? _currentLine.character.blipSound[Random.Range(0, _currentLine.character.blipSound.Length)]
-                        : defaultTypeSound;  
-                }
-                
-                
-                _typePitch = _currentLine.character.pitch;
-                _typeVolume = _currentLine.character.volume;
-
-                if (!_currentLine.customEvent.Equals(""))
-                {
-                    onDialogueNextLine?.Invoke(_currentLine.customEvent);   
-                }
-                
                 
                 StopAllCoroutines();
                 _isTyping = true;
@@ -191,12 +222,14 @@ namespace Managers
                 {
                     AudioManager.instance.PlaySFX(_typeSound, _typeVolume, _typePitch);
                 }
-                yield return new WaitForSeconds(_currentLine.character.frequency);
+                yield return new WaitForSeconds(_typeFrequency);
             }
         }
         
         void EndDialogue()
         {
+            StopAllCoroutines();
+            _isTyping = false;
             isDialogueActive = false;
             animator.Play("HideDialogue");
             if(RuriMovement.instance)RuriMovement.instance.controlling = true;

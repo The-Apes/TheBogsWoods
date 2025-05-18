@@ -34,7 +34,8 @@ namespace Levels.Level0
             doOnce = true;
             healthBar.SetActive(false);
             // ReSharper disable once Unity.PerformanceCriticalCodeInvocation
-            DialogueManager.instance.StartDialogue(dialogue.dialogue);
+            print("print");
+            DialogueManager.instance.StartDialogue(dialogue);
         }
     
     }

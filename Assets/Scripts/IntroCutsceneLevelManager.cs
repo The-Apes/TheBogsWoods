@@ -10,9 +10,7 @@ public class IntroCutsceneLevelManager : MonoBehaviour
     private void Start()
     {
         GameEvents.onDialogueEnd += OnDialogueEnd; // Subscribe to the dialogue end event
-        Debug.Log("IntroCutsceneLevelManager");
-        DialogueManager.instance.StartDialogue(introCutsceneDialogue.dialogue);
-        Debug.Log("Tried to start the scene");
+        DialogueManager.instance.StartDialogue(introCutsceneDialogue);
         AudioManager.instance.PlayMusic(music);
     }
 

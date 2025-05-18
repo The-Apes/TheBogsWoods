@@ -31,12 +31,19 @@ namespace Managers
             }
         }
      
+        public void StartDialogue(DialogueAsset dialogueAsset)
+        {
+            HandleUI();
+            _dialogueSystem.StartDialogue(dialogueAsset);
+            
+        }
         public void StartDialogue(Dialogue dialogue)
         {
             HandleUI();
             _dialogueSystem.StartDialogue(dialogue);
             
         }
+        
         private void HandleUI()
         {
             if (_dialogueSystem) return;

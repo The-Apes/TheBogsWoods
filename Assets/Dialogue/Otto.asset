@@ -13,54 +13,110 @@ MonoBehaviour:
   m_Name: Otto
   m_EditorClassIdentifier: 
   dialogue:
-    dilaogueName: Otto
+    dialogueName: 
     dialogueLines:
-    - character:
-        characterName: Ruri
-        characterSprite: {fileID: 3159093899981062546, guid: 2c5481612dbe21348b3079d3c85e96ca, type: 3}
-        color: {r: 0.7222223, g: 0, b: 1, a: 1}
+    - character: {fileID: 11400000, guid: 573fe0f85d0b27743ba2ea2de6e05f37, type: 2}
+      characterOverride:
+        characterName: 
+        characterSprite: {fileID: 0}
+        color: {r: 0, g: 0, b: 0, a: 0}
+        blipSound: []
+        frequency: 0
+        volume: 0
+        pitch: 0
       line: This is my brother Otto
       right: 0
-    - character:
-        characterName: Otto
-        characterSprite: {fileID: 7263577685428583143, guid: aecda17af2d41704abedf97660b6b80f, type: 3}
-        color: {r: 0.4156863, g: 0.74509805, b: 0.18823531, a: 1}
+      soundEffect: {fileID: 0}
+      customEvent: 
+    - character: {fileID: 11400000, guid: b3ded2e1afe3e00438a51fd669a94e03, type: 2}
+      characterOverride:
+        characterName: 
+        characterSprite: {fileID: 0}
+        color: {r: 0, g: 0, b: 0, a: 0}
+        blipSound: []
+        frequency: 0
+        volume: 0
+        pitch: 0
       line: WAAZZZZAAAAAAAAAAAAAAAAAA
       right: 0
-    - character:
-        characterName: Ruri
-        characterSprite: {fileID: 3159093899981062546, guid: 2c5481612dbe21348b3079d3c85e96ca, type: 3}
-        color: {r: 0.7222223, g: 0, b: 1, a: 1}
+      soundEffect: {fileID: 0}
+      customEvent: 
+    - character: {fileID: 11400000, guid: 573fe0f85d0b27743ba2ea2de6e05f37, type: 2}
+      characterOverride:
+        characterName: 
+        characterSprite: {fileID: 0}
+        color: {r: 0, g: 0, b: 0, a: 0}
+        blipSound: []
+        frequency: 0
+        volume: 0
+        pitch: 0
       line: in the game, he rides on my head
       right: 0
-    - character:
-        characterName: Ruri
-        characterSprite: {fileID: 3159093899981062546, guid: 2c5481612dbe21348b3079d3c85e96ca, type: 3}
-        color: {r: 0.7222223, g: 0, b: 1, a: 1}
+      soundEffect: {fileID: 0}
+      customEvent: 
+    - character: {fileID: 11400000, guid: 573fe0f85d0b27743ba2ea2de6e05f37, type: 2}
+      characterOverride:
+        characterName: 
+        characterSprite: {fileID: 0}
+        color: {r: 0, g: 0, b: 0, a: 0}
+        blipSound: []
+        frequency: 0
+        volume: 0
+        pitch: 0
       line: With otto, you can shoot with Right Click
       right: 0
-    - character:
-        characterName: Ruri
-        characterSprite: {fileID: 3159093899981062546, guid: 2c5481612dbe21348b3079d3c85e96ca, type: 3}
-        color: {r: 0.7222223, g: 0, b: 1, a: 1}
+      soundEffect: {fileID: 0}
+      customEvent: 
+    - character: {fileID: 11400000, guid: 573fe0f85d0b27743ba2ea2de6e05f37, type: 2}
+      characterOverride:
+        characterName: 
+        characterSprite: {fileID: 0}
+        color: {r: 0, g: 0, b: 0, a: 0}
+        blipSound: []
+        frequency: 0
+        volume: 0
+        pitch: 0
       line: and you can also dismount, with Q and play as Otto
       right: 0
-    - character:
-        characterName: Ruri
-        characterSprite: {fileID: 3159093899981062546, guid: 2c5481612dbe21348b3079d3c85e96ca, type: 3}
-        color: {r: 0.7222223, g: 0, b: 1, a: 1}
+      soundEffect: {fileID: 0}
+      customEvent: 
+    - character: {fileID: 11400000, guid: 573fe0f85d0b27743ba2ea2de6e05f37, type: 2}
+      characterOverride:
+        characterName: 
+        characterSprite: {fileID: 0}
+        color: {r: 0, g: 0, b: 0, a: 0}
+        blipSound: []
+        frequency: 0
+        volume: 0
+        pitch: 0
       line: As for game Dynamic, I am stronger than otto, so Otto serves as a support
         character
       right: 0
-    - character:
-        characterName: Otto
-        characterSprite: {fileID: 7263577685428583143, guid: aecda17af2d41704abedf97660b6b80f, type: 3}
-        color: {r: 0.4156863, g: 0.74509805, b: 0.18823531, a: 1}
+      soundEffect: {fileID: 0}
+      customEvent: 
+    - character: {fileID: 11400000, guid: b3ded2e1afe3e00438a51fd669a94e03, type: 2}
+      characterOverride:
+        characterName: 
+        characterSprite: {fileID: 0}
+        color: {r: 0, g: 0, b: 0, a: 0}
+        blipSound: []
+        frequency: 0
+        volume: 0
+        pitch: 0
       line: Nah Fam
       right: 0
-    - character:
-        characterName: Ruri
-        characterSprite: {fileID: 3159093899981062546, guid: 2c5481612dbe21348b3079d3c85e96ca, type: 3}
-        color: {r: 0.7222223, g: 0, b: 1, a: 1}
+      soundEffect: {fileID: 0}
+      customEvent: 
+    - character: {fileID: 11400000, guid: 573fe0f85d0b27743ba2ea2de6e05f37, type: 2}
+      characterOverride:
+        characterName: 
+        characterSprite: {fileID: 0}
+        color: {r: 0, g: 0, b: 0, a: 0}
+        blipSound: []
+        frequency: 0
+        volume: 0
+        pitch: 0
       line: Otto will use his agility and Nimbles to solve Puzzles I can't
       right: 0
+      soundEffect: {fileID: 0}
+      customEvent: 

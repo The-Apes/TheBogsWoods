@@ -28,9 +28,4 @@ public class Dialogue
 public class DialogueAsset : ScriptableObject
 {
    public Dialogue dialogue;
-   public void TriggerDialogue()
-   {
-       DialogueManager.instance.StartDialogue(dialogue);
-   }
-
 }

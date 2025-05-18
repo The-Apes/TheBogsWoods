@@ -27,15 +27,30 @@ MonoBehaviour:
       line: I gotta go after Otto!
       right: 0
       soundEffect: {fileID: 0}
+      customEvent: 
     - character: {fileID: 11400000, guid: 573fe0f85d0b27743ba2ea2de6e05f37, type: 2}
       characterOverride:
         characterName: 
         characterSprite: {fileID: 0}
         color: {r: 0, g: 0, b: 0, a: 0}
         blipSound: []
-        frequency: 0.15
-        volume: 0.75
-        pitch: 1
+        frequency: 0
+        volume: 0
+        pitch: 0
       line: Let me give his hat back to him
       right: 0
       soundEffect: {fileID: 0}
+      customEvent: 
+    - character: {fileID: 11400000, guid: 490ce26792959cc4a9d7bbed6ad37002, type: 2}
+      characterOverride:
+        characterName: 
+        characterSprite: {fileID: 0}
+        color: {r: 0, g: 0, b: 0, a: 0}
+        blipSound: []
+        frequency: 0
+        volume: 0
+        pitch: 0
+      line: '*You pick up Otto''s Frog hat*'
+      right: 0
+      soundEffect: {fileID: 8300000, guid: 4519d567f1c16d348af3aeefc2929ae1, type: 3}
+      customEvent: Destroy Hat

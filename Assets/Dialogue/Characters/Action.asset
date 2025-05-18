@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f1d682284edb0d64f8d03d0961b115a2, type: 3}
-  m_Name: Ruri
+  m_Name: Action
   m_EditorClassIdentifier: Assembly-CSharp::DialogueCharacter
-  characterName: Ruri
+  characterName: 
   characterSprite: {fileID: 0}
-  color: {r: 0.9960785, g: 0.427451, b: 0, a: 1}
+  color: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   blipSound: []
-  frequency: 0.1
-  volume: 0.75
-  pitch: 1.1
+  frequency: 0.2
+  volume: 0.5
+  pitch: 0.5

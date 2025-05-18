@@ -23,10 +23,10 @@ namespace Managers
             switch (director.playableAsset.name)
             {
                 case "OttoRun":
-                    DialogueManager.instance.StartDialogue(startingDialogue.dialogue);
+                    DialogueManager.instance.StartDialogue(startingDialogue);
                     break;
                 case "Monkey Encounter":
-                    DialogueManager.instance.StartDialogue(encounterDialogue.dialogue);
+                    DialogueManager.instance.StartDialogue(encounterDialogue);
                     break;
             }
         }

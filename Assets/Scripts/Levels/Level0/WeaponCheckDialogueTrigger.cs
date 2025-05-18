@@ -13,7 +13,7 @@ namespace Levels.Level0
          if (!other.gameObject.CompareTag("Player")) return;
          RuriMovement ruri = other.gameObject.GetComponent<RuriMovement>();
          DialogueManager.instance.StartDialogue(ruri.hasWeapon ? weaponDialogue : noWeaponDialogue);
-         Destroy(gameObject);
+         if(ruri.hasWeapon) Destroy(gameObject);
       }
    }
 }

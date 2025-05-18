@@ -6,20 +6,20 @@ namespace Levels.Level0
     public class OttoFloorHat : MonoBehaviour
     {
     
-        private void DialogueEnd(string text)
+        private void CustomEvent(string eventName)
         {
-            if(text != "LevelStartDialogue") return;
-            GameEvents.onDialogueEnd -= DialogueEnd;
+            if(!eventName.Equals("Destroy Hat")) return;
+            DialogueSystem.onDialogueNextLine -= CustomEvent;
             Destroy(gameObject);
         }
         public void Start()
         {
-            GameEvents.onDialogueEnd += DialogueEnd; // Subscribe to the dialogue end event
+            DialogueSystem.onDialogueNextLine += CustomEvent;
         }
 
         public void OnDisable()
         {
-            GameEvents.onDialogueEnd -= DialogueEnd;
+            DialogueSystem.onDialogueNextLine -= CustomEvent;
         }
     }
 }

@@ -16,7 +16,7 @@ public class PrototypeOttoScript : MonoBehaviour
         RuriMovement ruri = collision.GetComponent<RuriMovement>();
         if (ruri)
         {
-            DialogueManager.instance.StartDialogue(dialogue.dialogue);
+            DialogueManager.instance.StartDialogue(dialogue);
         }
     }
     private void OnDialogueComplete(string currentDialogue)

@@ -804,7 +804,7 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: e4b65032-4198-4e03-af6d-db8174e5414c
     m_ActionName: 'UI/Select[/Keyboard/space,/Keyboard/enter]'
-  m_NeverAutoSwitchControlSchemes: 0
+  m_NeverAutoSwitchControlSchemes: 1
   m_DefaultControlScheme: 
   m_DefaultActionMap: UI
   m_SplitScreenIndex: -1

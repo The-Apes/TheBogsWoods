@@ -27,3 +27,4 @@ MonoBehaviour:
       line: O- Otto... is that you?
       right: 0
       soundEffect: {fileID: 0}
+      customEvent: 

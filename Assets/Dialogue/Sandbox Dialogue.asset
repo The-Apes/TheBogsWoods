@@ -15,103 +15,121 @@ MonoBehaviour:
   dialogue:
     dialogueName: 
     dialogueLines:
-    - character:
-        characterName: The Devs
+    - character: {fileID: 11400000, guid: 490ce26792959cc4a9d7bbed6ad37002, type: 2}
+      characterOverride:
+        characterName: 
         characterSprite: {fileID: 0}
-        color: {r: 0.5566038, g: 0.5566038, b: 0.5566038, a: 1}
+        color: {r: 0, g: 0, b: 0, a: 0}
         blipSound: []
-        frequency: 0.15
-        volume: 0.5
-        pitch: 1
+        frequency: 0
+        volume: 0
+        pitch: 0
       line: Hey there player :)
       right: 0
       soundEffect: {fileID: 0}
-    - character:
-        characterName: The Devs
+      customEvent: 
+    - character: {fileID: 11400000, guid: 490ce26792959cc4a9d7bbed6ad37002, type: 2}
+      characterOverride:
+        characterName: 
         characterSprite: {fileID: 0}
-        color: {r: 0.5566038, g: 0.5566038, b: 0.5566038, a: 1}
+        color: {r: 0, g: 0, b: 0, a: 0}
         blipSound: []
-        frequency: 0.15
-        volume: 0.5
-        pitch: 1
+        frequency: 0
+        volume: 0
+        pitch: 0
       line: You've reached the end of the narrative portion of our game.
       right: 0
       soundEffect: {fileID: 0}
-    - character:
-        characterName: The Devs
+      customEvent: 
+    - character: {fileID: 11400000, guid: 490ce26792959cc4a9d7bbed6ad37002, type: 2}
+      characterOverride:
+        characterName: 
         characterSprite: {fileID: 0}
-        color: {r: 0.5566038, g: 0.5566038, b: 0.5566038, a: 1}
+        color: {r: 0, g: 0, b: 0, a: 0}
         blipSound: []
-        frequency: 0.15
-        volume: 0.5
-        pitch: 1
+        frequency: 0
+        volume: 0
+        pitch: 0
       line: We don't have time to fully block out the WHOLE level...
       right: 0
       soundEffect: {fileID: 0}
-    - character:
-        characterName: The Devs
+      customEvent: 
+    - character: {fileID: 11400000, guid: 490ce26792959cc4a9d7bbed6ad37002, type: 2}
+      characterOverride:
+        characterName: 
         characterSprite: {fileID: 0}
-        color: {r: 0.5566038, g: 0.5566038, b: 0.5566038, a: 1}
+        color: {r: 0, g: 0, b: 0, a: 0}
         blipSound: []
-        frequency: 0.15
-        volume: 0.5
-        pitch: 1
+        frequency: 0
+        volume: 0
+        pitch: 0
       line: including it's cutscenes, dialogue and narrative explanations for things
       right: 0
       soundEffect: {fileID: 0}
-    - character:
-        characterName: The Devs
+      customEvent: 
+    - character: {fileID: 11400000, guid: 490ce26792959cc4a9d7bbed6ad37002, type: 2}
+      characterOverride:
+        characterName: 
         characterSprite: {fileID: 0}
-        color: {r: 0.5566038, g: 0.5566038, b: 0.5566038, a: 1}
+        color: {r: 0, g: 0, b: 0, a: 0}
         blipSound: []
-        frequency: 0.15
-        volume: 0.5
-        pitch: 1
+        frequency: 0
+        volume: 0
+        pitch: 0
       line: So from this point onward.
       right: 0
       soundEffect: {fileID: 0}
-    - character:
-        characterName: The Devs
+      customEvent: 
+    - character: {fileID: 11400000, guid: 490ce26792959cc4a9d7bbed6ad37002, type: 2}
+      characterOverride:
+        characterName: 
         characterSprite: {fileID: 0}
-        color: {r: 0.5566038, g: 0.5566038, b: 0.5566038, a: 1}
+        color: {r: 0, g: 0, b: 0, a: 0}
         blipSound: []
-        frequency: 0.15
-        volume: 0.5
-        pitch: 1
+        frequency: 0
+        volume: 0
+        pitch: 0
       line: you are entering a sort of (guided) sandbox mode, where we showcase our
         features
       right: 0
       soundEffect: {fileID: 0}
-    - character:
-        characterName: Ruri
-        characterSprite: {fileID: 3159093899981062546, guid: 2c5481612dbe21348b3079d3c85e96ca, type: 3}
-        color: {r: 0.46274513, g: 0.25882354, b: 0.5411765, a: 1}
+      customEvent: 
+    - character: {fileID: 11400000, guid: 573fe0f85d0b27743ba2ea2de6e05f37, type: 2}
+      characterOverride:
+        characterName: 
+        characterSprite: {fileID: 0}
+        color: {r: 0, g: 0, b: 0, a: 0}
         blipSound: []
-        frequency: 0.15
-        volume: 0.5
-        pitch: 1
+        frequency: 0
+        volume: 0
+        pitch: 0
       line: And Also I can break the 4th wall now! >:)
       right: 0
       soundEffect: {fileID: 0}
-    - character:
+      customEvent: 
+    - character: {fileID: 11400000, guid: 490ce26792959cc4a9d7bbed6ad37002, type: 2}
+      characterOverride:
         characterName: 
         characterSprite: {fileID: 0}
-        color: {r: 1, g: 0.0077323047, b: 0, a: 1}
+        color: {r: 1, g: 0, b: 0, a: 1}
         blipSound: []
-        frequency: 0.15
-        volume: 0.5
-        pitch: 1
+        frequency: 0
+        volume: 0
+        pitch: 0
       line: But for all intents and purposes the prototype ends here
       right: 0
       soundEffect: {fileID: 0}
-    - character:
+      customEvent: 
+    - character: {fileID: 11400000, guid: 490ce26792959cc4a9d7bbed6ad37002, type: 2}
+      characterOverride:
         characterName: 
         characterSprite: {fileID: 0}
-        color: {r: 1, g: 0.0077323047, b: 0, a: 1}
+        color: {r: 1, g: 0, b: 0, a: 1}
         blipSound: []
-        frequency: 0.15
-        volume: 0.5
-        pitch: 1
+        frequency: 0
+        volume: 0
+        pitch: 0
       line: 'Die if you want to restart this level '
       right: 0
       soundEffect: {fileID: 0}
+      customEvent: 

@@ -176,7 +176,6 @@ public class RuriMovement : MonoBehaviour
                 _animator.SetFloat("BodyY", 0f);
                 break;
         }
-        //print("Facing:" + _movingDirection);
     }
     
     
@@ -195,7 +194,6 @@ public class RuriMovement : MonoBehaviour
         {
             _attackDirection = mouseDirection.y > 0 ? Direction.Up : Direction.Down;
         }
-        print("Aiming: "+ _attackDirection);
         
     }
 
