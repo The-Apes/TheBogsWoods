@@ -692,6 +692,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3916397262814028071, guid: 14f0cda906cbe14498bacbe76019c7b3, type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3916397262814028071, guid: 14f0cda906cbe14498bacbe76019c7b3, type: 3}
+      propertyPath: m_MatchWidthOrHeight
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4713992306707431483, guid: 14f0cda906cbe14498bacbe76019c7b3, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -780,6 +788,10 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 1553028325}
+    - target: {fileID: 8561807161155405644, guid: 14f0cda906cbe14498bacbe76019c7b3, type: 3}
+      propertyPath: m_UpdateRectTransformForStandalone
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:

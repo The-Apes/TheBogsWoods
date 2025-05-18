@@ -26539,7 +26539,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0.4156863, g: 0.74509805, b: 0.18823531, a: 1}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -26564,7 +26564,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 2.5
+  orthographic size: 4.515625
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -27218,9 +27218,9 @@ MonoBehaviour:
   m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 32
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 640, y: 360}
+  m_ReferenceResolution: {x: 640, y: 480}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
+  m_MatchWidthOrHeight: 1
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
@@ -28651,6 +28651,7 @@ MonoBehaviour:
       line: Hmm... I can't pass through this bramble
       right: 0
       soundEffect: {fileID: 0}
+      customEvent: 
     - character: {fileID: 0}
       characterOverride:
         characterName: 
@@ -28663,6 +28664,7 @@ MonoBehaviour:
       line: Maybe If I had something to break it with, I can pass through
       right: 0
       soundEffect: {fileID: 0}
+      customEvent: 
   weaponDialogue:
     dialogueName: 
     dialogueLines:
@@ -28678,6 +28680,7 @@ MonoBehaviour:
       line: I could destroy that Bramble with this stick.
       right: 0
       soundEffect: {fileID: 0}
+      customEvent: 
 --- !u!1001 &7179325088006306293
 PrefabInstance:
   m_ObjectHideFlags: 0
