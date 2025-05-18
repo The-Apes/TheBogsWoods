@@ -28,6 +28,7 @@ MonoBehaviour:
         backyard.\r"
       right: 0
       soundEffect: {fileID: 0}
+      customEvent: CG0
     - character: {fileID: 11400000, guid: 78be226473a7fd544b2afd5a21a55286, type: 2}
       characterOverride:
         characterName: 
@@ -40,6 +41,7 @@ MonoBehaviour:
       line: "Until Otto\u2019s ball bounced away... swallowed by the forest.\r"
       right: 0
       soundEffect: {fileID: 0}
+      customEvent: CG1
     - character: {fileID: 11400000, guid: 78be226473a7fd544b2afd5a21a55286, type: 2}
       characterOverride:
         characterName: 
@@ -52,6 +54,7 @@ MonoBehaviour:
       line: They searched the woods, high and low... but the ball was gone.
       right: 0
       soundEffect: {fileID: 0}
+      customEvent: Cg2
     - character: {fileID: 11400000, guid: 78be226473a7fd544b2afd5a21a55286, type: 2}
       characterOverride:
         characterName: 
@@ -64,6 +67,7 @@ MonoBehaviour:
       line: "Instead, they found a shrine\u2014cracked, overgrown, forgotten.\n\n\n"
       right: 0
       soundEffect: {fileID: 0}
+      customEvent: cg3
     - character: {fileID: 11400000, guid: 78be226473a7fd544b2afd5a21a55286, type: 2}
       characterOverride:
         characterName: 
@@ -78,6 +82,7 @@ MonoBehaviour:
 '
       right: 0
       soundEffect: {fileID: 0}
+      customEvent: 
     - character: {fileID: 11400000, guid: 78be226473a7fd544b2afd5a21a55286, type: 2}
       characterOverride:
         characterName: 
@@ -90,6 +95,7 @@ MonoBehaviour:
       line: But the shrine did not laugh back.
       right: 0
       soundEffect: {fileID: 0}
+      customEvent: 
     - character: {fileID: 11400000, guid: 78be226473a7fd544b2afd5a21a55286, type: 2}
       characterOverride:
         characterName: 
@@ -102,6 +108,7 @@ MonoBehaviour:
       line: It stirred.
       right: 0
       soundEffect: {fileID: 0}
+      customEvent: cg4
     - character: {fileID: 11400000, guid: 78be226473a7fd544b2afd5a21a55286, type: 2}
       characterOverride:
         characterName: 
@@ -118,6 +125,7 @@ MonoBehaviour:
 '
       right: 0
       soundEffect: {fileID: 0}
+      customEvent: 
     - character: {fileID: 11400000, guid: 78be226473a7fd544b2afd5a21a55286, type: 2}
       characterOverride:
         characterName: 
@@ -131,6 +139,7 @@ MonoBehaviour:
         in on itself.\n\n"
       right: 0
       soundEffect: {fileID: 0}
+      customEvent: 
     - character: {fileID: 11400000, guid: 78be226473a7fd544b2afd5a21a55286, type: 2}
       characterOverride:
         characterName: 
@@ -146,6 +155,7 @@ MonoBehaviour:
         twilight.'
       right: 0
       soundEffect: {fileID: 0}
+      customEvent: 
     - character: {fileID: 11400000, guid: 78be226473a7fd544b2afd5a21a55286, type: 2}
       characterOverride:
         characterName: 
@@ -158,6 +168,7 @@ MonoBehaviour:
       line: "Ruri lay in the grass, stunned.\r\r\n"
       right: 0
       soundEffect: {fileID: 0}
+      customEvent: 
     - character: {fileID: 11400000, guid: 78be226473a7fd544b2afd5a21a55286, type: 2}
       characterOverride:
         characterName: 
@@ -170,6 +181,7 @@ MonoBehaviour:
       line: "Otto pointed at the figure and laughed, calling it stupid and creepy.\r\r\r\n"
       right: 0
       soundEffect: {fileID: 0}
+      customEvent: 
     - character: {fileID: 11400000, guid: 78be226473a7fd544b2afd5a21a55286, type: 2}
       characterOverride:
         characterName: 
@@ -183,6 +195,7 @@ MonoBehaviour:
         \r\r\r\n"
       right: 0
       soundEffect: {fileID: 0}
+      customEvent: 
     - character: {fileID: 11400000, guid: 78be226473a7fd544b2afd5a21a55286, type: 2}
       characterOverride:
         characterName: 
@@ -195,6 +208,7 @@ MonoBehaviour:
       line: Otto was no longer... Otto.
       right: 0
       soundEffect: {fileID: 0}
+      customEvent: 
     - character: {fileID: 11400000, guid: 78be226473a7fd544b2afd5a21a55286, type: 2}
       characterOverride:
         characterName: 
@@ -207,3 +221,4 @@ MonoBehaviour:
       line: He had become..... a monkey.
       right: 0
       soundEffect: {fileID: 0}
+      customEvent: 
