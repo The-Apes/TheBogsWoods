@@ -18075,6 +18075,16 @@ Tilemap:
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
+  - first: {x: 1, y: 13, z: 0}
+    second:
+      serializedVersion: 2
+      m_TileIndex: 17
+      m_TileSpriteIndex: 2
+      m_TileMatrixIndex: 0
+      m_TileColorIndex: 0
+      m_TileObjectToInstantiateIndex: 65535
+      dummyAlignment: 0
+      m_AllTileFlags: 1073741825
   - first: {x: 2, y: 13, z: 0}
     second:
       serializedVersion: 2
@@ -18425,6 +18435,16 @@ Tilemap:
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
+  - first: {x: 1, y: 14, z: 0}
+    second:
+      serializedVersion: 2
+      m_TileIndex: 17
+      m_TileSpriteIndex: 2
+      m_TileMatrixIndex: 0
+      m_TileColorIndex: 0
+      m_TileObjectToInstantiateIndex: 65535
+      dummyAlignment: 0
+      m_AllTileFlags: 1073741825
   - first: {x: 2, y: 14, z: 0}
     second:
       serializedVersion: 2
@@ -18766,6 +18786,16 @@ Tilemap:
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
   - first: {x: 36, y: 14, z: 0}
+    second:
+      serializedVersion: 2
+      m_TileIndex: 17
+      m_TileSpriteIndex: 2
+      m_TileMatrixIndex: 0
+      m_TileColorIndex: 0
+      m_TileObjectToInstantiateIndex: 65535
+      dummyAlignment: 0
+      m_AllTileFlags: 1073741825
+  - first: {x: 1, y: 15, z: 0}
     second:
       serializedVersion: 2
       m_TileIndex: 17
@@ -22671,7 +22701,7 @@ Tilemap:
     m_Data: {fileID: 11400000, guid: 98979a525bd0fce409e22a09598d3f79, type: 2}
   - m_RefCount: 4
     m_Data: {fileID: 11400000, guid: a17449e5918c7ce4392b0ebb19fb20a3, type: 2}
-  - m_RefCount: 1052
+  - m_RefCount: 1055
     m_Data: {fileID: 11400000, guid: 7795f78259a5c404ea8e36790dc0d3fb, type: 2}
   - m_RefCount: 4
     m_Data: {fileID: 11400000, guid: 7714964b8834eaa45b9be2f8d0ed23c7, type: 2}
@@ -22690,7 +22720,7 @@ Tilemap:
     m_Data: {fileID: -557539260, guid: 101eedb09aa90cf44ba444b11b3f6fa4, type: 3}
   - m_RefCount: 44
     m_Data: {fileID: -1123513488, guid: 101eedb09aa90cf44ba444b11b3f6fa4, type: 3}
-  - m_RefCount: 1052
+  - m_RefCount: 1055
     m_Data: {fileID: -1139735748, guid: 101eedb09aa90cf44ba444b11b3f6fa4, type: 3}
   - m_RefCount: 4
     m_Data: {fileID: -296593584, guid: 101eedb09aa90cf44ba444b11b3f6fa4, type: 3}
@@ -22735,7 +22765,7 @@ Tilemap:
   - m_RefCount: 35
     m_Data: {fileID: 532681626, guid: 101eedb09aa90cf44ba444b11b3f6fa4, type: 3}
   m_TileMatrixArray:
-  - m_RefCount: 1250
+  - m_RefCount: 1253
     m_Data:
       e00: 1
       e01: 0
@@ -22790,7 +22820,7 @@ Tilemap:
       e32: 8.4e-44
       e33: 1
   m_TileColorArray:
-  - m_RefCount: 1250
+  - m_RefCount: 1253
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   - m_RefCount: 0
     m_Data: {r: 6.536e-41, g: 6.536e-41, b: 6.536e-41, a: 6.536e-41}
@@ -26509,7 +26539,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0.4156863, g: 0.74509805, b: 0.18823531, a: 1}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -26534,7 +26564,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 2.5
+  orthographic size: 4.515625
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -27188,9 +27218,9 @@ MonoBehaviour:
   m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 32
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 640, y: 360}
+  m_ReferenceResolution: {x: 640, y: 480}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
+  m_MatchWidthOrHeight: 1
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
@@ -28621,6 +28651,7 @@ MonoBehaviour:
       line: Hmm... I can't pass through this bramble
       right: 0
       soundEffect: {fileID: 0}
+      customEvent: 
     - character: {fileID: 0}
       characterOverride:
         characterName: 
@@ -28633,6 +28664,7 @@ MonoBehaviour:
       line: Maybe If I had something to break it with, I can pass through
       right: 0
       soundEffect: {fileID: 0}
+      customEvent: 
   weaponDialogue:
     dialogueName: 
     dialogueLines:
@@ -28648,6 +28680,7 @@ MonoBehaviour:
       line: I could destroy that Bramble with this stick.
       right: 0
       soundEffect: {fileID: 0}
+      customEvent: 
 --- !u!1001 &7179325088006306293
 PrefabInstance:
   m_ObjectHideFlags: 0

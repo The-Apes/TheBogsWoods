@@ -1,5 +1,6 @@
 using System;
 using Unity.Cinemachine;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
@@ -167,6 +168,8 @@ public class RuriMovement : MonoBehaviour
         }
         //print("Facing:" + _movingDirection);
     }
+    
+    
     private void UpdateAttackDirection()
     {
         Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition); // to do make camera manager class

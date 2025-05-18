@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -5,6 +6,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 //reference https://www.youtube.com/watch?v=DOP_G5bsySA
 namespace Managers
@@ -33,6 +35,8 @@ namespace Managers
         public Animator animator;
     
         private Dialogue _currentDialogue;
+        
+        public static Action<string> onDialogueNextLine;
 
         private void Awake()
         {
@@ -126,6 +130,12 @@ namespace Managers
                 
                 _typePitch = _currentLine.character.pitch;
                 _typeVolume = _currentLine.character.volume;
+
+                if (!_currentLine.customEvent.Equals(""))
+                {
+                    onDialogueNextLine?.Invoke(_currentLine.customEvent);   
+                }
+                
                 
                 StopAllCoroutines();
                 _isTyping = true;

@@ -5,7 +5,7 @@ using UnityEngine;
 public class ParallaxBackground : MonoBehaviour
 {
     Vector2 StartPos;
-    [SerializeField] int moveModifier;
+    [SerializeField] float moveModifier;
 
     private void Start()
     {

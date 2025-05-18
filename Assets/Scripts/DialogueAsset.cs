@@ -14,6 +14,8 @@ public class DialogueLine
     public string line; 
     public bool right; // Whether to align the text to the right
     public AudioClip soundEffect;
+    public string customEvent;
+
 }   
 
 [System.Serializable]
