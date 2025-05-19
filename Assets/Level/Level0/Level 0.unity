@@ -581,8 +581,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 2913089383398367032, guid: 509ae65b99225834cbd5c0506b7d7138, type: 3}
-  m_Type: 0
+  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -4821,7 +4821,7 @@ GameObject:
   m_Component:
   - component: {fileID: 790340276}
   m_Layer: 0
-  m_Name: '-----'
+  m_Name: -----
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10618,7 +10618,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1368485514}
   m_Layer: 0
-  m_Name: '-----'
+  m_Name: -----
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -28304,7 +28304,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: [{targetCorrespondingSourceObject: {fileID: 7102376289879086835, guid: d41a2fce5a0cb3c4c8c24af94433e467, type: 3}, insertIndex: -1, addedObject: {fileID: 1077199457}}]
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7102376289879086835, guid: d41a2fce5a0cb3c4c8c24af94433e467, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1077199457}
   m_SourcePrefab: {fileID: 100100000, guid: d41a2fce5a0cb3c4c8c24af94433e467, type: 3}
 --- !u!1 &1992981018
 GameObject:
@@ -28316,7 +28319,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1992981019}
   m_Layer: 0
-  m_Name: '-----'
+  m_Name: -----
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29276,7 +29279,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: [{targetCorrespondingSourceObject: {fileID: 238577474628295289, guid: 9abeb51c76090e243abe42863fe44864, type: 3}, insertIndex: -1, addedObject: {fileID: 492751649}}]
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 238577474628295289, guid: 9abeb51c76090e243abe42863fe44864, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 492751649}
   m_SourcePrefab: {fileID: 100100000, guid: 9abeb51c76090e243abe42863fe44864, type: 3}
 --- !u!61 &991234384471529583
 BoxCollider2D:
