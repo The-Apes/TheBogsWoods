@@ -455,7 +455,7 @@ MonoBehaviour:
   invincibilityDuration: 1
   healthUI: {fileID: 0}
   hurtSound: {fileID: 8300000, guid: 773a856e2b1308245989b19d7d99e6e5, type: 3}
-  deathSound: {fileID: 8300000, guid: 927770d6919099841bc32902490eadab, type: 3}
+  deathSound: {fileID: 8300000, guid: 525a67c705cbd694da81e6ef39dd0e88, type: 3}
 --- !u!114 &3928796958079581933
 MonoBehaviour:
   m_ObjectHideFlags: 0
