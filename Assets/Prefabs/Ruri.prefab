@@ -257,7 +257,6 @@ MonoBehaviour:
   hasFairy: 0
   walkSpeed: 3
   runSpeed: 3.5
-  lookDir: {fileID: 5508549938362418821}
   hurtBox: {fileID: 363661087967841831}
   footstepSFX: {fileID: 8300000, guid: b777be2d26e6b3247a2d942c86ddcac3, type: 3}
   dashSFX: {fileID: 8300000, guid: e82aaccce35181f48b8db0bc176cacab, type: 3}

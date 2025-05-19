@@ -1,3 +1,4 @@
+using System;
 using Managers;
 using UnityEngine;
 
@@ -8,7 +9,7 @@ namespace Levels.Level0
       [SerializeField] private Dialogue noWeaponDialogue; 
       [SerializeField] private Dialogue weaponDialogue;
       
-      private void OnCollisionEnter2D(Collision2D other)
+      private void OnTriggerEnter2D(Collider2D other)
       {
          if (!other.gameObject.CompareTag("Player")) return;
          RuriMovement ruri = other.gameObject.GetComponent<RuriMovement>();
