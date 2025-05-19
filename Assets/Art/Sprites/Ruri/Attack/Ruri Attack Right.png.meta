@@ -1,19 +1,28 @@
 fileFormatVersion: 2
-guid: d90165c0e932dc24bba18c5ab664c813
+guid: 33ebca18212eac8458461d983b0e42c6
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 6297455583423161840
-    second: fake-otto 2_0
+      213: 2840662408328741195
+    second: Ruri Attack Right_0
   - first:
-      213: -5165610309631519070
-    second: fake-otto 2_1
+      213: 5696705525920480618
+    second: Ruri Attack Right_1
   - first:
-      213: -5582800315285978531
-    second: fake-otto 2_2
+      213: 5408452063682362517
+    second: Ruri Attack Right_2
   - first:
-      213: 4236814919899163816
-    second: fake-otto 2_3
+      213: 1305180053139099848
+    second: Ruri Attack Right_3
+  - first:
+      213: -5757722391946180472
+    second: Ruri Attack Right_4
+  - first:
+      213: 617216779664171115
+    second: Ruri Attack Right_5
+  - first:
+      213: 8829793112036962542
+    second: Ruri Attack Right_6
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -135,89 +144,155 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: fake-otto 2_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 32
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 0f5ecbedc7e056750800000000000000
-      internalID: 6297455583423161840
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: fake-otto 2_1
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 32
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 2a6515ebac01058b0800000000000000
-      internalID: -5165610309631519070
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: fake-otto 2_2
+      name: Ruri Attack Right_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 32
         height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.125}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d52c07331b8e582b0800000000000000
-      internalID: -5582800315285978531
+      spriteID: b418d3fe86f0c6720800000000000000
+      internalID: 2840662408328741195
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fake-otto 2_3
+      name: Ruri Attack Right_1
       rect:
         serializedVersion: 2
         x: 32
         y: 0
         width: 32
         height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.125}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 8ac2aa7d8b03cca30800000000000000
-      internalID: 4236814919899163816
+      spriteID: a6dbe7e4e73ce0f40800000000000000
+      internalID: 5696705525920480618
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ruri Attack Right_2
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.125}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 59cf3882f7eae0b40800000000000000
+      internalID: 5408452063682362517
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ruri Attack Right_3
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.125}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8c0184bd75eec1210800000000000000
+      internalID: 1305180053139099848
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ruri Attack Right_4
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.125}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8884cb08df57810b0800000000000000
+      internalID: -5757722391946180472
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ruri Attack Right_5
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 0
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.125}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b602b45146bc09800800000000000000
+      internalID: 617216779664171115
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ruri Attack Right_6
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.125}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ee0772b9d0ab98a70800000000000000
+      internalID: 8829793112036962542
       vertices: []
       indices: 
       edges: []
@@ -226,7 +301,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: f2338e433770b9849a45271425424bb4
+    spriteID: 7e5f67e892b325642a617027c8b9171c
     internalID: 0
     vertices: []
     indices: 
@@ -236,10 +311,13 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      fake-otto 2_0: 6297455583423161840
-      fake-otto 2_1: -5165610309631519070
-      fake-otto 2_2: -5582800315285978531
-      fake-otto 2_3: 4236814919899163816
+      Ruri Attack Right_0: 2840662408328741195
+      Ruri Attack Right_1: 5696705525920480618
+      Ruri Attack Right_2: 5408452063682362517
+      Ruri Attack Right_3: 1305180053139099848
+      Ruri Attack Right_4: -5757722391946180472
+      Ruri Attack Right_5: 617216779664171115
+      Ruri Attack Right_6: 8829793112036962542
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

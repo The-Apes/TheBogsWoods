@@ -27,10 +27,15 @@ public class RuriAttack : MonoBehaviour
         if(!_ruriMovement.hasWeapon) return;
         if (isAttacking) return;
         if (!_ruriMovement.controlling) return;
-        
+        isAttacking = true;
         _animator.SetTrigger("Attack");
+        RuriMovement.instance.AttackMove();
         //_ruriMovement.isAttacking = true
-        
+
+    }
+    public void AttackFinish()
+    {
+        isAttacking = false;
     }
     private IEnumerator PerformAttack()
     {

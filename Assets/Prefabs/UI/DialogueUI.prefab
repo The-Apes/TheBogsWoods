@@ -804,6 +804,10 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: e4b65032-4198-4e03-af6d-db8174e5414c
     m_ActionName: 'UI/Select[/Keyboard/space,/Keyboard/enter]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 034551b5-d3e5-4728-a8f3-38a79091f4f9
+    m_ActionName: 'Player/Dash[/Keyboard/space]'
   m_NeverAutoSwitchControlSchemes: 1
   m_DefaultControlScheme: 
   m_DefaultActionMap: UI

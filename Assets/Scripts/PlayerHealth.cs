@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using Managers;
 using UI;
 using UnityEngine;
@@ -11,6 +12,7 @@ public class PlayerHealth : MonoBehaviour, IDamageable
     [SerializeField]private float invincibilityDuration = 1f; 
     private float _invincibilityTimer; 
     private bool _invincible;
+    private bool _dead;
 
     public HealthUI healthUI; 
     
@@ -39,14 +41,19 @@ public class PlayerHealth : MonoBehaviour, IDamageable
 
     private void Update()
     {
-        if (!_invincible) return;
         
-        _invincibilityTimer -= Time.deltaTime;
-        if (_invincibilityTimer <= 0)
-        {
-            _invincible = false;
-            _invincibilityTimer = invincibilityDuration; // Reset the timer
-        }
+    }
+
+    IEnumerator InvincibilityTimer(float duration)
+    {
+        _invincible = true;
+        yield return new WaitForSeconds(duration);
+        _invincible = false;
+    }
+
+    public void BecomeInvulnerable(float duration)
+    {
+        StartCoroutine(InvincibilityTimer(duration));
     }
 
 
@@ -62,9 +69,12 @@ public class PlayerHealth : MonoBehaviour, IDamageable
         currentHealth -= damageTaken;
         GetComponent<DamageFlash>().CallDamageFlash();
         healthUI.UpdateHearts(currentHealth); // Update the hearts to reflect the new health
-        _invincible = true;
-        if (currentHealth <= 0)
+        BecomeInvulnerable(_invincibilityTimer);
+        if (currentHealth <= 0 && !_dead)
         {
+            _dead = true;
+            StopAllCoroutines();
+            _invincible = true;
             AudioManager.instance.PlaySFXAt(deathSound, transform);
             OnPlayerDied?.Invoke();
         }

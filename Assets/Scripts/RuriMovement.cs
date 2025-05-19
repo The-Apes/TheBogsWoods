@@ -1,9 +1,9 @@
 using System;
+using System.Collections;
+using Managers;
 using Unity.Cinemachine;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.UI;
 
 
 public class RuriMovement : MonoBehaviour
@@ -11,6 +11,8 @@ public class RuriMovement : MonoBehaviour
     public static RuriMovement instance;
     
     private RuriAttack _ruriAttack;
+    private PlayerHealth _playerHealth;
+    
     private Animator _animator;
  
     [NonSerialized] public GameObject Otto; 
@@ -20,13 +22,15 @@ public class RuriMovement : MonoBehaviour
     private Transform _playerTransform; 
     private AudioSource _audioSource;
     private CinemachineCamera _camera;
+    private Rigidbody2D _rb;
     
     [SerializeField] private GameObject ridingOttoPrefab;
     [SerializeField] private GameObject ottoPrefab; 
     [SerializeField] private GameObject fairy;
     
     
-    private bool _running; 
+    private bool _running;
+    private bool _dashing;
     public bool controlling = true;
     private bool _ottoInRange; 
     
@@ -34,17 +38,19 @@ public class RuriMovement : MonoBehaviour
 
     public bool hasWeapon = true;
     public bool hasOtto = true;
-    public bool hasFairy = false;
-
-    
+    public bool hasFairy;
     
     [SerializeField] private float walkSpeed = 1.5f; //this is a variable that stores the movement speed of the player, this is the speed at which the player moves
     [SerializeField] private float runSpeed = 3f; //this is a variable that stores the movement speed of the player, this is the speed at which the player moves
-    public Transform lookDir; //this is a variable that stores the transform of the player, this is the one that will be used to rotate the player
     private Vector2 _moveInput;
     [SerializeField] private Collider2D hurtBox;
+    
+    [Header("Sounds")]
+    [SerializeField] private AudioClip footstepSFX;
+    [SerializeField] private AudioClip dashSFX;
 
-    private enum Direction { Up, Right, Down, Left }
+    public enum Direction { Up, Right, Down, Left }
+    //private enum CharacterState { Moving, Attacking, Dashing, Hit } - Idk if we need this, i'll stick to bools but if it gets intense im pulling this out
     private static Direction _attackDirection = Direction.Down;
     private static Direction _movingDirection = Direction.Down;
     //^^ an enum variable is a variable that can only have a set of predefined values, in this case it can only be: Up, Down, Left, Right
@@ -57,7 +63,9 @@ public class RuriMovement : MonoBehaviour
         _playerTransform = transform;
         _camera = FindFirstObjectByType<CinemachineCamera>();
         _ruriAttack = GetComponent<RuriAttack>();
+        _playerHealth = GetComponent<PlayerHealth>();
         _animator = GetComponent<Animator>();
+        _rb = GetComponent<Rigidbody2D>();
 
         if (hasOtto)
         {
@@ -87,7 +95,11 @@ public class RuriMovement : MonoBehaviour
         RidingOtto = null; //sets the otto game object to null, basically like when we instantiated it
     }
     
-    
+    // ReSharper disable once UnusedMember.Local
+    private void PlaySound(AudioClip soundClip)
+    {
+        AudioManager.instance.PlaySFXAt(soundClip, transform);
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
@@ -106,43 +118,58 @@ public class RuriMovement : MonoBehaviour
     
     private void FixedUpdate() 
     {
-        if (!controlling) return; //if the player is not controlling ruri, return_
-       
-       //move the player
-        float speed = _running ? runSpeed : walkSpeed; //this is a ternary; if the player is running, set the speed to runSpeed, else set it to walkSpeed
-        _playerTransform.position += new Vector3(_moveInput.x, _moveInput.y, 0) * (Time.deltaTime * speed);
-        
-       
-       UpdateDirection();
-       UpdateAttackDirection();
-       
-       _animator.SetInteger("Direction", (int)_movingDirection);
-       //sss
+        if (controlling) //if the player is not controlling ruri, return_
+        {
+            if (_ruriAttack.isAttacking) return;
+            if (_dashing) return;
+            float
+                speed = _running
+                    ? runSpeed
+                    : walkSpeed; //this is a ternary; if the player is running, set the speed to runSpeed, else set it to walkSpeed
+            _playerTransform.position += new Vector3(_moveInput.x, _moveInput.y, 0) * (Time.deltaTime * speed);
 
-       if (_ruriAttack.isAttacking) return;
-       switch (_attackDirection)
-       {
-           case Direction.Up:
-               lookDir.rotation = Quaternion.Euler(0, 0, 180);
-               _animator.SetFloat("AimX", 0f);
-               _animator.SetFloat("AimY", 1f);
-               break;
-           case Direction.Down:
-               lookDir.rotation = Quaternion.Euler(0, 0, 0);
-               _animator.SetFloat("AimX", 0f);
-               _animator.SetFloat("AimY", -1f);
-               break;
-           case Direction.Left:
-               lookDir.rotation = Quaternion.Euler(0, 0, 270);
-               _animator.SetFloat("AimX", -1f);
-               _animator.SetFloat("AimY", 0f);
-               break;
-           case Direction.Right:
-               lookDir.rotation = Quaternion.Euler(0, 0, 90);
-               _animator.SetFloat("AimX", 1f);
-               _animator.SetFloat("AimY", 0f);
-               break;
-       }
+
+            UpdateDirection();
+            UpdateAttackDirection();
+            _animator.SetBool("Moving", _moveInput != Vector2.zero);
+
+            _animator.SetInteger("Direction", (int)_movingDirection);
+            //sss
+
+            if (_ruriAttack.isAttacking) return;
+            SetLookDirection();
+        }
+        else
+        {
+            _animator.SetBool("Moving", false);
+            _attackDirection = _movingDirection;
+            SetLookDirection();
+        }
+
+        //move the player
+    }
+
+    private void SetLookDirection()
+    {
+        switch (_attackDirection)
+        {
+            case Direction.Up:
+                _animator.SetFloat("AimX", 0f);
+                _animator.SetFloat("AimY", 1f);
+                break;
+            case Direction.Down:
+                _animator.SetFloat("AimX", 0f);
+                _animator.SetFloat("AimY", -1f);
+                break;
+            case Direction.Left:
+                _animator.SetFloat("AimX", -1f);
+                _animator.SetFloat("AimY", 0f);
+                break;
+            case Direction.Right:
+                _animator.SetFloat("AimX", 1f);
+                _animator.SetFloat("AimY", 0f);
+                break;
+        }
     }
 
     private void UpdateDirection()
@@ -197,6 +224,53 @@ public class RuriMovement : MonoBehaviour
         
     }
 
+    public void Death()
+    {
+        controlling = false;
+        _animator.SetTrigger("Death");
+    }
+    public void ApplyForceInDirection(Direction direction, float knockbackForce)
+    {
+        Vector2 knockbackDirection = Vector2.zero;
+        switch (direction)
+        {
+            case Direction.Up:
+                knockbackDirection = Vector2.up;
+                break;
+            case Direction.Right:
+                knockbackDirection = Vector2.right;
+                break;
+            case Direction.Down:
+                knockbackDirection = Vector2.down;
+                break;
+            case Direction.Left:
+                knockbackDirection = Vector2.left;
+                break;
+        }
+        _rb.AddForce(knockbackDirection * knockbackForce, ForceMode2D.Impulse);
+    }
+
+    public void ApplyForce(Vector2 direction, float force)
+    {
+        _rb.AddForce(direction * force, ForceMode2D.Impulse);
+    }
+
+    IEnumerator DashTimer(float duration)
+    {
+        _dashing = true;
+        yield return new WaitForSeconds(duration);
+        _dashing = false;
+    }
+    public void AttackMove()
+    {
+        ApplyForceInDirection(_attackDirection, 2f);
+    }
+
+    public void Footstep()
+    {
+        AudioManager.instance.PlaySFX(footstepSFX, 0.5f);
+    }
+
     #region InputAction
     public void MoveInput(InputAction.CallbackContext context) //Called by input system
     {
@@ -221,16 +295,23 @@ public class RuriMovement : MonoBehaviour
             _camera.Follow = _playerTransform;
         }
     }
-    public void Run(InputAction.CallbackContext context)
+    public void Dash(InputAction.CallbackContext context)
     {
         if (context.started)
         {
-            _running = true;
+            if(!controlling || _ruriAttack.isAttacking|| _dashing) return;
+            if(_moveInput.Equals(Vector2.zero)) return;
+            ApplyForce(_moveInput, 20f);
+            _animator.SetTrigger("Dash"); 
+            _animator.SetBool("Moving", false);
+            _playerHealth.BecomeInvulnerable(0.3f);
+            StartCoroutine(DashTimer(0.3f));
+            GetComponent<DashFlash>().CallDashFlash(0.3f);
+            AudioManager.instance.PlaySFX(dashSFX);
+            
         }
-        if (context.canceled)
-        {
-            _running = false;
-        }
+        
+        
     }
     #endregion
 }

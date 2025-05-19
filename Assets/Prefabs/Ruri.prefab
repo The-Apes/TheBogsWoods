@@ -20,6 +20,7 @@ GameObject:
   - component: {fileID: 3851886552107231536}
   - component: {fileID: 3928796958079581933}
   - component: {fileID: 3013807659131338322}
+  - component: {fileID: 4511535734280139608}
   m_Layer: 7
   m_Name: Ruri
   m_TagString: Player
@@ -213,6 +214,22 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: e4b65032-4198-4e03-af6d-db8174e5414c
     m_ActionName: 'UI/Select[/Keyboard/space,/Keyboard/enter]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7292209988197213473}
+        m_TargetAssemblyTypeName: RuriMovement, Assembly-CSharp
+        m_MethodName: Dash
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 034551b5-d3e5-4728-a8f3-38a79091f4f9
+    m_ActionName: 'Player/Dash[/Keyboard/space]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -238,10 +255,12 @@ MonoBehaviour:
   hasWeapon: 1
   hasOtto: 0
   hasFairy: 0
-  walkSpeed: 1.5
+  walkSpeed: 3
   runSpeed: 3.5
   lookDir: {fileID: 5508549938362418821}
   hurtBox: {fileID: 363661087967841831}
+  footstepSFX: {fileID: 8300000, guid: b777be2d26e6b3247a2d942c86ddcac3, type: 3}
+  dashSFX: {fileID: 8300000, guid: e82aaccce35181f48b8db0bc176cacab, type: 3}
 --- !u!114 &801263606039877597
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -459,6 +478,19 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 238577474628295289}
   m_Enabled: 1
+--- !u!114 &4511535734280139608
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 238577474628295289}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98d68a87e90858346a31f032cd543bfb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flashColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &1653731892496004782
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,19 +1,16 @@
 fileFormatVersion: 2
-guid: d90165c0e932dc24bba18c5ab664c813
+guid: 8af185606ccf87d4ca6d54f809830ef7
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 6297455583423161840
-    second: fake-otto 2_0
+      213: -6273209253167784769
+    second: Ruri Move Up_0
   - first:
-      213: -5165610309631519070
-    second: fake-otto 2_1
+      213: 1769814136182602951
+    second: Ruri Move Up_1
   - first:
-      213: -5582800315285978531
-    second: fake-otto 2_2
-  - first:
-      213: 4236814919899163816
-    second: fake-otto 2_3
+      213: -8621802810975574553
+    second: Ruri Move Up_2
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -135,89 +132,67 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: fake-otto 2_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 32
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 0f5ecbedc7e056750800000000000000
-      internalID: 6297455583423161840
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: fake-otto 2_1
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 32
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 2a6515ebac01058b0800000000000000
-      internalID: -5165610309631519070
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: fake-otto 2_2
+      name: Ruri Move Up_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 32
         height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15625}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d52c07331b8e582b0800000000000000
-      internalID: -5582800315285978531
+      spriteID: fbc9d3fcb6511f8a0800000000000000
+      internalID: -6273209253167784769
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fake-otto 2_3
+      name: Ruri Move Up_1
       rect:
         serializedVersion: 2
         x: 32
         y: 0
         width: 32
         height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15625}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 8ac2aa7d8b03cca30800000000000000
-      internalID: 4236814919899163816
+      spriteID: 7ccf0a97494af8810800000000000000
+      internalID: 1769814136182602951
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ruri Move Up_2
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15625}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7e526501604395880800000000000000
+      internalID: -8621802810975574553
       vertices: []
       indices: 
       edges: []
@@ -226,7 +201,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: f2338e433770b9849a45271425424bb4
+    spriteID: 3226cef7f42dcae4491ae634a0dd0180
     internalID: 0
     vertices: []
     indices: 
@@ -236,10 +211,9 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      fake-otto 2_0: 6297455583423161840
-      fake-otto 2_1: -5165610309631519070
-      fake-otto 2_2: -5582800315285978531
-      fake-otto 2_3: 4236814919899163816
+      Ruri Move Up_0: -6273209253167784769
+      Ruri Move Up_1: 1769814136182602951
+      Ruri Move Up_2: -8621802810975574553
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

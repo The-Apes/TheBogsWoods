@@ -1,0 +1,124 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eab4870aa414b1e44abde0fb324c404d, type: 3}
+  m_Name: Vincent Intro
+  m_EditorClassIdentifier: 
+  dialogue:
+    dialogueName: 
+    dialogueLines:
+    - character: {fileID: 11400000, guid: 5ebc4690dbc13ce4581bd2cd8cbc7115, type: 2}
+      characterOverride:
+        characterName: 
+        characterSprite: {fileID: 0}
+        color: {r: 0, g: 0, b: 0, a: 0}
+        blipSound: []
+        frequency: 0
+        volume: 0
+        pitch: 0
+      line: Eyyyy.
+      right: 0
+      soundEffect: {fileID: 0}
+      customEvent: 
+    - character: {fileID: 11400000, guid: 5ebc4690dbc13ce4581bd2cd8cbc7115, type: 2}
+      characterOverride:
+        characterName: 
+        characterSprite: {fileID: 0}
+        color: {r: 0, g: 0, b: 0, a: 0}
+        blipSound: []
+        frequency: 0
+        volume: 0
+        pitch: 0
+      line: Sorry to break your little immersion whatchamacallit, But protocal says
+        I need to be here.
+      right: 0
+      soundEffect: {fileID: 0}
+      customEvent: 
+    - character: {fileID: 11400000, guid: 5ebc4690dbc13ce4581bd2cd8cbc7115, type: 2}
+      characterOverride:
+        characterName: 
+        characterSprite: {fileID: 0}
+        color: {r: 0, g: 0, b: 0, a: 0}
+        blipSound: []
+        frequency: 0
+        volume: 0
+        pitch: 0
+      line: I'm Version Vincent. but you can call me Vinnie for short
+      right: 0
+      soundEffect: {fileID: 0}
+      customEvent: 
+    - character: {fileID: 11400000, guid: 5ebc4690dbc13ce4581bd2cd8cbc7115, type: 2}
+      characterOverride:
+        characterName: 
+        characterSprite: {fileID: 0}
+        color: {r: 0, g: 0, b: 0, a: 0}
+        blipSound: []
+        frequency: 0
+        volume: 0
+        pitch: 0
+      line: Since the Build you are playing is being marked by Tutors n such, I'm
+        here as a living "ReadMe" doccument for them. so they don't miss anything
+        and mark us down for it.
+      right: 0
+      soundEffect: {fileID: 0}
+      customEvent: 
+    - character: {fileID: 11400000, guid: 5ebc4690dbc13ce4581bd2cd8cbc7115, type: 2}
+      characterOverride:
+        characterName: 
+        characterSprite: {fileID: 0}
+        color: {r: 0, g: 0, b: 0, a: 0}
+        blipSound: []
+        frequency: 0
+        volume: 0
+        pitch: 0
+      line: Basically, if you're a Marker or a Tutor, I'm your guy B)
+      right: 0
+      soundEffect: {fileID: 0}
+      customEvent: 
+    - character: {fileID: 11400000, guid: 5ebc4690dbc13ce4581bd2cd8cbc7115, type: 2}
+      characterOverride:
+        characterName: 
+        characterSprite: {fileID: 0}
+        color: {r: 0, g: 0, b: 0, a: 0}
+        blipSound: []
+        frequency: 0
+        volume: 0
+        pitch: 0
+      line: But if you're not...
+      right: 0
+      soundEffect: {fileID: 0}
+      customEvent: 
+    - character: {fileID: 11400000, guid: 5ebc4690dbc13ce4581bd2cd8cbc7115, type: 2}
+      characterOverride:
+        characterName: 
+        characterSprite: {fileID: 0}
+        color: {r: 0, g: 0, b: 0, a: 0}
+        blipSound: []
+        frequency: 0
+        volume: 0
+        pitch: 0
+      line: GET OUT!
+      right: 0
+      soundEffect: {fileID: 0}
+      customEvent: 
+    - character: {fileID: 11400000, guid: 5ebc4690dbc13ce4581bd2cd8cbc7115, type: 2}
+      characterOverride:
+        characterName: 
+        characterSprite: {fileID: 0}
+        color: {r: 0, g: 0, b: 0, a: 0}
+        blipSound: []
+        frequency: 0
+        volume: 0
+        pitch: 0
+      line: Talk to me again if you want a Rundown of what is different in this build.
+      right: 0
+      soundEffect: {fileID: 0}
+      customEvent: 

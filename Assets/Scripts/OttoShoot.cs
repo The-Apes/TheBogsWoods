@@ -76,7 +76,7 @@ public class OttoShoot : MonoBehaviour
         else
         {
             Transform lookDir = transform.root.gameObject.name == "Ruri" ? 
-                transform.root.GetComponent<RuriMovement>().lookDir : transform.root.GetComponent<OttoScript>().lookDir;
+                transform.root.GetComponent<RuriMovement>().transform : transform.root.GetComponent<OttoScript>().lookDir;
 
             //Credits to CoPilot, no way I was doing this on my own.
             float angleInRadians = (lookDir.eulerAngles.z - 90f) * Mathf.Deg2Rad;
