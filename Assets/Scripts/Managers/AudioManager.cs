@@ -1,6 +1,7 @@
 
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Audio;
 
 namespace Managers
 {
@@ -9,65 +10,74 @@ namespace Managers
         public static AudioManager instance;
         private AudioSource _sfxSource;
         private AudioSource _musicSource;
-        
+
         [SerializeField] private AudioSource sfxPrefab;
+          [Header("Audio Mixer")]
+        public AudioMixer audioMixer;
         private void Awake()
         {
             if (instance == null)
             {
                 instance = this;
                 DontDestroyOnLoad(gameObject);
-                
+
                 _sfxSource = gameObject.AddComponent<AudioSource>();
                 _musicSource = gameObject.AddComponent<AudioSource>();
                 _musicSource.loop = true;
+
+                if (audioMixer != null)
+                {
+                    AudioMixerGroup[] groups = audioMixer.FindMatchingGroups("Music");
+                    if (groups.Length > 0)
+                        _musicSource.outputAudioMixerGroup = groups[0];
+                }
             }
             else
             {
                 Destroy(gameObject);
             }
         }
-        
+
         public void PlaySFX(AudioClip clip, float volume = 1f, float pitch = 1f)
         {
             AudioSource audioSource = Instantiate(sfxPrefab);
-            
+
             audioSource.clip = clip;
             audioSource.volume = volume;
             audioSource.pitch = pitch;
             audioSource.Play();
             audioSource.spatialBlend = 0;
-            
+
             Destroy(audioSource.gameObject, audioSource.clip.length);
         }
-       
+
         public void PlaySFXAt(AudioClip clip, Transform spawnTransform, float spatialBlend = 0.7f, float volume = 1f, float pitch = 1f)
         {
             AudioSource audioSource = Instantiate(sfxPrefab, spawnTransform.position, Quaternion.identity);
-            
+
             audioSource.clip = clip;
             audioSource.volume = volume;
             audioSource.pitch = pitch;
             audioSource.spatialBlend = spatialBlend;
             audioSource.Play();
-            
+
             Destroy(audioSource.gameObject, audioSource.clip.length);
         }
         public void PlayRandomSFXAt(AudioClip[] clip, Transform spawnTransform, float volume)
         {
             AudioSource audioSource = Instantiate(sfxPrefab, spawnTransform.position, Quaternion.identity);
-            
+
             audioSource.clip = clip[Random.Range(0, clip.Length)];
             audioSource.volume = volume;
             audioSource.Play();
-            
+
             Destroy(audioSource.gameObject, audioSource.clip.length);
         }
-        
+
         public void PlayMusic(AudioClip musicClip)
         {
-                _musicSource.clip = musicClip;
-                _musicSource.Play();
+            _musicSource.clip = musicClip;
+            _musicSource.Play();
         }
         public void StopMusic()
         {
@@ -81,7 +91,7 @@ namespace Managers
         {
             _musicSource.UnPause();
         }
-        
+
         public void FadeInMusic(AudioClip newTrack, float duration = 1f)
         {
             StartCoroutine(FadeInCoroutine(newTrack, duration));

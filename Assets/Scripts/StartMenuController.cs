@@ -39,34 +39,59 @@ public class StartMenuController : MonoBehaviour
 
     public void LoadVolume()
     {
-        if (musicSlider != null && PlayerPrefs.HasKey("MusicVolume"))
-            musicSlider.value = PlayerPrefs.GetFloat("MusicVolume");
-        if (sfxSlider != null && PlayerPrefs.HasKey("SFXVolume"))
-            sfxSlider.value = PlayerPrefs.GetFloat("SFXVolume");
+        // Music
+        if (PlayerPrefs.HasKey("MusicVolume"))
+        {
+            float musicVolume = PlayerPrefs.GetFloat("MusicVolume");
+            if (musicSlider != null)
+                musicSlider.value = musicVolume;
+            audioMixer.SetFloat("MusicVolume", musicVolume);
+        }
+        else
+        {
+            if (musicSlider != null)
+                musicSlider.value = DefaultVolume;
+            audioMixer.SetFloat("MusicVolume", DefaultVolume);
+        }
+
+        // SFX
+        if (PlayerPrefs.HasKey("SFXVolume"))
+        {
+            float sfxVolume = PlayerPrefs.GetFloat("SFXVolume");
+            if (sfxSlider != null)
+                sfxSlider.value = sfxVolume;
+            audioMixer.SetFloat("SFXVolume", sfxVolume);
+        }
+        else
+        {
+            if (sfxSlider != null)
+                sfxSlider.value = DefaultVolume;
+            audioMixer.SetFloat("SFXVolume", DefaultVolume);
+        }
     }
 
     public void ResetToDefaults()
     {
-        // Set sliders to default value (0 dB)
         if (musicSlider != null)
             musicSlider.value = DefaultVolume;
         if (sfxSlider != null)
             sfxSlider.value = DefaultVolume;
 
-        // Set AudioMixer values to default (0 dB)
         audioMixer.SetFloat("MusicVolume", DefaultVolume);
         audioMixer.SetFloat("SFXVolume", DefaultVolume);
 
-        // Save defaults
         SaveVolume();
     }
 
     public void OnStartClick()
     {
+        MusicManager.Instance.StopMusic();
         SceneManager.LoadScene("Intro Cutscene");
     }
+
     public void OnSkipClick()
     {
+        MusicManager.Instance.StopMusic();
         SceneManager.LoadScene("Level 0");
     }
 
