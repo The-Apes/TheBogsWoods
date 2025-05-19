@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: addab80a957fdde49be5da61f289c033
+guid: c59bdb5c1fb066d43b6aca75dcfaa0cc
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7068475994592092703
-    second: CG1 Alt_0
+      213: -8864134562569964669
+    second: CG5_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -114,7 +114,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -126,12 +126,12 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: CG1 Alt_0
+      name: CG5_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 160
+        width: 169
         height: 120
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -141,8 +141,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 1ed56f6888ab7ed90800000000000000
-      internalID: -7068475994592092703
+      spriteID: 38331cc54944cf480800000000000000
+      internalID: -8864134562569964669
       vertices: []
       indices: 
       edges: []
@@ -161,7 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      CG1 Alt_0: -7068475994592092703
+      CG5_0: -8864134562569964669
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
