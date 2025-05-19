@@ -82,6 +82,18 @@ public class RuriMovement : MonoBehaviour
 
     }
 
+    public void AddStar()
+    {
+        hasFairy = true;
+        fairy.GetComponent<SpriteRenderer>().enabled = hasFairy;
+    }
+
+    public void RemoveStar()
+    {
+        hasFairy = false;
+        fairy.GetComponent<SpriteRenderer>().enabled = hasFairy;
+    }
+
     public void AddOtto()
     {
         GameObject socket = GameObject.Find("OttoSocket");

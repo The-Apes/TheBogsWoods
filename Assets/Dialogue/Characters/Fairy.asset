@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f1d682284edb0d64f8d03d0961b115a2, type: 3}
-  m_Name: Vincent
+  m_Name: Fairy
   m_EditorClassIdentifier: 
-  characterName: Vinnie
-  characterSprite: {fileID: 21300000, guid: 5c7943cb413c66e48b7b6b6db2b3c68d, type: 3}
-  color: {r: 0.40000004, g: 0.21960786, b: 0.18823531, a: 1}
+  characterName: Fairy
+  characterSprite: {fileID: 21300000, guid: 91066645dc4d3174fb6beee6a2e51be5, type: 3}
+  color: {r: 0.7960785, g: 0.8588236, b: 0.98823535, a: 1}
   blipSound: []
-  frequency: 0.15
+  frequency: 0.075
   volume: 0.75
-  pitch: 0.4
+  pitch: 1.5
