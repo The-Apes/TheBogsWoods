@@ -7,6 +7,8 @@ public class CowardEnemy : MonoBehaviour, IDamageable
     public float detectionRange = 5f; 
     private GameObject _chaseTarget;
     private GameObject _runTarget;
+    private Vector2 direction;
+    private Animator _animator;
 
     private Rigidbody2D _rb;
     [SerializeField] private Collider2D detectionZone;
@@ -22,6 +24,7 @@ public class CowardEnemy : MonoBehaviour, IDamageable
     private void Start()
     {
         _rb = GetComponent<Rigidbody2D>();
+        _animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -30,15 +33,47 @@ public class CowardEnemy : MonoBehaviour, IDamageable
         if (!_run)
         {
             if (!_chaseTarget) return;
-            Vector2 direction = (_chaseTarget.transform.position - transform.position).normalized; // Direction towards the player
+             direction = (_chaseTarget.transform.position - transform.position).normalized; // Direction towards the player
             _rb.linearVelocity = direction.normalized * chaseSpeed; // Move the enemy towards the player
         }
         else
         {
             //move in the opposite direction of the player
             if (!_runTarget) return;
-            Vector2 direction = (transform.position - _runTarget.transform.position).normalized; // Direction towards the player
+             direction = (transform.position - _runTarget.transform.position).normalized; // Direction towards the player
             _rb.linearVelocity = direction.normalized * (chaseSpeed * 1.5f);
+        }
+        if(!_animator) return;
+        if(direction.Equals(Vector2.zero))
+        {
+            _animator.SetFloat("BodyX", 1f);
+            _animator.SetFloat("BodyY", 0f); 
+        }
+        if (Mathf.Abs(direction.x) > Mathf.Abs(direction.y))
+        {
+            if (direction.x > 0)
+            {
+                _animator.SetFloat("BodyX", 1f);
+                _animator.SetFloat("BodyY", 0f);   
+            }
+            else
+            {
+                _animator.SetFloat("BodyX", -1f);
+                _animator.SetFloat("BodyY", 0f);
+            }
+        }
+        else
+        {
+            if (direction.y > 0)
+            {
+                _animator.SetFloat("BodyX", 0f);
+                _animator.SetFloat("BodyY", 1f);
+            }
+            else
+            {
+                _animator.SetFloat("BodyX", 0f);
+                _animator.SetFloat("BodyY", -1f);
+            }
         }
     }
     

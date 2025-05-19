@@ -6,6 +6,8 @@ public class Enemy : MonoBehaviour, IDamageable
     public float chaseSpeed = 2f; 
     public float detectionRange = 5f; 
     private GameObject _chaseTarget;
+    private Vector2 direction;
+    private Animator _animator;
 
     private Rigidbody2D _rb;
     [SerializeField] private Collider2D detectionZone;
@@ -20,13 +22,48 @@ public class Enemy : MonoBehaviour, IDamageable
     private void Start()
     {
         _rb = GetComponent<Rigidbody2D>();
+        _animator = GetComponent<Animator>();
+
     }
 
     private void Update()
     {
         if (!_chaseTarget) return;
-        Vector2 direction = (_chaseTarget.transform.position - transform.position).normalized; // Direction towards the player
+        direction = (_chaseTarget.transform.position - transform.position).normalized; // Direction towards the player
         transform.position += new Vector3(direction.x, direction.y, 0) * (Time.deltaTime * chaseSpeed); // Move the enemy towards the player
+        
+        if(!_animator) return;
+        if(direction.Equals(Vector2.zero))
+        {
+            _animator.SetFloat("BodyX", 1f);
+            _animator.SetFloat("BodyY", 0f); 
+        }
+        if (Mathf.Abs(direction.x) > Mathf.Abs(direction.y))
+        {
+            if (direction.x > 0)
+            {
+                _animator.SetFloat("BodyX", 1f);
+                _animator.SetFloat("BodyY", 0f);   
+            }
+            else
+            {
+                _animator.SetFloat("BodyX", -1f);
+                _animator.SetFloat("BodyY", 0f);
+            }
+        }
+        else
+        {
+            if (direction.y > 0)
+            {
+                _animator.SetFloat("BodyX", 0f);
+                _animator.SetFloat("BodyY", 1f);
+            }
+            else
+            {
+                _animator.SetFloat("BodyX", 0f);
+                _animator.SetFloat("BodyY", -1f);
+            }
+        }
     }
     
     private void OnTriggerEnter2D(Collider2D other) //when entering 2D sphere

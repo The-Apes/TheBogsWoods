@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1d682284edb0d64f8d03d0961b115a2, type: 3}
   m_Name: Vincent
   m_EditorClassIdentifier: 
-  characterName: 
-  characterSprite: {fileID: 0}
-  color: {r: 1, g: 1, b: 1, a: 1}
+  characterName: Vinnie
+  characterSprite: {fileID: 21300000, guid: 5c7943cb413c66e48b7b6b6db2b3c68d, type: 3}
+  color: {r: 0.40000004, g: 0.21960786, b: 0.18823531, a: 1}
   blipSound: []
   frequency: 0.15
   volume: 0.75
-  pitch: 1
+  pitch: 0.4

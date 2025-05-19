@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: LevelStartDialogue
   m_EditorClassIdentifier: 
   dialogue:
-    dialogueName: Level Start Dialogue
+    dialogueName: LevelStartDialogue
     dialogueLines:
     - character: {fileID: 11400000, guid: 573fe0f85d0b27743ba2ea2de6e05f37, type: 2}
       characterOverride:

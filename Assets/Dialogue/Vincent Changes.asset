@@ -1,0 +1,423 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eab4870aa414b1e44abde0fb324c404d, type: 3}
+  m_Name: Vincent Changes
+  m_EditorClassIdentifier: 
+  dialogue:
+    dialogueName: 
+    dialogueLines:
+    - character: {fileID: 11400000, guid: 5ebc4690dbc13ce4581bd2cd8cbc7115, type: 2}
+      characterOverride:
+        characterName: 
+        characterSprite: {fileID: 0}
+        color: {r: 0, g: 0, b: 0, a: 0}
+        blipSound: []
+        frequency: 0
+        volume: 0
+        pitch: 0
+      line: Oh so you're a Marker eh?
+      right: 0
+      soundEffect: {fileID: 0}
+      customEvent: 
+    - character: {fileID: 11400000, guid: 5ebc4690dbc13ce4581bd2cd8cbc7115, type: 2}
+      characterOverride:
+        characterName: 
+        characterSprite: {fileID: 0}
+        color: {r: 0, g: 0, b: 0, a: 0}
+        blipSound: []
+        frequency: 0
+        volume: 0
+        pitch: 0
+      line: "or maybe you just-a curious furbo, always sticking your nose where it
+        don\u2019t belong, huh?"
+      right: 0
+      soundEffect: {fileID: 0}
+      customEvent: 
+    - character: {fileID: 11400000, guid: 5ebc4690dbc13ce4581bd2cd8cbc7115, type: 2}
+      characterOverride:
+        characterName: 
+        characterSprite: {fileID: 0}
+        color: {r: 0, g: 0, b: 0, a: 0}
+        blipSound: []
+        frequency: 0
+        volume: 0
+        pitch: 0
+      line: "If it\u2019s the latter, I hope you\u2019re ready to mash that spacebar
+        \u2014 this is a lot, furbo."
+      right: 0
+      soundEffect: {fileID: 0}
+      customEvent: 
+    - character: {fileID: 11400000, guid: 5ebc4690dbc13ce4581bd2cd8cbc7115, type: 2}
+      characterOverride:
+        characterName: 
+        characterSprite: {fileID: 0}
+        color: {r: 0, g: 0, b: 0, a: 0}
+        blipSound: []
+        frequency: 0
+        volume: 0
+        pitch: 0
+      line: "Anyway, I got the rubric right here on my clipboard. Let\u2019s get
+        this show on the road, eh?"
+      right: 0
+      soundEffect: {fileID: 0}
+      customEvent: 
+    - character: {fileID: 11400000, guid: 5ebc4690dbc13ce4581bd2cd8cbc7115, type: 2}
+      characterOverride:
+        characterName: 
+        characterSprite: {fileID: 0}
+        color: {r: 0, g: 0, b: 0, a: 0}
+        blipSound: []
+        frequency: 0
+        volume: 0
+        pitch: 0
+      line: Lets see here...
+      right: 0
+      soundEffect: {fileID: 8300000, guid: 8c4c1bbf0752e43488bec656861898bc, type: 3}
+      customEvent: 
+    - character: {fileID: 11400000, guid: 5ebc4690dbc13ce4581bd2cd8cbc7115, type: 2}
+      characterOverride:
+        characterName: 
+        characterSprite: {fileID: 0}
+        color: {r: 0, g: 0, b: 0, a: 1}
+        blipSound: []
+        frequency: 0
+        volume: 0
+        pitch: 0
+      line: '"Refine your core gameplay mechanics and game systems."'
+      right: 0
+      soundEffect: {fileID: 0}
+      customEvent: 
+    - character: {fileID: 11400000, guid: 5ebc4690dbc13ce4581bd2cd8cbc7115, type: 2}
+      characterOverride:
+        characterName: 
+        characterSprite: {fileID: 0}
+        color: {r: 0, g: 0, b: 0, a: 0}
+        blipSound: []
+        frequency: 0
+        volume: 0
+        pitch: 0
+      line: "We remove the walking and the running, you know? Now it\u2019s fast
+        speed by default, with a dash button, yes?"
+      right: 0
+      soundEffect: {fileID: 0}
+      customEvent: 
+    - character: {fileID: 11400000, guid: 5ebc4690dbc13ce4581bd2cd8cbc7115, type: 2}
+      characterOverride:
+        characterName: 
+        characterSprite: {fileID: 0}
+        color: {r: 0, g: 0, b: 0, a: 0}
+        blipSound: []
+        frequency: 0
+        volume: 0
+        pitch: 0
+      line: Also, we make some little changes in the combat, to make it feel smoother.
+      right: 0
+      soundEffect: {fileID: 0}
+      customEvent: 
+    - character: {fileID: 11400000, guid: 5ebc4690dbc13ce4581bd2cd8cbc7115, type: 2}
+      characterOverride:
+        characterName: 
+        characterSprite: {fileID: 0}
+        color: {r: 0, g: 0, b: 0, a: 1}
+        blipSound: []
+        frequency: 0
+        volume: 0
+        pitch: 0
+      line: '"Integrated your 2D art assets (sprites like character/environment art)."'
+      right: 0
+      soundEffect: {fileID: 8300000, guid: 8c4c1bbf0752e43488bec656861898bc, type: 3}
+      customEvent: 
+    - character: {fileID: 11400000, guid: 5ebc4690dbc13ce4581bd2cd8cbc7115, type: 2}
+      characterOverride:
+        characterName: 
+        characterSprite: {fileID: 0}
+        color: {r: 0, g: 0, b: 0, a: 0}
+        blipSound: []
+        frequency: 0
+        volume: 0
+        pitch: 0
+      line: "We add CGs to our intros, and make a WHOLE LOT of sprites for Ruri,
+        for her animations, you know? And hey, whad\u2019ya know... I\u2019m new
+        here too, eh?"
+      right: 0
+      soundEffect: {fileID: 0}
+      customEvent: 
+    - character: {fileID: 11400000, guid: 5ebc4690dbc13ce4581bd2cd8cbc7115, type: 2}
+      characterOverride:
+        characterName: 
+        characterSprite: {fileID: 0}
+        color: {r: 0, g: 0, b: 0, a: 0}
+        blipSound: []
+        frequency: 0
+        volume: 0
+        pitch: 0
+      line: "The main menu also got new art \u2014 I\u2019m sure you noticed \u2014
+        with parallax layers too. I remember the boss rippin\u2019 his hair out workin\u2019
+        on that one."
+      right: 0
+      soundEffect: {fileID: 0}
+      customEvent: 
+    - character: {fileID: 11400000, guid: 5ebc4690dbc13ce4581bd2cd8cbc7115, type: 2}
+      characterOverride:
+        characterName: 
+        characterSprite: {fileID: 0}
+        color: {r: 0, g: 0, b: 0, a: 0}
+        blipSound: []
+        frequency: 0
+        volume: 0
+        pitch: 0
+      line: He sounded like a Vespa with a busted muffler, Madonna santa!
+      right: 0
+      soundEffect: {fileID: 0}
+      customEvent: 
+    - character: {fileID: 11400000, guid: 5ebc4690dbc13ce4581bd2cd8cbc7115, type: 2}
+      characterOverride:
+        characterName: 
+        characterSprite: {fileID: 0}
+        color: {r: 0, g: 0, b: 0, a: 1}
+        blipSound: []
+        frequency: 0
+        volume: 0
+        pitch: 0
+      line: '"Have at least two animation systems working (like player movement,
+        enemy idle etc)"'
+      right: 0
+      soundEffect: {fileID: 8300000, guid: 8c4c1bbf0752e43488bec656861898bc, type: 3}
+      customEvent: 
+    - character: {fileID: 11400000, guid: 5ebc4690dbc13ce4581bd2cd8cbc7115, type: 2}
+      characterOverride:
+        characterName: 
+        characterSprite: {fileID: 0}
+        color: {r: 0, g: 0, b: 0, a: 0}
+        blipSound: []
+        frequency: 0
+        volume: 0
+        pitch: 0
+      line: "The Buff and Regular Monkeys got animations for the direction they facin\u2019,
+        and you, Ruri, you got the most complicated animation system since..."
+      right: 0
+      soundEffect: {fileID: 0}
+      customEvent: 
+    - character: {fileID: 11400000, guid: 5ebc4690dbc13ce4581bd2cd8cbc7115, type: 2}
+      characterOverride:
+        characterName: 
+        characterSprite: {fileID: 0}
+        color: {r: 0, g: 0, b: 0, a: 0}
+        blipSound: []
+        frequency: 0
+        volume: 0
+        pitch: 0
+      line: Since my Nonna trying to use the smartphone, eh?
+      right: 0
+      soundEffect: {fileID: 0}
+      customEvent: 
+    - character: {fileID: 11400000, guid: 5ebc4690dbc13ce4581bd2cd8cbc7115, type: 2}
+      characterOverride:
+        characterName: 
+        characterSprite: {fileID: 0}
+        color: {r: 0, g: 0, b: 0, a: 0}
+        blipSound: []
+        frequency: 0
+        volume: 0
+        pitch: 0
+      line: Holy blend tree ammirite?
+      right: 0
+      soundEffect: {fileID: 0}
+      customEvent: 
+    - character: {fileID: 11400000, guid: 5ebc4690dbc13ce4581bd2cd8cbc7115, type: 2}
+      characterOverride:
+        characterName: 
+        characterSprite: {fileID: 0}
+        color: {r: 0, g: 0, b: 0, a: 0}
+        blipSound: []
+        frequency: 0
+        volume: 0
+        pitch: 0
+      line: "Also, boss tells me if he loses marks in this department, he may have
+        to send \u2018The Fixer\u2019 Romano to solve the problem."
+      right: 0
+      soundEffect: {fileID: 0}
+      customEvent: 
+    - character: {fileID: 11400000, guid: 5ebc4690dbc13ce4581bd2cd8cbc7115, type: 2}
+      characterOverride:
+        characterName: 
+        characterSprite: {fileID: 0}
+        color: {r: 0, g: 0, b: 0, a: 0}
+        blipSound: []
+        frequency: 0
+        volume: 0
+        pitch: 0
+      line: "He\u2019ll give you an offer you can\u2019t refuse."
+      right: 0
+      soundEffect: {fileID: 0}
+      customEvent: 
+    - character: {fileID: 11400000, guid: 5ebc4690dbc13ce4581bd2cd8cbc7115, type: 2}
+      characterOverride:
+        characterName: 
+        characterSprite: {fileID: 0}
+        color: {r: 0, g: 0, b: 0, a: 1}
+        blipSound: []
+        frequency: 0
+        volume: 0
+        pitch: 0
+      line: '"Include at least one shader effect (like glowing, UV movement etc)"'
+      right: 0
+      soundEffect: {fileID: 8300000, guid: 8c4c1bbf0752e43488bec656861898bc, type: 3}
+      customEvent: 
+    - character: {fileID: 11400000, guid: 5ebc4690dbc13ce4581bd2cd8cbc7115, type: 2}
+      characterOverride:
+        characterName: 
+        characterSprite: {fileID: 0}
+        color: {r: 0, g: 0, b: 0, a: 0}
+        blipSound: []
+        frequency: 0
+        volume: 0
+        pitch: 0
+      line: "Dashing and taking damage, you see? That\u2019s how it goes, eh?"
+      right: 0
+      soundEffect: {fileID: 0}
+      customEvent: 
+    - character: {fileID: 11400000, guid: 5ebc4690dbc13ce4581bd2cd8cbc7115, type: 2}
+      characterOverride:
+        characterName: 
+        characterSprite: {fileID: 0}
+        color: {r: 0, g: 0, b: 0, a: 1}
+        blipSound: []
+        frequency: 0
+        volume: 0
+        pitch: 0
+      line: '"Make use of lighting (2D Lights via URP) to add mood and depth"'
+      right: 0
+      soundEffect: {fileID: 8300000, guid: 8c4c1bbf0752e43488bec656861898bc, type: 3}
+      customEvent: 
+    - character: {fileID: 11400000, guid: 5ebc4690dbc13ce4581bd2cd8cbc7115, type: 2}
+      characterOverride:
+        characterName: 
+        characterSprite: {fileID: 0}
+        color: {r: 0, g: 0, b: 0, a: 0}
+        blipSound: []
+        frequency: 0
+        volume: 0
+        pitch: 0
+      line: So it's not really applicable for our typa game, but the boss added it
+        anyway since he's got the power and the Muscle to.
+      right: 0
+      soundEffect: {fileID: 0}
+      customEvent: 
+    - character: {fileID: 11400000, guid: 5ebc4690dbc13ce4581bd2cd8cbc7115, type: 2}
+      characterOverride:
+        characterName: 
+        characterSprite: {fileID: 0}
+        color: {r: 0, g: 0, b: 0, a: 0}
+        blipSound: []
+        frequency: 0
+        volume: 0
+        pitch: 0
+      line: "To see the effect, let any enemy kill you, I won\u2019t ruin the surprise,
+        eh?"
+      right: 0
+      soundEffect: {fileID: 0}
+      customEvent: 
+    - character: {fileID: 11400000, guid: 5ebc4690dbc13ce4581bd2cd8cbc7115, type: 2}
+      characterOverride:
+        characterName: 
+        characterSprite: {fileID: 0}
+        color: {r: 0, g: 0, b: 0, a: 1}
+        blipSound: []
+        frequency: 0
+        volume: 0
+        pitch: 0
+      line: '"At least one particle system (like jump dust, spell effects etc)"'
+      right: 0
+      soundEffect: {fileID: 8300000, guid: 8c4c1bbf0752e43488bec656861898bc, type: 3}
+      customEvent: 
+    - character: {fileID: 11400000, guid: 5ebc4690dbc13ce4581bd2cd8cbc7115, type: 2}
+      characterOverride:
+        characterName: 
+        characterSprite: {fileID: 0}
+        color: {r: 0, g: 0, b: 0, a: 0}
+        blipSound: []
+        frequency: 0
+        volume: 0
+        pitch: 0
+      line: The main menu.
+      right: 0
+      soundEffect: {fileID: 0}
+      customEvent: 
+    - character: {fileID: 11400000, guid: 5ebc4690dbc13ce4581bd2cd8cbc7115, type: 2}
+      characterOverride:
+        characterName: 
+        characterSprite: {fileID: 0}
+        color: {r: 0, g: 0, b: 0, a: 1}
+        blipSound: []
+        frequency: 0
+        volume: 0
+        pitch: 0
+      line: '"Add sound effects and/or music integrated and functioning."'
+      right: 0
+      soundEffect: {fileID: 8300000, guid: 8c4c1bbf0752e43488bec656861898bc, type: 3}
+      customEvent: 
+    - character: {fileID: 11400000, guid: 5ebc4690dbc13ce4581bd2cd8cbc7115, type: 2}
+      characterOverride:
+        characterName: 
+        characterSprite: {fileID: 0}
+        color: {r: 0, g: 0, b: 0, a: 0}
+        blipSound: []
+        frequency: 0
+        volume: 0
+        pitch: 0
+      line: You got ears, dontchya?
+      right: 0
+      soundEffect: {fileID: 0}
+      customEvent: 
+    - character: {fileID: 11400000, guid: 5ebc4690dbc13ce4581bd2cd8cbc7115, type: 2}
+      characterOverride:
+        characterName: 
+        characterSprite: {fileID: 0}
+        color: {r: 0, g: 0, b: 0, a: 0}
+        blipSound: []
+        frequency: 0
+        volume: 0
+        pitch: 0
+      line: What else
+      right: 0
+      soundEffect: {fileID: 8300000, guid: 8c4c1bbf0752e43488bec656861898bc, type: 3}
+      customEvent: 
+    - character: {fileID: 11400000, guid: 5ebc4690dbc13ce4581bd2cd8cbc7115, type: 2}
+      characterOverride:
+        characterName: 
+        characterSprite: {fileID: 0}
+        color: {r: 0, g: 0, b: 0, a: 0}
+        blipSound: []
+        frequency: 0
+        volume: 0
+        pitch: 0
+      line: "Oh, that\u2019s it, grazie a Dio \u2014 now I\u2019m gonna go do some
+        business, capisce?"
+      right: 0
+      soundEffect: {fileID: 0}
+      customEvent: 
+    - character: {fileID: 11400000, guid: 5ebc4690dbc13ce4581bd2cd8cbc7115, type: 2}
+      characterOverride:
+        characterName: 
+        characterSprite: {fileID: 0}
+        color: {r: 0, g: 0, b: 0, a: 0}
+        blipSound: []
+        frequency: 0
+        volume: 0
+        pitch: 0
+      line: "Oh, and don\u2019t forget to talk to the fairy lady over there \u2014
+        she\u2019s part of the animation system complexity. Do me a favor, give her
+        a chat, eh?"
+      right: 0
+      soundEffect: {fileID: 0}
+      customEvent: 

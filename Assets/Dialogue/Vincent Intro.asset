@@ -17,7 +17,7 @@ MonoBehaviour:
     dialogueLines:
     - character: {fileID: 11400000, guid: 5ebc4690dbc13ce4581bd2cd8cbc7115, type: 2}
       characterOverride:
-        characterName: 
+        characterName: ?????
         characterSprite: {fileID: 0}
         color: {r: 0, g: 0, b: 0, a: 0}
         blipSound: []
@@ -30,15 +30,15 @@ MonoBehaviour:
       customEvent: 
     - character: {fileID: 11400000, guid: 5ebc4690dbc13ce4581bd2cd8cbc7115, type: 2}
       characterOverride:
-        characterName: 
+        characterName: ?????
         characterSprite: {fileID: 0}
         color: {r: 0, g: 0, b: 0, a: 0}
         blipSound: []
         frequency: 0
         volume: 0
         pitch: 0
-      line: Sorry to break your little immersion whatchamacallit, But protocal says
-        I need to be here.
+      line: Sorry to break your little immersion whatchamacallit, protocal says I
+        need to be here.
       right: 0
       soundEffect: {fileID: 0}
       customEvent: 
@@ -51,7 +51,8 @@ MonoBehaviour:
         frequency: 0
         volume: 0
         pitch: 0
-      line: I'm Version Vincent. but you can call me Vinnie for short
+      line: They call me Version Vincent. but you can call me Vinnie for short, my
+        real name is Vincenzo.
       right: 0
       soundEffect: {fileID: 0}
       customEvent: 
@@ -64,9 +65,21 @@ MonoBehaviour:
         frequency: 0
         volume: 0
         pitch: 0
-      line: Since the Build you are playing is being marked by Tutors n such, I'm
-        here as a living "ReadMe" doccument for them. so they don't miss anything
-        and mark us down for it.
+      line: 'Since the Build you are playing is being marked by Tutors n such. '
+      right: 0
+      soundEffect: {fileID: 0}
+      customEvent: 
+    - character: {fileID: 11400000, guid: 5ebc4690dbc13ce4581bd2cd8cbc7115, type: 2}
+      characterOverride:
+        characterName: 
+        characterSprite: {fileID: 0}
+        color: {r: 0, g: 0, b: 0, a: 0}
+        blipSound: []
+        frequency: 0
+        volume: 0
+        pitch: 0
+      line: I'm here as a living "ReadMe" doccument for them. so they don't miss
+        anything and mark us down for it.
       right: 0
       soundEffect: {fileID: 0}
       customEvent: 
@@ -107,8 +120,8 @@ MonoBehaviour:
         pitch: 0
       line: GET OUT!
       right: 0
-      soundEffect: {fileID: 0}
-      customEvent: 
+      soundEffect: {fileID: 8300000, guid: 0e9714832d84e93439a3bfc4416a69be, type: 3}
+      customEvent: GET OUT
     - character: {fileID: 11400000, guid: 5ebc4690dbc13ce4581bd2cd8cbc7115, type: 2}
       characterOverride:
         characterName: 

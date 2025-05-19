@@ -52,6 +52,7 @@ public class RuriAttack : MonoBehaviour
     {
         if (!context.started)
         {
+            if (!_ruriMovement.hasOtto) return;
             if (!_ruriMovement.ottoMounted) return;
             _ruriMovement.RidingOtto.GetComponent<OttoShoot>().ShootInput = true;
         }

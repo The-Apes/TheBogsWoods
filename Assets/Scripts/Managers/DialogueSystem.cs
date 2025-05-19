@@ -15,6 +15,7 @@ namespace Managers
     {
         public TextMeshProUGUI characterName;
         public TextMeshProUGUI dialogueArea;
+        [SerializeField] private TextMeshProUGUI _continueText;
         public Image characterIcon;
         public Image header;
         public Image background;
@@ -198,6 +199,7 @@ namespace Managers
                         '—' => 0.15f,
                         ',' => 0.20f,
                         '.' => 0.4f,
+                        '?' => 0.4f,
                         _ => 0f
                     };
                 }
@@ -225,7 +227,12 @@ namespace Managers
                 yield return new WaitForSeconds(_typeFrequency);
             }
         }
-        
+
+        private void Update()
+        {
+            _continueText.enabled = !_isTyping;
+        }
+
         void EndDialogue()
         {
             StopAllCoroutines();
