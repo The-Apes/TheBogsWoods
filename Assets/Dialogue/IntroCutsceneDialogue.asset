@@ -77,7 +77,7 @@ MonoBehaviour:
         frequency: 0
         volume: 0
         pitch: 0
-      line: 'Otto stepped forward, poked at it, laughing.
+      line: 'Otto stepped forward, poked at the shrine, laughing.
 
 '
       right: 0
@@ -177,7 +177,7 @@ MonoBehaviour:
         frequency: 0
         volume: 0
         pitch: 0
-      line: The shrine transported them, started to rumble.
+      line: Soon after the shrine transported them, it started to rumble.
       right: 0
       soundEffect: {fileID: 0}
       customEvent: cg4
@@ -190,7 +190,7 @@ MonoBehaviour:
         frequency: 0
         volume: 0
         pitch: 0
-      line: A dark substance Ozzed from the shrine's crevaces
+      line: A dark substance oozed from the shrine's crevaces
       right: 0
       soundEffect: {fileID: 0}
       customEvent: cg5
@@ -246,7 +246,7 @@ MonoBehaviour:
         frequency: 0
         volume: 0
         pitch: 0
-      line: "Otto mocked the figure, calling it stupid and creepy.\r\r\r\n"
+      line: "Otto mocked the giant, muttering insults \u2014 \u201CStupid. Creepy.\u201D"
       right: 0
       soundEffect: {fileID: 0}
       customEvent: cg7
@@ -259,7 +259,7 @@ MonoBehaviour:
         frequency: 0
         volume: 0
         pitch: 0
-      line: "The figure raised its hand. A curse passed through the air like wind.
+      line: "The giant raised its hand. A curse passed through the air like wind.
         \r\r\r\n"
       right: 0
       soundEffect: {fileID: 8300000, guid: 6dd9ce6d8af4c754d99efc216bbdefa7, type: 3}
@@ -312,7 +312,7 @@ MonoBehaviour:
         frequency: 0
         volume: 0
         pitch: 0
-      line: a monkey.
+      line: A monkey.
       right: 0
       soundEffect: {fileID: 0}
       customEvent: black
