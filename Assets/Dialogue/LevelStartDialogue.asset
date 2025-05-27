@@ -24,7 +24,7 @@ MonoBehaviour:
         frequency: 0
         volume: 0
         pitch: 0
-      line: I gotta go after Otto!
+      line: Otto!
       right: 0
       soundEffect: {fileID: 0}
       customEvent: 
@@ -37,7 +37,20 @@ MonoBehaviour:
         frequency: 0
         volume: 0
         pitch: 0
-      line: Let me give his hat back to him
+      line: I gotta chase after him!
+      right: 0
+      soundEffect: {fileID: 0}
+      customEvent: 
+    - character: {fileID: 11400000, guid: 573fe0f85d0b27743ba2ea2de6e05f37, type: 2}
+      characterOverride:
+        characterName: 
+        characterSprite: {fileID: 0}
+        color: {r: 0, g: 0, b: 0, a: 0}
+        blipSound: []
+        frequency: 0
+        volume: 0
+        pitch: 0
+      line: Let me give his hat back to him..
       right: 0
       soundEffect: {fileID: 0}
       customEvent: 
