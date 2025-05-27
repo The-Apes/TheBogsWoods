@@ -288,7 +288,7 @@ GameObject:
   - component: {fileID: 169385535}
   - component: {fileID: 169385538}
   m_Layer: 5
-  m_Name: SkipIntro_Button
+  m_Name: NewGameButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -465,7 +465,7 @@ GameObject:
   - component: {fileID: 277421376}
   - component: {fileID: 277421375}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: Title
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1302,7 +1302,7 @@ GameObject:
   - component: {fileID: 564240202}
   - component: {fileID: 564240205}
   m_Layer: 5
-  m_Name: PlayButton
+  m_Name: ContinueButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1724,7 +1724,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: PLAY
+  m_text: Continue
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b7652800a9d4f6f4ea1dc904973500cd, type: 2}
   m_sharedMaterial: {fileID: 62635026379037659, guid: b7652800a9d4f6f4ea1dc904973500cd, type: 2}
@@ -1751,7 +1751,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 31.3
+  m_fontSize: 27.9
   m_fontSizeBase: 30
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -1896,7 +1896,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: SKIP INTRO
+  m_text: New Game
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b7652800a9d4f6f4ea1dc904973500cd, type: 2}
   m_sharedMaterial: {fileID: 62635026379037659, guid: b7652800a9d4f6f4ea1dc904973500cd, type: 2}
@@ -8459,7 +8459,7 @@ GameObject:
   - component: {fileID: 1835669743}
   - component: {fileID: 1835669746}
   m_Layer: 5
-  m_Name: ExitButton
+  m_Name: QuitButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8872,7 +8872,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: EXIT
+  m_text: 'Quit
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b7652800a9d4f6f4ea1dc904973500cd, type: 2}
   m_sharedMaterial: {fileID: 62635026379037659, guid: b7652800a9d4f6f4ea1dc904973500cd, type: 2}
