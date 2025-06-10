@@ -359,8 +359,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 2114833274}
-        m_TargetAssemblyTypeName: StartMenuController, Assembly-CSharp
-        m_MethodName: OnStartClick
+        m_TargetAssemblyTypeName: Levels.MainMenu.MainMenuUI, Assembly-CSharp
+        m_MethodName: NewGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1373,8 +1373,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 2114833274}
-        m_TargetAssemblyTypeName: StartMenuController, Assembly-CSharp
-        m_MethodName: OnStartClick
+        m_TargetAssemblyTypeName: Levels.MainMenu.MainMenuUI, Assembly-CSharp
+        m_MethodName: ContinueGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -9391,6 +9391,9 @@ MonoBehaviour:
   audioMixer: {fileID: 24100000, guid: 6a013137311c2d84fa928195ac69a75f, type: 2}
   musicSlider: {fileID: 1743927413}
   sfxSlider: {fileID: 1507418115}
+  newGameText: {fileID: 931677523}
+  continueGameButton: {fileID: 564240200}
+  continueGameText: {fileID: 808462325}
 --- !u!114 &2114833275
 MonoBehaviour:
   m_ObjectHideFlags: 0
