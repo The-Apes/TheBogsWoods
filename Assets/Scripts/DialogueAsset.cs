@@ -1,7 +1,6 @@
+using System;
 using System.Collections.Generic;
-using Managers;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 //reference https://www.youtube.com/watch?v=DOP_G5bsySA
 
@@ -21,11 +20,19 @@ public class DialogueLine
 [System.Serializable]
 public class Dialogue
 {
-    public string dialogueName; 
+    [NonSerialized] public string dialogueName; 
     public List<DialogueLine> dialogueLines = new List<DialogueLine>();
 }
 [CreateAssetMenu(fileName = "NewDialogue", menuName = "Dialogue")]
 public class DialogueAsset : ScriptableObject
 {
    public Dialogue dialogue;
+   
+   private void OnValidate()
+   {
+       if (dialogue != null)
+       {
+           dialogue.dialogueName = name; // grabs the SO’s file name
+       }
+   }
 }

@@ -82,7 +82,7 @@ namespace Managers
 
         private void DisplayNextDialogueLine()
         {
-            if (_lines.Count == 0)
+            if (_lines.Count == 0 && !_isTyping)
             {
                 EndDialogue();
                 return;
