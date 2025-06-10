@@ -1,3 +1,6 @@
+using System.IO;
+using Saving;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
@@ -5,7 +8,7 @@ using UnityEngine.UI;
 
 namespace Levels.MainMenu
 {
-    public class MainMenuController : MonoBehaviour
+    public class MainMenuUI : MonoBehaviour
     {
         public AudioMixer audioMixer;
         public Slider musicSlider;
@@ -13,11 +16,29 @@ namespace Levels.MainMenu
 
         private const float DefaultVolume = 0f;    // 0 dB (max volume)
         private const float MinVolume = -80f;      // -80 dB (min volume)
+        
+        [SerializeField] private TextMeshProUGUI newGameText;
+        [SerializeField] private GameObject continueGameButton;
+        [SerializeField] private TextMeshProUGUI continueGameText;
+        
+        private string savePath;
 
         private void Start()
         {
             LoadVolume();
             MusicManager.Instance.PlayMusic("StartMenu");
+            savePath = Application.persistentDataPath + "/savefile.dat";
+            
+            //Check if save file exists
+            if (File.Exists(savePath))
+            {
+                continueGameButton.GetComponent<Button>().interactable = true;
+            }
+            else
+            {
+                continueGameButton.GetComponent<Button>().interactable = false;
+                continueGameText.color = Color.gray;
+            }
         }
 
         public void UpdateMusicVolume(float volume)
@@ -85,10 +106,24 @@ namespace Levels.MainMenu
             SaveVolume();
         }
 
-        public void OnStartClick()
+        public void NewGame()
+        {
+            if (newGameText.text == "Are you sure?" || !File.Exists(savePath))
+            {
+                File.Delete(savePath);
+                MusicManager.Instance.StopMusic();
+                SceneManager.LoadScene("Intro Cutscene");
+            }
+            else
+            {
+                newGameText.SetText("Are you sure?");
+            }
+        }
+
+        public void ContinueGame()
         {
             MusicManager.Instance.StopMusic();
-            SceneManager.LoadScene("Intro Cutscene");
+            SceneManager.LoadScene("Level 0");
         }
 
         public void OnSkipClick()
