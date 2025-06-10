@@ -53,7 +53,7 @@ namespace UI
         {
             saveGameText.SetActive(true);
             AudioManager.instance.PlaySFX(saveGameSfx);
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(3f);
             saveGameText.SetActive(false);
         }
 
