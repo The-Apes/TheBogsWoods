@@ -12,9 +12,14 @@ namespace Managers
     
         void Start()
         {
-            RuriMovement.instance.controlling = false;
+            
             CutsceneManager.instance.director.stopped += OnCutsceneStopped;
+
+            if (!SaveManager.instance.ShouldExist("LevelZeroStartingCutscene")) return;
+            SaveManager.instance.ChangeFlag("LevelZeroStartingCutscene", false);
+            RuriMovement.instance.controlling = false;
             CutsceneManager.instance.PlayCutscene(startingCutscene);
+
         }
         
 
