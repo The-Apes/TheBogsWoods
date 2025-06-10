@@ -49,6 +49,8 @@ namespace Managers
 
         public void SaveGame()
         {            
+            GetRuriInfo();
+            
             // Only keep flags that were used this session
             var cleanDict = new Dictionary<string, bool>();
             
@@ -73,6 +75,7 @@ namespace Managers
                 string jsonSave = File.ReadAllText(savePath);
                 gameSaveData = JsonUtility.FromJson<GameSaveData>(jsonSave);
                 gameSaveData.LoadFromSavedData(); // Load the dictionary from saved data
+                LoadRuriInfo();
                 Debug.Log("Game loaded.");
             }
             else
@@ -94,6 +97,34 @@ namespace Managers
             gameSaveData.SaveFlags[id] = value;
             Debug.Log("Flag changed: " + id + " = " + value);
             if(DevConfig.SAVE_ON_CHANGE) SaveGame();
+        }
+        private void GetRuriInfo()
+        {
+            var ruri = RuriMovement.instance;
+            gameSaveData.playerPosition = ruri.transform.position;
+            
+            gameSaveData.hp = FindFirstObjectByType<PlayerHealth>().currentHealth;
+            gameSaveData.maxHp = FindFirstObjectByType<PlayerHealth>().maxHealth;
+
+            gameSaveData.hasWeapon = ruri.hasWeapon;
+            gameSaveData.hasFairy = ruri.hasFairy;
+            gameSaveData.hasOtto = ruri.hasOtto;
+
+        }
+        private void LoadRuriInfo()
+        {
+            var ruri = RuriMovement.instance;
+            ruri.transform.position = gameSaveData.playerPosition;
+            
+            var playerHealth = FindFirstObjectByType<PlayerHealth>();
+            playerHealth.currentHealth = gameSaveData.hp;
+            playerHealth.maxHealth = gameSaveData.maxHp;
+            playerHealth.healthUI.SetMaxHearts(gameSaveData.maxHp);
+            playerHealth.healthUI.UpdateHearts(gameSaveData.hp);
+
+            ruri.hasWeapon = gameSaveData.hasWeapon;
+            ruri.hasFairy = gameSaveData.hasFairy;
+            ruri.hasOtto = gameSaveData.hasOtto;
         }
     }
 }
