@@ -16,10 +16,8 @@ namespace Managers
             CutsceneManager.instance.director.stopped += OnCutsceneStopped;
 
             if (!SaveManager.instance.ShouldExist("LevelZeroStartingCutscene")) return;
-            SaveManager.instance.ChangeFlag("LevelZeroStartingCutscene", false);
-            RuriMovement.instance.controlling = false;
             CutsceneManager.instance.PlayCutscene(startingCutscene);
-
+            RuriMovement.instance.controlling = false;
         }
         
 
@@ -29,6 +27,7 @@ namespace Managers
             {
                 case "OttoRun":
                     DialogueManager.instance.StartDialogue(startingDialogue);
+                    SaveManager.instance.ChangeFlag("LevelZeroStartingCutscene", false);
                     break;
                 case "Monkey Encounter":
                     DialogueManager.instance.StartDialogue(encounterDialogue);

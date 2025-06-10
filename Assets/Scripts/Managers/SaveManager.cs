@@ -1,12 +1,13 @@
 
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Runtime.Serialization.Formatters.Binary;
 using Dev;
 using Saving;
 using UI;
 using UnityEngine;
+// ReSharper disable HeuristicUnreachableCode
+#pragma warning disable CS0162 // Unreachable code detected
+
 
 namespace Managers
 {
@@ -16,7 +17,7 @@ namespace Managers
 
         public static SaveManager instance;
         
-        private HashSet<string> currentSessionIds = new(); 
+        private readonly HashSet<string> currentSessionIds = new(); 
         // ThisKeeps track of all IDs seen this session BEFORE It deletes objects that were saved as deleted
         // like roll call to check for any IDs that should not exist anymore (renamed or deleted).
         
@@ -53,8 +54,7 @@ namespace Managers
             
             foreach (var id in currentSessionIds)
             {
-                if (gameSaveData.SaveFlags.ContainsKey(id))
-                    cleanDict[id] = gameSaveData.SaveFlags[id];
+                if (gameSaveData.SaveFlags.TryGetValue(id, out var flag)) cleanDict[id] = flag;
             }
             gameSaveData.SaveFlags = cleanDict;
             
@@ -65,8 +65,8 @@ namespace Managers
             GameUI.instance.SavedGame();
         }
         
-        //refereces: https://docs.unity3d.com/2022.3/Documentation/Manual/script-Serialization.html
-        public void LoadSave()
+        //references: https://docs.unity3d.com/2022.3/Documentation/Manual/script-Serialization.html
+        private void LoadSave()
         {
             if (File.Exists(savePath) && !DevConfig.FORCE_NEW_SAVE)
             {
@@ -87,19 +87,12 @@ namespace Managers
             
            gameSaveData.SaveFlags.TryAdd(id, true); //will fail silently if the key already exists
             Debug.Log("should exist: " + id + " = " + gameSaveData.SaveFlags[id]);
-            if(DevConfig.SAVE_ON_CHANGE) SaveGame();
             return gameSaveData.SaveFlags[id];
         }
         public void ChangeFlag(string id, bool value)
         {
-            if (gameSaveData.SaveFlags.ContainsKey(id))
-            {
-                gameSaveData.SaveFlags[id] = value;
-            }
-            else
-            {
-                gameSaveData.SaveFlags.Add(id, value);
-            }
+            gameSaveData.SaveFlags[id] = value;
+            Debug.Log("Flag changed: " + id + " = " + value);
             if(DevConfig.SAVE_ON_CHANGE) SaveGame();
         }
     }
