@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.Serialization.Formatters.Binary;
+using Dev;
 using Saving;
 using UI;
 using UnityEngine;
@@ -15,10 +16,6 @@ namespace Managers
 
         public static SaveManager instance;
         
-        //private const bool DEV_SKIP_SAVE = true; // Set to true if you want to save changes made in the game
-        private const bool DEV_FORCE_NEW_SAVE = false; // every time game starts, fresh save won't load
-        private const bool DEV_SAVE_ON_CHANGE = true; 
-        
         private HashSet<string> currentSessionIds = new(); 
         // ThisKeeps track of all IDs seen this session BEFORE It deletes objects that were saved as deleted
         // like roll call to check for any IDs that should not exist anymore (renamed or deleted).
@@ -28,7 +25,11 @@ namespace Managers
         
         private string savePath;
 
-        
+        //Yo im looking for the method for when the game closes vv
+        private void OnApplicationQuit()
+        {
+            if(DevConfig.SAVE_ON_EXIT) SaveGame();
+        }
         private void Awake()
         {
             if (instance == null)
@@ -67,7 +68,7 @@ namespace Managers
         //refereces: https://docs.unity3d.com/2022.3/Documentation/Manual/script-Serialization.html
         public void LoadSave()
         {
-            if (File.Exists(savePath) && !DEV_FORCE_NEW_SAVE)
+            if (File.Exists(savePath) && !DevConfig.FORCE_NEW_SAVE)
             {
                 string jsonSave = File.ReadAllText(savePath);
                 gameSaveData = JsonUtility.FromJson<GameSaveData>(jsonSave);
@@ -86,6 +87,7 @@ namespace Managers
             
            gameSaveData.SaveFlags.TryAdd(id, true); //will fail silently if the key already exists
             Debug.Log("should exist: " + id + " = " + gameSaveData.SaveFlags[id]);
+            if(DevConfig.SAVE_ON_CHANGE) SaveGame();
             return gameSaveData.SaveFlags[id];
         }
         public void ChangeFlag(string id, bool value)
@@ -98,7 +100,7 @@ namespace Managers
             {
                 gameSaveData.SaveFlags.Add(id, value);
             }
-            if(DEV_SAVE_ON_CHANGE) SaveGame();
+            if(DevConfig.SAVE_ON_CHANGE) SaveGame();
         }
     }
 }
