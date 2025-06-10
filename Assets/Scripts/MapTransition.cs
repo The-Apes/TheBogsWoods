@@ -3,6 +3,7 @@ using Managers;
 using Unity.Cinemachine;
 using UnityEngine;
 
+[System.Obsolete("We No longer use the retro map system")]
 public class MapTransition : MonoBehaviour
 {
  [SerializeField] private Direction direction;
