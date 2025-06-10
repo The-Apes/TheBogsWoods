@@ -12,9 +12,12 @@ namespace Managers
     
         void Start()
         {
-            RuriMovement.instance.controlling = false;
+            
             CutsceneManager.instance.director.stopped += OnCutsceneStopped;
+
+            if (!SaveManager.instance.ShouldExist("LevelZeroStartingCutscene")) return;
             CutsceneManager.instance.PlayCutscene(startingCutscene);
+            RuriMovement.instance.controlling = false;
         }
         
 
@@ -24,6 +27,7 @@ namespace Managers
             {
                 case "OttoRun":
                     DialogueManager.instance.StartDialogue(startingDialogue);
+                    SaveManager.instance.ChangeFlag("LevelZeroStartingCutscene", false);
                     break;
                 case "Monkey Encounter":
                     DialogueManager.instance.StartDialogue(encounterDialogue);

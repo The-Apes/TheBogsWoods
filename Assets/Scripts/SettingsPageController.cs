@@ -14,7 +14,7 @@ public class SettingsPageController : MonoBehaviour
 
     public void OnMainMenuClick()
     {
-        SceneManager.LoadScene("StartMenu");
+        SceneManager.LoadScene("MainMenu");
     }
 
     public void OnExitGameClick()

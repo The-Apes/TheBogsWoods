@@ -322,8 +322,6 @@ public class RuriMovement : MonoBehaviour
             AudioManager.instance.PlaySFX(dashSFX);
             
         }
-        
-        
     }
     #endregion
 }
