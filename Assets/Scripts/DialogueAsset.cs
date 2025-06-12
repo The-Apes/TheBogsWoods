@@ -23,6 +23,8 @@ public class Dialogue
     [NonSerialized] public string dialogueName; 
     public List<DialogueLine> dialogueLines = new List<DialogueLine>();
 }
+
+
 [CreateAssetMenu(fileName = "NewDialogue", menuName = "Dialogue")]
 public class DialogueAsset : ScriptableObject
 {
@@ -33,6 +35,7 @@ public class DialogueAsset : ScriptableObject
        if (dialogue != null)
        {
            dialogue.dialogueName = name; // grabs the SO’s file name
+          
        }
    }
 }

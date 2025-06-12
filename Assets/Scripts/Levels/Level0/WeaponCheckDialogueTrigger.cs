@@ -16,5 +16,11 @@ namespace Levels.Level0
          DialogueManager.instance.StartDialogue(ruri.hasWeapon ? weaponDialogue : noWeaponDialogue);
          if(ruri.hasWeapon) Destroy(gameObject);
       }
+
+
+      private void Start()
+      {
+         
+      }
    }
 }

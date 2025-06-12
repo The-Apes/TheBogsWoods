@@ -1,3 +1,4 @@
+using System;
 using Enemies;
 using Managers;
 using UnityEngine;
@@ -28,6 +29,8 @@ namespace Levels.Level0
                 healthBar.SetActive(true);
             }
         }
+        
+        
 
         private void Update()
         {
@@ -37,7 +40,13 @@ namespace Levels.Level0
             // ReSharper disable once Unity.PerformanceCriticalCodeInvocation
             print("print");
             DialogueManager.instance.StartDialogue(dialogue);
+            SaveManager.instance.ChangeFlag("FirstMonkey", false);
         }
-    
+
+        private void OnDestroy()
+        {
+            GameEvents.onDialogueEnd -= OnDialogueComplete;
+
+        }
     }
 }

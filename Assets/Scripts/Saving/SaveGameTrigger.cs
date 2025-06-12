@@ -9,6 +9,7 @@ namespace Saving
   {
    if (!other.gameObject.CompareTag("Player")) return;
    SaveManager.instance.SaveGame();
+   Destroy(gameObject);
   }
  }
 }

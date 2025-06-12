@@ -1,3 +1,4 @@
+using Managers;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -14,6 +15,7 @@ public class SettingsPageController : MonoBehaviour
 
     public void OnMainMenuClick()
     {
+        SceneChangeManager.instance.LoadScene("MainMenu");
         SceneManager.LoadScene("MainMenu");
     }
 

@@ -1,4 +1,5 @@
 using System.IO;
+using Managers;
 using Saving;
 using TMPro;
 using UnityEngine;
@@ -123,7 +124,7 @@ namespace Levels.MainMenu
         public void ContinueGame()
         {
             MusicManager.Instance.StopMusic();
-            SceneManager.LoadScene("Level 0");
+            SceneChangeManager.instance.LoadScene("Level 0");
         }
 
         public void OnSkipClick()

@@ -87,6 +87,14 @@ namespace Managers
                 EndDialogue();
                 return;
             }
+            if (_lines.Count == 0 && _isTyping)
+            {
+                // if we are currently typing, skip to the end of the line
+                StopAllCoroutines();
+                dialogueArea.text = _currentLine.line;
+                _isTyping = false;
+                return;
+            }
       
             // if not currently typing
             if (!_isTyping) 

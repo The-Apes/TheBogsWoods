@@ -1,4 +1,5 @@
 using System;
+using Managers;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -65,7 +66,7 @@ public class GameController : MonoBehaviour
     {
         ResetGame();
         // Reload the current scene
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        SceneChangeManager.instance.Restart();
         OnReset?.Invoke();
     }
     private void ResetGame()

@@ -1,4 +1,5 @@
 
+using System;
 using System.Collections.Generic;
 using System.IO;
 using Dev;
@@ -36,7 +37,6 @@ namespace Managers
             if (instance == null)
             {
                 instance = this;
-                DontDestroyOnLoad(this);
             }
             else
             {
@@ -46,6 +46,7 @@ namespace Managers
             savePath = Application.persistentDataPath + "/savefile.dat";
             LoadSave();
         }
+        
 
         public void SaveGame()
         {            
@@ -113,7 +114,7 @@ namespace Managers
         }
         private void LoadRuriInfo()
         {
-            var ruri = RuriMovement.instance;
+            var ruri = FindFirstObjectByType<RuriMovement>();
             ruri.transform.position = gameSaveData.playerPosition;
             
             var playerHealth = FindFirstObjectByType<PlayerHealth>();
