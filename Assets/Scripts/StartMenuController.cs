@@ -84,16 +84,16 @@ public class StartMenuController : MonoBehaviour
     }
 
     public void OnStartClick()
-    {
-        MusicManager.Instance.StopMusic();
-        SceneManager.LoadScene("Intro Cutscene");
-    }
+{
+    MusicManager.Instance.StopMusic();
+    LevelManager.Instance.LoadScene("Intro Cutscene", "CrossFade");
+}
 
-    public void OnSkipClick()
-    {
-        MusicManager.Instance.StopMusic();
-        SceneManager.LoadScene("Level 0");
-    }
+public void OnSkipClick()
+{
+    MusicManager.Instance.StopMusic();
+    LevelManager.Instance.LoadScene("Level 0", "CrossFade");
+}
 
     public void OnExitClick()
     {
