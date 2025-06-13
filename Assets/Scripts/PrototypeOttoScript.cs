@@ -1,4 +1,5 @@
 using Managers;
+using Player;
 using UnityEngine;
 
 public class PrototypeOttoScript : MonoBehaviour

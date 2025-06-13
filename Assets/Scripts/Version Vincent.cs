@@ -1,5 +1,6 @@
 using System;
 using Managers;
+using Player;
 using UnityEngine;
 
 public class VersionVincent : MonoBehaviour, IInteractable
