@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Animations.meta
 guid: 0d1cc72f500b0c342ab2e1d643c6932f
+========
+guid: 9d23a6ac71c0ac14c9f18bd2c710a853
+>>>>>>>> Feature/main-menu-transition:Assets/Plugins.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}
