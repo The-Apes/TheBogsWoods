@@ -1,4 +1,5 @@
 using System.Collections;
+using DialogueFramework;
 using UnityEngine;
 using UnityEngine.Playables;
 
@@ -12,7 +13,6 @@ namespace Managers
     
         void Start()
         {
-            
             CutsceneManager.instance.director.stopped += OnCutsceneStopped;
 
             if (!SaveManager.instance.ShouldExist("LevelZeroStartingCutscene")) return;

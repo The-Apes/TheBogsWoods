@@ -1,4 +1,5 @@
 using System;
+using DialogueFramework;
 using Enemies;
 using Managers;
 using UnityEngine;

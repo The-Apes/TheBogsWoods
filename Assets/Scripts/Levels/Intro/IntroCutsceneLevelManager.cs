@@ -1,3 +1,4 @@
+using DialogueFramework;
 using Managers;
 using UnityEngine;
 using UnityEngine.InputSystem;

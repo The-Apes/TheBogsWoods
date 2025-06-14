@@ -1,7 +1,6 @@
 
+using DialogueFramework;
 using UnityEngine;
-using UnityEngine.Serialization;
-using UnityEngine.UI;
 
 //reference https://www.youtube.com/watch?v=DOP_G5bsySA
 namespace Managers

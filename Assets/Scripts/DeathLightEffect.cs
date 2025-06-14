@@ -1,4 +1,6 @@
 using System.Collections;
+using CameraUtils;
+using Managers;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 
@@ -15,7 +17,7 @@ public class DeathLightEffect : MonoBehaviour
 
    private void Start()
    {
-      MainCamera.instance.SetZoom(30);
+      CameraManager.instance.SetZoom(30);
       StartCoroutine(WaitForAnimation(animator.GetCurrentAnimatorStateInfo(0).length));;
    }
    
