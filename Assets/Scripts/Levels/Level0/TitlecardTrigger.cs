@@ -20,8 +20,8 @@ namespace Levels.Level0
         private IEnumerator TitlecardSequence()
         {
             CameraManager.instance.SetDamping(35);
-            CameraManager.instance.LookAtLocation(new Vector3(23,24,0));
-            CameraManager.instance.LerpZoom(10, 0.25f);
+            CameraManager.instance.LookAtLocation(new Vector3(20,25,0));
+            CameraManager.instance.LerpZoom(5, 0.15f);
             
             AudioManager.instance.PlayMusic(titlecardSong);
             yield return new WaitForSeconds(15f);
