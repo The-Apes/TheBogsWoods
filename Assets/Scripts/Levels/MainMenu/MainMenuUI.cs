@@ -1,6 +1,5 @@
 using System.IO;
 using Managers;
-using Saving;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Audio;
@@ -113,7 +112,8 @@ namespace Levels.MainMenu
             {
                 File.Delete(savePath);
                 MusicManager.Instance.StopMusic();
-                SceneManager.LoadScene("Intro Cutscene");
+                SceneChangeManager.instance.LoadScene("Intro Cutscene", "CrossFade");
+                
             }
             else
             {
@@ -124,13 +124,7 @@ namespace Levels.MainMenu
         public void ContinueGame()
         {
             MusicManager.Instance.StopMusic();
-            SceneChangeManager.instance.LoadScene("Level 0");
-        }
-
-        public void OnSkipClick()
-        {
-            MusicManager.Instance.StopMusic();
-            SceneManager.LoadScene("Level 0");
+            SceneChangeManager.instance.LoadScene("Level 0", "CrossFade");
         }
 
         public void OnExitClick()
