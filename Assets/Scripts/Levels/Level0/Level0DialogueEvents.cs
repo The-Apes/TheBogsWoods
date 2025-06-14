@@ -19,6 +19,18 @@ namespace Levels.Level0
                     CameraManager.instance.LerpZoom(20);
                     CameraManager.instance.LookAt(RuriMovement.instance.transform);
                     break;
+                case "Look left":
+                    RuriMovement.instance.Look(RuriMovement.Direction.Left);
+                    break;
+                case "Look right":
+                    RuriMovement.instance.Look(RuriMovement.Direction.Right);
+                    break;
+                case "Look up":
+                    RuriMovement.instance.Look(RuriMovement.Direction.Up);
+                    break;
+                case "Look down":
+                    RuriMovement.instance.Look(RuriMovement.Direction.Down);
+                    break;
             }
         }
         public void Start()

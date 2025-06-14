@@ -154,8 +154,12 @@ public class RuriMovement : MonoBehaviour
         else
         {
             _animator.SetBool("Moving", false);
-            _attackDirection = _movingDirection;
-            SetLookDirection();
+            if (!Equals(_attackDirection, _movingDirection))
+            {
+                _attackDirection = _movingDirection;
+                SetLookDirection();
+            }
+            
         }
 
         //move the player
@@ -164,6 +168,29 @@ public class RuriMovement : MonoBehaviour
     private void SetLookDirection()
     {
         switch (_attackDirection)
+        {
+            case Direction.Up:
+                _animator.SetFloat("AimX", 0f);
+                _animator.SetFloat("AimY", 1f);
+                break;
+            case Direction.Down:
+                _animator.SetFloat("AimX", 0f);
+                _animator.SetFloat("AimY", -1f);
+                break;
+            case Direction.Left:
+                _animator.SetFloat("AimX", -1f);
+                _animator.SetFloat("AimY", 0f);
+                break;
+            case Direction.Right:
+                _animator.SetFloat("AimX", 1f);
+                _animator.SetFloat("AimY", 0f);
+                break;
+        }
+    }
+
+    public void Look(Direction direction)
+    {
+        switch (direction)
         {
             case Direction.Up:
                 _animator.SetFloat("AimX", 0f);

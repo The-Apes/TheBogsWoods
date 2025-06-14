@@ -13,7 +13,6 @@ MonoBehaviour:
   m_Name: Encounter
   m_EditorClassIdentifier: 
   dialogue:
-    dialogueName: 
     dialogueLines:
     - character: {fileID: 11400000, guid: 573fe0f85d0b27743ba2ea2de6e05f37, type: 2}
       characterOverride:
@@ -27,4 +26,5 @@ MonoBehaviour:
       line: O- Otto... is that you?
       right: 0
       soundEffect: {fileID: 0}
-      customEvent: 
+      customEvent: Look left
+    endCustomEvent: 
