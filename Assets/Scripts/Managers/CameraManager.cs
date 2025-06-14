@@ -42,5 +42,10 @@ namespace Managers
         {
             cameraUtils.SetZoom(zoom, duration);
         }
+
+        public void SetDamping(float damping)
+        {
+            cmUtils.SetDamping(damping);
+        }
     }
 }

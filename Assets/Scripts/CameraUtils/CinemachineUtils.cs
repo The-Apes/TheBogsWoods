@@ -9,14 +9,16 @@ namespace CameraUtils
     public class CinemachineUtils : MonoBehaviour
     {
         [SerializeField] private GameObject mainCamera;
-        CinemachineCamera cam;
-        private GameObject customFollowTarget;
+        private CinemachineCamera _cam;
+        private CinemachinePositionComposer _composer;
+        private GameObject _customFollowTarget;
 
         // Start is called once before the first execution of Update after the MonoBehaviour is created
         void Start()
         {
-          cam = mainCamera.GetComponent<CinemachineCamera>();
-          customFollowTarget = new GameObject
+          _cam = mainCamera.GetComponent<CinemachineCamera>();
+          _composer = mainCamera.GetComponent<CinemachinePositionComposer>();
+          _customFollowTarget = new GameObject
           {
               name = "CinemachineFollowTarget"
           };
@@ -33,22 +35,27 @@ namespace CameraUtils
         
         private IEnumerator LookAtCoroutine(Transform target, float duration)
         {
-            Transform prevTarget = cam.Follow;
-            cam.Follow = target;
+            Transform prevTarget = _cam.Follow;
+            _cam.Follow = target;
             if (duration.Equals(-1f)) yield break;
             yield return new WaitForSeconds(duration);
-            cam.Follow = prevTarget;
+            _cam.Follow = prevTarget;
             
         }
         private IEnumerator LookAtLocationCoroutine(Vector3 target, float duration)
         {
-            Transform prevTarget = cam.Follow;
-            customFollowTarget.transform.position = target;
-            cam.Follow = customFollowTarget.transform;
+            Transform prevTarget = _cam.Follow;
+            _customFollowTarget.transform.position = target;
+            _cam.Follow = _customFollowTarget.transform;
             if (duration.Equals(-1f)) yield break;
             yield return new WaitForSeconds(duration);
-            cam.Follow = prevTarget;
+            _cam.Follow = prevTarget;
             
+        }
+        
+        public void SetDamping(float damping)
+        {
+            _composer.Damping = new Vector3(damping, damping, damping);
         }
        
     }
