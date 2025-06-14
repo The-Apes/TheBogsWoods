@@ -912,6 +912,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3621001707841758355}
   - component: {fileID: 4612427918113937863}
+  - component: {fileID: 7135866010743160941}
   m_Layer: 7
   m_Name: InteractionIcon
   m_TagString: Untagged
@@ -975,8 +976,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -596418173
-  m_SortingLayer: 3
+  m_SortingLayerID: -1570909017
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: -2122837972990275081, guid: 67173217ec878ab48aa620de95fa11bb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -989,6 +990,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!210 &7135866010743160941
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4109234436784882779}
+  m_Enabled: 1
+  m_SortingLayerID: -1570909017
+  m_SortingLayer: 4
+  m_SortingOrder: 0
+  m_SortAtRoot: 1
 --- !u!1 &6060598264420159092
 GameObject:
   m_ObjectHideFlags: 0

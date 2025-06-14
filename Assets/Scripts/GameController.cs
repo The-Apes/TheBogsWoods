@@ -2,7 +2,7 @@ using System;
 using Managers;
 using TMPro;
 using UnityEngine;
-using UnityEngine.SceneManagement;
+
 
 public class GameController : MonoBehaviour
 {
@@ -10,6 +10,7 @@ public class GameController : MonoBehaviour
     public TMP_Text youAreDeadText; // Reference to the "You Are Dead" text UI
     
     [SerializeField] private GameObject deathLightEffectPrefab;
+    [SerializeField] private GameObject globalLight; // Reference to the global light object
 
     public static event Action OnReset; // Event to notify when the game is reset
     
@@ -46,6 +47,7 @@ public class GameController : MonoBehaviour
         RuriMovement.instance.Death();
         Vector3 deathLightPosition = RuriMovement.instance.transform.position;
         deathLightPosition.y += 0.25f;
+        Destroy(globalLight);
         Instantiate(deathLightEffectPrefab, deathLightPosition, Quaternion.identity);
     }
     public void GameOverScreen()
