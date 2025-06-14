@@ -128,8 +128,8 @@ namespace Player
                 _ottoInRange = false;
             }
         }
-    
-        private void FixedUpdate() 
+
+        private void FixedUpdate()
         {
             if (controlling) //if the player is not controlling ruri, return_
             {
@@ -155,175 +155,201 @@ namespace Player
             else
             {
                 _animator.SetBool("Moving", false);
-                _attackDirection = _movingDirection;
-                SetLookDirection();
-            }
+                if (!Equals(_attackDirection, _movingDirection))
+                {
+                    _attackDirection = _movingDirection;
+                    SetLookDirection();
+                }
 
-            //move the player
+                //move the player
+            }
         }
 
         private void SetLookDirection()
-        {
-            switch (_attackDirection)
             {
-                case Direction.Up:
-                    _animator.SetFloat("AimX", 0f);
-                    _animator.SetFloat("AimY", 1f);
-                    break;
-                case Direction.Down:
-                    _animator.SetFloat("AimX", 0f);
-                    _animator.SetFloat("AimY", -1f);
-                    break;
-                case Direction.Left:
-                    _animator.SetFloat("AimX", -1f);
-                    _animator.SetFloat("AimY", 0f);
-                    break;
-                case Direction.Right:
-                    _animator.SetFloat("AimX", 1f);
-                    _animator.SetFloat("AimY", 0f);
-                    break;
+                switch (_attackDirection)
+                {
+                    case Direction.Up:
+                        _animator.SetFloat("AimX", 0f);
+                        _animator.SetFloat("AimY", 1f);
+                        break;
+                    case Direction.Down:
+                        _animator.SetFloat("AimX", 0f);
+                        _animator.SetFloat("AimY", -1f);
+                        break;
+                    case Direction.Left:
+                        _animator.SetFloat("AimX", -1f);
+                        _animator.SetFloat("AimY", 0f);
+                        break;
+                    case Direction.Right:
+                        _animator.SetFloat("AimX", 1f);
+                        _animator.SetFloat("AimY", 0f);
+                        break;
+                }
             }
-        }
 
-        private void UpdateDirection()
-        {
-            if(_moveInput.Equals(Vector2.zero)) return;
-            if (Mathf.Abs(_moveInput.x) > Mathf.Abs(_moveInput.y))
+            public void Look(Direction direction)
             {
-                _movingDirection = _moveInput.x > 0 ? Direction.Right : Direction.Left;
+                switch (direction)
+                {
+                    case Direction.Up:
+                        _animator.SetFloat("AimX", 0f);
+                        _animator.SetFloat("AimY", 1f);
+                        break;
+                    case Direction.Down:
+                        _animator.SetFloat("AimX", 0f);
+                        _animator.SetFloat("AimY", -1f);
+                        break;
+                    case Direction.Left:
+                        _animator.SetFloat("AimX", -1f);
+                        _animator.SetFloat("AimY", 0f);
+                        break;
+                    case Direction.Right:
+                        _animator.SetFloat("AimX", 1f);
+                        _animator.SetFloat("AimY", 0f);
+                        break;
+                }
             }
-            else
-            {
-                _movingDirection = _moveInput.y > 0 ? Direction.Up : Direction.Down;
-            }
-        
-            switch (_movingDirection)
-            {
-                case Direction.Up:
-                    _animator.SetFloat("BodyX", 0f);
-                    _animator.SetFloat("BodyY", 1f);
-                    break;
-                case Direction.Down:
-                    _animator.SetFloat("BodyX", 0f);
-                    _animator.SetFloat("BodyY", -1f);
-                    break;
-                case Direction.Left:
-                    _animator.SetFloat("BodyX", -1f);
-                    _animator.SetFloat("BodyY", 0f);
-                    break;
-                case Direction.Right:
-                    _animator.SetFloat("BodyX", 1f);
-                    _animator.SetFloat("BodyY", 0f);
-                    break;
-            }
-        }
-    
-    
-        private void UpdateAttackDirection()
-        {
-            Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition); // to do make camera manager class
-            Vector3 mouseDirection = mouseWorldPos - _playerTransform.position;
-            mouseDirection.z = 0;
 
-            // Cardinal direction logic
-            if (Mathf.Abs(mouseDirection.x) > Mathf.Abs(mouseDirection.y))
+            private void UpdateDirection()
             {
-                _attackDirection = mouseDirection.x > 0 ? Direction.Right : Direction.Left;
-            }
-            else
-            {
-                _attackDirection = mouseDirection.y > 0 ? Direction.Up : Direction.Down;
-            }
-        
-        }
-
-        public void Death()
-        {
-            controlling = false;
-            _animator.SetTrigger("Death");
-        }
-        public void ApplyForceInDirection(Direction direction, float knockbackForce)
-        {
-            Vector2 knockbackDirection = Vector2.zero;
-            switch (direction)
-            {
-                case Direction.Up:
-                    knockbackDirection = Vector2.up;
-                    break;
-                case Direction.Right:
-                    knockbackDirection = Vector2.right;
-                    break;
-                case Direction.Down:
-                    knockbackDirection = Vector2.down;
-                    break;
-                case Direction.Left:
-                    knockbackDirection = Vector2.left;
-                    break;
-            }
-            _rb.AddForce(knockbackDirection * knockbackForce, ForceMode2D.Impulse);
-        }
-
-        public void ApplyForce(Vector2 direction, float force)
-        {
-            _rb.AddForce(direction * force, ForceMode2D.Impulse);
-        }
-
-        IEnumerator DashTimer(float duration)
-        {
-            _dashing = true;
-            yield return new WaitForSeconds(duration);
-            _dashing = false;
-        }
-        public void AttackMove()
-        {
-            ApplyForceInDirection(_attackDirection, 2f);
-        }
-
-        public void Footstep()
-        {
-            AudioManager.instance.PlaySFX(footstepSFX, 0.5f);
-        }
-
-        #region InputAction
-        public void MoveInput(InputAction.CallbackContext context) //Called by input system
-        {
-            _moveInput = context.ReadValue<Vector2>();
-        }
-        public void SwitchCharacter(InputAction.CallbackContext context)
-        {
-            if (!context.started) return;
-            if (!hasOtto) return;
-            if (ottoMounted)
-            {
-                RemoveOtto();
-                ottoMounted = false;
-                Otto = Instantiate(ottoPrefab, new Vector3(_playerTransform.position.x,_playerTransform.position.y+0.75f,_playerTransform.position.z), Quaternion.identity);
-                _camera.Follow = Otto.transform;
-                controlling = false;
-            } else if (_ottoInRange){
-                Destroy(Otto);
-                ottoMounted = true;
-                AddOtto();
-                controlling = true;
-                _camera.Follow = _playerTransform;
-            }
-        }
-        public void Dash(InputAction.CallbackContext context)
-        {
-            if (context.started)
-            {
-                if(!controlling || _ruriAttack.isAttacking|| _dashing) return;
                 if(_moveInput.Equals(Vector2.zero)) return;
-                ApplyForce(_moveInput, 20f);
-                _animator.SetTrigger("Dash"); 
-                _animator.SetBool("Moving", false);
-                _playerHealth.BecomeInvulnerable(0.3f);
-                StartCoroutine(DashTimer(0.3f));
-                GetComponent<DashFlash>().CallDashFlash(0.3f);
-                AudioManager.instance.PlaySFX(dashSFX);
-            
+                if (Mathf.Abs(_moveInput.x) > Mathf.Abs(_moveInput.y))
+                {
+                    _movingDirection = _moveInput.x > 0 ? Direction.Right : Direction.Left;
+                }
+                else
+                {
+                    _movingDirection = _moveInput.y > 0 ? Direction.Up : Direction.Down;
+                }
+        
+                switch (_movingDirection)
+                {
+                    case Direction.Up:
+                        _animator.SetFloat("BodyX", 0f);
+                        _animator.SetFloat("BodyY", 1f);
+                        break;
+                    case Direction.Down:
+                        _animator.SetFloat("BodyX", 0f);
+                        _animator.SetFloat("BodyY", -1f);
+                        break;
+                    case Direction.Left:
+                        _animator.SetFloat("BodyX", -1f);
+                        _animator.SetFloat("BodyY", 0f);
+                        break;
+                    case Direction.Right:
+                        _animator.SetFloat("BodyX", 1f);
+                        _animator.SetFloat("BodyY", 0f);
+                        break;
+                }
             }
-        }
-        #endregion
+    
+    
+            private void UpdateAttackDirection()
+            {
+                Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition); // to do make camera manager class
+                Vector3 mouseDirection = mouseWorldPos - _playerTransform.position;
+                mouseDirection.z = 0;
+
+                // Cardinal direction logic
+                if (Mathf.Abs(mouseDirection.x) > Mathf.Abs(mouseDirection.y))
+                {
+                    _attackDirection = mouseDirection.x > 0 ? Direction.Right : Direction.Left;
+                }
+                else
+                {
+                    _attackDirection = mouseDirection.y > 0 ? Direction.Up : Direction.Down;
+                }
+        
+            }
+
+            public void Death()
+            {
+                controlling = false;
+                _animator.SetTrigger("Death");
+            }
+            public void ApplyForceInDirection(Direction direction, float knockbackForce)
+            {
+                Vector2 knockbackDirection = Vector2.zero;
+                switch (direction)
+                {
+                    case Direction.Up:
+                        knockbackDirection = Vector2.up;
+                        break;
+                    case Direction.Right:
+                        knockbackDirection = Vector2.right;
+                        break;
+                    case Direction.Down:
+                        knockbackDirection = Vector2.down;
+                        break;
+                    case Direction.Left:
+                        knockbackDirection = Vector2.left;
+                        break;
+                }
+                _rb.AddForce(knockbackDirection * knockbackForce, ForceMode2D.Impulse);
+            }
+
+            public void ApplyForce(Vector2 direction, float force)
+            {
+                _rb.AddForce(direction * force, ForceMode2D.Impulse);
+            }
+
+            IEnumerator DashTimer(float duration)
+            {
+                _dashing = true;
+                yield return new WaitForSeconds(duration);
+                _dashing = false;
+            }
+            public void AttackMove()
+            {
+                ApplyForceInDirection(_attackDirection, 2f);
+            }
+
+            public void Footstep()
+            {
+                AudioManager.instance.PlaySFX(footstepSFX, 0.5f);
+            }
+
+            #region InputAction
+            public void MoveInput(InputAction.CallbackContext context) //Called by input system
+            {
+                _moveInput = context.ReadValue<Vector2>();
+            }
+            public void SwitchCharacter(InputAction.CallbackContext context)
+            {
+                if (!context.started) return;
+                if (!hasOtto) return;
+                if (ottoMounted)
+                {
+                    RemoveOtto();
+                    ottoMounted = false;
+                    Otto = Instantiate(ottoPrefab, new Vector3(_playerTransform.position.x,_playerTransform.position.y+0.75f,_playerTransform.position.z), Quaternion.identity);
+                    _camera.Follow = Otto.transform;
+                    controlling = false;
+                } else if (_ottoInRange){
+                    Destroy(Otto);
+                    ottoMounted = true;
+                    AddOtto();
+                    controlling = true;
+                    _camera.Follow = _playerTransform;
+                }
+            }
+            public void Dash(InputAction.CallbackContext context)
+            {
+                if (context.started)
+                {
+                    if(!controlling || _ruriAttack.isAttacking|| _dashing) return;
+                    if(_moveInput.Equals(Vector2.zero)) return;
+                    ApplyForce(_moveInput, 20f);
+                    _animator.SetTrigger("Dash"); 
+                    _animator.SetBool("Moving", false);
+                    _playerHealth.BecomeInvulnerable(0.3f);
+                    StartCoroutine(DashTimer(0.3f));
+                    GetComponent<DashFlash>().CallDashFlash(0.3f);
+                    AudioManager.instance.PlaySFX(dashSFX);
+            
+                }
+            }
+            #endregion
     }
 }

@@ -245,11 +245,12 @@ namespace DialogueFramework
 
         void EndDialogue()
         {
+            
             StopAllCoroutines();
             _isTyping = false;
             isDialogueActive = false;
             animator.Play("HideDialogue");
-            if (!_currentDialogue.endCustomEvent.Equals("")) onDialogueNextLine?.Invoke(_currentDialogue.endCustomEvent);
+            if (_currentDialogue.endCustomEvent != null) onDialogueNextLine?.Invoke(_currentDialogue.endCustomEvent);
             if(RuriMovement.instance)RuriMovement.instance.controlling = true;
             GameEvents.DialogueEnded(_currentDialogue.dialogueName);
         }

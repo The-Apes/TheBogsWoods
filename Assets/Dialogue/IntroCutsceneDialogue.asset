@@ -13,7 +13,6 @@ MonoBehaviour:
   m_Name: IntroCutsceneDialogue
   m_EditorClassIdentifier: 
   dialogue:
-    dialogueName: 
     dialogueLines:
     - character: {fileID: 11400000, guid: 78be226473a7fd544b2afd5a21a55286, type: 2}
       characterOverride:
@@ -316,3 +315,4 @@ MonoBehaviour:
       right: 0
       soundEffect: {fileID: 0}
       customEvent: black
+    endCustomEvent: 
