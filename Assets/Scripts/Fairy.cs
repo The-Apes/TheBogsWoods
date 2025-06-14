@@ -1,5 +1,6 @@
 using DialogueFramework;
 using Managers;
+using Player;
 using UnityEngine;
 
 public class Fairy : MonoBehaviour, IInteractable

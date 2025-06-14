@@ -1,6 +1,7 @@
 using System;
 using DialogueFramework;
 using Managers;
+using Player;
 using UnityEngine;
 
 public class VersionVincent : MonoBehaviour, IInteractable

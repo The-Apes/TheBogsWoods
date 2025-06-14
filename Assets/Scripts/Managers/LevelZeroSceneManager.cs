@@ -1,5 +1,6 @@
 using System.Collections;
 using DialogueFramework;
+using Player;
 using UnityEngine;
 using UnityEngine.Playables;
 

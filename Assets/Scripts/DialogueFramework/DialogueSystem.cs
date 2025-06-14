@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Managers;
+using Player;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
