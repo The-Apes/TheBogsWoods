@@ -21,7 +21,7 @@ namespace Levels.Level0
         {
             CameraManager.instance.SetDamping(35);
             CameraManager.instance.LookAtLocation(new Vector3(20,25,0));
-            CameraManager.instance.LerpZoom(5, 0.15f);
+            CameraManager.instance.LerpZoom(7, 0.075f);
             
             AudioManager.instance.PlayMusic(titlecardSong);
             yield return new WaitForSeconds(15f);
@@ -31,7 +31,7 @@ namespace Levels.Level0
             yield return new WaitForSeconds(1f);
             CameraManager.instance.SetDamping(1);
             CameraManager.instance.LookAt(RuriMovement.instance.transform);
-            CameraManager.instance.LerpZoom(20, 0.25f);
+            CameraManager.instance.LerpZoom(12, 0.25f);
             Destroy(gameObject);
         }
     }
