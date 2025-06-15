@@ -109,6 +109,19 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -125,8 +138,31 @@ TextureImporter:
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
-      physicsShape: []
-      tessellationDetail: -1
+      physicsShape:
+      - - {x: -9.5, y: 2.5}
+        - {x: -9.5, y: 0.5}
+        - {x: -8.5, y: -2.5}
+        - {x: -10.5, y: -2.5}
+        - {x: -11.5, y: -3.5}
+        - {x: -11.5, y: -4.5}
+        - {x: -10.5, y: -5.5}
+        - {x: -8.5, y: -5.5}
+        - {x: -3.5, y: -4.5}
+        - {x: 3.5, y: -4.5}
+        - {x: 6.5, y: -5.5}
+        - {x: 10.5, y: -5.5}
+        - {x: 11.5, y: -3.5}
+        - {x: 10.5, y: -2.5}
+        - {x: 7.5, y: -2.5}
+        - {x: 8.5, y: -1.5}
+        - {x: 8.5, y: 2.5}
+        - {x: 5.5, y: 5.5}
+        - {x: 2.5, y: 5.5}
+        - {x: 1.5, y: 3.5}
+        - {x: -2.5, y: 3.5}
+        - {x: -3.5, y: 5.5}
+        - {x: -6.5, y: 5.5}
+      tessellationDetail: 0
       bones: []
       spriteID: a4a02e3112517f0d0800000000000000
       internalID: -3389216962761323958
