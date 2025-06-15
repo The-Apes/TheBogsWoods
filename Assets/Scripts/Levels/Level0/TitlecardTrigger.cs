@@ -10,10 +10,14 @@ namespace Levels.Level0
         [SerializeField] private AudioClip titlecardSong;
         [SerializeField] private GameObject titlecard;
         [SerializeField] private GameObject canvas;
+        
+        private bool triggered = false;
         private void OnTriggerEnter2D(Collider2D other){
             
             if (!other.gameObject.CompareTag("Player")) return;
+            if (triggered) return;
             StartCoroutine(TitlecardSequence());
+            triggered = true;
 
 
         }
