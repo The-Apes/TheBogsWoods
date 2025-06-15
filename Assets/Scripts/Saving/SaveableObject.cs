@@ -9,7 +9,7 @@ namespace Saving
     {
         public string saveID;
         [SerializeField] private bool falseOnDestroy;
-        private bool selfDestroy;
+        [NonSerialized] public bool selfDestroy;
 
         private void Start()
         {

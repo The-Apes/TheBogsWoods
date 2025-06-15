@@ -1,3 +1,4 @@
+using HeightObjects;
 using UnityEngine;
 
 public class HitBox : MonoBehaviour

@@ -1,3 +1,4 @@
+using HeightObjects;
 using Managers;
 using Player;
 using UnityEngine;
@@ -23,6 +24,11 @@ namespace Enemies
         [Header("Sounds")]
         [SerializeField] private AudioClip hurtSound;
         [SerializeField] private AudioClip deathSound;
+        
+        [Header("Potions")]
+        [SerializeField] private int potionDropAmount;
+        [SerializeField] private GameObject potionPrefab;
+        
 
         private void Start()
         {
@@ -119,7 +125,7 @@ namespace Enemies
                     _runTarget = RuriMovement.instance.controlling ? RuriMovement.instance.gameObject : RuriMovement.instance.Otto;
                 }
                 _run = true;
-
+                DropPotions();
                 Collider2D[] colliders = GetComponents<Collider2D>();
                 foreach (Collider2D otherCollider in colliders)
                 {
@@ -137,6 +143,16 @@ namespace Enemies
             Vector2 knockbackDirection = (transform.position - (Vector3)sourcePosition).normalized;
             _rb.AddForce(knockbackDirection * knockbackForce, ForceMode2D.Impulse);
         }
+        private void DropPotions()
+        {
+            if (potionDropAmount <= 0 || !potionPrefab) return;
+            for (int i = 0; i < potionDropAmount; i++)
+            {
+                GameObject potion = Instantiate(potionPrefab, transform.position, Quaternion.identity);
+                potion.GetComponent<FakeHeightObject>().Initialize(new Vector3(Random.Range(-1f,1),Random.Range(-1f,1),0) * Random.Range(3, 6), Random.Range(3, 6));
+            }
+        }
+
 
     }
 }
