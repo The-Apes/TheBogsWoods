@@ -9,6 +9,7 @@ namespace Player
 {
     public class RuriMovement : MonoBehaviour
     {
+        public ParticleSystem dustFX;
         public static RuriMovement instance;
     
         private RuriAttack _ruriAttack;
@@ -336,17 +337,18 @@ namespace Player
             }
             public void Dash(InputAction.CallbackContext context)
             {
-                if (context.started)
-                {
-                    if(!controlling || _ruriAttack.isAttacking|| _dashing) return;
-                    if(_moveInput.Equals(Vector2.zero)) return;
-                    ApplyForce(_moveInput, 20f);
-                    _animator.SetTrigger("Dash"); 
-                    _animator.SetBool("Moving", false);
-                    _playerHealth.BecomeInvulnerable(0.3f);
-                    StartCoroutine(DashTimer(0.3f));
-                    GetComponent<DashFlash>().CallDashFlash(0.3f);
-                    AudioManager.instance.PlaySFX(dashSFX);
+            if (context.started)
+            {
+                if (!controlling || _ruriAttack.isAttacking || _dashing) return;
+                if (_moveInput.Equals(Vector2.zero)) return;
+                ApplyForce(_moveInput, 20f);
+                _animator.SetTrigger("Dash");
+                _animator.SetBool("Moving", false);
+                _playerHealth.BecomeInvulnerable(0.3f);
+                StartCoroutine(DashTimer(0.3f));
+                GetComponent<DashFlash>().CallDashFlash(0.3f);
+                AudioManager.instance.PlaySFX(dashSFX);
+                dustFX.Play();
             
                 }
             }
