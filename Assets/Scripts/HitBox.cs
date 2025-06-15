@@ -18,17 +18,24 @@ public class HitBox : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (!other.CompareTag("HurtBox")) return; 
-        HurtBox hurtBox = other.GetComponent<HurtBox>(); 
-        if (hurtBox.Owner == null) return; 
-        if (other.gameObject.layer == _layer) return;
+        switch (other.tag)
+        {
+            case "HurtBox":
+                HurtBox hurtBox = other.GetComponent<HurtBox>(); 
+                if (hurtBox.Owner == null) return; 
+                if (other.gameObject.layer == _layer) return;
 
-        IDamageable damageable = hurtBox.Owner.GetComponent<IDamageable>(); 
-        if (damageable == null) return;
-        damageable.ReceiveDamage(damage, owner);
-        Projectile projectile = transform.root.GetComponentInChildren<Projectile>();
-        if (projectile == null) return;
-        Destroy(projectile.gameObject);
+                IDamageable damageable = hurtBox.Owner.GetComponent<IDamageable>(); 
+                if (damageable == null) return;
+                damageable.ReceiveDamage(damage, owner);
+                Projectile projectile = transform.root.GetComponentInChildren<Projectile>();
+                if (projectile == null) return;
+                Destroy(projectile.gameObject);
+                break;
+            case "Bramble":
+                break;
+        }
+
     }
 
     private void OnTriggerStay2D(Collider2D other)
