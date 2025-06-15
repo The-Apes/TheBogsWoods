@@ -85,6 +85,11 @@ public class PlayerHealth : MonoBehaviour, IDamageable
             AudioManager.instance.PlaySFXAt(hurtSound, transform);
         }
     }
+    public void Heal(int hp = 1){
+        if(currentHealth >= maxHealth) return;
+        currentHealth += hp;
+        healthUI.UpdateHearts(currentHealth); // Update the hearts to reflect the new health
+    }
 
     private void ApplyKnockback(Vector2 sourcePosition, float knockbackForce)
     {
