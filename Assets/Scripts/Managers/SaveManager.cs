@@ -16,6 +16,8 @@ namespace Managers
     public class SaveManager : MonoBehaviour
     {
         public GameSaveData gameSaveData;
+        
+        public GameObject potionPrefab; 
 
         public static SaveManager instance;
         
@@ -24,7 +26,6 @@ namespace Managers
         // like roll call to check for any IDs that should not exist anymore (renamed or deleted).
         
         //And a HashSet is a collection of UNIQUE strings optimized for fast lookup.
-        
         
         private string savePath;
 
@@ -52,6 +53,7 @@ namespace Managers
         public void SaveGame()
         {            
             GetRuriInfo();
+            GetSparePotions();
             
             // Only keep flags that were used this session
             var cleanDict = new Dictionary<string, bool>();
@@ -78,6 +80,7 @@ namespace Managers
                 gameSaveData = JsonUtility.FromJson<GameSaveData>(jsonSave);
                 gameSaveData.LoadFromSavedData(); // Load the dictionary from saved data
                 LoadRuriInfo();
+                LoadSparePotions();
                 Debug.Log("Game loaded.");
             }
             else
@@ -128,5 +131,24 @@ namespace Managers
             ruri.hasFairy = gameSaveData.hasFairy;
             ruri.hasOtto = gameSaveData.hasOtto;
         }
+        private void GetSparePotions()
+        {
+            gameSaveData.sparePotions.Clear();
+            var sparePotions = FindObjectsByType<HealthPotion>(FindObjectsSortMode.None);
+            foreach (var potion in sparePotions)
+            {
+                gameSaveData.sparePotions.Add(potion.transform.position);
+            }
+        }
+
+        private void LoadSparePotions()
+        {
+            foreach (var position in gameSaveData.sparePotions)
+            {
+                Instantiate(potionPrefab, position, Quaternion.identity);
+            }
+
+        }
+        
     }
 }
