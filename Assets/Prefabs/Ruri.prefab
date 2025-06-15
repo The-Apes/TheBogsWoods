@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 3928796958079581933}
   - component: {fileID: 3013807659131338322}
   - component: {fileID: 4511535734280139608}
+  - component: {fileID: 1002149384780280875}
   m_Layer: 7
   m_Name: Ruri
   m_TagString: Player
@@ -507,6 +508,59 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   flashColor: {r: 1, g: 1, b: 1, a: 1}
+--- !u!114 &1002149384780280875
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 238577474628295289}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7db70e0ea77f5ac47a8f4565a9406397, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShadowGroup: 0
+  m_Priority: 0
+  m_ComponentVersion: 5
+  m_HasRenderer: 1
+  m_UseRendererSilhouette: 1
+  m_CastsShadows: 1
+  m_SelfShadows: 0
+  m_AlphaCutoff: 0.1
+  m_ApplyToSortingLayers: b930ae4ecd76cb09e78b4b2600000000fbc5c6be214060e7836173dca7d45da2
+  m_ShapePath:
+  - {x: -0.5, y: -0.125, z: 0}
+  - {x: -0.5, y: 0.875, z: 0}
+  - {x: 0.5, y: 0.875, z: 0}
+  - {x: 0.5, y: -0.125, z: 0}
+  m_ShapePathHash: 0
+  m_InstanceId: 0
+  m_ShadowShape2DComponent: {fileID: 4027614522962628678}
+  m_ShadowShape2DProvider:
+    rid: 3635908279270637677
+  m_ShadowCastingSource: 2
+  m_ShadowMesh:
+    m_Mesh: {fileID: 0}
+    m_LocalBounds:
+      m_Center: {x: 0, y: 0.140625, z: 0}
+      m_Extent: {x: 0.26249695, y: 0.15312195, z: 0}
+    m_EdgeProcessing: 1
+    m_TrimEdge: 0.05
+    m_FlipX: 0
+    m_FlipY: 0
+    m_InitialTrim: 0
+  m_CastingOption: 1
+  m_PreviousTrimEdge: 0.05
+  m_PreviousEdgeProcessing: 1
+  m_PreviousShadowCastingSource: 2
+  m_PreviousShadowShape2DSource: {fileID: 4027614522962628678}
+  references:
+    version: 2
+    RefIds:
+    - rid: 3635908279270637677
+      type: {class: ShadowShape2DProvider_SpriteRenderer, ns: UnityEngine.Rendering.Universal, asm: Unity.RenderPipelines.Universal.2D.Runtime}
+      data: 
 --- !u!1 &1653731892496004782
 GameObject:
   m_ObjectHideFlags: 0
