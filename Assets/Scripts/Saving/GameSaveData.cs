@@ -13,10 +13,12 @@ namespace Saving
         public bool hasWeapon = false;
         public bool hasFairy = false;
         public bool hasOtto = false;
+
+        public int zoom;
     
         public List<string> keys = new List<string>();
         public List<bool> values = new List<bool>();
-        public List<Vector2> sparePotions = new List<Vector2>();
+        //public List<Vector2> sparePotions = new List<Vector2>();
         
         [NonSerialized] // the JSON Utility doesn't support dictonaries, so we gotta convert dis one right heya
         public Dictionary<string, bool> SaveFlags = new Dictionary<string, bool>();

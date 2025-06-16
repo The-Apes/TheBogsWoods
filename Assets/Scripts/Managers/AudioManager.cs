@@ -38,6 +38,14 @@ namespace Managers
             }
         }
 
+        public void PlayUniqueSound(AudioClip clip, float volume = 1f, float pitch = 1f)
+        {
+            _sfxSource.clip = clip;
+            _sfxSource.volume = volume;
+            _sfxSource.pitch = pitch;
+            _sfxSource.Play();
+        }
+
         public void PlaySFX(AudioClip clip, float volume = 1f, float pitch = 1f)
         {
             AudioSource audioSource = Instantiate(sfxPrefab);
@@ -74,9 +82,10 @@ namespace Managers
             Destroy(audioSource.gameObject, audioSource.clip.length);
         }
 
-        public void PlayMusic(AudioClip musicClip)
+        public void PlayMusic(AudioClip musicClip, float volume = 1f)
         {
             _musicSource.clip = musicClip;
+            _musicSource.volume = volume;
             _musicSource.Play();
         }
         public void StopMusic()

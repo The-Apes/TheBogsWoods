@@ -12,11 +12,11 @@ namespace Levels.Level0
             switch (eventName)
             {
                 case "Where am I":
-                CameraManager.instance.LerpZoom(15);
+                CameraManager.instance.LerpZoom(10);
                 CameraManager.instance.LookAtLocation(new Vector3(0f, 6f, 0f));
                     break;
                 case "Reset look":
-                    CameraManager.instance.LerpZoom(20);
+                    CameraManager.instance.LerpZoom(15);
                     CameraManager.instance.LookAt(RuriMovement.instance.transform);
                     break;
                 case "Look left":

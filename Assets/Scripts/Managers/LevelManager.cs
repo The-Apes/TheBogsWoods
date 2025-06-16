@@ -1,55 +1,58 @@
 using System.Collections;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using System.Linq;
 
-public class LevelManager : MonoBehaviour
+namespace Managers
 {
-    public static LevelManager Instance;
-
-    public GameObject transitionsContainer;
-
-    private SceneTransition[] transitions;
-
-    private void Awake()
+    public class LevelManager : MonoBehaviour
     {
-        if (Instance == null)
+        public static LevelManager Instance;
+
+        public GameObject transitionsContainer;
+
+        private SceneTransition[] transitions;
+
+        private void Awake()
         {
-            Instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
-    }
-
-    private void Start()
-    {
-        transitions = transitionsContainer.GetComponentsInChildren<SceneTransition>();
-    }
-
-    public void LoadScene(string sceneName, string transitionName)
-    {
-        StartCoroutine(LoadSceneAsync(sceneName, transitionName));
-    }
-
-    private IEnumerator LoadSceneAsync(string sceneName, string transitionName)
-    {
-        var transition = transitions.FirstOrDefault(t => t.name == transitionName);
-        if (transition == null)
-        {
-            Debug.LogWarning($"Transition '{transitionName}' not found.");
-            yield break;
+            if (Instance == null)
+            {
+                Instance = this;
+                DontDestroyOnLoad(gameObject);
+            }
+            else
+            {
+                Destroy(gameObject);
+            }
         }
 
-        var scene = SceneManager.LoadSceneAsync(sceneName);
-        scene.allowSceneActivation = false;
+        private void Start()
+        {
+            transitions = transitionsContainer.GetComponentsInChildren<SceneTransition>();
+        }
 
-        yield return transition.AnimateTransitionIn();
+        public void LoadScene(string sceneName, string transitionName)
+        {
+            StartCoroutine(LoadSceneAsync(sceneName, transitionName));
+        }
 
-        scene.allowSceneActivation = true;
+        private IEnumerator LoadSceneAsync(string sceneName, string transitionName)
+        {
+            var transition = transitions.FirstOrDefault(t => t.name == transitionName);
+            if (transition == null)
+            {
+                Debug.LogWarning($"Transition '{transitionName}' not found.");
+                yield break;
+            }
 
-        yield return transition.AnimateTransitionOut();
+            var scene = SceneManager.LoadSceneAsync(sceneName);
+            scene.allowSceneActivation = false;
+
+            yield return transition.AnimateTransitionIn();
+
+            scene.allowSceneActivation = true;
+
+            yield return transition.AnimateTransitionOut();
+        }
     }
 }

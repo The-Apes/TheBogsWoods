@@ -17,7 +17,7 @@ public class DestroyableObject : MonoBehaviour
    health--;
    if (health <= 0)
    {
-    AudioManager.instance.PlaySFXAt(destroySound, transform);
+    AudioManager.instance.PlayUniqueSound(destroySound);
     Destroy(gameObject);
    }
    else

@@ -7,7 +7,7 @@ public class PrototypeOttoScript : MonoBehaviour
 {
     public void Start()
     {
-        GameEvents.onDialogueEnd += OnDialogueComplete;
+        DialogueSystem.onDialogueEnd += OnDialogueComplete;
     }
 
     public DialogueAsset dialogue; // The dialogue to be triggered
@@ -27,7 +27,7 @@ public class PrototypeOttoScript : MonoBehaviour
         
         RuriMovement.instance.hasOtto = true;
         RuriMovement.instance.AddOtto();
-        GameEvents.onDialogueEnd -= OnDialogueComplete;
+        DialogueSystem.onDialogueEnd -= OnDialogueComplete;
         Destroy(gameObject);
     }
     

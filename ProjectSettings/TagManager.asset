@@ -9,6 +9,8 @@ TagManager:
   - HurtBox
   - MapBounds
   - Item
+  - Bramble
+  - HealthPotion
   layers:
   - Default
   - TransparentFX

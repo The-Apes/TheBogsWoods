@@ -22,9 +22,9 @@ namespace DialogueFramework
     [Serializable]
     public class Dialogue
     {
-        [NonSerialized] public string dialogueName; 
         public List<DialogueLine> dialogueLines = new List<DialogueLine>();
         public string endCustomEvent;
+        public string dialogueName; 
     }
 
 
