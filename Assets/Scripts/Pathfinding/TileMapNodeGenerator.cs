@@ -52,7 +52,9 @@ namespace Pathfinding
             {
                 for (int j = i + 1; j < nodeList.Count; j++)
                 {
-                    if (Vector2.Distance(nodeList[i].transform.position, nodeList[j].transform.position) <= 1f)
+                    float dist = Vector2.Distance(nodeList[i].transform.position, nodeList[j].transform.position);
+                    // 1 = adjacent, ≈1.42 (square root of 2) = diagonal
+                    if (dist <= 1.42f) 
                     {
                         ConnectNodes(nodeList[i], nodeList[j]);
                         ConnectNodes(nodeList[j], nodeList[i]);
