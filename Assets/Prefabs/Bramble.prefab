@@ -88,12 +88,12 @@ GameObject:
   m_Component:
   - component: {fileID: 161822215253405285}
   - component: {fileID: 7747676305778972813}
-  - component: {fileID: 7314241867540577007}
-  - component: {fileID: 5563880122413351867}
   - component: {fileID: 16792145179640581}
+  - component: {fileID: 7314241867540577007}
   - component: {fileID: 4688662832574595955}
+  - component: {fileID: 5563880122413351867}
   m_Layer: 0
-  m_Name: DestroyableObject
+  m_Name: Bramble
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -157,8 +157,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1094269445
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: -454624326, guid: 30da5fe4f9b4d3a478073474c619c39e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -171,35 +171,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &7314241867540577007
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2790179649851189103}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2036bd24f4af9fe449f0baaaf2270346, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 1
-  hitSound: {fileID: 0}
-  destroySound: {fileID: 8300000, guid: 99a57817652d64b47bbed3589b930ede, type: 3}
---- !u!114 &5563880122413351867
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2790179649851189103}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 80598f138ae2504409d53ed6b6991135, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  saveID: FirstBrambles
-  falseOnDestroy: 1
 --- !u!61 &16792145179640581
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -246,6 +217,21 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.5, y: 1.5}
   m_EdgeRadius: 0
+--- !u!114 &7314241867540577007
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2790179649851189103}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2036bd24f4af9fe449f0baaaf2270346, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 1
+  hitSound: {fileID: 0}
+  destroySound: {fileID: 8300000, guid: 99a57817652d64b47bbed3589b930ede, type: 3}
 --- !u!114 &4688662832574595955
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -260,6 +246,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   main: {fileID: 7747676305778972813}
   sec: {fileID: 2912423067319663672}
+--- !u!114 &5563880122413351867
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2790179649851189103}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80598f138ae2504409d53ed6b6991135, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  saveID: 
+  falseOnDestroy: 1
 --- !u!1 &4380882319381648817
 GameObject:
   m_ObjectHideFlags: 0
