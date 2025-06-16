@@ -94,6 +94,44 @@ namespace Pathfinding
             return null;
         }
 
-        // Add your A* pathfinding methods here
+        public Node FindNearestNode(Vector2 position)
+        {
+            Node foundNode = null;
+            float minDistance = float.MaxValue;
+
+            foreach (Node node in NodesInScene())
+            {
+                float currentDistance = Vector2.Distance(node.transform.position, position);
+                if (currentDistance < minDistance)
+                {
+                    minDistance = currentDistance;
+                    foundNode = node;
+                }
+            }
+            
+            return foundNode;
+        }
+        public Node FindFurthestNode(Vector2 position)
+        {
+            Node foundNode = null;
+            float maxDistance = 0;
+
+            foreach (Node node in NodesInScene())
+            {
+                float currentDistance = Vector2.Distance(position, node.transform.position);
+                if (currentDistance > maxDistance)
+                {
+                    maxDistance = currentDistance;
+                    foundNode = node;
+                }
+            }
+            
+            return foundNode;
+        }
+
+        public Node[] NodesInScene()
+        {
+            return GameObject.FindObjectsByType<Node>(FindObjectsSortMode.None);
+        }
     }
 }
