@@ -68,7 +68,7 @@ namespace Managers
             gameSaveData.PrepareForSave();
             string json = JsonUtility.ToJson(gameSaveData, true);
             File.WriteAllText(savePath, json);
-            Debug.Log("Game saved to: " + savePath);
+            print("Game saved to: " + savePath);
             GameUI.instance.SavedGame();
         }
         
@@ -104,12 +104,12 @@ namespace Managers
             {
                 if (currentValue == value) return;
                 gameSaveData.SaveFlags[id] = value;
-                Debug.Log("Flag changed: " + id + " = " + value);
+                print("Flag changed: " + id + " = " + value);
             }
             else
             {
                 gameSaveData.SaveFlags[id] = value;
-                Debug.Log("Created flag: " + id + " = " + value);
+                print("Created flag: " + id + " = " + value);
             }
             if (DevConfig.SAVE_ON_CHANGE) SaveGame();
 
