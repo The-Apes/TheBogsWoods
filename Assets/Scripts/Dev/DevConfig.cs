@@ -5,7 +5,7 @@ namespace Dev
     {
         public const bool DONT_SAVE = false;
         public const bool FORCE_NEW_SAVE = false;
-        public const bool SAVE_ON_EXIT = false;
+        public const bool SAVE_ON_EXIT = true;
         public const bool SAVE_ON_CHANGE = false;
         
     }
