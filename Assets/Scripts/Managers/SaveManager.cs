@@ -1,5 +1,4 @@
 
-using System;
 using System.Collections.Generic;
 using System.IO;
 using Dev;
@@ -52,7 +51,8 @@ namespace Managers
         
 
         public void SaveGame()
-        {            
+        {     
+            if (DevConfig.DONT_SAVE) return;
             GetRuriInfo();
             GetSparePotions();
             

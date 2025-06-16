@@ -38,6 +38,14 @@ namespace Managers
             }
         }
 
+        public void PlayUniqueSound(AudioClip clip, float volume = 1f, float pitch = 1f)
+        {
+            _sfxSource.clip = clip;
+            _sfxSource.volume = volume;
+            _sfxSource.pitch = pitch;
+            _sfxSource.Play();
+        }
+
         public void PlaySFX(AudioClip clip, float volume = 1f, float pitch = 1f)
         {
             AudioSource audioSource = Instantiate(sfxPrefab);
