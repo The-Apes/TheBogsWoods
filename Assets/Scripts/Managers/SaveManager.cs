@@ -7,6 +7,8 @@ using Player;
 using Saving;
 using UI;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
+
 // ReSharper disable HeuristicUnreachableCode
 #pragma warning disable CS0162 // Unreachable code detected
 
@@ -124,6 +126,8 @@ namespace Managers
             gameSaveData.hasFairy = ruri.hasFairy;
             gameSaveData.hasOtto = ruri.hasOtto;
 
+            gameSaveData.zoom = Camera.main.TryGetComponent<PixelPerfectCamera>(out var ppc) ? ppc.assetsPPU : 15;
+
         }
         private void LoadRuriInfo()
         {
@@ -139,7 +143,10 @@ namespace Managers
             ruri.hasWeapon = gameSaveData.hasWeapon;
             ruri.hasFairy = gameSaveData.hasFairy;
             ruri.hasOtto = gameSaveData.hasOtto;
+            
+            Camera.main.GetComponent<PixelPerfectCamera>().assetsPPU = gameSaveData.zoom;
         }
+        
         /*private void GetSparePotions()
         {
             gameSaveData.sparePotions.Clear();

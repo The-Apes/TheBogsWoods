@@ -13,6 +13,8 @@ namespace Saving
         public bool hasWeapon = false;
         public bool hasFairy = false;
         public bool hasOtto = false;
+
+        public int zoom;
     
         public List<string> keys = new List<string>();
         public List<bool> values = new List<bool>();
