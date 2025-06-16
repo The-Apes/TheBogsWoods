@@ -29,6 +29,7 @@ namespace Player
         [SerializeField] private GameObject ridingOttoPrefab;
         [SerializeField] private GameObject ottoPrefab; 
         [SerializeField] private GameObject fairy;
+        private Sprite fairySprite;
     
     
         private bool _running;
@@ -74,7 +75,8 @@ namespace Player
                 AddOtto();
             }
 
-            fairy.GetComponent<SpriteRenderer>().enabled = hasFairy;
+            fairySprite = fairy.GetComponent<SpriteRenderer>().sprite;
+            if(!hasFairy)fairy.GetComponent<SpriteRenderer>().sprite = null;
         
             //makes here start the game facing down
             _animator.SetFloat("AimX", 0f);
@@ -87,13 +89,15 @@ namespace Player
         public void AddStar()
         {
             hasFairy = true;
-            fairy.GetComponent<SpriteRenderer>().enabled = hasFairy;
+            _animator.SetTrigger("Add Star");
+            fairy.GetComponent<SpriteRenderer>().sprite = fairySprite;
         }
 
         public void RemoveStar()
         {
             hasFairy = false;
-            fairy.GetComponent<SpriteRenderer>().enabled = hasFairy;
+            _animator.SetTrigger("Remove Star");
+            fairy.GetComponent<SpriteRenderer>().sprite = null; //removes the sprite from the fairy game object
         }
 
         public void AddOtto()

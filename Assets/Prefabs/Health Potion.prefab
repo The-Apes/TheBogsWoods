@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8956316518435827605}
   m_Layer: 9
   m_Name: Shadow
-  m_TagString: Untagged
+  m_TagString: HealthPotion
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -99,7 +99,7 @@ GameObject:
   - component: {fileID: 5018774425517204699}
   m_Layer: 9
   m_Name: Trigger
-  m_TagString: Untagged
+  m_TagString: HealthPotion
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -177,7 +177,7 @@ GameObject:
   - component: {fileID: 3264915445759197220}
   m_Layer: 9
   m_Name: Collider
-  m_TagString: Untagged
+  m_TagString: HealthPotion
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -255,7 +255,7 @@ GameObject:
   - component: {fileID: 7044975271588410542}
   m_Layer: 9
   m_Name: Sparkle
-  m_TagString: Untagged
+  m_TagString: HealthPotion
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -343,7 +343,7 @@ GameObject:
   - component: {fileID: 6876691892237876243}
   m_Layer: 9
   m_Name: Body
-  m_TagString: Untagged
+  m_TagString: HealthPotion
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -487,7 +487,7 @@ GameObject:
   - component: {fileID: 4068805807410220659}
   m_Layer: 9
   m_Name: Health Potion
-  m_TagString: Untagged
+  m_TagString: HealthPotion
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
