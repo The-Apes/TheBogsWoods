@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Levels.Level0
 {
-    public class Bramble : MonoBehaviour
+    public class Hedge : MonoBehaviour
     {
         [SerializeField] SpriteRenderer main;
         [SerializeField] SpriteRenderer sec;
