@@ -95,14 +95,24 @@ namespace Managers
             currentSessionIds.Add(id);
             
            gameSaveData.SaveFlags.TryAdd(id, true); //will fail silently if the key already exists
-            Debug.Log("should exist: " + id + " = " + gameSaveData.SaveFlags[id]);
+            //Debug.Log("should exist: " + id + " = " + gameSaveData.SaveFlags[id]);
             return gameSaveData.SaveFlags[id];
         }
         public void ChangeFlag(string id, bool value)
         {
-            gameSaveData.SaveFlags[id] = value;
-            Debug.Log("Flag changed: " + id + " = " + value);
-            if(DevConfig.SAVE_ON_CHANGE) SaveGame();
+            if (gameSaveData.SaveFlags.TryGetValue(id, out var currentValue))
+            {
+                if (currentValue == value) return;
+                gameSaveData.SaveFlags[id] = value;
+                Debug.Log("Flag changed: " + id + " = " + value);
+            }
+            else
+            {
+                gameSaveData.SaveFlags[id] = value;
+                Debug.Log("Created flag: " + id + " = " + value);
+            }
+            if (DevConfig.SAVE_ON_CHANGE) SaveGame();
+
         }
         private void GetRuriInfo()
         {
