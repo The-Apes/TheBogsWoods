@@ -13,7 +13,7 @@ namespace Levels.Intro
 
         private void Start()
         {
-            GameEvents.onDialogueEnd += OnDialogueEnd;
+            DialogueSystem.onDialogueEnd += OnDialogueEnd;
             Debug.Log("IntroCutsceneLevelManager");
             DialogueManager.instance.StartDialogue(introCutsceneDialogue.dialogue);
             Debug.Log("Tried to start the scene");
@@ -45,12 +45,12 @@ namespace Levels.Intro
 
         private void OnDestroy()
         {
-            GameEvents.onDialogueEnd -= OnDialogueEnd;
+            DialogueSystem.onDialogueEnd -= OnDialogueEnd;
         }
 
         private void OnDisable()
         {
-            GameEvents.onDialogueEnd -= OnDialogueEnd;
+            DialogueSystem.onDialogueEnd -= OnDialogueEnd;
         }
     }
 }

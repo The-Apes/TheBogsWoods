@@ -40,7 +40,9 @@ namespace DialogueFramework
     
         private Dialogue _currentDialogue;
         
+        public static Action<string> onDialogueStart;
         public static Action<string> onDialogueNextLine;
+        public static Action<string> onDialogueEnd;
 
         private void Awake()
         {
@@ -50,14 +52,16 @@ namespace DialogueFramework
      
         public void StartDialogue(DialogueAsset dialogueAsset)
         {
-            SetupDialogue(dialogueAsset.dialogue, dialogueAsset.name);
+            Dialogue dialogue = dialogueAsset.dialogue;
+            dialogue.dialogueName = dialogueAsset.name;
+            SetupDialogue(dialogue);
         }
         public void StartDialogue(Dialogue dialogue)
         {
             SetupDialogue(dialogue);
         }
 
-        private void SetupDialogue(Dialogue dialogue, string dialogueName = "unnamed Dialogue")
+        private void SetupDialogue(Dialogue dialogue)
         {
             isDialogueActive = true;
             animator.Play("ShowDialogue");
@@ -69,7 +73,8 @@ namespace DialogueFramework
             }
             if (RuriMovement.instance) RuriMovement.instance.controlling = false;
   
-            Debug.Log($"Starting Dialogue '{dialogueName}'");
+            Debug.Log($"Starting Dialogue '{dialogue.dialogueName}'");
+            onDialogueStart?.Invoke(dialogue.dialogueName);
             DisplayNextDialogueLine();
         }
 
@@ -252,7 +257,7 @@ namespace DialogueFramework
             animator.Play("HideDialogue");
             if (_currentDialogue.endCustomEvent != null) onDialogueNextLine?.Invoke(_currentDialogue.endCustomEvent);
             if(RuriMovement.instance)RuriMovement.instance.controlling = true;
-            GameEvents.DialogueEnded(_currentDialogue.dialogueName);
+            onDialogueEnd?.Invoke(_currentDialogue.dialogueName);
         }
     }
 }

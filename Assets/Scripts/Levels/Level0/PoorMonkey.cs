@@ -16,7 +16,7 @@ namespace Levels.Level0
     
         private void Start()
         {
-            GameEvents.onDialogueEnd += OnDialogueComplete;
+            DialogueSystem.onDialogueEnd += OnDialogueComplete;
             _cowardEnemy = GetComponent<CowardEnemy>();
         }
         private void OnCutsceneStopped(PlayableDirector director)
@@ -46,7 +46,7 @@ namespace Levels.Level0
 
         private void OnDestroy()
         {
-            GameEvents.onDialogueEnd -= OnDialogueComplete;
+            DialogueSystem.onDialogueEnd -= OnDialogueComplete;
 
         }
     }

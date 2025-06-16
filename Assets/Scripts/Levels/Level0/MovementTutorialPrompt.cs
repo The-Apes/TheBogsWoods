@@ -1,3 +1,4 @@
+using DialogueFramework;
 using Managers;
 using TMPro;
 using UnityEngine;
@@ -11,7 +12,7 @@ namespace Levels.Level0
         // Start is called once before the first execution of Update after the MonoBehaviour is created
         void Start()
         {
-            GameEvents.onDialogueEnd += OnDialogueEnd;
+            DialogueSystem.onDialogueEnd += OnDialogueEnd;
             GameEvents.onAreaChange += OnAreaChange;
         
             spriteRenderer = GetComponentsInChildren<SpriteRenderer>();
@@ -45,7 +46,7 @@ namespace Levels.Level0
 
         private void OnDisable()
         {
-            GameEvents.onDialogueEnd -= OnDialogueEnd;
+            DialogueSystem.onDialogueEnd -= OnDialogueEnd;
             GameEvents.onAreaChange -= OnAreaChange;
         }
     }
