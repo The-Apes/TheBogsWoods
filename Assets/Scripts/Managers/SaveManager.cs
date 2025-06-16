@@ -54,7 +54,6 @@ namespace Managers
         {     
             if (DevConfig.DONT_SAVE) return;
             GetRuriInfo();
-            GetSparePotions();
             
             // Only keep flags that were used this session
             var cleanDict = new Dictionary<string, bool>();
@@ -81,7 +80,6 @@ namespace Managers
                 gameSaveData = JsonUtility.FromJson<GameSaveData>(jsonSave);
                 gameSaveData.LoadFromSavedData(); // Load the dictionary from saved data
                 LoadRuriInfo();
-                LoadSparePotions();
                 Debug.Log("Game loaded.");
             }
             else
@@ -142,7 +140,7 @@ namespace Managers
             ruri.hasFairy = gameSaveData.hasFairy;
             ruri.hasOtto = gameSaveData.hasOtto;
         }
-        private void GetSparePotions()
+        /*private void GetSparePotions()
         {
             gameSaveData.sparePotions.Clear();
             var sparePotions = FindObjectsByType<HealthPotion>(FindObjectsSortMode.None);
@@ -159,7 +157,7 @@ namespace Managers
                 Instantiate(potionPrefab, position, Quaternion.identity);
             }
 
-        }
+        }*/
         
     }
 }
