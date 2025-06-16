@@ -11,10 +11,14 @@ namespace Managers
         public DialogueAsset startingDialogue;
         public DialogueAsset encounterDialogue;
         public PlayableAsset startingCutscene;
+        
+        public AudioClip forestMusic;
     
         void Start()
         {
             CutsceneManager.instance.director.stopped += OnCutsceneStopped;
+            
+            if(!SaveManager.instance.ShouldExist("TitleCard")) AudioManager.instance.PlayMusic(forestMusic, 0.5f);
 
             if (!SaveManager.instance.ShouldExist("LevelZeroStartingCutscene")) return;
             CutsceneManager.instance.PlayCutscene(startingCutscene);

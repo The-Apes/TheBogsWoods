@@ -82,9 +82,10 @@ namespace Managers
             Destroy(audioSource.gameObject, audioSource.clip.length);
         }
 
-        public void PlayMusic(AudioClip musicClip)
+        public void PlayMusic(AudioClip musicClip, float volume = 1f)
         {
             _musicSource.clip = musicClip;
+            _musicSource.volume = volume;
             _musicSource.Play();
         }
         public void StopMusic()

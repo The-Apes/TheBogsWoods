@@ -5,10 +5,11 @@ using UnityEngine;
 
 namespace Levels.Level0
 {
-    public class TitlecardTrigger : MonoBehaviour
+    public class TitleCardTrigger : MonoBehaviour
     {
-        [SerializeField] private AudioClip titlecardSong;
-        [SerializeField] private GameObject titlecard;
+        [SerializeField] private AudioClip titleCardSong;
+        [SerializeField] private AudioClip forestSong;
+        [SerializeField] private GameObject titleCard;
         [SerializeField] private GameObject canvas;
         
         private bool triggered = false;
@@ -16,26 +17,32 @@ namespace Levels.Level0
             
             if (!other.gameObject.CompareTag("Player")) return;
             if (triggered) return;
-            StartCoroutine(TitlecardSequence());
+            StartCoroutine(TitleCardSequence());
             triggered = true;
 
 
         }
-        private IEnumerator TitlecardSequence()
+        private IEnumerator TitleCardSequence()
         {
             CameraManager.instance.SetDamping(35);
             CameraManager.instance.LookAtLocation(new Vector3(20,25,0));
             CameraManager.instance.LerpZoom(7, 0.075f);
             
-            AudioManager.instance.PlayMusic(titlecardSong);
+            AudioManager.instance.PlayMusic(titleCardSong);
             yield return new WaitForSeconds(15f);
-            GameObject title = Instantiate(titlecard,canvas.transform);
+            GameObject title = Instantiate(titleCard,canvas.transform);
             yield return new WaitForSeconds(10f);
             Destroy(title.gameObject);
             yield return new WaitForSeconds(1f);
             CameraManager.instance.SetDamping(1);
             CameraManager.instance.LookAt(RuriMovement.instance.transform);
             CameraManager.instance.LerpZoom(12, 0.25f);
+            SaveManager.instance.ChangeFlag("TitleCard", false);
+            SaveManager.instance.SaveGame();
+            
+            AudioManager.instance.FadeOutMusic(3f);
+            yield return new WaitForSeconds(3f);
+            AudioManager.instance.PlayMusic(forestSong, 0.5f);
             Destroy(gameObject);
         }
     }
