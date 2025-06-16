@@ -129,8 +129,17 @@ namespace Levels.MainMenu
 
         public void OnSkipClick()
         {
+            if (newGameText.text == "Are you sure?" || !File.Exists(savePath))
+            {
+            File.Delete(savePath);
             MusicManager.Instance.StopMusic();
             LevelManager.Instance.LoadScene("Level 0", "CrossFade");
+            }
+            else
+            {
+                newGameText.SetText("Are you sure?");
+            }
+            
         }
 
         public void OnExitClick()
