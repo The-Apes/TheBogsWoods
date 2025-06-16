@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using DialogueFramework;
 using HeightObjects;
@@ -5,6 +6,7 @@ using Managers;
 using Player;
 using UnityEngine;
 using Random = UnityEngine.Random;
+// ReSharper disable Unity.PerformanceCriticalCodeInvocation
 
 namespace Levels.Level0
 {
@@ -17,6 +19,12 @@ namespace Levels.Level0
         [SerializeField] private GameObject healthPotionPrefab;
         
         private Animator _animator;
+
+        private bool shouldExist;
+        private bool exist;
+        private bool appearing;
+        private bool disappearing;
+
 
         private bool _talkCooldown = false;
         private bool isMissingHealth = false;
@@ -31,24 +39,41 @@ namespace Levels.Level0
         private void OnTriggerEnter2D(Collider2D other)
         {
             if (!other.CompareTag("Player")) return;
-
-            StartCoroutine(FairyAppear());
+            shouldExist = true;
+            
         }
 
         private void OnTriggerExit2D(Collider2D other)
         {
             if (!other.CompareTag("Player")) return;
             
-            StartCoroutine(FairyDisappear());
+            shouldExist = false;
+        }
+
+        private void Update()
+        {
+            if (shouldExist && (!exist && !appearing))
+            {
+                StartCoroutine(FairyAppear());
+            }
+            if(!shouldExist && (exist && !disappearing))
+            {
+                StartCoroutine(FairyDisappear());
+            }
         }
 
         private IEnumerator FairyAppear()
         {
+            appearing = true;
             RuriMovement.instance.RemoveStar();
             yield return new WaitForSeconds(1.5f);
             fairy.SetActive(true);
             _animator.SetTrigger("Appear");
             yield return new WaitForSeconds(_animator.GetCurrentAnimatorClipInfo(0).Length);
+            exist = true;
+            appearing = false;
+            
+            
             SaveManager.instance.SaveGame();
             print(PotionsInRange());
             StartCoroutine(SpawnPotions());
@@ -60,11 +85,13 @@ namespace Levels.Level0
         }
         private IEnumerator FairyDisappear()
         {
+            disappearing = true;
+            exist = false;
             _animator.SetTrigger("Disappear");
             yield return new WaitForSeconds(_animator.GetCurrentAnimatorClipInfo(0).Length);
             fairy.SetActive(false);
             RuriMovement.instance.AddStar();
-            
+            disappearing = false;
         }
 
         private IEnumerator SpawnPotions()
