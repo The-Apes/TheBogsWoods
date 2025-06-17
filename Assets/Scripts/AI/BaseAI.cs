@@ -95,7 +95,7 @@ namespace AI
 
         protected virtual void ChangeState()
         {
-            // playerSeen = Vector2.Distance(transform.position, player.transform.position) < detectionRadius;
+            playerSeen = Vector2.Distance(transform.position, player.transform.position) < detectionRadius;
 
             if (playerSeen == false && currentState != StateMachine.Patrol && currHealth > (maxHealth*50)/100)
             {
@@ -146,18 +146,13 @@ namespace AI
             {
                 int x = 0;
                 var direction = (path[x].transform.position - transform.position).normalized;
-                rb.linearVelocity = direction * moveSpeed;
+                transform.position += direction * (moveSpeed * Time.deltaTime);
 
-                if (Vector2.Distance(rb.position, path[x].transform.position) <= 0.1f)
+                if (Vector2.Distance(transform.position, path[x].transform.position) <= 0.1f)
                 {
                     currentNode = path[x];
                     path.RemoveAt(x);
                 }
-            }
-            else
-            {
-                // Stop when there’s no path
-                rb.linearVelocity = Vector2.zero;
             }
         }
 
