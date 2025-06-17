@@ -71,7 +71,7 @@ namespace Managers
 
             Destroy(audioSource.gameObject, audioSource.clip.length);
         }
-        public void PlayRandomSFXAt(AudioClip[] clip, Transform spawnTransform, float volume)
+        public void PlayRandomSFXAt(AudioClip[] clip, Transform spawnTransform, float volume = 1f)
         {
             AudioSource audioSource = Instantiate(sfxPrefab, spawnTransform.position, Quaternion.identity);
 

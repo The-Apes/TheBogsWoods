@@ -1,5 +1,6 @@
 
 using System.Collections.Generic;
+using Managers;
 using Pathfinding;
 using Player;
 using UnityEngine;
@@ -11,15 +12,19 @@ namespace AI
     // Game Dev Garnet
     // 16 June 2025
     // https://youtu.be/UHnOW-OimLQ?si=sHR9m9zjHw7JTgUh
-    public class BaseAI : MonoBehaviour
+    public class BaseAI : MonoBehaviour, IDamageable
     { 
         [Header("Stats")] 
         [SerializeField] protected float chaseSpeed = 3; 
         [SerializeField] protected float patrolSpeed = 1;
-        [SerializeField] protected int currHealth;
+        public int currHealth;
         [SerializeField] protected int maxHealth = 5;
         [SerializeField] protected float detectionRadius = 3.5f;
         [SerializeField] protected float chaseRadius = 5f;
+        
+        [Header("Sounds")]
+        [SerializeField] private AudioClip[] deathSounds;
+        [SerializeField] private AudioClip[] hurtSounds;
         
         [Header("Wander")]
         [SerializeField] protected Vector2 wanderLocation;
@@ -31,11 +36,11 @@ namespace AI
         public Node currentNode;
         public List<Node> path;
         
-        protected float patrolTimer = 0f;
-        protected float patrolInterval = 5f;
+       protected float patrolTimer = 0f;
+       protected float patrolInterval = 5f;
 
-        public RuriMovement player;
-        private Rigidbody2D rb;
+        public GameObject player;
+        private Rigidbody2D _rb;
         
         public enum StateMachine
         {
@@ -64,47 +69,37 @@ namespace AI
         public float moveSpeed;
 
         public int lineCastLayerMask;
-       
+        private Animator _animator;
+        
+ 
+
 
         private void Awake()
         {
-            rb = GetComponent<Rigidbody2D>();
+            _rb = GetComponent<Rigidbody2D>();
         }
 
+        
         private void Start()
         {
-            player = RuriMovement.instance;
          currentState = StateMachine.Patrol;
          currHealth = maxHealth;
          radius = detectionRadius;
          
+         _animator = GetComponent<Animator>();
          
-         if (currentNode == null)
-         {
-             currentNode = AStarManager.instance.FindNearestNode(transform.position);
-             // var cast = Physics2D.OverlapCircleAll(transform.position, 2);
-             // foreach (var thing in cast)
-             // {
-             //        if (thing.TryGetComponent(out Node node))
-             //        {
-             //            currentNode = node;
-             //            break;
-             //        }
-             // }
-         }
+         
+         if (currentNode == null) currentNode = AStarManager.instance.FindNearestNode(transform.position);
          
          lineCastLayerMask = (1 << LayerMask.NameToLayer("Player")) | (1 << LayerMask.NameToLayer("Environment"));
+         player = FindFirstObjectByType<RuriMovement>().gameObject;
 
         }
-        Node GetNearestNode()
-        {
-            return currentNode = AStarManager.instance.FindNearestNode(transform.position);;
-        }
-
         private void FixedUpdate()
         {
             //Check if player is in detection range
-            inDetectionRange = Vector2.Distance(transform.position, player.transform.position) < radius;
+            //if(!player) player = RuriMovement.instance;
+            if(player)inDetectionRange = Vector2.Distance(transform.position, player.transform.position) < radius;
             if (inDetectionRange)
             {
                 //Ches Line of Sight
@@ -112,14 +107,41 @@ namespace AI
                 los = hit.collider != null && (hit.collider.transform == player.transform || hit.collider.transform.root == player.transform);
             }
             
-            
             SwitchOnState();
             ChangeState(); 
             Move();
             UpdateCurrentNode();
         }
-
-
+        
+        #region Logic
+        // =======================
+        // Logic
+        // =======================
+        public virtual void ReceiveDamage(int damageTaken, GameObject source){
+            currHealth -= damageTaken; 
+            GetComponent<DamageFlash>().CallDamageFlash();
+            GameManager.instance.HitStop(0.1f);
+            if (currHealth <= 0) 
+            {
+                if(deathSounds.Length > 0) AudioManager.instance.PlayRandomSFXAt(deathSounds, transform);
+                Destroy(gameObject); 
+            }
+            else
+            {
+                ApplyKnockback(source.transform.position, 25f);
+                if(hurtSounds.Length > 0) AudioManager.instance.PlayRandomSFXAt(hurtSounds, transform);
+            }
+        }
+        private void ApplyKnockback(Vector2 sourcePosition, float knockbackForce)
+        {
+            Vector2 knockbackDirection = (transform.position - (Vector3)sourcePosition).normalized;
+            _rb.AddForce(knockbackDirection * knockbackForce, ForceMode2D.Impulse);
+        }
+        #endregion
+        #region state machine
+        // =======================
+        // state machine
+        // =======================
         protected virtual void SwitchOnState()
         {
             switch (currentState)
@@ -138,7 +160,7 @@ namespace AI
 
         protected virtual void ChangeState()
         {
-            if (!(inDetectionRange && los) && currentState != StateMachine.Search && shouldSearch &&currHealth > (maxHealth * 50) / 100)
+            if (!(inDetectionRange && los) && currentState != StateMachine.Search && shouldSearch && currHealth > (maxHealth * 50) / 100)
             {
                     searchLocation = player.transform.position;
                     currentState = StateMachine.Search;
@@ -204,6 +226,20 @@ namespace AI
                     path = AStarManager.instance.GeneratePath(GetNearestNode(), AStarManager.instance.FindNearestNode(searchLocation));    
                 }  
         }
+        #endregion
+        #region pathfinding
+        public Node GetNearestNode()
+        {
+            return currentNode = AStarManager.instance.FindNearestNode(transform.position);
+        }
+        private void UpdateCurrentNode()
+        {
+            if(path.Count == 0) return;
+            int x = 0;
+            if (!(Vector2.Distance(_rb.position, path[x].transform.position) <= 0.2f)) return;
+            currentNode = path[x];
+            path.RemoveAt(x);
+        }
 
         void Move()
         {
@@ -225,29 +261,21 @@ namespace AI
             {
                 int x = 0;
                 var direction = (path[x].transform.position - transform.position).normalized;
-                rb.linearVelocity = direction * moveSpeed;
+                _rb.linearVelocity = direction * moveSpeed;
                 
                 UpdateCurrentNode();
             }
             else
             {
                 // Stop when there’s no path
-                rb.linearVelocity = Vector2.zero;
+                _rb.linearVelocity = Vector2.zero;
             }
         }
-        private void UpdateCurrentNode()
-        {
-            if(path.Count == 0) return;
-            int x = 0;
-            if (!(Vector2.Distance(rb.position, path[x].transform.position) <= 0.2f)) return;
-            currentNode = path[x];
-            path.RemoveAt(x);
-        }
-
+        
         void StraightLineToPlayer()
         {
             var direction = (player.transform.position - transform.position).normalized;
-            rb.linearVelocity = direction * moveSpeed;
+            _rb.linearVelocity = direction * moveSpeed;
             
             //so when it switched back to pathfinding it isn't broke
             UpdateCurrentNode();
@@ -279,5 +307,6 @@ namespace AI
             Gizmos.DrawWireSphere(wanderLocation, wanderRadius);
 
         }
+        #endregion
     }
 }

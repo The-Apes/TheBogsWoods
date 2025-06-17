@@ -1,5 +1,7 @@
+using System;
 using DialogueFramework;
 using Managers;
+using Player;
 using UnityEngine;
 
 namespace Levels.Level0
@@ -16,6 +18,11 @@ namespace Levels.Level0
         public void Start()
         {
             DialogueSystem.onDialogueNextLine += CustomEvent;
+        }
+
+        private void Update()
+        {
+            print(RuriMovement.instance);
         }
 
         public void OnDisable()

@@ -1,14 +1,21 @@
+using System;
 using UnityEngine;
 using System.Collections;
 
 public class EnemyHitFeedback : MonoBehaviour
 {
-    public SpriteRenderer sr;
+    private SpriteRenderer sr;
     public Material whiteFlashMat;
     private Material originalMat;
-    public Rigidbody2D rb;
+    private Rigidbody2D rb;
 
     public float knockbackForce = 5f;
+
+    private void Awake()
+    {
+        sr = GetComponent<SpriteRenderer>();
+        rb = GetComponent<Rigidbody2D>();
+    }
 
     private void Start()
     {

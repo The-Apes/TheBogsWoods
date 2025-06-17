@@ -19,7 +19,7 @@ namespace Pathfinding
         
         public List<Node> nodeList;
         
-        private bool canDrawGizmos;
+       // private bool canDrawGizmos;
         
 
         void Awake()
@@ -72,7 +72,7 @@ namespace Pathfinding
                     }
                 }
             }
-            canDrawGizmos = true;
+            //canDrawGizmos = true;
         }
 
         void ConnectNodes(Node from, Node to)
