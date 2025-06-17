@@ -8,48 +8,89 @@ namespace Player
     {
         public bool isAttacking;
         private float _attackTimer;
-        // ReSharper disable once FieldCanBeMadeReadOnly.Local
         private const float AttackDuration = 0.3f;
-        private RuriMovement _ruriMovement;
+
         [SerializeField] private Collider2D hitBox;
-        private OttoShoot _ottoShoot;
+        private RuriMovement _ruriMovement;
         private Animator _animator;
 
         private void Awake()
         {
-            if (hitBox == null) { Debug.LogWarning("HitBox isn't Defined, check the serialized field"); return; }
+            if (hitBox == null)
+            {
+                Debug.LogWarning("HitBox isn't defined, check the serialized field");
+                return;
+            }
+
             hitBox.gameObject.SetActive(false);
             _ruriMovement = GetComponent<RuriMovement>();
             _animator = GetComponent<Animator>();
         }
 
-        public void Attack(InputAction.CallbackContext context) //Called by input system
+        public void Attack(InputAction.CallbackContext context)
         {
             if (!context.started) return;
-            if(!_ruriMovement.hasWeapon) return;
+            if (!_ruriMovement.hasWeapon) return;
             if (isAttacking) return;
             if (!_ruriMovement.controlling) return;
+
             isAttacking = true;
             _animator.SetTrigger("Attack");
-            RuriMovement.instance.AttackMove();
-            //_ruriMovement.isAttacking = true
-
+            RuriMovement.instance.AttackMove(); // Optional attack lunge/move
         }
+
+        // Called at the end of the attack animation
         public void AttackFinish()
         {
             isAttacking = false;
         }
-        private IEnumerator PerformAttack()
+
+        // This is triggered by an animation event at the attack's hit frame
+        public void PerformAttack()
         {
-        
+            StartCoroutine(DoHitDetection());
+        }
+
+        private IEnumerator DoHitDetection()
+        {
             hitBox.gameObject.SetActive(true);
             isAttacking = true;
 
-            yield return new WaitForSeconds(AttackDuration);
+            Collider2D[] hits = Physics2D.OverlapBoxAll(hitBox.bounds.center, hitBox.bounds.size, 0f);
+            foreach (Collider2D hit in hits)
+            {
+                if (hit.CompareTag("Enemy"))
+                {
+                    Vector2 hitDirection = (hit.transform.position - transform.position).normalized;
+                    Vector2 hitPoint = hit.ClosestPoint(transform.position);
+
+                    // Play global hit effects
+                    HitEffectManager.Instance.PlayHitEffects(hitPoint, hitDirection);
+
+                    // Trigger enemy feedback
+                    EnemyHitFeedback enemyHit = hit.GetComponent<EnemyHitFeedback>();
+                    if (enemyHit != null)
+                    {
+                        enemyHit.OnHit(hitDirection);
+                    }
+                }
+            }
+
+            yield return new WaitForSeconds(0.05f); // short delay before hiding hitbox
 
             hitBox.gameObject.SetActive(false);
             isAttacking = false;
         }
+
+        // Optional: Visualize the hitbox area in Scene view
+        private void OnDrawGizmosSelected()
+        {
+            if (hitBox == null) return;
+            Gizmos.color = Color.red;
+            Gizmos.DrawWireCube(hitBox.bounds.center, hitBox.bounds.size);
+        }
+
+        // Called by input system
         public void Shoot(InputAction.CallbackContext context)
         {
             if (!context.started)
@@ -65,6 +106,6 @@ namespace Player
                 _ruriMovement.RidingOtto.GetComponent<OttoShoot>().ShootInput = false;
             }
         }
-
     }
 }
+
