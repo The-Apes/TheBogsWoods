@@ -17,7 +17,7 @@ namespace Pathfinding
         [SerializeField] private GameObject nodePrefab;
         
         public List<Node> nodeList;
-        public TestSprite npc;
+        public AIBase npc;
         
         private bool canDrawGizmos;
         

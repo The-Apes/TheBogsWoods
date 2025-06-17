@@ -11,15 +11,18 @@ namespace Pathfinding
     // Game Dev Garnet
     // 16 June 2025
     // https://youtu.be/UHnOW-OimLQ?si=sHR9m9zjHw7JTgUh
-    public class TestSprite : MonoBehaviour
+    public class AIBase : MonoBehaviour
     {
         public Node currentNode;
         public List<Node> path;
 
         public RuriMovement player;
+        
         private float speed = 3;
         private int currHealth = 3;
         private int maxHealth = 3;
+        
+        private Rigidbody2D rb;
         
         public enum StateMachine
         {
@@ -29,7 +32,11 @@ namespace Pathfinding
         }
         
         public StateMachine currentState;
-        
+
+        private void Awake()
+        {
+            rb = GetComponent<Rigidbody2D>();
+        }
 
         private void Start()
         {
@@ -50,7 +57,7 @@ namespace Pathfinding
          }
         }
 
-        private void Update()
+        private void FixedUpdate()
         {
             switch (currentState)
             {
@@ -114,13 +121,19 @@ namespace Pathfinding
             if (path.Count > 0)
             {
                 int x = 0;
-                transform.position = Vector2.MoveTowards(transform.position, new Vector2(path[x].transform.position.x, path[x].transform.position.y), speed * Time.deltaTime);
+                var direction = (path[x].transform.position - transform.position).normalized;
+                rb.linearVelocity = direction * speed;
 
-                if (Vector2.Distance(transform.position, path[x].transform.position) <= 0.1f)
+                if (Vector2.Distance(rb.position, path[x].transform.position) <= 0.1f)
                 {
                     currentNode = path[x];
                     path.RemoveAt(x);
                 }
+            }
+            else
+            {
+                // Stop when there’s no path
+                rb.linearVelocity = Vector2.zero;
             }
         }
     }
