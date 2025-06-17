@@ -90,14 +90,14 @@ namespace Player
         {
             hasFairy = true;
             _animator.SetTrigger("Add Star");
-            fairy.GetComponent<SpriteRenderer>().sprite = fairySprite;
+            fairy.GetComponent<SpriteRenderer>().enabled = true; //enables the sprite renderer of the fairy game object
         }
 
         public void RemoveStar()
         {
             hasFairy = false;
             _animator.SetTrigger("Remove Star");
-            fairy.GetComponent<SpriteRenderer>().sprite = null; //removes the sprite from the fairy game object
+            fairy.GetComponent<SpriteRenderer>().enabled = false; //removes the sprite from the fairy game object
         }
 
         public void AddOtto()

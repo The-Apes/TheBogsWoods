@@ -72,14 +72,11 @@ namespace Levels.Level0
             yield return new WaitForSeconds(_animator.GetCurrentAnimatorClipInfo(0).Length);
             exist = true;
             appearing = false;
-            
-            
+
+            if (!shouldExist) yield break;
             SaveManager.instance.SaveGame();
-            print(PotionsInRange());
             StartCoroutine(SpawnPotions());
             Talk();
-            
-            yield return new WaitForSeconds(1f);
 
             
         }
