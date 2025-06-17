@@ -6,7 +6,7 @@ public class HitEffectManager : MonoBehaviour
     public static HitEffectManager Instance;
 
     public GameObject hitParticlePrefab;
-    public float hitStopDuration = 0.05f;
+    public float hitStopDuration = 0.5f;
     public float shakeDuration = 0.1f;
     public float shakeMagnitude = 0.15f;
 

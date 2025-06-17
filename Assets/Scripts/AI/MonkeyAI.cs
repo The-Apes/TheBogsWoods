@@ -1,9 +1,11 @@
 
 using System.Collections.Generic;
 using System.IO;
+using HeightObjects;
 using Managers;
 using Pathfinding;
 using Player;
+using Saving;
 using UnityEngine;
 
 
@@ -22,10 +24,18 @@ namespace AI
         [SerializeField] protected int maxHealth = 2;
         [SerializeField] protected float detectionRadius = 3.5f;
         [SerializeField] protected float chaseRadius = 5f;
+        [SerializeField] protected float attackDistance = 2f;
+
+        [Header("Potions")]
+        [SerializeField] private int potionDropAmount;
+        [SerializeField] private GameObject potionPrefab;
         
         [Header("Sounds")]
         [SerializeField] private AudioClip[] deathSounds;
         [SerializeField] private AudioClip[] hurtSounds;
+        [SerializeField] private AudioClip[] chaseSounds;
+        
+        
         
         [Header("Wander")]
         [SerializeField] protected Vector2 wanderLocation;
@@ -47,6 +57,7 @@ namespace AI
         {
             Patrol,
             Engage,
+            Attack,
             Search,
             Flee,
             Death
@@ -77,6 +88,8 @@ namespace AI
         private bool dead;
         private HitBox _hitBox;
         private HurtBox _hurtBox;
+        [SerializeField] private AudioClip footstepSound;
+        private bool attacking;
 
 
         private void Awake()
@@ -107,6 +120,7 @@ namespace AI
         {
             //Check if player is in detection range
             if (!player) player = FindFirstObjectByType<RuriMovement>().gameObject;
+            if (los) radius = chaseRadius;
             inDetectionRange = Vector2.Distance(transform.position, player.gameObject.transform.position) < radius;
             if (inDetectionRange)
             {
@@ -115,11 +129,9 @@ namespace AI
                 los = hit.collider && (hit.collider.transform == player.transform || hit.collider.transform.root == player.transform);
             }
             
-            print(los);
-            
             SwitchOnState();
             ChangeState(); 
-            Move();
+            if(!attacking)Move();
             UpdateCurrentNode();
         }
         private void Update()
@@ -136,6 +148,9 @@ namespace AI
                 _direction = (transform.position - _runTarget.transform.position).normalized;
                 _rb.linearVelocity = _direction.normalized * (chaseSpeed * 1.5f);
             }*/
+
+
+
 
             if (!_animator) return;
 
@@ -156,6 +171,15 @@ namespace AI
                 _animator.SetFloat("BodyY", _direction.y > 0 ? 1f : -1f);
             }
         }
+        void Step()
+        {
+                AudioManager.instance.PlaySFXAt(footstepSound, transform, 0.9f, 0.3f, 1.25f);
+        }
+
+        void StopAttacking()
+        {
+            attacking = false;
+        }
         
         #region Logic
         // =======================
@@ -164,8 +188,18 @@ namespace AI
         public virtual void ReceiveDamage(int damageTaken, GameObject source){
             if (dead) return; // If already dead, ignore further damage
             currHealth -= damageTaken; 
+            
+            // Get hit point and direction
+            Vector2 hitPoint = transform.position;
+            Vector2 hitDir = (-1*_rb.linearVelocity).normalized;
+
+            // Flash + Visuals
             GetComponent<DamageFlash>().CallDamageFlash();
+            HitEffectManager.Instance?.PlayHitEffects(hitPoint, hitDir);
+
+            // Hit stop + knockback
             GameManager.instance.HitStop(0.1f);
+            ApplyKnockback(source.transform.position, 20f);
             if (currHealth <= 0) 
             {
                 if(deathSounds.Length > 0) AudioManager.instance.PlayRandomSFXAt(deathSounds, transform);
@@ -173,14 +207,35 @@ namespace AI
             }
             else
             {
-                ApplyKnockback(source.transform.position, 125f);
+                
+                ApplyKnockback(source.transform.position, 25f);
                 if(hurtSounds.Length > 0) AudioManager.instance.PlayRandomSFXAt(hurtSounds, transform);
+                DropPotions();
+                TryGetComponent<SaveableObject>(out SaveableObject saveable);
+                if (saveable)
+                {
+                    SaveManager.instance.ChangeFlag(saveable.saveID, false);
+                }
             }
         }
         private void ApplyKnockback(Vector2 sourcePosition, float knockbackForce)
         {
             Vector2 knockbackDirection = (transform.position - (Vector3)sourcePosition).normalized;
             _rb.AddForce(knockbackDirection * knockbackForce, ForceMode2D.Impulse);
+        }
+        
+        private void DropPotions()
+        {
+            if (potionDropAmount <= 0 || !potionPrefab) return;
+
+            for (int i = 0; i < potionDropAmount; i++)
+            {
+                GameObject potion = Instantiate(potionPrefab, transform.position, Quaternion.identity);
+                potion.GetComponent<FakeHeightObject>().Initialize(
+                    new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f), 0) * Random.Range(3, 6),
+                    Random.Range(3, 6)
+                );
+            }
         }
         #endregion
 
@@ -200,6 +255,9 @@ namespace AI
                 case StateMachine.Engage:
                     Engage();
                     break;
+                case StateMachine.Attack:
+                    Attack();
+                    break;
                 case StateMachine.Search:
                     Search();
                     break;
@@ -214,12 +272,20 @@ namespace AI
 
          void ChangeState()
         {
+            if ((inDetectionRange && los) && Vector2.Distance(transform.position, player.gameObject.transform.position) <= attackDistance && currentState != StateMachine.Attack && currHealth == 2)
+            {
+                currentState = StateMachine.Attack;
+                moveSpeed = chaseSpeed;
+                path.Clear();
+            }
             if (!(inDetectionRange && los) && currentState != StateMachine.Search && shouldSearch && currHealth == 2)
             {
+                    path.Clear();
+                    moveType = MoveType.Pathfind;
                     searchLocation = player.transform.position;
+                    path = AStarManager.instance.GeneratePath(GetNearestNode(),AStarManager.instance.FindNearestNode(searchLocation));
                     currentState = StateMachine.Search;
                     moveSpeed = chaseSpeed;
-                    path.Clear();
             }
 
             if (dead && currentState != StateMachine.Death)
@@ -233,8 +299,9 @@ namespace AI
             {
                 currentState = StateMachine.Patrol;
                 path.Clear();
-            }else if (inDetectionRange && los && currentState != StateMachine.Engage && currHealth == 2)
+            }else if (inDetectionRange && los && Vector2.Distance(transform.position, player.gameObject.transform.position) > attackDistance && currentState != StateMachine.Engage && currHealth == 2)
             {
+                if(chaseSounds.Length > 0) AudioManager.instance.PlayRandomSFXAt(chaseSounds, transform);
                 shouldSearch = true;
                 //startedSearching = false;
                 currentState = StateMachine.Engage;
@@ -252,6 +319,7 @@ namespace AI
         private void Patrol()
         {
             moveSpeed = patrolSpeed;
+            _animator.SetFloat("Speed", 0.5f);
             moveType = MoveType.Pathfind;
             radius = detectionRadius;
             
@@ -274,6 +342,7 @@ namespace AI
         private void Engage()
         {
             radius = chaseRadius;
+            _animator.SetFloat("Speed", 1f);
             moveSpeed = chaseSpeed;
             moveType = los? MoveType.StraightLine : MoveType.Pathfind;
             if (path.Count == 0)
@@ -282,19 +351,32 @@ namespace AI
             }
         }
 
+        private void Attack()
+        {
+            moveType = MoveType.StraightLine;
+            if(!attacking)
+            {
+                _animator.SetTrigger("Attack");
+                attacking = true;
+            }
+        }
+
         private void Search()
         {
+            moveType = MoveType.Pathfind;
             radius = chaseRadius;
             moveSpeed = chaseSpeed;
-            moveType = MoveType.Pathfind;
+            _animator.SetFloat("Speed", 1f);
                 if (path.Count == 0)
                 {
-                    path = AStarManager.instance.GeneratePath(GetNearestNode(), AStarManager.instance.FindNearestNode(searchLocation));    
+                    //path = AStarManager.instance.GeneratePath(GetNearestNode(), AStarManager.instance.FindNearestNode(searchLocation));
+                    shouldSearch = false;
                 }  
         }
         void Flee()
         {
             moveType = MoveType.Pathfind;
+            _animator.SetFloat("Speed", 1.25f);
             moveSpeed = chaseSpeed + 1f;
             if (path.Count == 0)
             {
@@ -372,7 +454,7 @@ namespace AI
         
         private void OnDrawGizmos()
         {
-            Gizmos.DrawWireSphere(transform.position, inDetectionRange ? chaseRadius : detectionRadius);
+            Gizmos.DrawWireSphere(transform.position, radius);
             
             if (path.Count > 0)
             {

@@ -15,6 +15,8 @@ GameObject:
   - component: {fileID: 2474689652206148888}
   - component: {fileID: 4568276959034267838}
   - component: {fileID: 470875102724141251}
+  - component: {fileID: 7682905966305216032}
+  - component: {fileID: 8060068390301874275}
   m_Layer: 6
   m_Name: CowardMonkey
   m_TagString: Untagged
@@ -199,12 +201,18 @@ MonoBehaviour:
   maxHealth: 2
   detectionRadius: 3.5
   chaseRadius: 5
+  attackDistance: 1
+  potionDropAmount: 0
+  potionPrefab: {fileID: 0}
   deathSounds:
   - {fileID: 8300000, guid: cdf6cfdf125af3245881151579afbb85, type: 3}
   hurtSounds:
   - {fileID: 8300000, guid: 9e3c62b769579a847a1cfecb3b9edcd4, type: 3}
   - {fileID: 8300000, guid: 6b54a27015e8d02499b37504c216b4c2, type: 3}
-  wanderLocation: {x: 0, y: 0}
+  chaseSounds:
+  - {fileID: 8300000, guid: c2d5a712bda45e649ad03f24b6b63293, type: 3}
+  - {fileID: 8300000, guid: 24e564d7c008d9b4d99f6a53f3885141, type: 3}
+  wanderLocation: {x: 11.86, y: 6.38}
   wanderRadius: 5
   searchRadius: 3
   searchDuration: 10
@@ -219,6 +227,7 @@ MonoBehaviour:
   radius: 0
   moveSpeed: 0
   lineCastLayerMask: 0
+  footstepSound: {fileID: 8300000, guid: b777be2d26e6b3247a2d942c86ddcac3, type: 3}
 --- !u!95 &470875102724141251
 Animator:
   serializedVersion: 7
@@ -241,6 +250,34 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &7682905966305216032
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 23363841989286114}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7512d0baca362bf4d8b4b24247bf144d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  whiteFlashMat: {fileID: 2100000, guid: 9a552fe7060501b489f9c997550e92b4, type: 2}
+  knockbackForce: 0
+--- !u!114 &8060068390301874275
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 23363841989286114}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80598f138ae2504409d53ed6b6991135, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  saveID: 
+  falseOnDestroy: 0
 --- !u!1 &1086256575415928668
 GameObject:
   m_ObjectHideFlags: 0
