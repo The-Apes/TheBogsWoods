@@ -4,8 +4,9 @@ using UnityEngine;
 
 namespace AI
 {
-    public class CowardMonkeyAI : BaseAI    {
-        private SpriteRenderer spriteRenderer;
+    public class CowardMonkeyAI : BaseAI
+    {
+        /*private SpriteRenderer spriteRenderer;
         /*public virtual void ReceiveDamage(int damageTaken, GameObject source)
         {
             currHealth -= damageTaken;
@@ -44,7 +45,7 @@ namespace AI
             {
                 AudioManager.instance.PlaySFXAt(hurtSound, transform);
             }
-        }*/
+        }#1#
 
 
         #region State Machine
@@ -76,21 +77,22 @@ namespace AI
                 currentState = StateMachine.Flee;
                 path.Clear();
             }
-          
+
         }
-        
+
         void Flee()
         {
             moveType = MoveType.Pathfind;
             moveSpeed = chaseSpeed + 3f;
             if (path.Count == 0)
             {
-                path = AStarManager.instance.GeneratePath(GetNearestNode(), AStarManager.instance.FindFurthestNode(player.transform.position));
+              //  path = AStarManager.instance.GeneratePath(GetNearestNode(), AStarManager.instance.FindFurthestNode(player.transform.position));
             }
             //if(!spriteRenderer.isVisible) Destroy(gameObject);
 
         }
         #endregion
-        
+
+    }*/
     }
 }

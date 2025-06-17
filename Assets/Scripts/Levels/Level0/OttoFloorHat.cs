@@ -20,11 +20,6 @@ namespace Levels.Level0
             DialogueSystem.onDialogueNextLine += CustomEvent;
         }
 
-        private void Update()
-        {
-            print(RuriMovement.instance);
-        }
-
         public void OnDisable()
         {
             DialogueSystem.onDialogueNextLine -= CustomEvent;
