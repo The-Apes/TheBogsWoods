@@ -1,4 +1,5 @@
 using System.Collections;
+using DialogueFramework;
 using Managers;
 using Player;
 using UnityEngine;
@@ -13,6 +14,8 @@ namespace Levels.Level0
         [SerializeField] private GameObject canvas;
         
         private bool triggered = false;
+        [SerializeField] private DialogueAsset fairyHelpDialogue;
+
         private void OnTriggerEnter2D(Collider2D other){
             
             if (!other.gameObject.CompareTag("Player")) return;
@@ -38,11 +41,11 @@ namespace Levels.Level0
             CameraManager.instance.LookAt(RuriMovement.instance.transform);
             CameraManager.instance.LerpZoom(12, 0.25f);
             SaveManager.instance.ChangeFlag("TitleCard", false);
-            SaveManager.instance.SaveGame();
             
             AudioManager.instance.FadeOutMusic(3f);
             yield return new WaitForSeconds(3f);
             AudioManager.instance.PlayMusic(forestSong, 0.5f);
+            DialogueManager.instance.StartDialogue(fairyHelpDialogue);
             Destroy(gameObject);
         }
     }

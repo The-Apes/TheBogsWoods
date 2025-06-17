@@ -21,7 +21,9 @@ namespace Managers
             if(!SaveManager.instance.ShouldExist("TitleCard")) AudioManager.instance.PlayMusic(forestMusic, 0.5f);
 
             if (!SaveManager.instance.ShouldExist("LevelZeroStartingCutscene")) return;
-            CutsceneManager.instance.PlayCutscene(startingCutscene);
+            DialogueManager.instance.StartDialogue(startingDialogue);
+            SaveManager.instance.ChangeFlag("LevelZeroStartingCutscene", false);
+
             RuriMovement.instance.controlling = false;
         }
         

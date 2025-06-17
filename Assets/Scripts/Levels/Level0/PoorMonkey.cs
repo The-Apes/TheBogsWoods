@@ -1,4 +1,5 @@
 using System;
+using AI;
 using DialogueFramework;
 using Enemies;
 using Managers;
@@ -10,14 +11,14 @@ namespace Levels.Level0
     public class PoorMonkey : MonoBehaviour
     {
         public GameObject healthBar;
-        private CowardEnemy _cowardEnemy;
+        private BaseAI _cowardEnemy;
         private bool doOnce = false;
         public DialogueAsset dialogue; // The dialogue to be triggered
     
         private void Start()
         {
             DialogueSystem.onDialogueEnd += OnDialogueComplete;
-            _cowardEnemy = GetComponent<CowardEnemy>();
+            _cowardEnemy = GetComponent<BaseAI>();
         }
         private void OnCutsceneStopped(PlayableDirector director)
         {
@@ -35,7 +36,7 @@ namespace Levels.Level0
 
         private void Update()
         {
-            if (!(_cowardEnemy.health <= 0) || doOnce) return;
+            if ((_cowardEnemy.currHealth != 1) || doOnce) return;
             doOnce = true;
             healthBar.SetActive(false);
             // ReSharper disable once Unity.PerformanceCriticalCodeInvocation

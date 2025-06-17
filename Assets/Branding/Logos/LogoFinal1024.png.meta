@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 1fe7d2160e3d9ed489fc266b74b198ec
+guid: 89ac3b953386f3940b2778eca6cef08b
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8308448057961434727
-    second: TitleLogo AI PLACEHOLDER 1024_0
+      213: 1718674779607133094
+    second: LogoFinal1024_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -46,7 +46,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -75,7 +75,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -126,13 +126,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: TitleLogo AI PLACEHOLDER 1024_0
+      name: LogoFinal1024_0
       rect:
         serializedVersion: 2
-        x: 56
-        y: 115
-        width: 903
-        height: 763
+        x: 2
+        y: 1
+        width: 590
+        height: 276
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,8 +141,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 76e43991d798d4370800000000000000
-      internalID: 8308448057961434727
+      spriteID: 6abe7ea2b95f9d710800000000000000
+      internalID: 1718674779607133094
       vertices: []
       indices: 
       edges: []
@@ -151,7 +151,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -160,8 +160,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      TitleLogo AI PLACEHOLDER 1024_0: 8308448057961434727
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

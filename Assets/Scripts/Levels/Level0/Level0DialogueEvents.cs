@@ -2,11 +2,15 @@ using DialogueFramework;
 using Managers;
 using Player;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Levels.Level0
 {
     public class DialogueEvents : MonoBehaviour
     {
+        [SerializeField] private Transform fakeOtto;
+        [SerializeField] private Transform fairyLocation;
+
         private void CustomEvent(string eventName)
         {
             switch (eventName)
@@ -18,6 +22,15 @@ namespace Levels.Level0
                 case "Reset look":
                     CameraManager.instance.LerpZoom(15);
                     CameraManager.instance.LookAt(RuriMovement.instance.transform);
+                    break;
+                case "Look at fake":
+                    CameraManager.instance.LookAt(fakeOtto, 3f);
+                    break;
+                case "Look at fairy":
+                    CameraManager.instance.LookAt(fairyLocation);
+                    break;
+                case "SaveGame": 
+                    SaveManager.instance.SaveGame();
                     break;
                 case "Look left":
                     RuriMovement.instance.Look(RuriMovement.Direction.Left);

@@ -26,5 +26,6 @@ MonoBehaviour:
       line: O- Otto... is that you?
       right: 0
       soundEffect: {fileID: 0}
-      customEvent: Look left
+      customEvent: Look at fake
     endCustomEvent: 
+    dialogueName: Encounter
