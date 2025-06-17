@@ -11,6 +11,8 @@ namespace Pathfinding
     public class NodeGenerator : MonoBehaviour
     {
         private Tilemap tilemap;
+        
+        [SerializeField] private Tilemap[] collisionTilemaps;
         [SerializeField] private GameObject parent;
         [SerializeField] private GameObject nodePrefab;
         
@@ -32,16 +34,25 @@ namespace Pathfinding
 
             foreach (Vector3Int pos in bounds.allPositionsWithin)
             {
-                if (tilemap.HasTile(pos))
-                {
-                    Vector3 worldPos = tilemap.CellToWorld(pos);
+                bool makeTile = true;
+                
+                if (!tilemap.HasTile(pos)) continue;
+                Vector3 worldPos = tilemap.CellToWorld(pos);
                     
-                    worldPos += tilemap.cellGap + new Vector3(0.5f,0.5f,0); // centers da tile
-
-                    Node node = Instantiate(nodePrefab, parent.transform).GetComponent<Node>();
-                    node.gameObject.transform.position = worldPos;
-                    nodeList.Add(node);
+                worldPos += tilemap.cellGap + new Vector3(0.5f,0.5f,0); // centers da tile
+                    
+                foreach (Tilemap colTilemap in collisionTilemaps)
+                {
+                    if (colTilemap.HasTile(pos))
+                    {
+                        makeTile = false;
+                    }
                 }
+
+                if (!makeTile) continue;
+                Node node = Instantiate(nodePrefab, parent.transform).GetComponent<Node>();
+                node.gameObject.transform.position = worldPos;
+                nodeList.Add(node);
             }
             CreateConnections();
         }
