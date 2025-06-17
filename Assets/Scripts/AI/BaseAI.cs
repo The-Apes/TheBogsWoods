@@ -1,17 +1,16 @@
-using System;
 using System.Collections.Generic;
-using DG.Tweening;
+using Pathfinding;
 using Player;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-namespace Pathfinding
+namespace AI
 {
     // Easy Pathfinding for Unity 2D and 3D Games! [Pathfinding Tutorial]
     // Game Dev Garnet
     // 16 June 2025
     // https://youtu.be/UHnOW-OimLQ?si=sHR9m9zjHw7JTgUh
-    public class AIBase : MonoBehaviour
+    public class BaseAI : MonoBehaviour
     {
         public Node currentNode;
         public List<Node> path;

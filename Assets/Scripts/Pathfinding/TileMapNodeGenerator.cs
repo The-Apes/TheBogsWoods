@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using AI;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
@@ -17,7 +18,6 @@ namespace Pathfinding
         [SerializeField] private GameObject nodePrefab;
         
         public List<Node> nodeList;
-        public AIBase npc;
         
         private bool canDrawGizmos;
         
