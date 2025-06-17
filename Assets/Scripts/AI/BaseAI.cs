@@ -146,16 +146,20 @@ namespace AI
             {
                 int x = 0;
                 var direction = (path[x].transform.position - transform.position).normalized;
-                transform.position += direction * (moveSpeed * Time.deltaTime);
+                rb.linearVelocity = direction * moveSpeed;
 
-                if (Vector2.Distance(transform.position, path[x].transform.position) <= 0.1f)
+                if (Vector2.Distance(rb.position, path[x].transform.position) <= 0.1f)
                 {
                     currentNode = path[x];
                     path.RemoveAt(x);
                 }
             }
+            else
+            {
+                // Stop when there’s no path
+                rb.linearVelocity = Vector2.zero;
+            }
         }
-
         private void OnDrawGizmos()
         {
             Gizmos.DrawWireSphere(transform.position, detectionRadius);
