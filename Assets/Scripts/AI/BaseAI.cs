@@ -1,10 +1,9 @@
-using System;
+
 using System.Collections.Generic;
 using Pathfinding;
 using Player;
 using UnityEngine;
-using UnityEngine.Serialization;
-using Random = UnityEngine.Random;
+
 
 namespace AI
 {
@@ -15,14 +14,18 @@ namespace AI
     public class BaseAI : MonoBehaviour
     { 
         [Header("Stats")] 
-        [SerializeField] protected float moveSpeed = 3;
+        [SerializeField] protected float chaseSpeed = 3; 
+        [SerializeField] protected float patrolSpeed = 1;
         [SerializeField] protected int currHealth;
         [SerializeField] protected int maxHealth = 5;
         [SerializeField] protected float detectionRadius = 3.5f;
+        [SerializeField] protected float chaseRadius = 5f;
         
         [Header("Wander")]
         [SerializeField] protected Vector2 wanderLocation;
         [SerializeField] protected float wanderRadius = 5f;
+        [SerializeField] private float searchRadius =3f;
+        [SerializeField] private float searchDuration =10f;
         
         [Header("Node")]
         public Node currentNode;
@@ -41,9 +44,27 @@ namespace AI
             Search,
             Flee
         }
+        public enum MoveType
+        {
+            Pathfind,
+            StraightLine,
+        }
         
         public StateMachine currentState;
-        protected bool playerSeen;
+        public MoveType moveType;
+
+        protected bool inDetectionRange;
+        protected bool los;
+ 
+      
+        public Vector2 searchLocation;
+        public bool shouldSearch;
+
+        public float radius;
+        public float moveSpeed;
+
+        public int lineCastLayerMask;
+       
 
         private void Awake()
         {
@@ -55,6 +76,9 @@ namespace AI
             player = RuriMovement.instance;
          currentState = StateMachine.Patrol;
          currHealth = maxHealth;
+         radius = detectionRadius;
+         
+         
          if (currentNode == null)
          {
              currentNode = AStarManager.instance.FindNearestNode(transform.position);
@@ -68,14 +92,33 @@ namespace AI
              //        }
              // }
          }
+         
+         lineCastLayerMask = (1 << LayerMask.NameToLayer("Player")) | (1 << LayerMask.NameToLayer("Environment"));
+
+        }
+        Node GetNearestNode()
+        {
+            return currentNode = AStarManager.instance.FindNearestNode(transform.position);;
         }
 
         private void FixedUpdate()
         {
+            //Check if player is in detection range
+            inDetectionRange = Vector2.Distance(transform.position, player.transform.position) < radius;
+            if (inDetectionRange)
+            {
+                //Ches Line of Sight
+                var hit = Physics2D.Linecast(transform.position, player.transform.position,lineCastLayerMask);
+                los = hit.collider != null && (hit.collider.transform == player.transform || hit.collider.transform.root == player.transform);
+            }
+            
+            
             SwitchOnState();
-            ChangeState();
-            CreatePath();
+            ChangeState(); 
+            Move();
+            UpdateCurrentNode();
         }
+
 
         protected virtual void SwitchOnState()
         {
@@ -95,15 +138,24 @@ namespace AI
 
         protected virtual void ChangeState()
         {
-            playerSeen = Vector2.Distance(transform.position, player.transform.position) < detectionRadius;
+            if (!(inDetectionRange && los) && currentState != StateMachine.Search && shouldSearch &&currHealth > (maxHealth * 50) / 100)
+            {
+                    searchLocation = player.transform.position;
+                    currentState = StateMachine.Search;
+                    moveSpeed = chaseSpeed;
+                    path.Clear();
+            }
 
-            if (playerSeen == false && currentState != StateMachine.Patrol && currHealth > (maxHealth*50)/100)
+            if (inDetectionRange == false && currentState != StateMachine.Patrol && !shouldSearch &&currHealth > (maxHealth*50)/100)
             {
                 currentState = StateMachine.Patrol;
                 path.Clear();
-            }else if (playerSeen == true && currentState != StateMachine.Engage && currHealth > (maxHealth*50)/100)
+            }else if (inDetectionRange && los && currentState != StateMachine.Engage && currHealth > (maxHealth*50)/100)
             {
+                shouldSearch = true;
+                //startedSearching = false;
                 currentState = StateMachine.Engage;
+                moveSpeed = chaseSpeed;
                 path.Clear();
             }
         }
@@ -111,12 +163,16 @@ namespace AI
 
         private void Patrol()
         {
+            moveSpeed = patrolSpeed;
+            moveType = MoveType.Pathfind;
+            radius = detectionRadius;
+            
             if(path.Count == 0){
                 patrolTimer += Time.deltaTime;
                 if (patrolTimer >= patrolInterval)
                 {
                     Node randomNode = AStarManager.instance.RandomNodeInRadius(wanderLocation,wanderRadius);
-                    path = AStarManager.instance.GeneratePath(currentNode, randomNode);
+                    path = AStarManager.instance.GeneratePath(GetNearestNode(), randomNode);
                     
                     patrolTimer = 0f;
                 }
@@ -129,30 +185,49 @@ namespace AI
 
         private void Engage()
         {
+            radius = chaseRadius;
+            moveSpeed = chaseSpeed;
+            moveType = los? MoveType.StraightLine : MoveType.Pathfind;
             if (path.Count == 0)
             {
-                path = AStarManager.instance.GeneratePath(currentNode,AStarManager.instance.FindNearestNode(player.transform.position));
+                path = AStarManager.instance.GeneratePath(GetNearestNode(),AStarManager.instance.FindNearestNode(player.transform.position));
             }
         }
 
         private void Search()
         {
-            rb.linearVelocity = Vector2.zero;
+            radius = chaseRadius;
+            moveSpeed = chaseSpeed;
+            moveType = MoveType.Pathfind;
+                if (path.Count == 0)
+                {
+                    path = AStarManager.instance.GeneratePath(GetNearestNode(), AStarManager.instance.FindNearestNode(searchLocation));    
+                }  
         }
 
-        void CreatePath()
+        void Move()
+        {
+            switch (moveType)
+            {
+                case MoveType.Pathfind:
+                    PathfindTo();
+                    break;
+                case MoveType.StraightLine:
+                    StraightLineToPlayer();
+                    path.Clear();
+                    break;
+                
+            }
+        }
+        void PathfindTo()
         {
             if (path.Count > 0)
             {
                 int x = 0;
                 var direction = (path[x].transform.position - transform.position).normalized;
                 rb.linearVelocity = direction * moveSpeed;
-
-                if (Vector2.Distance(rb.position, path[x].transform.position) <= 0.1f)
-                {
-                    currentNode = path[x];
-                    path.RemoveAt(x);
-                }
+                
+                UpdateCurrentNode();
             }
             else
             {
@@ -160,9 +235,34 @@ namespace AI
                 rb.linearVelocity = Vector2.zero;
             }
         }
+        private void UpdateCurrentNode()
+        {
+            if(path.Count == 0) return;
+            int x = 0;
+            if (!(Vector2.Distance(rb.position, path[x].transform.position) <= 0.2f)) return;
+            currentNode = path[x];
+            path.RemoveAt(x);
+        }
+
+        void StraightLineToPlayer()
+        {
+            var direction = (player.transform.position - transform.position).normalized;
+            rb.linearVelocity = direction * moveSpeed;
+            
+            //so when it switched back to pathfinding it isn't broke
+            UpdateCurrentNode();
+
+            // in range will be it's own thing
+            // if (Vector2.Distance(rb.position, player.transform.position) <= 0.1f)
+            // {
+            //     // Stop when close enough to the player
+            //     rb.linearVelocity = Vector2.zero;
+            // }
+        }
+        
         private void OnDrawGizmos()
         {
-            Gizmos.DrawWireSphere(transform.position, detectionRadius);
+            Gizmos.DrawWireSphere(transform.position, inDetectionRange ? detectionRadius+1 : detectionRadius);
             
             if (path.Count > 0)
             {

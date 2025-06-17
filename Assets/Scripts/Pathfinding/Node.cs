@@ -20,5 +20,10 @@ namespace Pathfinding
         {
             return gScore + hScore;
         }
+
+        private void Start()
+        {
+            name =  transform.position.x + ", " + transform.localPosition.y;
+        }
     }
 }

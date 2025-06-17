@@ -21,9 +21,9 @@ namespace AI
         {
           base.ChangeState();
           
-          if (base.playerSeen == true && currentState != StateMachine.Engage && currHealth > (maxHealth*50)/100)
+          if (base.inDetectionRange && currentState != StateMachine.Engage && currHealth <= (maxHealth*50)/100)
           {
-              currentState = StateMachine.Engage;
+              currentState = StateMachine.Flee;
               path.Clear();
           }
           
