@@ -4,15 +4,32 @@ using UnityEngine;
 namespace AI
 {
     public class CowardMonkeyAI : BaseAI    {
-
-        public enum StateMachine
+        protected override void SwitchOnState()
         {
-            Patrol,
-            Engage,
-            Flee
+            switch (currentState)
+            {
+                case StateMachine.Flee:
+                    Flee();
+                    break;
+               default:
+                   base.SwitchOnState();
+                   break;
+            }
+        }
+
+        protected override  void ChangeState()
+        {
+          base.ChangeState();
+          
+          if (base.playerSeen == true && currentState != StateMachine.Engage && currHealth > (maxHealth*50)/100)
+          {
+              currentState = StateMachine.Engage;
+              path.Clear();
+          }
+          
         }
         
-        void Evade()
+        void Flee()
         {
             if (path.Count == 0)
             {

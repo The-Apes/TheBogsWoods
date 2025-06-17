@@ -1,7 +1,9 @@
+using System;
 using System.Collections.Generic;
 using Pathfinding;
 using Player;
 using UnityEngine;
+using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
 
 namespace AI
@@ -11,26 +13,37 @@ namespace AI
     // 16 June 2025
     // https://youtu.be/UHnOW-OimLQ?si=sHR9m9zjHw7JTgUh
     public class BaseAI : MonoBehaviour
-    {
+    { 
+        [Header("Stats")] 
+        [SerializeField] protected float moveSpeed = 3;
+        [SerializeField] protected int currHealth;
+        [SerializeField] protected int maxHealth = 5;
+        [SerializeField] protected float detectionRadius = 3.5f;
+        
+        [Header("Wander")]
+        [SerializeField] protected Vector2 wanderLocation;
+        [SerializeField] protected float wanderRadius = 5f;
+        
+        [Header("Node")]
         public Node currentNode;
         public List<Node> path;
+        
+        protected float patrolTimer = 0f;
+        protected float patrolInterval = 5f;
 
         public RuriMovement player;
-        
-        private float speed = 3;
-        private int currHealth = 3;
-        private int maxHealth = 3;
-        
         private Rigidbody2D rb;
         
         public enum StateMachine
         {
             Patrol,
             Engage,
-            Evade
+            Search,
+            Flee
         }
         
         public StateMachine currentState;
+        protected bool playerSeen;
 
         private void Awake()
         {
@@ -41,6 +54,7 @@ namespace AI
         {
             player = RuriMovement.instance;
          currentState = StateMachine.Patrol;
+         currHealth = maxHealth;
          if (currentNode == null)
          {
              currentNode = AStarManager.instance.FindNearestNode(transform.position);
@@ -58,6 +72,13 @@ namespace AI
 
         private void FixedUpdate()
         {
+            SwitchOnState();
+            ChangeState();
+            CreatePath();
+        }
+
+        protected virtual void SwitchOnState()
+        {
             switch (currentState)
             {
                 case StateMachine.Patrol:
@@ -66,12 +87,15 @@ namespace AI
                 case StateMachine.Engage:
                     Engage();
                     break;
-                case StateMachine.Evade:
-                    Evade();
+                case StateMachine.Search:
+                    Search();
                     break;
             }
-            
-            bool playerSeen = Vector2.Distance(transform.position, player.transform.position) < 5f;
+        }
+
+        protected virtual void ChangeState()
+        {
+            // playerSeen = Vector2.Distance(transform.position, player.transform.position) < detectionRadius;
 
             if (playerSeen == false && currentState != StateMachine.Patrol && currHealth > (maxHealth*50)/100)
             {
@@ -82,24 +106,28 @@ namespace AI
                 currentState = StateMachine.Engage;
                 path.Clear();
             }
-            else if (currentState != StateMachine.Evade && currHealth <= (maxHealth*50)/100)
-            {
-                currentState = StateMachine.Evade;
-                path.Clear();
-            }
-            
-            CreatePath();
         }
 
-        void Patrol()
+
+        private void Patrol()
         {
-            if (path.Count == 0)
-            {
-                path = AStarManager.instance.GeneratePath(currentNode, AStarManager.instance.NodesInScene()[Random.Range(0, AStarManager.instance.NodesInScene().Length)]); //wtf
+            if(path.Count == 0){
+                patrolTimer += Time.deltaTime;
+                if (patrolTimer >= patrolInterval)
+                {
+                    Node randomNode = AStarManager.instance.RandomNodeInRadius(wanderLocation,wanderRadius);
+                    path = AStarManager.instance.GeneratePath(currentNode, randomNode);
+                    
+                    patrolTimer = 0f;
+                }
+            }
+            else
+            { 
+                patrolTimer = 0f;
             }
         }
 
-        void Engage()
+        private void Engage()
         {
             if (path.Count == 0)
             {
@@ -107,12 +135,9 @@ namespace AI
             }
         }
 
-        void Evade()
+        private void Search()
         {
-            if (path.Count == 0)
-            {
-                path = AStarManager.instance.GeneratePath(currentNode, AStarManager.instance.FindFurthestNode(player.transform.position));
-            }
+            rb.linearVelocity = Vector2.zero;
         }
 
         void CreatePath()
@@ -121,7 +146,7 @@ namespace AI
             {
                 int x = 0;
                 var direction = (path[x].transform.position - transform.position).normalized;
-                rb.linearVelocity = direction * speed;
+                rb.linearVelocity = direction * moveSpeed;
 
                 if (Vector2.Distance(rb.position, path[x].transform.position) <= 0.1f)
                 {
@@ -134,6 +159,26 @@ namespace AI
                 // Stop when there’s no path
                 rb.linearVelocity = Vector2.zero;
             }
+        }
+
+        private void OnDrawGizmos()
+        {
+            Gizmos.DrawWireSphere(transform.position, detectionRadius);
+            
+            if (path.Count > 0)
+            {
+                Gizmos.color = Color.blue;
+                for (int i = 1; i < path.Count; i++)
+                {
+                    Gizmos.DrawLine(path[i].transform.position, path[i - 1].transform.position);
+                }
+            }
+        }
+
+        void OnDrawGizmosSelected()
+        {
+            Gizmos.DrawWireSphere(wanderLocation, wanderRadius);
+
         }
     }
 }
