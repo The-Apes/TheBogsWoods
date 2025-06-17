@@ -10,10 +10,11 @@ GameObject:
   m_Component:
   - component: {fileID: 5439302030524314178}
   - component: {fileID: 5996370518571412155}
-  - component: {fileID: 4937229634788396673}
   - component: {fileID: 6079557054729782252}
   - component: {fileID: 5622351719482976350}
   - component: {fileID: 2474689652206148888}
+  - component: {fileID: 4568276959034267838}
+  - component: {fileID: 470875102724141251}
   m_Layer: 6
   m_Name: CowardMonkey
   m_TagString: Untagged
@@ -61,7 +62,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: 442237e4e0999b3428f867ce77050074, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -93,42 +94,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &4937229634788396673
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 23363841989286114}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d19e0c21bab712a4889388ada562d0ce, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  chaseSpeed: 3
-  patrolSpeed: 1
-  currHealth: 0
-  maxHealth: 3
-  detectionRadius: 4
-  chaseRadius: 6
-  deathSounds: []
-  hurtSounds:
-  - {fileID: 8300000, guid: 9e3c62b769579a847a1cfecb3b9edcd4, type: 3}
-  - {fileID: 8300000, guid: 6b54a27015e8d02499b37504c216b4c2, type: 3}
-  wanderLocation: {x: 1.46, y: 6.79}
-  wanderRadius: 1.99
-  searchRadius: 3
-  searchDuration: 10
-  currentNode: {fileID: 0}
-  path: []
-  player: {fileID: 0}
-  currentState: 0
-  moveType: 0
-  searchLocation: {x: 0, y: 0}
-  shouldSearch: 0
-  radius: 0
-  moveSpeed: 3
-  lineCastLayerMask: 0
 --- !u!61 &6079557054729782252
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -216,6 +181,66 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   flashColor: {r: 1, g: 1, b: 1, a: 1}
   flashTime: 0.2
+--- !u!114 &4568276959034267838
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 23363841989286114}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8830fd93da8d45545811b545650554ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chaseSpeed: 3
+  patrolSpeed: 1
+  currHealth: 0
+  maxHealth: 2
+  detectionRadius: 3.5
+  chaseRadius: 5
+  deathSounds:
+  - {fileID: 8300000, guid: cdf6cfdf125af3245881151579afbb85, type: 3}
+  hurtSounds:
+  - {fileID: 8300000, guid: 9e3c62b769579a847a1cfecb3b9edcd4, type: 3}
+  - {fileID: 8300000, guid: 6b54a27015e8d02499b37504c216b4c2, type: 3}
+  wanderLocation: {x: 0, y: 0}
+  wanderRadius: 5
+  searchRadius: 3
+  searchDuration: 10
+  currentNode: {fileID: 0}
+  path: []
+  currentState: 0
+  moveType: 0
+  inDetectionRange: 0
+  los: 0
+  searchLocation: {x: 0, y: 0}
+  shouldSearch: 0
+  radius: 0
+  moveSpeed: 0
+  lineCastLayerMask: 0
+--- !u!95 &470875102724141251
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 23363841989286114}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 695f7426ce328714288a7fe62619011c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1086256575415928668
 GameObject:
   m_ObjectHideFlags: 0
@@ -307,6 +332,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dca1c729f1ee6b64da8951ce99284ac8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hurtSound: {fileID: 8300000, guid: 773a856e2b1308245989b19d7d99e6e5, type: 3}
 --- !u!1 &8049000308023839288
 GameObject:
   m_ObjectHideFlags: 0

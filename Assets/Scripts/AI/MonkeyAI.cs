@@ -1,5 +1,6 @@
 
 using System.Collections.Generic;
+using System.IO;
 using Managers;
 using Pathfinding;
 using Player;
@@ -18,7 +19,7 @@ namespace AI
         [SerializeField] protected float chaseSpeed = 3; 
         [SerializeField] protected float patrolSpeed = 1;
         public int currHealth;
-        [SerializeField] protected int maxHealth = 5;
+        [SerializeField] protected int maxHealth = 2;
         [SerializeField] protected float detectionRadius = 3.5f;
         [SerializeField] protected float chaseRadius = 5f;
         
@@ -47,7 +48,8 @@ namespace AI
             Patrol,
             Engage,
             Search,
-            Flee
+            Flee,
+            Death
         }
         public enum MoveType
         {
@@ -70,8 +72,11 @@ namespace AI
 
         public int lineCastLayerMask;
         private Animator _animator;
-        
- 
+        private SpriteRenderer _spriteRenderer;
+        private Vector3 _direction;
+        private bool dead;
+        private HitBox _hitBox;
+        private HurtBox _hurtBox;
 
 
         private void Awake()
@@ -82,11 +87,14 @@ namespace AI
         
         private void Start()
         {
-         currentState = StateMachine.Patrol;
+            _hurtBox = GetComponentInChildren<HurtBox>();
+            _hitBox = GetComponentInChildren<HitBox>();
+            currentState = StateMachine.Patrol;
          currHealth = maxHealth;
          radius = detectionRadius;
          
          _animator = GetComponent<Animator>();
+         _spriteRenderer = GetComponent<SpriteRenderer>();
          
          
          if (currentNode == null) currentNode = AStarManager.instance.FindNearestNode(transform.position);
@@ -114,23 +122,58 @@ namespace AI
             Move();
             UpdateCurrentNode();
         }
+        private void Update()
+        {
+            /*if (!_run)
+            {
+                if (!_chaseTarget) return;
+                _direction = (_chaseTarget.transform.position - transform.position).normalized;
+                _rb.linearVelocity = _direction.normalized * chaseSpeed;
+            }
+            else
+            {
+                if (!_runTarget) return;
+                _direction = (transform.position - _runTarget.transform.position).normalized;
+                _rb.linearVelocity = _direction.normalized * (chaseSpeed * 1.5f);
+            }*/
+
+            if (!_animator) return;
+
+            if (_direction.Equals(Vector2.zero))
+            {
+                _animator.SetFloat("BodyX", 1f);
+                _animator.SetFloat("BodyY", 0f);
+            }
+
+            if (Mathf.Abs(_direction.x) > Mathf.Abs(_direction.y))
+            {
+                _animator.SetFloat("BodyX", _direction.x > 0 ? 1f : -1f);
+                _animator.SetFloat("BodyY", 0f);
+            }
+            else
+            {
+                _animator.SetFloat("BodyX", 0f);
+                _animator.SetFloat("BodyY", _direction.y > 0 ? 1f : -1f);
+            }
+        }
         
         #region Logic
         // =======================
         // Logic
         // =======================
         public virtual void ReceiveDamage(int damageTaken, GameObject source){
+            if (dead) return; // If already dead, ignore further damage
             currHealth -= damageTaken; 
             GetComponent<DamageFlash>().CallDamageFlash();
             GameManager.instance.HitStop(0.1f);
             if (currHealth <= 0) 
             {
                 if(deathSounds.Length > 0) AudioManager.instance.PlayRandomSFXAt(deathSounds, transform);
-                Destroy(gameObject); 
+                dead = true;
             }
             else
             {
-                ApplyKnockback(source.transform.position, 25f);
+                ApplyKnockback(source.transform.position, 125f);
                 if(hurtSounds.Length > 0) AudioManager.instance.PlayRandomSFXAt(hurtSounds, transform);
             }
         }
@@ -140,6 +183,9 @@ namespace AI
             _rb.AddForce(knockbackDirection * knockbackForce, ForceMode2D.Impulse);
         }
         #endregion
+
+
+
         #region state machine
         // =======================
         // state machine
@@ -160,6 +206,9 @@ namespace AI
                 case StateMachine.Flee:
                     Flee();
                     break;
+                case StateMachine.Death:
+                    Death();
+                    break;
             }
         }
 
@@ -173,7 +222,14 @@ namespace AI
                     path.Clear();
             }
 
-            if (inDetectionRange == false && currentState != StateMachine.Patrol && !shouldSearch &&currHealth == 2)
+            if (dead && currentState != StateMachine.Death)
+            {
+                currentState = StateMachine.Death;
+                _animator.SetTrigger("Death");
+                //Destroy(_hurtBox);
+                path.Clear();
+            }
+            else if (inDetectionRange == false && currentState != StateMachine.Patrol && !shouldSearch &&currHealth == 2)
             {
                 currentState = StateMachine.Patrol;
                 path.Clear();
@@ -184,10 +240,10 @@ namespace AI
                 currentState = StateMachine.Engage;
                 moveSpeed = chaseSpeed;
                 path.Clear();
-            }   else if (inDetectionRange && los && currentState != StateMachine.Flee && currHealth <= (maxHealth*50)/100)
+            }   else if (!dead && inDetectionRange && los && currentState != StateMachine.Flee && currHealth <= (maxHealth*50)/100)
             {
-                print("flee");
                 currentState = StateMachine.Flee;
+                Destroy(_hitBox);
                 path.Clear();
             }
         }
@@ -239,13 +295,17 @@ namespace AI
         void Flee()
         {
             moveType = MoveType.Pathfind;
-            moveSpeed = chaseSpeed + 3f;
+            moveSpeed = chaseSpeed + 1f;
             if (path.Count == 0)
             {
-                //  path = AStarManager.instance.GeneratePath(GetNearestNode(), AStarManager.instance.FindFurthestNode(player.transform.position));
+                  path = AStarManager.instance.GeneratePath(GetNearestNode(), AStarManager.instance.FindFurthestNode(player.transform.position));
             }
-            //if(!spriteRenderer.isVisible) Destroy(gameObject);
+            if(!_spriteRenderer.isVisible) Destroy(gameObject);
 
+        }
+        void Death()
+        {
+            if(!_spriteRenderer.isVisible) Destroy(gameObject);
         }
         #endregion
         #region pathfinding
@@ -275,14 +335,15 @@ namespace AI
                     break;
                 
             }
+            _animator.SetBool("Moving", _rb.linearVelocity != Vector2.zero);
         }
         void PathfindTo()
         {
             if (path.Count > 0)
             {
                 int x = 0;
-                var direction = (path[x].transform.position - transform.position).normalized;
-                _rb.linearVelocity = direction * moveSpeed;
+                 _direction = (path[x].transform.position - transform.position).normalized;
+                _rb.linearVelocity = _direction * moveSpeed;
                 
                 UpdateCurrentNode();
             }
@@ -295,8 +356,8 @@ namespace AI
         
         void StraightLineToPlayer()
         {
-            var direction = (player.transform.position - transform.position).normalized;
-            _rb.linearVelocity = direction * moveSpeed;
+             _direction = (player.transform.position - transform.position).normalized;
+            _rb.linearVelocity = _direction * moveSpeed;
             
             //so when it switched back to pathfinding it isn't broke
             UpdateCurrentNode();

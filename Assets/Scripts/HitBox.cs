@@ -28,6 +28,7 @@ public class HitBox : MonoBehaviour
                 IDamageable damageable = hurtBox.Owner.GetComponent<IDamageable>(); 
                 if (damageable == null) return;
                 damageable.ReceiveDamage(damage, owner);
+                hurtBox.PlayHurtSound();
                 Projectile projectile = transform.root.GetComponentInChildren<Projectile>();
                 if (projectile == null) return;
                 Destroy(projectile.gameObject);
