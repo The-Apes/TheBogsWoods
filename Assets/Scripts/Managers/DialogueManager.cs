@@ -15,7 +15,7 @@ namespace Managers
         private DialogueSystem _dialogueSystem; 
         
         private DialogueLine _currentLine;
-    
+     
         private Dialogue _currentDialogue;
 
         private void Awake()
