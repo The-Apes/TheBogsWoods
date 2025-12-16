@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: 80724172963c125498cd4c540827657d
+ShaderImporter:
+  externalObjects: {}
+  defaultTextures: []
+  nonModifiableTextures: []
+  preprocessorOverride: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 304325
+  packageName: GgCore - Gaskellgames
+  packageVersion: 1.7.1
+  assetPath: Assets/Gaskellgames/GgCore/Runtime/Materials/Shaders/GgStandard_BIRP.shader
+  uploadId: 815470
