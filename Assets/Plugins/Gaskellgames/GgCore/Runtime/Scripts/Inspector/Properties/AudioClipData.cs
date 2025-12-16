@@ -145,6 +145,7 @@ namespace Gaskellgames
         #region EditorOnly static funtions
         
 #if UNITY_EDITOR
+        [Obsolete("Obsolete")]
         internal static bool Editor_CreateAudioClipData(AudioClip clip, out AudioClipData audioClipData)
         {
             string filePath = UnityEditor.AssetDatabase.GetAssetOrScenePath(clip);
@@ -157,6 +158,7 @@ namespace Gaskellgames
             return false;
         }
         
+        [Obsolete("Obsolete")]
         public static bool Editor_CreateAudioClipData(string filePath, out AudioClipData audioClipData)
         {
             if (!IsCompatibleType(filePath) || IsStreamed(filePath))
@@ -220,6 +222,7 @@ namespace Gaskellgames
 
 #if UNITY_2022_2_OR_NEWER
 
+    [Obsolete("Obsolete")]
     private static string GetRuntimePlatformString()
     {
         switch (Application.platform)

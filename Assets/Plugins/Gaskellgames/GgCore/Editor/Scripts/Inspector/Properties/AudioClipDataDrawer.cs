@@ -1,6 +1,8 @@
 #if UNITY_EDITOR
+using System;
 using UnityEditor;
 using UnityEngine;
+using Object = UnityEngine.Object;
 
 namespace Gaskellgames.EditorOnly
 {
@@ -29,7 +31,10 @@ namespace Gaskellgames.EditorOnly
         
         #region GetPropertyHeight
 
+        [Obsolete("Obsolete")]
+#pragma warning disable CS0809 // Obsolete member overrides non-obsolete member
         public override float GetPropertyHeight(SerializedProperty property, GUIContent label)
+#pragma warning restore CS0809 // Obsolete member overrides non-obsolete member
         {
             CacheSerializedProperties(property);
             CacheAudioClipData(audioClip.objectReferenceValue as AudioClip);
@@ -50,7 +55,10 @@ namespace Gaskellgames.EditorOnly
         
         #region OnGUI
         
+        [Obsolete("Obsolete")]
+#pragma warning disable CS0809 // Obsolete member overrides non-obsolete member
         public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
+#pragma warning restore CS0809 // Obsolete member overrides non-obsolete member
         {
             // open property and get reference to instance
             EditorGUI.BeginProperty(position, label, property);
@@ -162,6 +170,7 @@ namespace Gaskellgames.EditorOnly
             sampleRateSetting = property.FindPropertyRelative("sampleRateSetting");
         }
         
+        [Obsolete("Obsolete")]
         private void CacheAudioClipData(AudioClip audioClipRef)
         {
             if (AudioClipData.Editor_CreateAudioClipData(audioClipRef, out AudioClipData audioClipData))

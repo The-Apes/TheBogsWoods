@@ -208,6 +208,7 @@ namespace Gaskellgames.EditorOnly
         
         #region Constructor
 
+        [Obsolete("Obsolete")]
         static GgEditorCallbacks()
         {
             AssemblyReloadEvents.beforeAssemblyReload -= AssemblyReloadEvents_BeforeAssemblyReload;
@@ -331,6 +332,7 @@ namespace Gaskellgames.EditorOnly
         
         #region Private Functions: ObjectChangeEvents
 
+        [Obsolete("Obsolete")]
         private static void ObjectChangeEvents_ChangesPublished(ref ObjectChangeEventStream stream)
         {
             for (int index = 0; index < stream.length; ++index)
@@ -398,6 +400,7 @@ namespace Gaskellgames.EditorOnly
             OnSceneUnknownUpdate?.Invoke(changeSceneEvent.scene);
         }
         
+        [Obsolete("Obsolete")]
         private static void ObjectChangeEvents_CreateGameObjectHierarchy(ref ObjectChangeEventStream stream, int index)
         {
             stream.GetCreateGameObjectHierarchyEvent(index, out CreateGameObjectHierarchyEventArgs createGameObjectHierarchyEvent);
@@ -408,6 +411,7 @@ namespace Gaskellgames.EditorOnly
             OnGameObjectCreated?.Invoke(newGameObject);
         }
         
+        [Obsolete("Obsolete")]
         private static void ObjectChangeEvents_DestroyGameObjectHierarchy(ref ObjectChangeEventStream stream, int index)
         {
             stream.GetDestroyGameObjectHierarchyEvent(index, out DestroyGameObjectHierarchyEventArgs destroyGameObjectHierarchyEvent);
@@ -417,6 +421,7 @@ namespace Gaskellgames.EditorOnly
             OnGameObjectDestroyed?.Invoke(destroyGameObjectHierarchyEvent.instanceId, destroyParentGo, destroyGameObjectHierarchyEvent.scene);
         }
         
+        [Obsolete("Obsolete")]
         private static void ObjectChangeEvents_ChangeGameObjectStructureHierarchy(ref ObjectChangeEventStream stream, int index)
         {
             stream.GetChangeGameObjectStructureHierarchyEvent(index, out ChangeGameObjectStructureHierarchyEventArgs changeGameObjectStructureHierarchy);
@@ -427,6 +432,7 @@ namespace Gaskellgames.EditorOnly
             OnGameObjectHierarchyUpdated?.Invoke(gameObject);
         }
         
+        [Obsolete("Obsolete")]
         private static void ObjectChangeEvents_ChangeGameObjectStructure(ref ObjectChangeEventStream stream, int index)
         {
             stream.GetChangeGameObjectStructureEvent(index, out ChangeGameObjectStructureEventArgs changeGameObjectStructure);
@@ -437,6 +443,7 @@ namespace Gaskellgames.EditorOnly
             OnGameObjectStructureUpdated?.Invoke(gameObjectStructure);
         }
         
+        [Obsolete("Obsolete")]
         private static void ObjectChangeEvents_ChangeGameObjectParent(ref ObjectChangeEventStream stream, int index)
         {
             stream.GetChangeGameObjectParentEvent(index, out ChangeGameObjectParentEventArgs changeGameObjectParent);
@@ -449,6 +456,7 @@ namespace Gaskellgames.EditorOnly
             OnGameObjectParentUpdated?.Invoke(gameObjectChanged, previousParentGo, newParentGo, changeGameObjectParent.previousScene, changeGameObjectParent.newScene);
         }
         
+        [Obsolete("Obsolete")]
         private static void ObjectChangeEvents_ChangeGameObjectOrComponentProperties(ref ObjectChangeEventStream stream, int index)
         {
             stream.GetChangeGameObjectOrComponentPropertiesEvent(index, out ChangeGameObjectOrComponentPropertiesEventArgs changeGameObjectOrComponent);
@@ -468,6 +476,7 @@ namespace Gaskellgames.EditorOnly
             }
         }
         
+        [Obsolete("Obsolete")]
         private static void ObjectChangeEvents_CreateAssetObject(ref ObjectChangeEventStream stream, int index)
         {
             stream.GetCreateAssetObjectEvent(index, out CreateAssetObjectEventArgs createAssetObjectEvent);
@@ -486,6 +495,7 @@ namespace Gaskellgames.EditorOnly
             OnAssetObjectDestroyed?.Invoke(destroyAssetObjectEvent.instanceId, destroyAssetObjectEvent.guid.ToString());
         }
         
+        [Obsolete("Obsolete")]
         private static void ObjectChangeEvents_ChangeAssetObjectProperties(ref ObjectChangeEventStream stream, int index)
         {
             stream.GetChangeAssetObjectPropertiesEvent(index, out ChangeAssetObjectPropertiesEventArgs changeAssetObjectPropertiesEvent);
@@ -497,6 +507,7 @@ namespace Gaskellgames.EditorOnly
             OnAssetObjectPropertiesUpdated?.Invoke(changeAsset, changeAssetPath);
         }
 
+        [Obsolete("Obsolete")]
         private static void ObjectChangeEvents_UpdatePrefabInstances(ref ObjectChangeEventStream stream, int index)
         {
             // optimisation for when the prefab stage is open: i.e we won't need to update instances.
